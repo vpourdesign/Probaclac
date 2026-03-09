@@ -15,8 +15,12 @@ body{font-family:'Plus Jakarta Sans',system-ui,sans-serif;background:#f8f7f4;col
 /* NAV */
 .nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:.75rem 2rem;background:rgba(248,247,244,.92);backdrop-filter:blur(20px) saturate(180%);box-shadow:0 1px 0 rgba(0,0,0,.05)}
 .nav-inner{max-width:1280px;margin:0 auto;display:flex;align-items:center;justify-content:space-between}
-.nav-logo{font-weight:900;font-size:1.3rem;color:var(--text);text-decoration:none;letter-spacing:-.03em}
+.nav-logo{font-weight:900;font-size:2.1rem;color:var(--text);text-decoration:none;letter-spacing:-.03em}
 .nav-logo em{color:var(--o1);font-style:normal}
+.nav-cart{position:relative;text-decoration:none;color:var(--text);display:flex;align-items:center;margin-left:1rem;transition:color .3s}
+.nav-cart:hover{color:var(--o1)}
+.nav-cart svg{width:22px;height:22px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.cart-badge{position:absolute;top:-8px;right:-9px;background:var(--o1);color:#fff;font-size:.55rem;font-weight:800;min-width:17px;height:17px;border-radius:100px;display:none;align-items:center;justify-content:center;padding:0 3px}
 .nav-links{display:flex;gap:1.5rem;list-style:none;align-items:center}
 .nav-links a{text-decoration:none;color:var(--text-light);font-weight:500;font-size:.82rem;transition:color .3s}
 .nav-links a:hover{color:var(--o1)}
@@ -102,13 +106,17 @@ body{font-family:'Plus Jakarta Sans',system-ui,sans-serif;background:#f8f7f4;col
 
 <nav class="nav">
   <div class="nav-inner">
-    <a href="probaclac-accueil.html" class="nav-logo">Proba<em>clac</em></a>
+    <a href="../index.html" class="nav-logo">Probac<em>lac</em></a>
     <ul class="nav-links">
-      <li><a href="probaclac-accueil.html">Accueil</a></li>
+      <li><a href="../index.html">Accueil</a></li>
       <li><a href="probaclac-etudes.html">Études cliniques</a></li>
       <li><a href="https://www.probaclac.ca/foire-aux-questions">FAQ</a></li>
       <li><a href="#acheter" class="btn-sm">Acheter maintenant</a></li>
     </ul>
+    <a href="../panier.html" class="nav-cart" aria-label="Mon panier">
+      <svg viewBox="0 0 24 24"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 002 1.61h9.72a2 2 0 002-1.61L23 6H6"/></svg>
+      <span class="cart-badge" id="cartCount"></span>
+    </a>
   </div>
 </nav>
 
@@ -301,13 +309,34 @@ function updateTotal() {
   document.getElementById('totalPrice').textContent = total + ' $';
 }
 
+function getCart() { return JSON.parse(localStorage.getItem('probaclac_cart') || '[]'); }
+function saveCart(cart) {
+  localStorage.setItem('probaclac_cart', JSON.stringify(cart));
+  const n = cart.reduce((s,i)=>s+i.qty,0);
+  const badge = document.getElementById('cartCount');
+  if(badge){ badge.textContent=n; badge.style.display=n>0?'flex':'none'; }
+}
+
 function addToCart() {
+  const cart = getCart();
+  const itemId = `adulte-${currentCaps}`;
+  const existing = cart.find(i => i.id === itemId);
+  if (existing) {
+    existing.qty = Math.min(10, existing.qty + qty);
+  } else {
+    cart.push({ id: itemId, name: 'Probaclac Adultes', caps: currentCaps + ' capsules', price: currentPrice, qty: qty, img: '../images/adultes.jpg' });
+  }
+  saveCart(cart);
+
   const toast = document.getElementById('toast');
   const msg = document.getElementById('toastMsg');
-  msg.textContent = `${qty}x Probaclac Adultes ${currentCaps} caps ajouté au panier!`;
+  msg.textContent = `${qty}× Probaclac Adultes ${currentCaps} caps ajouté!`;
   toast.classList.add('show');
   setTimeout(() => toast.classList.remove('show'), 3000);
 }
+
+// Init cart count on load
+(function(){ const c=JSON.parse(localStorage.getItem('probaclac_cart')||'[]'); const n=c.reduce((s,i)=>s+i.qty,0); const b=document.getElementById('cartCount'); if(b&&n>0){b.textContent=n;b.style.display='flex';} })();
 
 // Reveal
 const obs = new IntersectionObserver(e => {

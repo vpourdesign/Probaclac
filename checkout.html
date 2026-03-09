@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Paiement — Probaclac</title>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --bg:#f8f7f4;--o1:#de6d38;--o2:#e8894f;--o3:#fde0cc;--o4:#fef3eb;
+  --accent:#c45a2a;--text:#1a1a2e;--text-light:#5a5a72;--white:#fff;
+  --shadow-md:0 8px 32px rgba(0,0,0,.08);--shadow-lg:0 16px 64px rgba(0,0,0,.12);
+  --radius:16px;--radius-lg:24px;color-scheme:light only;
+}
+body{font-family:'Plus Jakarta Sans',system-ui,sans-serif;background:var(--bg);color:var(--text);min-height:100vh}
+
+/* NAV */
+.nav{background:rgba(248,247,244,.96);backdrop-filter:blur(20px);box-shadow:0 1px 0 rgba(0,0,0,.06);padding:.75rem 2rem;position:sticky;top:0;z-index:100}
+.nav-inner{max-width:1280px;margin:0 auto;display:flex;align-items:center;justify-content:space-between}
+.nav-logo{font-weight:900;font-size:2.1rem;color:var(--text);text-decoration:none;letter-spacing:-.03em}
+.nav-logo em{color:var(--o1);font-style:normal}
+.nav-secure{display:flex;align-items:center;gap:.4rem;font-size:.75rem;color:var(--text-light);font-weight:500}
+.nav-secure svg{width:15px;height:15px;stroke:var(--o1);fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+
+/* STEPS */
+.steps{max-width:1200px;margin:0 auto;padding:1.75rem 2rem .5rem;display:flex;align-items:center;justify-content:center;gap:0}
+.step{display:flex;align-items:center;gap:.6rem;position:relative}
+.step-num{width:32px;height:32px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.75rem;font-weight:800;border:2px solid #e0ddd8;color:var(--text-light);background:var(--white);transition:all .4s;flex-shrink:0}
+.step.active .step-num{background:var(--o1);border-color:var(--o1);color:#fff}
+.step.done .step-num{background:#2a7b3a;border-color:#2a7b3a;color:#fff}
+.step-label{font-size:.78rem;font-weight:600;color:var(--text-light);transition:color .4s}
+.step.active .step-label{color:var(--text)}
+.step.done .step-label{color:#2a7b3a}
+.step-sep{width:60px;height:2px;background:#e0ddd8;margin:0 .5rem;flex-shrink:0;position:relative;overflow:hidden}
+.step-sep::after{content:'';position:absolute;left:0;top:0;height:100%;width:0;background:var(--o1);transition:width .5s}
+.step-sep.filled::after{width:100%;background:#2a7b3a}
+
+/* LAYOUT */
+.page{max-width:1200px;margin:0 auto;padding:1.5rem 2rem 5rem;display:grid;grid-template-columns:1fr 360px;gap:2.5rem;align-items:start}
+
+/* FORM PANEL */
+.form-panel{background:var(--white);border-radius:var(--radius-lg);box-shadow:var(--shadow-md);overflow:hidden}
+.fp-step{display:none;padding:2rem}
+.fp-step.active{display:block}
+.fp-title{font-size:1.15rem;font-weight:800;letter-spacing:-.02em;margin-bottom:1.5rem;display:flex;align-items:center;gap:.6rem}
+.fp-title-num{width:28px;height:28px;background:var(--o4);color:var(--o1);border-radius:50%;font-size:.75rem;font-weight:800;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+
+/* FORM FIELDS */
+.f-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:1rem}
+.f-full{grid-column:1/-1}
+.f-group{display:flex;flex-direction:column;gap:.35rem}
+.f-label{font-size:.75rem;font-weight:700;color:var(--text)}
+.f-input{border:1.5px solid #e0ddd8;border-radius:10px;padding:.65rem 1rem;font-family:inherit;font-size:.88rem;color:var(--text);outline:none;transition:border-color .2s;background:var(--white)}
+.f-input:focus{border-color:var(--o1);box-shadow:0 0 0 3px rgba(222,109,56,.08)}
+.f-input.error{border-color:#e05252}
+.f-input::placeholder{color:#c0bcb6}
+.f-select{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%235a5a72' stroke-width='2'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right .9rem center;padding-right:2.5rem}
+
+/* SHIPPING OPTIONS */
+.ship-options{display:flex;flex-direction:column;gap:.75rem;margin-bottom:1.5rem}
+.ship-opt{display:flex;align-items:center;gap:1rem;border:2px solid #e0ddd8;border-radius:var(--radius);padding:1rem 1.25rem;cursor:pointer;transition:all .25s;position:relative}
+.ship-opt:hover{border-color:var(--o2);background:var(--o4)}
+.ship-opt.selected{border-color:var(--o1);background:var(--o4)}
+.ship-opt input[type=radio]{accent-color:var(--o1);width:18px;height:18px;cursor:pointer;flex-shrink:0}
+.ship-opt-info{flex:1}
+.ship-opt-name{font-weight:700;font-size:.88rem}
+.ship-opt-desc{font-size:.72rem;color:var(--text-light);margin-top:.15rem}
+.ship-opt-price{font-weight:800;font-size:.92rem;color:var(--text);white-space:nowrap}
+.ship-opt.selected .ship-opt-price{color:var(--o1)}
+.ship-free-badge{display:inline-block;font-size:.6rem;font-weight:700;background:#e6f5ea;color:#2a7b3a;padding:.1rem .5rem;border-radius:100px;margin-left:.4rem;vertical-align:middle}
+
+/* PAYMENT */
+.card-preview{background:linear-gradient(135deg,var(--text) 0%,#2d2d4a 100%);border-radius:var(--radius);padding:1.5rem;color:#fff;margin-bottom:1.5rem;position:relative;overflow:hidden;min-height:120px}
+.card-preview::before{content:'';position:absolute;top:-30px;right:-30px;width:120px;height:120px;background:rgba(255,255,255,.06);border-radius:50%}
+.card-preview::after{content:'';position:absolute;bottom:-20px;left:40px;width:80px;height:80px;background:rgba(255,255,255,.04);border-radius:50%}
+.cp-brand{font-size:.7rem;font-weight:700;letter-spacing:.1em;opacity:.6;text-transform:uppercase;margin-bottom:.5rem}
+.cp-num{font-size:1.1rem;font-weight:700;letter-spacing:.2em;font-family:monospace;margin-bottom:.75rem;min-height:1.5rem}
+.cp-row{display:flex;justify-content:space-between;align-items:flex-end}
+.cp-exp label,.cp-holder label{font-size:.55rem;letter-spacing:.08em;opacity:.6;text-transform:uppercase;display:block;margin-bottom:.2rem}
+.cp-exp span,.cp-holder span{font-size:.78rem;font-weight:600;font-family:monospace}
+.card-icons{display:flex;gap:.5rem;position:absolute;top:1.2rem;right:1.25rem}
+.card-icon-img{width:36px;height:24px;background:#fff;border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:.55rem;font-weight:800;color:var(--text)}
+.card-icon-img.visa{color:#1a1f71}
+.card-icon-img.mc{background:linear-gradient(135deg,#eb001b,#ff5f00,#f79e1b);color:#fff}
+
+/* CARD INPUT SPECIAL */
+.card-num-wrap{position:relative}
+.card-num-wrap svg{position:absolute;right:.9rem;top:50%;transform:translateY(-50%);width:20px;height:20px;stroke:var(--text-light);fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+
+/* STEP BUTTONS */
+.step-btns{display:flex;gap:1rem;margin-top:1.75rem;padding-top:1.25rem;border-top:1px solid #f0ede8}
+.btn-back{background:none;border:2px solid #e0ddd8;color:var(--text-light);padding:.75rem 1.5rem;border-radius:var(--radius);font-family:inherit;font-size:.85rem;font-weight:700;cursor:pointer;transition:all .3s;display:flex;align-items:center;gap:.4rem}
+.btn-back:hover{border-color:var(--text);color:var(--text)}
+.btn-next{flex:1;background:var(--o1);color:#fff;border:none;padding:.85rem 1.5rem;border-radius:var(--radius);font-family:inherit;font-size:.9rem;font-weight:700;cursor:pointer;transition:all .3s;display:flex;align-items:center;justify-content:center;gap:.5rem}
+.btn-next:hover{background:var(--accent);transform:translateY(-2px);box-shadow:0 8px 24px rgba(222,109,56,.3)}
+.btn-next svg{width:18px;height:18px;stroke:currentColor;fill:none;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round}
+
+/* SUMMARY SIDEBAR */
+.summary-box{background:var(--white);border-radius:var(--radius-lg);box-shadow:var(--shadow-md);padding:1.75rem;position:sticky;top:5rem}
+.summary-title{font-size:1rem;font-weight:800;margin-bottom:1.25rem;letter-spacing:-.02em}
+.cart-items-mini{display:flex;flex-direction:column;gap:.75rem;margin-bottom:1.25rem;max-height:260px;overflow-y:auto}
+.cim-item{display:flex;gap:.75rem;align-items:center}
+.cim-img{width:52px;height:52px;border-radius:10px;overflow:hidden;background:#f0ede8;flex-shrink:0;position:relative}
+.cim-img img{width:100%;height:100%;object-fit:cover}
+.cim-badge{position:absolute;top:-6px;right:-6px;background:var(--o1);color:#fff;font-size:.55rem;font-weight:800;width:18px;height:18px;border-radius:50%;display:flex;align-items:center;justify-content:center}
+.cim-name{font-size:.8rem;font-weight:700;line-height:1.3}
+.cim-size{font-size:.68rem;color:var(--text-light)}
+.cim-price{font-size:.85rem;font-weight:700;margin-left:auto;flex-shrink:0}
+.s-divider{border:none;border-top:1.5px solid #f0ede8;margin:.75rem 0}
+.s-row{display:flex;justify-content:space-between;font-size:.82rem;padding:.35rem 0;color:var(--text-light)}
+.s-row strong{color:var(--text);font-weight:600}
+.s-row.free strong{color:#2a7b3a}
+.s-total{display:flex;justify-content:space-between;padding:.5rem 0;font-size:1rem;font-weight:800}
+.s-total-price{color:var(--o1)}
+.s-note{font-size:.67rem;color:var(--text-light);line-height:1.5;margin-top:.75rem;text-align:center}
+.secure-badges{display:flex;justify-content:center;gap:.75rem;margin-top:.75rem;flex-wrap:wrap}
+.sb{display:flex;align-items:center;gap:.3rem;font-size:.62rem;color:var(--text-light)}
+.sb svg{width:12px;height:12px;stroke:var(--o2);fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+
+@media(max-width:900px){.page{grid-template-columns:1fr}.summary-box{position:static;order:-1}}
+@media(max-width:640px){
+  .steps{gap:0;padding:1.25rem 1rem .5rem}
+  .step-sep{width:30px}
+  .step-label{font-size:.68rem}
+  .page{padding:1rem 1rem 4rem}
+  .f-grid{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">Probac<em>lac</em></a>
+    <div class="nav-secure">
+      <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+      Paiement 100 % sécurisé
+    </div>
+  </div>
+</nav>
+
+<!-- STEP INDICATOR -->
+<div class="steps">
+  <div class="step active" id="step-ind-1">
+    <div class="step-num">1</div>
+    <div class="step-label">Coordonnées</div>
+  </div>
+  <div class="step-sep" id="sep-1"></div>
+  <div class="step" id="step-ind-2">
+    <div class="step-num">2</div>
+    <div class="step-label">Livraison</div>
+  </div>
+  <div class="step-sep" id="sep-2"></div>
+  <div class="step" id="step-ind-3">
+    <div class="step-num">3</div>
+    <div class="step-label">Paiement</div>
+  </div>
+</div>
+
+<div class="page">
+  <!-- LEFT: multi-step form -->
+  <div class="form-panel">
+
+    <!-- STEP 1: Coordonnées -->
+    <div class="fp-step active" id="fp1">
+      <div class="fp-title"><span class="fp-title-num">1</span>Vos coordonnées</div>
+      <div class="f-grid">
+        <div class="f-group">
+          <label class="f-label">Prénom *</label>
+          <input class="f-input" type="text" id="firstName" placeholder="Marie" autocomplete="given-name">
+        </div>
+        <div class="f-group">
+          <label class="f-label">Nom *</label>
+          <input class="f-input" type="text" id="lastName" placeholder="Tremblay" autocomplete="family-name">
+        </div>
+        <div class="f-group f-full">
+          <label class="f-label">Courriel *</label>
+          <input class="f-input" type="email" id="email" placeholder="marie@exemple.com" autocomplete="email">
+        </div>
+        <div class="f-group f-full">
+          <label class="f-label">Téléphone</label>
+          <input class="f-input" type="tel" id="phone" placeholder="(514) 000-0000" autocomplete="tel">
+        </div>
+        <div class="f-group f-full">
+          <label class="f-label">Adresse *</label>
+          <input class="f-input" type="text" id="address" placeholder="123, rue des Érables" autocomplete="street-address">
+        </div>
+        <div class="f-group">
+          <label class="f-label">Appartement / suite</label>
+          <input class="f-input" type="text" id="apt" placeholder="Apt. 4B">
+        </div>
+        <div class="f-group">
+          <label class="f-label">Ville *</label>
+          <input class="f-input" type="text" id="city" placeholder="Montréal" autocomplete="address-level2">
+        </div>
+        <div class="f-group">
+          <label class="f-label">Province *</label>
+          <select class="f-input f-select" id="province" autocomplete="address-level1">
+            <option value="">Sélectionner…</option>
+            <option value="QC" selected>Québec</option>
+            <option value="ON">Ontario</option>
+            <option value="BC">Colombie-Britannique</option>
+            <option value="AB">Alberta</option>
+            <option value="MB">Manitoba</option>
+            <option value="SK">Saskatchewan</option>
+            <option value="NS">Nouvelle-Écosse</option>
+            <option value="NB">Nouveau-Brunswick</option>
+            <option value="NL">Terre-Neuve-et-Labrador</option>
+            <option value="PE">Île-du-Prince-Édouard</option>
+          </select>
+        </div>
+        <div class="f-group">
+          <label class="f-label">Code postal *</label>
+          <input class="f-input" type="text" id="postal" placeholder="H1A 1A1" maxlength="7" autocomplete="postal-code">
+        </div>
+      </div>
+      <div class="step-btns">
+        <a href="panier.html" class="btn-back">← Retour au panier</a>
+        <button class="btn-next" onclick="goStep(2)">Continuer à la livraison <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg></button>
+      </div>
+    </div>
+
+    <!-- STEP 2: Livraison -->
+    <div class="fp-step" id="fp2">
+      <div class="fp-title"><span class="fp-title-num">2</span>Mode de livraison</div>
+      <div class="ship-options">
+        <label class="ship-opt selected" onclick="selectShip(this, 0, 'Standard')">
+          <input type="radio" name="ship" value="0" checked>
+          <div class="ship-opt-info">
+            <div class="ship-opt-name">Livraison standard <span class="ship-free-badge" id="freeBadge">Gratuite ✓</span></div>
+            <div class="ship-opt-desc">5 à 7 jours ouvrables · Postes Canada</div>
+          </div>
+          <div class="ship-opt-price" id="shipPrice0">Gratuite</div>
+        </label>
+        <label class="ship-opt" onclick="selectShip(this, 9.99, 'Express')">
+          <input type="radio" name="ship" value="9.99">
+          <div class="ship-opt-info">
+            <div class="ship-opt-name">Livraison express</div>
+            <div class="ship-opt-desc">2 à 3 jours ouvrables · Xpresspost</div>
+          </div>
+          <div class="ship-opt-price">9,99 $</div>
+        </label>
+        <label class="ship-opt" onclick="selectShip(this, 19.99, 'Prioritaire')">
+          <input type="radio" name="ship" value="19.99">
+          <div class="ship-opt-info">
+            <div class="ship-opt-name">Livraison prioritaire</div>
+            <div class="ship-opt-desc">1 jour ouvrable · Prioritaire</div>
+          </div>
+          <div class="ship-opt-price">19,99 $</div>
+        </label>
+      </div>
+      <div class="step-btns">
+        <button class="btn-back" onclick="goStep(1)">← Retour</button>
+        <button class="btn-next" onclick="goStep(3)">Continuer au paiement <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg></button>
+      </div>
+    </div>
+
+    <!-- STEP 3: Paiement -->
+    <div class="fp-step" id="fp3">
+      <div class="fp-title"><span class="fp-title-num">3</span>Informations de paiement</div>
+
+      <!-- Card preview -->
+      <div class="card-preview">
+        <div class="card-icons">
+          <div class="card-icon-img visa">VISA</div>
+          <div class="card-icon-img mc">MC</div>
+        </div>
+        <div class="cp-brand">Probaclac — Paiement sécurisé</div>
+        <div class="cp-num" id="cpNum">•••• •••• •••• ••••</div>
+        <div class="cp-row">
+          <div class="cp-exp"><label>Expire</label><span id="cpExp">MM / AA</span></div>
+          <div class="cp-holder"><label>Titulaire</label><span id="cpHolder">VOTRE NOM</span></div>
+        </div>
+      </div>
+
+      <div class="f-grid">
+        <div class="f-group f-full card-num-wrap">
+          <label class="f-label">Numéro de carte *</label>
+          <input class="f-input" type="text" id="cardNum" placeholder="1234 5678 9012 3456" maxlength="19" oninput="formatCard(this)" autocomplete="cc-number">
+          <svg viewBox="0 0 24 24"><rect x="1" y="4" width="22" height="16" rx="2"/><path d="M1 10h22"/></svg>
+        </div>
+        <div class="f-group">
+          <label class="f-label">Date d'expiration *</label>
+          <input class="f-input" type="text" id="cardExp" placeholder="MM / AA" maxlength="7" oninput="formatExp(this)" autocomplete="cc-exp">
+        </div>
+        <div class="f-group">
+          <label class="f-label">CVV *</label>
+          <input class="f-input" type="text" id="cardCvv" placeholder="•••" maxlength="4" autocomplete="cc-csc">
+        </div>
+        <div class="f-group f-full">
+          <label class="f-label">Nom sur la carte *</label>
+          <input class="f-input" type="text" id="cardName" placeholder="MARIE TREMBLAY" oninput="document.getElementById('cpHolder').textContent=this.value.toUpperCase()||'VOTRE NOM'" autocomplete="cc-name">
+        </div>
+      </div>
+
+      <div class="step-btns">
+        <button class="btn-back" onclick="goStep(2)">← Retour</button>
+        <button class="btn-next" onclick="placeOrder()" style="background:#2a7b3a">
+          <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          Passer la commande
+        </button>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- RIGHT: order summary -->
+  <div class="summary-box">
+    <div class="summary-title">Votre commande</div>
+    <div class="cart-items-mini" id="miniCart"></div>
+    <hr class="s-divider">
+    <div class="s-row"><span>Sous-total</span><strong id="s-subtotal">—</strong></div>
+    <div class="s-row" id="s-ship-row"><span>Livraison</span><strong id="s-ship">—</strong></div>
+    <div class="s-row"><span>TPS (5 %)</span><strong id="s-tps">—</strong></div>
+    <div class="s-row"><span>TVQ (9,975 %)</span><strong id="s-tvq">—</strong></div>
+    <hr class="s-divider">
+    <div class="s-total"><span>Total</span><span class="s-total-price" id="s-total">—</span></div>
+    <p class="s-note">Vous recevrez un courriel de confirmation après votre commande.</p>
+    <div class="secure-badges">
+      <span class="sb"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>SSL 256-bit</span>
+      <span class="sb"><svg viewBox="0 0 24 24"><polyline points="20 12 20 22 4 22 4 12"/><rect x="2" y="7" width="20" height="5"/><path d="M12 22V7M12 7H7.5a2.5 2.5 0 010-5C11 2 12 7 12 7zM12 7h4.5a2.5 2.5 0 000-5C13 2 12 7 12 7z"/></svg>Retours 30 j.</span>
+    </div>
+  </div>
+</div>
+
+<script>
+const CART_KEY = 'probaclac_cart';
+let currentStep = 1;
+let shippingCost = 0;
+let shippingLabel = 'Standard';
+
+function getCart() { return JSON.parse(localStorage.getItem(CART_KEY) || '[]'); }
+function fmt(n) { return n.toFixed(2).replace('.', ',') + ' $'; }
+
+function goStep(n) {
+  if (n === 2 && !validateStep1()) return;
+  if (n === 3 && currentStep < 3) { /* ok */ }
+
+  currentStep = n;
+
+  document.querySelectorAll('.fp-step').forEach((el, i) => {
+    el.classList.toggle('active', i + 1 === n);
+  });
+
+  // Update step indicators
+  [1, 2, 3].forEach(i => {
+    const ind = document.getElementById(`step-ind-${i}`);
+    ind.classList.remove('active', 'done');
+    if (i === n) ind.classList.add('active');
+    if (i < n) ind.classList.add('done');
+  });
+  [1, 2].forEach(i => {
+    const sep = document.getElementById(`sep-${i}`);
+    sep.classList.toggle('filled', i < n);
+  });
+
+  // Scroll to top
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+  renderSummary();
+}
+
+function validateStep1() {
+  const required = ['firstName','lastName','email','address','city','province','postal'];
+  let ok = true;
+  required.forEach(id => {
+    const el = document.getElementById(id);
+    if (!el.value.trim()) { el.classList.add('error'); ok = false; }
+    else el.classList.remove('error');
+  });
+  if (!ok) { alert('Veuillez remplir tous les champs obligatoires (*)'); }
+  return ok;
+}
+
+function selectShip(el, cost, label) {
+  document.querySelectorAll('.ship-opt').forEach(o => o.classList.remove('selected'));
+  el.classList.add('selected');
+  shippingCost = cost;
+  shippingLabel = label;
+  renderSummary();
+}
+
+function renderSummary() {
+  const cart = getCart();
+  const subtotal = cart.reduce((s, i) => s + i.price * i.qty, 0);
+
+  // Check free shipping threshold for standard option
+  const standardLabel = subtotal >= 50 ? 'Gratuite ✓' : '9,99 $';
+  const standardCost = subtotal >= 50 ? 0 : 9.99;
+  const fb = document.getElementById('freeBadge');
+  const sp0 = document.getElementById('shipPrice0');
+  if (fb && sp0) {
+    fb.textContent = subtotal >= 50 ? 'Gratuite ✓' : '';
+    sp0.textContent = subtotal >= 50 ? 'Gratuite' : '9,99 $';
+    if (shippingLabel === 'Standard') shippingCost = standardCost;
+  }
+
+  const tps = subtotal * 0.05;
+  const tvq = subtotal * 0.09975;
+  const total = subtotal + shippingCost + tps + tvq;
+
+  // Mini cart
+  const mc = document.getElementById('miniCart');
+  mc.innerHTML = cart.map(item => `
+    <div class="cim-item">
+      <div class="cim-img">
+        <img src="${item.img}" alt="${item.name}" onerror="this.style.display='none'">
+        <div class="cim-badge">${item.qty}</div>
+      </div>
+      <div>
+        <div class="cim-name">${item.name}</div>
+        <div class="cim-size">${item.caps}</div>
+      </div>
+      <div class="cim-price">${fmt(item.price * item.qty)}</div>
+    </div>`).join('');
+
+  document.getElementById('s-subtotal').textContent = fmt(subtotal);
+  const shEl = document.getElementById('s-ship');
+  shEl.textContent = shippingCost === 0 ? 'Gratuite' : fmt(shippingCost);
+  shEl.style.color = shippingCost === 0 ? '#2a7b3a' : '';
+  document.getElementById('s-tps').textContent = fmt(tps);
+  document.getElementById('s-tvq').textContent = fmt(tvq);
+  document.getElementById('s-total').textContent = fmt(total);
+
+  // Save order data for confirmation
+  localStorage.setItem('probaclac_order_tmp', JSON.stringify({
+    email: document.getElementById('email')?.value || '',
+    shipping: shippingLabel,
+    shippingCost, subtotal, tps, tvq, total,
+    address: `${document.getElementById('address')?.value || ''}, ${document.getElementById('city')?.value || ''} ${document.getElementById('province')?.value || ''} ${document.getElementById('postal')?.value || ''}`.trim()
+  }));
+}
+
+// Card formatting
+function formatCard(el) {
+  let v = el.value.replace(/\D/g,'').substring(0,16);
+  el.value = v.replace(/(.{4})/g,'$1 ').trim();
+  document.getElementById('cpNum').textContent = el.value || '•••• •••• •••• ••••';
+}
+function formatExp(el) {
+  let v = el.value.replace(/\D/g,'');
+  if (v.length >= 2) v = v.substring(0,2) + ' / ' + v.substring(2,4);
+  el.value = v;
+  document.getElementById('cpExp').textContent = el.value || 'MM / AA';
+}
+
+function placeOrder() {
+  const cardNum = document.getElementById('cardNum').value.replace(/\s/g,'');
+  const cardExp = document.getElementById('cardExp').value;
+  const cardCvv = document.getElementById('cardCvv').value;
+  const cardName = document.getElementById('cardName').value;
+  if (cardNum.length < 16 || !cardExp || cardCvv.length < 3 || !cardName) {
+    alert('Veuillez remplir tous les champs de paiement.');
+    return;
+  }
+
+  // Save confirmation data
+  const orderNum = 'PRB' + new Date().getFullYear() + '-' + Math.floor(10000 + Math.random() * 90000);
+  const tmp = JSON.parse(localStorage.getItem('probaclac_order_tmp') || '{}');
+  tmp.orderNum = orderNum;
+  tmp.cart = getCart();
+  tmp.cardLast4 = cardNum.slice(-4);
+  localStorage.setItem('probaclac_order', JSON.stringify(tmp));
+  localStorage.removeItem(CART_KEY);
+
+  window.location.href = 'confirmation.html';
+}
+
+// Init
+renderSummary();
+</script>
+</body>
+</html>
