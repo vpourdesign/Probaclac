@@ -24,17 +24,44 @@
     Cache-Control = "public, max-age=31536000, immutable"
 
 # ─── Redirections par sous-domaine ───────────────────────────────────────────
-# microbiote.probaclac.ca → affiche microbiote.html à la racine
-[[redirects]]
-  from   = "https://microbiote.probaclac.ca/"
-  to     = "/microbiote.html"
-  status = 200            # 200 = rewrite (URL reste propre dans la barre)
+# PATTERN : ajouter 2 lignes par nouveau sous-domaine (from + to + status 200)
+# status 200 = rewrite silencieux (l'URL dans la barre reste propre)
 
-# boutique.probaclac.ca → affiche panier.html à la racine
+# microbiote.probaclac.ca
+[[redirects]]
+  from   = "https://microbiote.probaclac.ca/*"
+  to     = "/microbiote.html"
+  status = 200
+
+# boutique.probaclac.ca
 [[redirects]]
   from   = "https://boutique.probaclac.ca/"
   to     = "/panier.html"
   status = 200
+
+[[redirects]]
+  from   = "https://boutique.probaclac.ca/:page"
+  to     = "/:page"
+  status = 200
+
+# ── LANDINGS PAGES ──────────────────────────────────────────────────────────
+# vaginosis.probaclac.ca
+[[redirects]]
+  from   = "https://vaginosis.probaclac.ca/*"
+  to     = "/landings/vaginosis/index.html"
+  status = 200
+
+# yeast.probaclac.ca
+[[redirects]]
+  from   = "https://yeast.probaclac.ca/*"
+  to     = "/landings/yeast/index.html"
+  status = 200
+
+# ── AJOUTER ICI pour chaque nouveau sous-domaine ──────────────────────────
+# [[redirects]]
+#   from   = "https://[condition].probaclac.ca/*"
+#   to     = "/landings/[condition]/index.html"
+#   status = 200
 
 # ─── URLs propres (sans .html) ───────────────────────────────────────────────
 [[redirects]]

@@ -91,10 +91,18 @@ body{font-family:'Plus Jakarta Sans',system-ui,sans-serif;background:var(--bg);c
 
 /* ── CENTER: BODY IMAGE ── */
 .micro-img-col{position:sticky;top:5.5rem;align-self:start}
-.body-img-wrapper{position:relative;width:100%;user-select:none}
+.body-img-wrapper{position:relative;width:100%;overflow:hidden;user-select:none}
 .body-img-base{width:100%;display:block;border-radius:var(--radius-lg)}
-.organ-overlay{position:absolute;top:0;left:0;width:100%;height:100%;opacity:0;transition:opacity .5s cubic-bezier(.4,0,.2,1);pointer-events:none;border-radius:var(--radius-lg)}
+.organ-overlay{position:absolute;opacity:0;transition:opacity .5s cubic-bezier(.4,0,.2,1);pointer-events:none}
 .organ-overlay.active{opacity:1}
+
+/* Per-organ sizing: dimensions = (organ_px / canvas_px) * 100%, centered on hotspot */
+/* Canvas: 676 × 1800 px */
+#overlay-bouche-pharynx,     #mob-overlay-bouche-pharynx     { top:2.8%;  left:46.2%; width:7.7%;  height:7.4%;  }
+#overlay-estomac,            #mob-overlay-estomac            { top:22.3%; left:33%;   width:14.1%; height:13.3%; }
+#overlay-intestin-grele,     #mob-overlay-intestin-grele     { top:39.1%; left:44.3%; width:21.3%; height:7.9%;  }
+#overlay-colon,              #mob-overlay-colon              { top:44.9%; left:32.4%; width:25.3%; height:12.3%; }
+#overlay-tractus-urogenital, #mob-overlay-tractus-urogenital { top:62.8%; left:44.3%; width:11.5%; height:6.4%;  }
 
 /* Hotspot circles */
 .hotspot{position:absolute;width:22px;height:22px;border-radius:50%;background:var(--o1);border:2.5px solid rgba(255,255,255,.9);cursor:pointer;transform:translate(-50%,-50%);z-index:10;transition:all .35s;animation:hsPulse 2.5s ease-in-out infinite}
