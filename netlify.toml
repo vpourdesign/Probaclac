@@ -1,0 +1,69 @@
+# ─── Netlify configuration — Probaclac ───────────────────────────────────────
+
+[build]
+  publish = "."          # fichiers servis depuis la racine du repo
+
+# ─── Headers de sécurité ─────────────────────────────────────────────────────
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options        = "SAMEORIGIN"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy        = "strict-origin-when-cross-origin"
+    Permissions-Policy     = "camera=(), microphone=(), geolocation=()"
+
+# Cache long sur images et fonts
+[[headers]]
+  for = "/images/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/microbiote/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+# ─── Redirections par sous-domaine ───────────────────────────────────────────
+# microbiote.probaclac.ca → affiche microbiote.html à la racine
+[[redirects]]
+  from   = "https://microbiote.probaclac.ca/"
+  to     = "/microbiote.html"
+  status = 200            # 200 = rewrite (URL reste propre dans la barre)
+
+# boutique.probaclac.ca → affiche panier.html à la racine
+[[redirects]]
+  from   = "https://boutique.probaclac.ca/"
+  to     = "/panier.html"
+  status = 200
+
+# ─── URLs propres (sans .html) ───────────────────────────────────────────────
+[[redirects]]
+  from   = "/microbiote"
+  to     = "/microbiote.html"
+  status = 200
+
+[[redirects]]
+  from   = "/panier"
+  to     = "/panier.html"
+  status = 200
+
+[[redirects]]
+  from   = "/checkout"
+  to     = "/checkout.html"
+  status = 200
+
+[[redirects]]
+  from   = "/confirmation"
+  to     = "/confirmation.html"
+  status = 200
+
+[[redirects]]
+  from   = "/adultes"
+  to     = "/produits/probaclac-adulte.html"
+  status = 200
+
+# Fallback 404
+[[redirects]]
+  from   = "/*"
+  to     = "/index.html"
+  status = 404

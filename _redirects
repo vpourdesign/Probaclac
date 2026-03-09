@@ -1,0 +1,9 @@
+# Probaclac — Netlify _redirects
+# Ce fichier complète netlify.toml pour la compatibilité maximale
+
+# URLs sans .html
+/microbiote    /microbiote.html    200
+/panier        /panier.html        200
+/checkout      /checkout.html      200
+/confirmation  /confirmation.html  200
+/adultes       /produits/probaclac-adulte.html  200
