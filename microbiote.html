@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Microbiote & Probiotiques — Probaclac</title>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --bg:#f8f7f4;--o1:#de6d38;--o2:#e8894f;--o3:#fde0cc;--o4:#fef3eb;
+  --accent:#c45a2a;--warm:#f5e6d3;--text:#1a1a2e;--text-light:#5a5a72;--white:#fff;
+  --shadow-sm:0 2px 8px rgba(0,0,0,.04);--shadow-md:0 8px 32px rgba(0,0,0,.08);--shadow-lg:0 16px 64px rgba(0,0,0,.12);
+  --radius:16px;--radius-lg:24px;--radius-xl:32px;color-scheme:light only;
+}
+html{scroll-behavior:smooth}
+body{font-family:'Plus Jakarta Sans',system-ui,sans-serif;background:var(--bg);color:var(--text);overflow-x:hidden}
+
+/* ─── NAV ─── */
+.nav{position:fixed;top:0;left:0;right:0;z-index:200;padding:.75rem 2rem;transition:all .4s}
+.nav.scrolled{background:rgba(248,247,244,.92);backdrop-filter:blur(20px) saturate(180%);box-shadow:0 1px 0 rgba(0,0,0,.05)}
+.nav-inner{max-width:1280px;margin:0 auto;display:flex;align-items:center;justify-content:space-between}
+.nav-logo{font-weight:900;font-size:2.1rem;color:var(--white);text-decoration:none;letter-spacing:-.03em;transition:color .4s}
+.nav.scrolled .nav-logo{color:var(--text)}
+.nav-logo em{color:var(--o1);font-style:normal}
+.nav-links{display:flex;gap:1.5rem;list-style:none;align-items:center}
+.nav-links a{text-decoration:none;color:rgba(255,255,255,.8);font-weight:500;font-size:.85rem;transition:color .3s}
+.nav.scrolled .nav-links a{color:var(--text-light)}
+.nav-links a:hover{color:var(--o1)!important}
+.nav-cart{position:relative;text-decoration:none;color:rgba(255,255,255,.8);display:flex;align-items:center;margin-left:.5rem;transition:color .3s}
+.nav.scrolled .nav-cart{color:var(--text)}
+.nav-cart:hover{color:var(--o1)!important}
+.nav-cart svg{width:22px;height:22px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.cart-badge{position:absolute;top:-8px;right:-9px;background:var(--o1);color:#fff;font-size:.55rem;font-weight:800;min-width:17px;height:17px;border-radius:100px;display:none;align-items:center;justify-content:center;padding:0 3px}
+@media(max-width:768px){.nav-links{display:none}}
+
+/* ─── HERO ─── */
+.hero{min-height:100vh;background:linear-gradient(160deg,#0f1020 0%,#1a1a2e 40%,#1f2442 100%);display:flex;align-items:center;justify-content:center;text-align:center;position:relative;overflow:hidden;padding:8rem 2rem 5rem}
+.hero::before{content:'';position:absolute;top:-200px;left:50%;transform:translateX(-50%);width:800px;height:800px;background:radial-gradient(circle,rgba(222,109,56,.18) 0%,transparent 65%)}
+.hero::after{content:'';position:absolute;bottom:-150px;right:-150px;width:500px;height:500px;background:radial-gradient(circle,rgba(222,109,56,.1) 0%,transparent 60%)}
+
+/* Floating circles */
+.hero-circles{position:absolute;inset:0;pointer-events:none}
+.hc{position:absolute;border-radius:50%;opacity:0;animation:hcFloat var(--d,4s) var(--delay,0s) ease-in-out infinite}
+@keyframes hcFloat{0%,100%{opacity:0;transform:scale(.3)}40%,60%{opacity:var(--op,.15);transform:scale(1)}}
+
+.hero-content{position:relative;z-index:2}
+.hero-eyebrow{display:inline-flex;align-items:center;gap:.5rem;background:rgba(222,109,56,.15);color:var(--o2);border:1px solid rgba(222,109,56,.25);padding:.45rem 1rem;border-radius:100px;font-size:.75rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;margin-bottom:1.75rem}
+.hero-eyebrow .dot{width:6px;height:6px;background:var(--o1);border-radius:50%;animation:pulse 2s ease-in-out infinite}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.5;transform:scale(.7)}}
+
+.hero h1{font-size:clamp(2.5rem,6vw,4.5rem);font-weight:900;line-height:1.06;letter-spacing:-.04em;color:#fff;margin-bottom:1.25rem}
+.hero h1 em{font-style:normal;background:linear-gradient(135deg,var(--o1),var(--o2),#f0a06a);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.hero-sub{font-size:1.05rem;color:rgba(255,255,255,.6);max-width:480px;margin:0 auto 2.5rem;line-height:1.75}
+.btn-hero{display:inline-flex;align-items:center;gap:.6rem;background:var(--o1);color:#fff;padding:.9rem 2.2rem;border-radius:100px;font-weight:700;font-size:.9rem;text-decoration:none;transition:all .35s;border:none;cursor:pointer;font-family:inherit}
+.btn-hero:hover{background:var(--o2);transform:translateY(-3px);box-shadow:0 12px 32px rgba(222,109,56,.4)}
+.btn-hero svg{width:18px;height:18px;stroke:currentColor;fill:none;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round;animation:bounce 1.6s ease-in-out infinite}
+@keyframes bounce{0%,100%{transform:translateY(0)}50%{transform:translateY(4px)}}
+
+/* Scroll indicator */
+.scroll-indicator{position:absolute;bottom:2.5rem;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:.5rem;color:rgba(255,255,255,.35);font-size:.68rem;letter-spacing:.08em;text-transform:uppercase;font-weight:600}
+.scroll-line{width:1px;height:40px;background:linear-gradient(to bottom,rgba(255,255,255,.3),transparent);animation:scrollLine 2s ease-in-out infinite}
+@keyframes scrollLine{0%,100%{opacity:.3;transform:scaleY(.5)}50%{opacity:1;transform:scaleY(1)}}
+
+/* ─── INTRO ─── */
+.intro-section{max-width:1100px;margin:0 auto;padding:6rem 2rem 4rem;display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center}
+.intro-left h2{font-size:clamp(1.7rem,3vw,2.4rem);font-weight:900;letter-spacing:-.03em;line-height:1.15;margin-bottom:1rem}
+.intro-left h2 em{font-style:normal;color:var(--o1)}
+.intro-left p{font-size:.92rem;color:var(--text-light);line-height:1.8;margin-bottom:.75rem}
+.intro-right{background:var(--white);border-radius:var(--radius-xl);padding:2rem;box-shadow:var(--shadow-md)}
+.intro-right h3{font-size:.8rem;font-weight:800;text-transform:uppercase;letter-spacing:.08em;color:var(--text-light);margin-bottom:1.25rem}
+.microbiota-list{list-style:none;display:flex;flex-direction:column;gap:.65rem}
+.microbiota-list li{display:flex;align-items:center;gap:.75rem;font-size:.88rem;font-weight:600}
+.ml-num{width:32px;height:32px;border-radius:50%;background:var(--o4);color:var(--o1);font-size:.78rem;font-weight:900;display:flex;align-items:center;justify-content:center;flex-shrink:0;border:2px solid var(--o3)}
+.ml-icon{font-size:1rem}
+@media(max-width:768px){.intro-section{grid-template-columns:1fr;gap:2rem;padding:4rem 1.5rem 2rem}}
+
+/* ─── INTERACTIVE SECTION ─── */
+.micro-section{max-width:1280px;margin:0 auto;padding:2rem 2rem 8rem}
+.micro-inner{display:grid;grid-template-columns:180px 1fr 1fr;gap:2.5rem;align-items:start}
+
+/* ── LEFT MENU ── */
+.micro-menu{position:sticky;top:5.5rem;align-self:start}
+.micro-menu-title{font-size:.65rem;font-weight:800;text-transform:uppercase;letter-spacing:.1em;color:var(--text-light);margin-bottom:1rem;padding-bottom:.75rem;border-bottom:1px solid #e8e5e0}
+.micro-menu ul{list-style:none;display:flex;flex-direction:column;gap:.25rem}
+.micro-menu li a{display:flex;align-items:center;gap:.75rem;padding:.6rem .75rem;border-radius:12px;text-decoration:none;transition:all .3s;color:var(--text-light);font-size:.78rem;font-weight:600;line-height:1.3}
+.micro-menu li a:hover{background:var(--o4);color:var(--o1)}
+.micro-menu li a.active{background:var(--o4);color:var(--o1)}
+.micro-menu li a.active .mm-num{background:var(--o1);color:#fff;border-color:var(--o1)}
+.mm-num{width:26px;height:26px;border-radius:50%;background:var(--bg);border:2px solid #e0ddd8;font-size:.65rem;font-weight:900;display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:all .3s}
+
+/* ── CENTER: BODY IMAGE ── */
+.micro-img-col{position:sticky;top:5.5rem;align-self:start}
+.body-img-wrapper{position:relative;width:100%;user-select:none}
+.body-img-base{width:100%;display:block;border-radius:var(--radius-lg)}
+.organ-overlay{position:absolute;top:0;left:0;width:100%;height:100%;opacity:0;transition:opacity .5s cubic-bezier(.4,0,.2,1);pointer-events:none;border-radius:var(--radius-lg)}
+.organ-overlay.active{opacity:1}
+
+/* Hotspot circles */
+.hotspot{position:absolute;width:22px;height:22px;border-radius:50%;background:var(--o1);border:2.5px solid rgba(255,255,255,.9);cursor:pointer;transform:translate(-50%,-50%);z-index:10;transition:all .35s;animation:hsPulse 2.5s ease-in-out infinite}
+@keyframes hsPulse{0%,100%{box-shadow:0 0 0 0 rgba(222,109,56,.5)}60%{box-shadow:0 0 0 10px rgba(222,109,56,0)}}
+.hotspot:hover{transform:translate(-50%,-50%) scale(1.3);animation:none;box-shadow:0 0 0 8px rgba(222,109,56,.2)}
+.hotspot.active{background:#fff;border-color:var(--o1);box-shadow:0 0 0 6px rgba(222,109,56,.25);animation:none}
+.hotspot-label{position:absolute;white-space:nowrap;font-size:.62rem;font-weight:700;background:var(--text);color:#fff;padding:.2rem .5rem;border-radius:6px;pointer-events:none;opacity:0;transition:opacity .2s;z-index:20}
+.hotspot:hover .hotspot-label,.hotspot.active .hotspot-label{opacity:1}
+
+/* ── RIGHT: CONTENT PANELS ── */
+.micro-content{display:flex;flex-direction:column;gap:0}
+.organ-section{padding:3.5rem 0;border-bottom:1px solid #ece9e4;opacity:.45;transition:opacity .5s;scroll-margin-top:6rem}
+.organ-section:last-child{border-bottom:none}
+.organ-section.active{opacity:1}
+.organ-section:first-child{padding-top:0}
+
+.organ-num{font-size:3rem;font-weight:900;color:var(--o3);letter-spacing:-.04em;line-height:1;margin-bottom:.5rem;font-variant-numeric:tabular-nums}
+.organ-section.active .organ-num{color:var(--o1)}
+.organ-h2{font-size:1.35rem;font-weight:900;letter-spacing:-.03em;line-height:1.2;margin-bottom:1.25rem}
+.organ-text p{font-size:.88rem;color:var(--text-light);line-height:1.85;margin-bottom:.75rem}
+.organ-text p:last-child{margin-bottom:0}
+
+.species-block{background:var(--bg);border-radius:var(--radius);padding:1.25rem;margin:1.25rem 0;border-left:3px solid var(--o1)}
+.species-label{font-size:.65rem;font-weight:800;text-transform:uppercase;letter-spacing:.09em;color:var(--o1);margin-bottom:.35rem}
+.species-names{font-size:.8rem;color:var(--text);font-style:italic;line-height:1.6;font-weight:500}
+
+.pathogens-block{background:#fff8f5;border-radius:var(--radius);padding:1rem 1.25rem;margin-top:.75rem;border-left:3px solid #e8d5c8}
+.pathogen-label{font-size:.65rem;font-weight:800;text-transform:uppercase;letter-spacing:.09em;color:var(--text-light);margin-bottom:.3rem}
+.pathogen-names{font-size:.78rem;color:var(--text-light);font-style:italic;line-height:1.6}
+
+/* References */
+.ref-toggle{display:inline-flex;align-items:center;gap:.35rem;font-size:.72rem;font-weight:600;color:var(--text-light);background:none;border:none;cursor:pointer;font-family:inherit;margin-top:1rem;padding:.25rem 0;transition:color .25s}
+.ref-toggle:hover{color:var(--o1)}
+.ref-toggle svg{width:14px;height:14px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;transition:transform .3s}
+.ref-toggle.open svg{transform:rotate(180deg)}
+.ref-list{display:none;list-style:none;margin-top:.75rem;padding:.75rem 1rem;background:var(--white);border-radius:12px;border:1px solid #ece9e4}
+.ref-list.open{display:block}
+.ref-list li{font-size:.67rem;color:var(--text-light);line-height:1.6;padding:.35rem 0;border-bottom:1px solid #f5f3f0}
+.ref-list li:last-child{border-bottom:none}
+.ref-list sup{color:var(--o1);font-weight:700}
+
+/* CTA in content */
+.organ-cta{margin-top:1.5rem}
+.btn-organ{display:inline-flex;align-items:center;gap:.4rem;background:var(--o1);color:#fff;padding:.6rem 1.25rem;border-radius:100px;font-size:.78rem;font-weight:700;text-decoration:none;transition:all .3s}
+.btn-organ:hover{background:var(--accent);transform:translateY(-2px)}
+.btn-organ svg{width:15px;height:15px;stroke:currentColor;fill:none;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round}
+
+/* ─── MOBILE IMAGE ─── */
+.micro-img-mobile{display:none;position:relative;margin-bottom:2rem}
+.micro-img-mobile .body-img-base{border-radius:var(--radius-lg)}
+.mobile-hotspots{position:absolute;top:0;left:0;width:100%;height:100%}
+
+/* ─── BACK TO TOP ─── */
+.back-top{position:fixed;bottom:2rem;right:2rem;width:44px;height:44px;background:var(--o1);color:#fff;border:none;border-radius:50%;cursor:pointer;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 16px rgba(222,109,56,.4);opacity:0;transform:translateY(20px);transition:all .4s;z-index:50}
+.back-top.visible{opacity:1;transform:translateY(0)}
+.back-top:hover{background:var(--accent);transform:translateY(-3px)}
+.back-top svg{width:20px;height:20px;stroke:currentColor;fill:none;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round}
+
+/* ─── RESPONSIVE ─── */
+@media(max-width:1024px){
+  .micro-inner{grid-template-columns:140px 1fr 1fr;gap:1.5rem}
+}
+@media(max-width:800px){
+  .micro-inner{grid-template-columns:1fr}
+  .micro-img-col{display:none}
+  .micro-img-mobile{display:block}
+  .micro-menu{position:relative;top:0;overflow-x:auto;padding-bottom:.5rem}
+  .micro-menu ul{flex-direction:row;gap:.5rem}
+  .micro-menu li a{padding:.5rem .75rem;font-size:.72rem;white-space:nowrap;border-radius:100px}
+  .mm-num{display:none}
+  .organ-num{font-size:2rem}
+}
+@media(max-width:480px){
+  .micro-section{padding:1rem 1rem 5rem}
+  .intro-section{padding:3rem 1rem 2rem}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav" id="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">Probac<em>lac</em></a>
+    <ul class="nav-links">
+      <li><a href="index.html">Accueil</a></li>
+      <li><a href="index.html#produits">Nos produits</a></li>
+      <li><a href="microbiote.html">Microbiote</a></li>
+    </ul>
+    <a href="panier.html" class="nav-cart" aria-label="Mon panier">
+      <svg viewBox="0 0 24 24"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 002 1.61h9.72a2 2 0 002-1.61L23 6H6"/></svg>
+      <span class="cart-badge" id="cartCount"></span>
+    </a>
+  </div>
+</nav>
+
+<!-- ─── HERO ─── -->
+<section class="hero" id="top">
+  <div class="hero-circles">
+    <div class="hc" style="width:300px;height:300px;background:radial-gradient(circle,rgba(222,109,56,.12),transparent);top:15%;left:10%;--d:5s;--delay:0s;--op:.6"></div>
+    <div class="hc" style="width:200px;height:200px;background:radial-gradient(circle,rgba(222,109,56,.1),transparent);top:60%;right:8%;--d:4s;--delay:1.2s;--op:.5"></div>
+    <div class="hc" style="width:120px;height:120px;background:radial-gradient(circle,rgba(222,109,56,.15),transparent);top:35%;right:20%;--d:6s;--delay:.6s;--op:.7"></div>
+    <div class="hc" style="width:80px;height:80px;background:radial-gradient(circle,rgba(222,109,56,.2),transparent);top:75%;left:25%;--d:3.5s;--delay:2s;--op:.6"></div>
+    <div class="hc" style="width:160px;height:160px;background:radial-gradient(circle,rgba(100,120,220,.08),transparent);bottom:20%;left:15%;--d:5.5s;--delay:.4s;--op:.4"></div>
+  </div>
+
+  <div class="hero-content">
+    <div class="hero-eyebrow">
+      <span class="dot"></span>
+      Science des probiotiques
+    </div>
+    <h1>Microbiote &<br><em>Probiotiques</em></h1>
+    <p class="hero-sub">Découvrez le rôle essentiel des différentes flores microbiennes qui protègent votre organisme de la tête aux pieds.</p>
+    <a href="#intro" class="btn-hero js-scroll">
+      Commencer l'exploration
+      <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+    </a>
+  </div>
+
+  <div class="scroll-indicator">
+    <div class="scroll-line"></div>
+    <span>Défiler</span>
+  </div>
+</section>
+
+<!-- ─── INTRO ─── -->
+<section class="intro-section" id="intro">
+  <div class="intro-left">
+    <h2>4 microbiotes distincts colonisent votre système digestif — et au-delà.</h2>
+    <p>Leur présence est essentielle pour maintenir l'équilibre de la flore naturelle et prévenir le développement de bactéries pathogènes nuisibles à la santé.</p>
+    <p>Chaque zone du corps abrite des espèces probiotiques prédominantes différentes, adaptées à leur environnement local. Probaclac cible ces zones précises.</p>
+  </div>
+  <div class="intro-right">
+    <h3>Les 5 microbiotes</h3>
+    <ul class="microbiota-list">
+      <li><span class="ml-num">1</span><span class="ml-icon">👄</span>Microbiote oral</li>
+      <li><span class="ml-num">2</span><span class="ml-icon">🫁</span>Microbiote gastrique</li>
+      <li><span class="ml-num">3</span><span class="ml-icon">🔄</span>Microbiote intestinal — Intestin grêle</li>
+      <li><span class="ml-num">4</span><span class="ml-icon">🦠</span>Microbiote intestinal — Côlon</li>
+      <li><span class="ml-num">5</span><span class="ml-icon">💜</span>Microbiote vaginal</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ─── INTERACTIVE SECTION ─── -->
+<section class="micro-section" id="micro-interactive">
+
+  <!-- Mobile image (shown on small screens) -->
+  <div class="micro-img-mobile">
+    <img src="microbiote/madame-probaclac-organes.png" alt="Corps humain — Microbiote" class="body-img-base" onerror="this.style.opacity='.2'">
+    <img src="microbiote/intestin-grele.png" class="organ-overlay" id="mob-overlay-intestin-grele" alt="" aria-hidden="true">
+    <img src="microbiote/bouche-pharynx.png" class="organ-overlay" id="mob-overlay-bouche-pharynx" alt="" aria-hidden="true" onerror="this.remove()">
+    <img src="microbiote/estomac.png" class="organ-overlay" id="mob-overlay-estomac" alt="" aria-hidden="true" onerror="this.remove()">
+    <img src="microbiote/colon.png" class="organ-overlay" id="mob-overlay-colon" alt="" aria-hidden="true" onerror="this.remove()">
+    <img src="microbiote/tractus-urogenital.png" class="organ-overlay" id="mob-overlay-tractus-urogenital" alt="" aria-hidden="true" onerror="this.remove()">
+  </div>
+
+  <div class="micro-inner">
+
+    <!-- ── LEFT: sticky menu ── -->
+    <nav class="micro-menu" aria-label="Navigation microbiote">
+      <div class="micro-menu-title">5 zones du corps</div>
+      <ul>
+        <li><a href="#sec-bouche-pharynx" id="menu-bouche-pharynx" class="js-scroll active"><span class="mm-num">1</span>Microbiote oral</a></li>
+        <li><a href="#sec-estomac" id="menu-estomac" class="js-scroll"><span class="mm-num">2</span>Microbiote gastrique</a></li>
+        <li><a href="#sec-intestin-grele" id="menu-intestin-grele" class="js-scroll"><span class="mm-num">3</span>Intestin grêle</a></li>
+        <li><a href="#sec-colon" id="menu-colon" class="js-scroll"><span class="mm-num">4</span>Côlon</a></li>
+        <li><a href="#sec-tractus-urogenital" id="menu-tractus-urogenital" class="js-scroll"><span class="mm-num">5</span>Microbiote vaginal</a></li>
+      </ul>
+    </nav>
+
+    <!-- ── CENTER: sticky body image ── -->
+    <div class="micro-img-col">
+      <div class="body-img-wrapper" id="bodyImgWrapper">
+
+        <!-- Base body image -->
+        <img src="microbiote/madame-probaclac-organes.png" alt="Corps humain — zones microbiote" class="body-img-base" id="bodyImgBase" onerror="this.style.opacity='.1'">
+
+        <!-- Organ overlay images (same dimensions as base, transparent PNGs) -->
+        <img src="microbiote/bouche-pharynx.png" class="organ-overlay" id="overlay-bouche-pharynx" alt="" aria-hidden="true" onerror="this.remove()">
+        <img src="microbiote/estomac.png" class="organ-overlay" id="overlay-estomac" alt="" aria-hidden="true" onerror="this.remove()">
+        <img src="microbiote/intestin-grele.png" class="organ-overlay active" id="overlay-intestin-grele" alt="" aria-hidden="true">
+        <img src="microbiote/colon.png" class="organ-overlay" id="overlay-colon" alt="" aria-hidden="true" onerror="this.remove()">
+        <img src="microbiote/tractus-urogenital.png" class="organ-overlay" id="overlay-tractus-urogenital" alt="" aria-hidden="true" onerror="this.remove()">
+
+        <!-- Hotspot clickable circles (positioned as % of image) -->
+        <!-- NOTE: adjust top/left % once actual body image is loaded -->
+        <a href="#sec-bouche-pharynx" class="hotspot js-scroll" id="hs-bouche-pharynx"
+           style="top:6.5%;left:50%"
+           title="Microbiote oral">
+          <span class="hotspot-label" style="left:28px;top:-2px">Oral</span>
+        </a>
+        <a href="#sec-estomac" class="hotspot js-scroll" id="hs-estomac"
+           style="top:29%;left:40%"
+           title="Microbiote gastrique">
+          <span class="hotspot-label" style="right:28px;top:-2px">Gastrique</span>
+        </a>
+        <a href="#sec-intestin-grele" class="hotspot js-scroll active" id="hs-intestin-grele"
+           style="top:43%;left:55%"
+           title="Intestin grêle">
+          <span class="hotspot-label" style="left:28px;top:-2px">Intestin grêle</span>
+        </a>
+        <a href="#sec-colon" class="hotspot js-scroll" id="hs-colon"
+           style="top:51%;left:45%"
+           title="Côlon">
+          <span class="hotspot-label" style="right:28px;top:-2px">Côlon</span>
+        </a>
+        <a href="#sec-tractus-urogenital" class="hotspot js-scroll" id="hs-tractus-urogenital"
+           style="top:66%;left:50%"
+           title="Microbiote vaginal">
+          <span class="hotspot-label" style="left:28px;top:-2px">Vaginal</span>
+        </a>
+
+      </div>
+    </div><!-- /micro-img-col -->
+
+    <!-- ── RIGHT: scrollable content ── -->
+    <div class="micro-content">
+
+      <!-- 01. ORAL -->
+      <div class="organ-section active" id="sec-bouche-pharynx" data-organ="bouche-pharynx">
+        <div class="organ-num">01.</div>
+        <h2 class="organ-h2">Microbiote oral</h2>
+        <div class="organ-text">
+          <p>La microflore orale comprend la bouche, le pharynx et l'entrée du système respiratoire. La cavité buccale est naturellement colonisée par une grande variété de bactéries probiotiques.</p>
+          <p>Leur rôle est de protéger les dents, les gencives et les muqueuses contre l'invasion des agents pathogènes.</p>
+          <p>Gingivites, stomatites, parodontites, aphtes et caries... l'équilibre du microbiote oral joue un rôle prépondérant dans le maintien de la santé buccale et la prévention des maladies orales.</p>
+        </div>
+        <div class="species-block">
+          <div class="species-label">Espèces probiotiques prédominantes</div>
+          <div class="species-names">L. acidophilus, L. casei, L. fermentum, L. gasseri, L. rhamnosus, L. plantarum, L. salivarius, Lc. lactis, S. salivarius</div>
+        </div>
+        <div class="pathogens-block">
+          <div class="pathogen-label">Principaux agents pathogènes</div>
+          <div class="pathogen-names">S. mutans, C. albicans, H. pylori, P. gingivalis</div>
+        </div>
+        <button class="ref-toggle" onclick="toggleRefs(this)">
+          <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+          Références scientifiques
+        </button>
+        <ul class="ref-list">
+          <li><sup>1</sup> YQ Du et al. Adjuvant probiotics improve the eradiction effect of triple therapy for Helicobacter pylori infection. World J Gastroenterol 2012; 18(43): 6302–6307</li>
+          <li><sup>2</sup> NV Baryshnikova. Helicobacter pylori-associated gastroenterological diseases: genetic features and probiotic treatment. Beneficial Microbes, June 2012; 3(2): 157–161</li>
+          <li><sup>3</sup> Garcia et al. Low co-existence rates of Lactobacillus spp. and Helicobacter pylori. REV ESP ENFERM DIG Vol. 104, pp. 473–478, 2012</li>
+        </ul>
+      </div><!-- /01 -->
+
+      <!-- 02. GASTRIQUE -->
+      <div class="organ-section" id="sec-estomac" data-organ="estomac">
+        <div class="organ-num">02.</div>
+        <h2 class="organ-h2">Microbiote gastrique</h2>
+        <div class="organ-text">
+          <p>La microflore probiotique de l'estomac est essentiellement composée d'espèces bactériennes appartenant à la famille des lactobacilles.</p>
+          <p>Leur rôle est de prévenir ou d'agir contre les troubles digestifs d'origine gastrique — notamment contre la bactérie <em>Helicobacter pylori</em>, responsable de la gastrite et des ulcères gastriques.</p>
+          <p>En équilibre, la microflore gastrique joue également un rôle prépondérant dans la prévention des épisodes de reflux gastrique et d'intolérance au lactose.</p>
+        </div>
+        <div class="species-block">
+          <div class="species-label">Espèces probiotiques prédominantes</div>
+          <div class="species-names">L. acidophilus, L. fermentum, L. gasseri, L. plantarum, L. reuteri, L. salivarius</div>
+        </div>
+        <div class="pathogens-block">
+          <div class="pathogen-label">Principaux agents pathogènes</div>
+          <div class="pathogen-names">H. pylori, Staphylocoques</div>
+        </div>
+        <button class="ref-toggle" onclick="toggleRefs(this)">
+          <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+          Références scientifiques
+        </button>
+        <ul class="ref-list">
+          <li><sup>1</sup> KA Ryan et al. Isolation of lactobacilli with probiotic properties from the human stomach. Letters in Applied Microbiology 47 (2008) 269–274</li>
+          <li><sup>2</sup> O Belei et al. Is It Useful to Administer Probiotics Together With Proton Pump Inhibitors in Children With Gastroesophageal Reflux? J Neurogastroenterol Motil. 2018 Jan; 24(1):51–57</li>
+        </ul>
+      </div><!-- /02 -->
+
+      <!-- 03. INTESTIN GRÊLE -->
+      <div class="organ-section" id="sec-intestin-grele" data-organ="intestin-grele">
+        <div class="organ-num">03.</div>
+        <h2 class="organ-h2">Microbiote intestinal<br><span style="font-size:.8em;font-weight:700;color:var(--text-light)">Intestin grêle</span></h2>
+        <div class="organ-text">
+          <p>La microflore probiotique de l'intestin grêle est essentielle à une bonne santé. Elle sert de barrière aux bactéries pathogènes, stoppe leurs attaques et neutralise leurs toxines.</p>
+          <p>Elle est essentiellement composée de lactobacilles qui colonisent les parois de la muqueuse intestinale. De nombreuses espèces sécrètent des substances bactéricides — une sorte d'antibiotique naturel — qui inhibent le développement d'espèces pathogènes pouvant provoquer diarrhée ou constipation.</p>
+          <p>Les lactobacilles contribuent également à renforcer nos défenses naturelles en stimulant le système immunitaire.</p>
+        </div>
+        <div class="species-block">
+          <div class="species-label">Espèces probiotiques prédominantes</div>
+          <div class="species-names">L. acidophilus, L. casei, L. gasseri, L. plantarum, L. paracasei, L. reuteri, L. rhamnosus</div>
+        </div>
+        <div class="pathogens-block">
+          <div class="pathogen-label">Principaux agents pathogènes</div>
+          <div class="pathogen-names">E. coli, C. difficile, L. monocytogenes, Salmonella, C. jejuni</div>
+        </div>
+        <button class="ref-toggle" onclick="toggleRefs(this)">
+          <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+          Références scientifiques
+        </button>
+        <ul class="ref-list">
+          <li><sup>1</sup> A. François et al. Review article: bifidobacteria as probiotic agents – physiological effects and clinical benefits. Aliment Pharmacol Ther 2005; 22: 495–512</li>
+          <li><sup>2</sup> G Reuter. The Lactobacillus and Bifidobacterium Microflora of the Human Intestine. Curr. Issues Intest. Microbiol. (2001) 2(2): 43–53</li>
+          <li><sup>3</sup> J Walters. Ecological Role of Lactobacilli in the Gastrointestinal Tract. Appl. Environ. Microbiol. August 2008 vol. 74 no. 16 4985–4996</li>
+        </ul>
+      </div><!-- /03 -->
+
+      <!-- 04. CÔLON -->
+      <div class="organ-section" id="sec-colon" data-organ="colon">
+        <div class="organ-num">04.</div>
+        <h2 class="organ-h2">Microbiote intestinal<br><span style="font-size:.8em;font-weight:700;color:var(--text-light)">Côlon</span></h2>
+        <div class="organ-text">
+          <p>Le côlon abrite le plus grand nombre de bactéries de tout le système digestif. Les bifidobactéries sont les microorganismes probiotiques dominants chez les enfants comme chez les adultes.</p>
+          <p>L'effet physiologique le plus important des bifidobactéries est d'améliorer l'état de l'intestin : inhibition des substances putréfiantes, soulagement de la diarrhée ou de la constipation.</p>
+          <p>Les bifidobactéries jouent également un rôle majeur dans la prévention des maladies inflammatoires de l'intestin (MII), notamment le syndrome du côlon irritable, la colite ulcéreuse et la maladie de Crohn.</p>
+        </div>
+        <div class="species-block">
+          <div class="species-label">Espèces probiotiques prédominantes</div>
+          <div class="species-names">B. bifidum, B. breve, B. infantis, B. longum</div>
+        </div>
+        <div class="pathogens-block">
+          <div class="pathogen-label">Principaux agents pathogènes</div>
+          <div class="pathogen-names">E. coli, C. difficile, L. monocytogenes, Salmonella, C. jejuni</div>
+        </div>
+        <button class="ref-toggle" onclick="toggleRefs(this)">
+          <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+          Références scientifiques
+        </button>
+        <ul class="ref-list">
+          <li><sup>1</sup> GR Gibson et al. Selective Stimulation of Bifidobacteria in the Human Colon by Oligofructose and Inulin. GASTROENTEROLOGY 1995;108:975–982</li>
+          <li><sup>2</sup> F Turroni et al. Diversity of Bifidobacteria within the Infant Gut Microbiota. PLoS ONE 7(5): May 2012</li>
+          <li><sup>3</sup> A von Wright et al. The survival and colonic adhesion of Bifidobacterium infantis in patients with ulcerative colitis. International Dairy Journal 12 (2002) 197–200</li>
+        </ul>
+      </div><!-- /04 -->
+
+      <!-- 05. VAGINAL -->
+      <div class="organ-section" id="sec-tractus-urogenital" data-organ="tractus-urogenital">
+        <div class="organ-num">05.</div>
+        <h2 class="organ-h2">Microbiote vaginal</h2>
+        <div class="organ-text">
+          <p>La microflore probiotique vaginale (également appelée flore de Döderlein) est constituée de bactéries acidophiles, principalement des lactobacilles.</p>
+          <p>Ils ont un effet protecteur contre les infections vaginales. Les lactobacilles inhibent naturellement la croissance des microorganismes pathogènes en créant un environnement acide et en produisant des effets antimicrobiens directs.</p>
+          <p>Les principaux signes d'un déséquilibre du microbiote vaginal sont des pertes anormales, des démangeaisons, des brûlures et des difficultés à uriner.</p>
+        </div>
+        <div class="species-block">
+          <div class="species-label">Espèces probiotiques prédominantes</div>
+          <div class="species-names">L. acidophilus, L. crispatus, L. casei, L. jensenii, L. gasseri, L. plantarum, L. reuteri, L. rhamnosus</div>
+        </div>
+        <div class="pathogens-block">
+          <div class="pathogen-label">Principaux agents pathogènes</div>
+          <div class="pathogen-names">Candida albicans, G. vaginalis, Mobiluncus, Mycoplasma</div>
+        </div>
+        <button class="ref-toggle" onclick="toggleRefs(this)">
+          <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+          Références scientifiques
+        </button>
+        <ul class="ref-list">
+          <li><sup>1</sup> MS Juarez Tomas et al. Urogenital pathogen inhibition and compatibility between vaginal Lactobacillus strains. European Journal of Obstetrics & Gynecology, 2011</li>
+          <li><sup>2</sup> Wang Ya et al. Efficacy of vaginal probiotic capsules (Probaclac) for recurrent bacterial vaginosis. American Journal of Obstetrics & Gynecology, August 2010</li>
+          <li><sup>3</sup> A. Vasquez et al. Vaginal Lactobacillus Flora of Healthy Swedish Women. JOURNAL OF CLINICAL MICROBIOLOGY, Aug. 2002</li>
+        </ul>
+      </div><!-- /05 -->
+
+    </div><!-- /micro-content -->
+  </div><!-- /micro-inner -->
+</section><!-- /micro-section -->
+
+<!-- Back to top -->
+<button class="back-top" id="backTop" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Retour en haut">
+  <svg viewBox="0 0 24 24"><polyline points="18 15 12 9 6 15"/></svg>
+</button>
+
+<script>
+/* ── NAV scroll ── */
+const nav = document.getElementById('nav');
+window.addEventListener('scroll', () => {
+  nav.classList.toggle('scrolled', window.scrollY > 60);
+  document.getElementById('backTop').classList.toggle('visible', window.scrollY > 400);
+}, {passive:true});
+
+/* ── Smooth scroll for js-scroll links ── */
+document.querySelectorAll('.js-scroll').forEach(el => {
+  el.addEventListener('click', e => {
+    const href = el.getAttribute('href');
+    if (href && href.startsWith('#')) {
+      e.preventDefault();
+      const target = document.querySelector(href);
+      if (target) target.scrollIntoView({behavior:'smooth', block:'start'});
+    }
+  });
+});
+
+/* ── Organ activation on scroll ── */
+const organs = ['bouche-pharynx','estomac','intestin-grele','colon','tractus-urogenital'];
+
+function activateOrgan(id) {
+  // Overlays, menu items, hotspots, content sections
+  organs.forEach(o => {
+    const el = document.getElementById(`overlay-${o}`);
+    const mob = document.getElementById(`mob-overlay-${o}`);
+    if (el) el.classList.toggle('active', o === id);
+    if (mob) mob.classList.toggle('active', o === id);
+    const menu = document.getElementById(`menu-${o}`);
+    if (menu) menu.classList.toggle('active', o === id);
+    const hs = document.getElementById(`hs-${o}`);
+    if (hs) hs.classList.toggle('active', o === id);
+  });
+  // Content sections
+  document.querySelectorAll('.organ-section').forEach(s => {
+    s.classList.toggle('active', s.dataset.organ === id);
+  });
+}
+
+/* IntersectionObserver: activate organ when section is 30% visible */
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      activateOrgan(entry.target.dataset.organ);
+    }
+  });
+}, {
+  threshold: 0.3,
+  rootMargin: '-10% 0px -40% 0px'
+});
+
+document.querySelectorAll('.organ-section[data-organ]').forEach(s => observer.observe(s));
+
+/* ── References toggle ── */
+function toggleRefs(btn) {
+  btn.classList.toggle('open');
+  const list = btn.nextElementSibling;
+  if (list) list.classList.toggle('open');
+}
+
+/* ── Cart count ── */
+(function(){
+  const cart = JSON.parse(localStorage.getItem('probaclac_cart') || '[]');
+  const n = cart.reduce((s,i) => s + i.qty, 0);
+  const badge = document.getElementById('cartCount');
+  if (badge && n > 0) { badge.textContent = n; badge.style.display = 'flex'; }
+})();
+
+/* Init first organ as active */
+activateOrgan('bouche-pharynx');
+</script>
+</body>
+</html>
