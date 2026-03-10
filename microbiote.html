@@ -96,12 +96,12 @@ body{font-family:'Plus Jakarta Sans',system-ui,sans-serif;background:var(--bg);c
 .organ-overlay{position:absolute;opacity:0;transition:opacity .5s cubic-bezier(.4,0,.2,1);pointer-events:none}
 .organ-overlay.active{opacity:1}
 
-/* Per-organ sizing: PNGs are 1× exports; base image is 2× — display each organ at 2× natural PNG size */
-#overlay-bouche-pharynx,     #mob-overlay-bouche-pharynx     { top:11.3%; left:42.0%; width:15.4%; height:14.8%; }
-#overlay-estomac,            #mob-overlay-estomac            { top:31.3%; left:25.9%; width:28.1%; height:26.7%; }
-#overlay-intestin-grele,     #mob-overlay-intestin-grele     { top:44.5%; left:26.3%; width:42.6%; height:15.8%; }
-#overlay-colon,              #mob-overlay-colon              { top:46.8%; left:24.3%; width:50.6%; height:24.6%; }
-#overlay-tractus-urogenital, #mob-overlay-tractus-urogenital { top:63.8%; left:36.1%; width:23.1%; height:12.8%; }
+/* Per-organ sizing: 2× natural PNG size, centered on measured grey organ center */
+#overlay-bouche-pharynx,     #mob-overlay-bouche-pharynx     { top:14.9%; left:42.9%; width:15.4%; height:14.8%; }
+#overlay-estomac,            #mob-overlay-estomac            { top:33.2%; left:18.3%; width:28.1%; height:26.7%; }
+#overlay-intestin-grele,     #mob-overlay-intestin-grele     { top:42.1%; left:26.2%; width:42.6%; height:15.8%; }
+#overlay-colon,              #mob-overlay-colon              { top:46.2%; left:20.6%; width:50.6%; height:24.6%; }
+#overlay-tractus-urogenital, #mob-overlay-tractus-urogenital { top:61.6%; left:34.3%; width:23.1%; height:12.8%; }
 
 /* Hotspot circles */
 .hotspot{position:absolute;width:22px;height:22px;border-radius:50%;background:var(--o1);border:2.5px solid rgba(255,255,255,.9);cursor:pointer;transform:translate(-50%,-50%);z-index:10;transition:all .35s;animation:hsPulse 2.5s ease-in-out infinite}
@@ -290,27 +290,27 @@ body{font-family:'Plus Jakarta Sans',system-ui,sans-serif;background:var(--bg);c
         <!-- Hotspot clickable circles (positioned as % of image) -->
         <!-- NOTE: adjust top/left % once actual body image is loaded -->
         <a href="#sec-bouche-pharynx" class="hotspot js-scroll" id="hs-bouche-pharynx"
-           style="top:18.7%;left:49.7%"
+           style="top:22.3%;left:50.7%"
            title="Microbiote oral">
           <span class="hotspot-label" style="left:28px;top:-2px">Oral</span>
         </a>
         <a href="#sec-estomac" class="hotspot js-scroll" id="hs-estomac"
-           style="top:44.7%;left:40.0%"
+           style="top:46.5%;left:32.5%"
            title="Microbiote gastrique">
           <span class="hotspot-label" style="right:28px;top:-2px">Gastrique</span>
         </a>
         <a href="#sec-intestin-grele" class="hotspot js-scroll active" id="hs-intestin-grele"
-           style="top:52.4%;left:47.6%"
+           style="top:50.0%;left:47.5%"
            title="Intestin grêle">
           <span class="hotspot-label" style="left:28px;top:-2px">Intestin grêle</span>
         </a>
         <a href="#sec-colon" class="hotspot js-scroll" id="hs-colon"
-           style="top:59.1%;left:49.5%"
+           style="top:58.5%;left:46.0%"
            title="Côlon">
           <span class="hotspot-label" style="right:28px;top:-2px">Côlon</span>
         </a>
         <a href="#sec-tractus-urogenital" class="hotspot js-scroll" id="hs-tractus-urogenital"
-           style="top:70.2%;left:47.6%"
+           style="top:68.0%;left:46.0%"
            title="Microbiote vaginal">
           <span class="hotspot-label" style="left:28px;top:-2px">Vaginal</span>
         </a>
