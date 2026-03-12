@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Probaclac — Quel est le meilleur probiotique pour vous?</title>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --bg:#f8f7f4;--bg-dark:#0d1117;--green-1:#de6d38;--green-2:#e8894f;--green-3:#fde0cc;--green-4:#fef3eb;
+  --accent:#6c63ff;--warm:#f5e6d3;--text:#1a1a2e;--text-light:#5a5a72;--white:#fff;
+  --shadow-sm:0 2px 8px rgba(0,0,0,.04);--shadow-md:0 8px 32px rgba(0,0,0,.08);--shadow-lg:0 16px 64px rgba(0,0,0,.12);
+  --radius:16px;--radius-lg:24px;--radius-xl:32px;
+}
+html{scroll-behavior:smooth;height:auto!important;min-height:0!important;overflow:auto}
+body{font-family:'Plus Jakarta Sans',system-ui,sans-serif;background:var(--bg);color:var(--text);line-height:1.7;overflow-x:hidden;height:auto!important;min-height:0!important;display:block!important}
+html,body,header,section,footer,nav,div,main{flex-grow:0!important;flex-basis:auto!important}
+::-webkit-scrollbar{width:6px}::-webkit-scrollbar-track{background:transparent}::-webkit-scrollbar-thumb{background:var(--green-2);border-radius:3px}
+
+body.is-embed{overflow:hidden}
+body.is-embed .navbar,
+body.is-embed .mobile-menu{display:none!important}
+body.is-embed .hero{padding-top:3rem}
+body.is-embed .reveal,
+body.is-embed .reveal-delay-1,
+body.is-embed .reveal-delay-2{opacity:1!important;transform:none!important;transition:none!important}
+
+.navbar{position:fixed;top:0;left:0;right:0;z-index:100;padding:1rem 2rem;transition:all .4s}
+.navbar.scrolled{background:rgba(248,247,244,.85);backdrop-filter:blur(20px) saturate(180%);box-shadow:0 1px 0 rgba(0,0,0,.05)}
+.nav-inner{max-width:1280px;margin:0 auto;display:flex;align-items:center;justify-content:space-between}
+.logo{font-weight:800;font-size:1.5rem;color:var(--green-1);letter-spacing:-.02em;text-decoration:none}
+.logo span{color:var(--green-2)}
+.nav-links{display:flex;gap:2rem;align-items:center;list-style:none}
+.nav-links a{text-decoration:none;color:var(--text);font-weight:500;font-size:.9rem;transition:color .3s;position:relative}
+.nav-links a::after{content:'';position:absolute;bottom:-4px;left:0;width:0;height:2px;background:var(--green-2);transition:width .3s}
+.nav-links a:hover{color:var(--green-1)}.nav-links a:hover::after{width:100%}
+.btn-primary{background:var(--green-1);color:var(--white);padding:.7rem 1.5rem;border-radius:100px;text-decoration:none;font-weight:600;font-size:.9rem;transition:all .3s;border:none;cursor:pointer;display:inline-flex;align-items:center;gap:.5rem}
+.btn-primary:hover{background:var(--green-2);transform:translateY(-2px);box-shadow:0 8px 24px rgba(11,110,79,.3)}
+.btn-outline{background:transparent;color:var(--green-1);border:2px solid var(--green-1);padding:.65rem 1.5rem;border-radius:100px;text-decoration:none;font-weight:600;font-size:.9rem;transition:all .3s;cursor:pointer}
+.btn-outline:hover{background:var(--green-1);color:var(--white)}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:.5rem}
+.hamburger span{width:24px;height:2px;background:var(--text);border-radius:2px}
+
+.hero{min-height:0;display:flex;align-items:center;padding:8rem 2rem 4rem;position:relative;overflow:hidden;flex-shrink:0;flex-grow:0;height:auto!important}
+.hero::before{content:'';position:absolute;top:-200px;right:-200px;width:600px;height:600px;background:radial-gradient(circle,var(--green-3) 0%,transparent 70%);opacity:.6;animation:float 8s ease-in-out infinite}
+.hero::after{content:'';position:absolute;bottom:-100px;left:-100px;width:400px;height:400px;background:radial-gradient(circle,var(--warm) 0%,transparent 70%);opacity:.5;animation:float 10s ease-in-out infinite reverse}
+@keyframes float{0%,100%{transform:translate(0,0)}50%{transform:translate(30px,-30px)}}
+.hero-inner{max-width:1280px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center;position:relative;z-index:1}
+.hero-badge{display:inline-flex;align-items:center;gap:.5rem;background:var(--green-4);color:var(--green-1);padding:.5rem 1rem;border-radius:100px;font-size:.8rem;font-weight:600;margin-bottom:1.5rem;border:1px solid var(--green-3)}
+.hero-badge .dot{width:8px;height:8px;background:var(--green-2);border-radius:50%;animation:pulse 2s ease-in-out infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.4}}
+.hero h1{font-size:clamp(2.5rem,5vw,4rem);font-weight:800;line-height:1.1;letter-spacing:-.03em;margin-bottom:1.5rem}
+.hero h1 .gradient{background:linear-gradient(135deg,var(--green-1),var(--green-2),var(--accent));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.hero p{font-size:1.15rem;color:var(--text-light);max-width:500px;margin-bottom:2rem;line-height:1.8}
+.hero-actions{display:flex;gap:1rem;flex-wrap:wrap}
+.hero-visual{position:relative;display:flex;justify-content:center}
+.hero-blob{width:100%;max-width:500px;aspect-ratio:1;background:linear-gradient(135deg,var(--green-3),var(--green-4),var(--warm));border-radius:60% 40% 30% 70%/60% 30% 70% 40%;animation:morph 8s ease-in-out infinite;display:flex;align-items:center;justify-content:center}
+@keyframes morph{0%,100%{border-radius:60% 40% 30% 70%/60% 30% 70% 40%}25%{border-radius:30% 60% 70% 40%/50% 60% 30% 60%}50%{border-radius:50% 60% 30% 60%/30% 50% 70% 60%}75%{border-radius:60% 30% 50% 40%/60% 70% 30% 50%}}
+.hero-emoji{font-size:8rem;animation:float 6s ease-in-out infinite}
+.floating-card{position:absolute;background:var(--white);border-radius:var(--radius);padding:1rem 1.2rem;box-shadow:var(--shadow-md);animation:float 5s ease-in-out infinite;display:flex;align-items:center;gap:.75rem}
+.floating-card.c1{top:10%;right:-10%;animation-delay:-1s}
+.floating-card.c2{bottom:15%;left:-5%;animation-delay:-3s}
+.floating-card .fc-icon{width:40px;height:40px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:1.2rem}
+.floating-card .fc-text{font-size:.8rem;font-weight:600}.floating-card .fc-sub{font-size:.7rem;color:var(--text-light)}
+
+section{padding:6rem 2rem;flex-shrink:0;flex-grow:0;height:auto!important}
+.section-header{text-align:center;max-width:700px;margin:0 auto 4rem}
+.section-tag{display:inline-flex;align-items:center;gap:.5rem;background:var(--green-4);color:var(--green-1);padding:.4rem 1rem;border-radius:100px;font-size:.75rem;font-weight:700;text-transform:uppercase;letter-spacing:.05em;margin-bottom:1rem}
+.section-header h2{font-size:clamp(2rem,3.5vw,3rem);font-weight:800;line-height:1.15;letter-spacing:-.02em;margin-bottom:1rem}
+.section-header p{color:var(--text-light);font-size:1.05rem;line-height:1.8}
+
+.age-section{background:var(--white);border-radius:var(--radius-xl);max-width:1280px;margin:0 auto;padding:4rem}
+.age-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.5rem;margin-top:3rem}
+.age-card{background:var(--bg);border-radius:var(--radius-lg);padding:1.6rem 1.6rem 2rem;text-align:center;transition:all .4s;cursor:pointer;border:2px solid transparent;position:relative;overflow:hidden;text-decoration:none;color:inherit}
+.age-card::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,var(--green-3),transparent);opacity:0;transition:opacity .4s}
+.age-card:hover{transform:translateY(-8px);border-color:var(--green-2);box-shadow:var(--shadow-lg)}
+.age-card:hover::before{opacity:1}
+.age-card>*{position:relative;z-index:1}
+.age-icon{width:132px;height:132px;margin:0 auto 1rem;background:transparent;border-radius:0;display:flex;align-items:center;justify-content:center;font-size:2.5rem;transition:all .4s}
+.age-card:hover .age-icon{transform:scale(1.06)}
+.age-icon img{width:124px;height:124px;object-fit:contain;display:block}
+.age-card h3{font-size:1.1rem;font-weight:700;margin-bottom:.75rem}
+.age-card p{font-size:.85rem;color:var(--text-light);line-height:1.6}
+.age-card .age-link{display:inline-flex;align-items:center;gap:.3rem;color:var(--green-1);font-weight:600;font-size:.85rem;margin-top:1rem;opacity:0;transform:translateY(10px);transition:all .3s}
+.age-card:hover .age-link{opacity:1;transform:translateY(0)}
+
+.info-banner{max-width:1280px;margin:3rem auto;background:linear-gradient(135deg,var(--green-1),#c45a2a);border-radius:var(--radius-xl);padding:3rem 4rem;color:var(--white);display:grid;grid-template-columns:2fr 1fr;gap:3rem;align-items:center}
+.info-banner h3{font-size:1.5rem;font-weight:700;margin-bottom:1rem}
+.info-banner p{opacity:.85;line-height:1.8;font-size:.95rem}
+.info-banner-stat{text-align:center}.info-banner-stat .big{font-size:3.5rem;font-weight:800;display:block;line-height:1}.info-banner-stat .label{font-size:.85rem;opacity:.7;margin-top:.5rem}
+
+.condition-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;max-width:1280px;margin:0 auto}
+.condition-card{background:var(--white);border-radius:var(--radius-lg);padding:1.7rem 1.7rem 2rem;transition:all .4s;border:1px solid rgba(0,0,0,.05);text-decoration:none;color:inherit}
+.condition-card:hover{transform:translateY(-6px);box-shadow:var(--shadow-lg);border-color:var(--green-3)}
+.condition-card .cc-tag{display:inline-block;background:var(--green-4);color:var(--green-1);padding:.3rem .8rem;border-radius:100px;font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.04em;margin-bottom:1rem}
+.condition-card h3{font-size:1.15rem;font-weight:700;margin-bottom:.75rem}
+.condition-card p{font-size:.88rem;color:var(--text-light);line-height:1.7}
+.condition-card .cc-link{display:inline-flex;align-items:center;gap:.4rem;color:var(--green-1);font-weight:600;font-size:.85rem;margin-top:1.25rem;transition:gap .3s}
+.condition-card:hover .cc-link{gap:.7rem}
+.condition-card .cc-emoji{width:148px;height:148px;margin:0 auto .7rem;display:flex;align-items:center;justify-content:center}
+.condition-card .cc-emoji img{width:148px;height:148px;object-fit:contain;display:block}
+.condition-card .cc-emoji img.pack-vaginal{transform:scale(.82)}
+
+.allergens-section{max-width:1280px;margin:0 auto}
+.allergen-hero{background:linear-gradient(135deg,#fef9f3,#fef6f0);border-radius:var(--radius-xl);padding:4rem;display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center}
+.allergen-badges{display:flex;flex-wrap:wrap;gap:1rem;margin-top:2rem}
+.allergen-badge{background:var(--white);border:2px solid var(--green-3);border-radius:var(--radius);padding:1rem 1.5rem;display:flex;align-items:center;gap:.75rem;font-weight:600;font-size:.9rem;transition:all .3s}
+.allergen-badge:hover{border-color:var(--green-2);box-shadow:var(--shadow-sm);transform:translateY(-2px)}
+.allergen-details{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:3rem}
+.allergen-detail{background:var(--white);border-radius:var(--radius-lg);padding:2rem;border:1px solid rgba(0,0,0,.05)}
+.allergen-detail h4{font-size:1rem;font-weight:700;margin-bottom:.75rem}
+.allergen-detail p{font-size:.85rem;color:var(--text-light);line-height:1.7}
+
+.prebio-section{max-width:1280px;margin:0 auto}
+.prebio-grid{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center}
+.prebio-text h3{font-size:1.8rem;font-weight:800;margin-bottom:1rem;letter-spacing:-.02em}
+.prebio-text p{color:var(--text-light);line-height:1.8;margin-bottom:1rem;font-size:.95rem}
+.highlight-box{background:var(--green-4);border-left:4px solid var(--green-2);border-radius:0 var(--radius) var(--radius) 0;padding:1.5rem;margin-top:1.5rem}
+.highlight-box p{color:var(--green-1);font-weight:500;font-size:.9rem;line-height:1.7}
+
+.multi-section{max-width:1280px;margin:0 auto;background:var(--white);border-radius:var(--radius-xl);padding:4rem}
+.multi-grid{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:start;margin-top:3rem}
+.multi-text h3{font-size:1.4rem;font-weight:700;margin-bottom:1rem}
+.multi-text p{color:var(--text-light);line-height:1.8;margin-bottom:1rem;font-size:.95rem}
+.benefit-list{list-style:none;margin-top:1.5rem}
+.benefit-list li{display:flex;align-items:flex-start;gap:.75rem;padding:.75rem 0;border-bottom:1px solid rgba(0,0,0,.05);font-size:.9rem;line-height:1.6}
+.benefit-list li:last-child{border:none}
+.benefit-list .check{color:var(--green-2);font-size:1.1rem;flex-shrink:0;margin-top:2px}
+
+.yogurt-section{max-width:1280px;margin:0 auto}
+.yogurt-grid{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center}
+.yogurt-text h3{font-size:1.6rem;font-weight:800;margin-bottom:1rem;letter-spacing:-.02em}
+.yogurt-text p{color:var(--text-light);line-height:1.8;margin-bottom:1rem;font-size:.95rem}
+.warning-cards{display:grid;gap:1rem;margin-top:2rem}
+.warning-card{background:var(--bg);border-radius:var(--radius);padding:1.25rem 1.5rem;display:flex;align-items:flex-start;gap:1rem;transition:all .3s}
+.warning-card:hover{background:var(--white);box-shadow:var(--shadow-sm)}
+.warning-card .w-icon{font-size:1.3rem;flex-shrink:0;margin-top:2px}
+.warning-card p{font-size:.85rem;color:var(--text-light);line-height:1.6}
+
+.why-section{max-width:1280px;margin:0 auto;background:linear-gradient(135deg,var(--green-1),#b04e22);border-radius:var(--radius-xl);padding:4rem;color:var(--white)}
+.why-section .section-header h2{color:var(--white)}.why-section .section-header p{color:rgba(255,255,255,.7)}.why-section .section-tag{background:rgba(255,255,255,.15);color:var(--white)}
+.why-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem}
+.why-card{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.12);border-radius:var(--radius-lg);padding:2rem;transition:all .3s;backdrop-filter:blur(10px)}
+.why-card:hover{background:rgba(255,255,255,.14);transform:translateY(-4px)}
+.why-card .wc-icon{width:48px;height:48px;background:rgba(255,255,255,.12);border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:1.5rem;margin-bottom:1.25rem}
+.why-card h4{font-size:1rem;font-weight:700;margin-bottom:.5rem}
+.why-card p{font-size:.85rem;opacity:.75;line-height:1.7}
+
+.cta-section{max-width:1280px;margin:0 auto;text-align:center;padding:6rem 2rem}
+.cta-section h2{font-size:clamp(2rem,4vw,3rem);font-weight:800;letter-spacing:-.02em;margin-bottom:1rem}
+.cta-section p{color:var(--text-light);font-size:1.05rem;max-width:500px;margin:0 auto 2rem}
+.cta-actions{display:flex;justify-content:center;gap:1rem;flex-wrap:wrap}
+
+.reveal{opacity:1;transform:none}
+.js-reveal .reveal{opacity:0;transform:translateY(40px);transition:all .8s cubic-bezier(.4,0,.2,1)}
+.js-reveal .reveal.visible{opacity:1;transform:translateY(0)}
+.reveal-delay-1{transition-delay:.1s}.reveal-delay-2{transition-delay:.2s}
+
+.mobile-menu{display:none;position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(248,247,244,.98);backdrop-filter:blur(20px);z-index:99;flex-direction:column;align-items:center;justify-content:center;gap:2rem;opacity:0;pointer-events:none;transition:opacity .3s}
+.mobile-menu.active{display:flex;opacity:1;pointer-events:all}
+.mobile-menu a{font-size:1.3rem;font-weight:600;color:var(--text);text-decoration:none}
+.mobile-close{position:absolute;top:1.5rem;right:2rem;font-size:2rem;background:none;border:none;cursor:pointer;color:var(--text)}
+
+@media(max-width:1024px){
+  .hero-inner{grid-template-columns:1fr;text-align:center}.hero p{margin:0 auto 2rem}.hero-actions{justify-content:center}.hero-visual{order:-1}.hero-blob{max-width:350px}.floating-card{display:none}
+  .age-grid{grid-template-columns:repeat(2,1fr)}.condition-grid{grid-template-columns:repeat(2,1fr)}.info-banner{grid-template-columns:1fr;text-align:center;padding:3rem}
+  .allergen-hero{grid-template-columns:1fr}.prebio-grid{grid-template-columns:1fr}.multi-grid{grid-template-columns:1fr}.yogurt-grid{grid-template-columns:1fr}
+  .why-grid{grid-template-columns:repeat(2,1fr)}.allergen-details{grid-template-columns:1fr}
+}
+@media(max-width:768px){
+  .nav-links{display:none}.hamburger{display:flex}
+  .age-grid,.condition-grid,.why-grid{grid-template-columns:1fr}
+  .age-section,.multi-section,.why-section,.info-banner,.allergen-hero{padding:2rem}
+}
+</style>
+</head>
+<body>
+<nav class="navbar" id="navbar"><div class="nav-inner">
+  <ul class="nav-links">
+    <li><a href="#age">Selon l'âge</a></li><li><a href="#condition">Selon la condition</a></li>
+    <li><a href="#allergenes">Allergènes</a></li><li><a href="#prebiotiques">Pré & Probiotiques</a></li>
+    <li><a href="#pourquoi">Pourquoi Probaclac</a></li>
+  </ul>
+  <button class="hamburger" onclick="document.querySelector('.mobile-menu').classList.add('active')"><span></span><span></span><span></span></button>
+</div></nav>
+
+<div class="mobile-menu">
+  <button class="mobile-close" onclick="this.parentElement.classList.remove('active')">×</button>
+  <a href="#age" onclick="this.parentElement.classList.remove('active')">Selon l'âge</a>
+  <a href="#condition" onclick="this.parentElement.classList.remove('active')">Selon la condition</a>
+  <a href="#allergenes" onclick="this.parentElement.classList.remove('active')">Allergènes</a>
+  <a href="#prebiotiques" onclick="this.parentElement.classList.remove('active')">Pré & Probiotiques</a>
+  <a href="#pourquoi" onclick="this.parentElement.classList.remove('active')">Pourquoi Probaclac</a>
+</div>
+
+<header class="hero"><div class="hero-inner">
+  <div>
+    <div class="hero-badge"><span class="dot"></span> Probiotiques de grade pharmaceutique</div>
+    <h1>Quel est le <span class="gradient">meilleur probiotique</span> pour vous ?</h1>
+    <p>La composition de la flore intestinale évolue au fil de la vie. Découvrez les formules Probaclac, spécialement conçues selon l'âge et la condition pour un équilibre optimal.</p>
+    <div class="hero-actions">
+      <a href="#age" class="btn-primary">Trouver mon probiotique →</a>
+      <a href="#pourquoi" class="btn-outline">Pourquoi Probaclac?</a>
+    </div>
+  </div>
+  <div class="hero-visual">
+    <div class="hero-blob"><span class="hero-emoji">🦠</span></div>
+    <div class="floating-card c1"><div class="fc-icon" style="background:var(--green-4)">🧬</div><div><div class="fc-text">Multi-souches</div><div class="fc-sub">Lactobacilles + Bifidobactéries</div></div></div>
+    <div class="floating-card c2"><div class="fc-icon" style="background:var(--warm)">🍃</div><div><div class="fc-text">Sans allergènes</div><div class="fc-sub">Sans gluten · Sans soya · Sans lactose</div></div></div>
+  </div>
+</div></header>
+
+<section id="age">
+  <div class="section-header reveal"><div class="section-tag">🧬 Selon l'âge</div>
+    <h2>Des formules adaptées à chaque étape de la vie</h2>
+    <p>La concentration de Bifidobactéries diminue avec le temps, laissant plus d'espace aux bactéries pathogènes. Les complexes Probaclac ont été formulés selon l'évolution naturelle de la flore intestinale.</p>
+  </div>
+  <div class="age-section reveal"><div class="age-grid">
+    <a href="https://www.probaclac.ca/probiotique-bebes" class="age-card"><div class="age-icon"><img src="https://static.wixstatic.com/media/623234_e6aa613d2bf74ce3a6e7286a396b55fe~mv2.png" alt="Probaclac Enfants 1 à 3 ans"></div><h3>Enfants 1 à 3 ans</h3><p>Dès la naissance, le microbiote se développe. La capsule ouvrable facilite la consommation chez l'enfant.</p><span class="age-link">Découvrir →</span></a>
+    <a href="https://www.probaclac.ca/probiotique-enfant" class="age-card"><div class="age-icon"><img src="https://static.wixstatic.com/media/623234_1cfc6b4455904969afd4ac53c00a3686~mv2.png" alt="Probaclac Croquable"></div><h3>Croquable 3 ans +</h3><p>Dès l'âge de 3 ans, le microbiote intestinal continue de se développer jusqu'à l'âge adulte.</p><span class="age-link">Découvrir →</span></a>
+    <a href="https://www.probaclac.ca/probiotique-adulte" class="age-card"><div class="age-icon"><img src="https://static.wixstatic.com/media/623234_a1f50a26d5924e07a251cee4c8741d16~mv2.png" alt="Probaclac Adultes"></div><h3>Adultes</h3><p>À l'âge adulte, la composition de la flore probiotique intestinale se stabilise.</p><span class="age-link">Découvrir →</span></a>
+    <a href="https://www.probaclac.ca/probiotique-50-et-plus" class="age-card"><div class="age-icon"><img src="https://static.wixstatic.com/media/623234_ea1c7fed57ab45f69bfdcb7c884ddc07~mv2.png" alt="Probaclac 50 ans et plus"></div><h3>50 ans et +</h3><p>Après 50 ans, la concentration de bonnes bactéries, particulièrement les Bifidobactéries, diminue graduellement.</p><span class="age-link">Découvrir →</span></a>
+  </div></div>
+  <div class="info-banner reveal"><div><h3>L'importance des Bifidobactéries</h3><p>Les Bifidobactéries sont les bactéries probiotiques prédominantes au niveau du côlon. Leur concentration diminue substantiellement avec le temps, laissant plus d'espace au développement des bactéries pathogènes. Il est primordial d'utiliser des formules adaptées selon l'âge.</p></div>
+    <div class="info-banner-stat"><span class="big">15 000+</span><div class="label">espèces répertoriées dans le microbiote</div></div></div>
+</section>
+
+<section id="condition" style="background:var(--bg)">
+  <div class="section-header reveal"><div class="section-tag">💊 Selon la condition</div>
+    <h2>Des formules ciblées pour chaque besoin</h2>
+    <p>Chaque formule contient des souches spécifiques de bactéries, sélectionnées pour maximiser l'efficacité en fonction du besoin ciblé.</p>
+  </div>
+  <div class="condition-grid">
+    <a href="https://www.probaclac.ca/probiotique-voyage" class="condition-card reveal"><div class="cc-emoji"><img src="https://static.wixstatic.com/media/623234_1423a9ebaee84387a362af123422aacc~mv2.png" alt="Probaclac Voyageurs"></div><span class="cc-tag">Voyage</span><h3>Voyageurs</h3><p>Formule assurant un confort intestinal durant les voyages afin d'éviter les désagréments liés aux problèmes intestinaux.</p><span class="cc-link">En savoir plus →</span></a>
+    <a href="https://www.probaclac.ca/probiotique-antibiotique" class="condition-card reveal reveal-delay-1"><div class="cc-emoji"><img src="https://static.wixstatic.com/media/623234_226674c90c3f4cf380ff53ec7bbcb08a~mv2.png" alt="Probaclac Medic"></div><span class="cc-tag">Antibiotiques</span><h3>Medic</h3><p>Formule indiquée pour la réduction de la diarrhée associée à la prise d'antibiotiques.</p><span class="cc-link">En savoir plus →</span></a>
+    <a href="https://www.probaclac.ca/probiotique-extra-fort" class="condition-card reveal reveal-delay-2"><div class="cc-emoji"><img src="https://static.wixstatic.com/media/623234_05ce95835e794e1f9d91ac5a78e80e0d~mv2.png" alt="Probaclac Extra-fort"></div><span class="cc-tag">Intensif</span><h3>Extra-fort</h3><p>Formule à concentration élevée pour les personnes ayant des problèmes intestinaux aigus.</p><span class="cc-link">En savoir plus →</span></a>
+    <a href="https://www.probaclac.ca/probiotique-gastro-intestinal" class="condition-card reveal"><div class="cc-emoji"><img src="https://static.wixstatic.com/media/623234_0541f50d997746f8a916fcc39e7c4dac~mv2.png" alt="Probaclac GI"></div><span class="cc-tag">Gastro-intestinal</span><h3>GI</h3><p>Formule pour la réduction de la diarrhée associée aux antibiotiques et aide à contrôler la diarrhée infectieuse aiguë.</p><span class="cc-link">En savoir plus →</span></a>
+    <a href="https://www.probaclac.ca/probiotique-infection-urinaire" class="condition-card reveal reveal-delay-1"><div class="cc-emoji"><img src="https://static.wixstatic.com/media/623234_1c052655d6d44686b428b270e6dc8b26~mv2.png" alt="Probaclac Canneberges"></div><span class="cc-tag">Urinaire</span><h3>Canneberges</h3><p>Supporte l'équilibre bactérien du tractus urinaire et aide à prévenir les infections des voies urinaires.</p><span class="cc-link">En savoir plus →</span></a>
+    <a href="https://www.probaclac.ca/probiotique-vaginal" class="condition-card reveal reveal-delay-2"><div class="cc-emoji"><img class="pack-vaginal" src="https://static.wixstatic.com/media/623234_f9d5dc8351aa468580e8caeb5eacce29~mv2.png" alt="Probaclac Vaginal"></div><span class="cc-tag">Féminin</span><h3>Vaginal</h3><p>Formule féminine qui aide à réduire la récurrence de la vaginose bactérienne et maintenir l'équilibre du pH vaginal.</p><span class="cc-link">En savoir plus →</span></a>
+  </div>
+</section>
+
+<section id="allergenes">
+  <div class="section-header reveal"><div class="section-tag">🛡️ Allergènes</div><h2>Probiotiques sans allergènes</h2><p>Probaclac est fier d'offrir des probiotiques sans allergènes. Tout au long de la production, les allergènes alimentaires prioritaires sont évités.</p></div>
+  <div class="allergens-section">
+    <div class="allergen-hero reveal"><div>
+      <h3 style="font-size:1.6rem;font-weight:800;margin-bottom:1rem">Adaptés à tous, peu importe la sensibilité</h3>
+      <p style="color:var(--text-light);line-height:1.8">Nous sommes engagés à fournir des suppléments adaptés à tous. Probaclac est la référence pour des probiotiques sans protéines laitières, sans gluten, sans soya et sans tous les allergènes classiques.</p>
+      <p style="font-size:.8rem;color:var(--text-light);margin-top:1rem;font-style:italic">*Probaclac Croquable peut contenir des traces de protéines laitières. Probaclac Medic peut contenir des traces de soya.</p>
+      <div class="allergen-badges">
+        <div class="allergen-badge"><span class="ab-icon" style="font-size:1.5rem">🌾</span> Sans gluten</div>
+        <div class="allergen-badge"><span class="ab-icon" style="font-size:1.5rem">🥛</span> Sans lactose</div>
+        <div class="allergen-badge"><span class="ab-icon" style="font-size:1.5rem">🫘</span> Sans soya</div>
+        <div class="allergen-badge"><span class="ab-icon" style="font-size:1.5rem">🌿</span> Capsules végétales</div>
+      </div>
+    </div><div style="display:flex;align-items:center;justify-content:center"><div style="width:250px;height:250px;background:linear-gradient(135deg,var(--green-3),var(--green-4));border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:6rem">🛡️</div></div></div>
+    <div class="allergen-details reveal">
+      <div class="allergen-detail"><h4>🌾 Sans gluten</h4><p>Les personnes souffrant d'intolérance au gluten ou de la maladie cœliaque consomment souvent des probiotiques pour soulager les symptômes. Cependant, tous les probiotiques ne sont pas sans gluten. Il est primordial de consommer un probiotique sans gluten.</p></div>
+      <div class="allergen-detail"><h4>🫘 Sans soya</h4><p>Le soya fait partie des allergènes prioritaires les plus courants. Il est important que les personnes allergiques évitent les aliments qui en contiennent tout en faisant des choix alimentaires sains.</p></div>
+      <div class="allergen-detail"><h4>🥛 Sans lactose</h4><p>Les probiotiques peuvent provenir d'une source laitière et contenir des traces de lactose. Cela peut avoir des effets dérangeants chez les personnes souffrant d'intolérance au lactose.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="prebiotiques" style="background:var(--white)">
+  <div class="section-header reveal"><div class="section-tag">🔬 Science</div><h2>Probiotiques et Prébiotiques</h2><p>Il ne faut pas confondre prébiotiques et probiotiques. Ils travaillent en synergie pour votre santé intestinale.</p></div>
+  <div class="prebio-section"><div class="prebio-grid reveal">
+    <div style="display:flex;gap:2rem;justify-content:center;align-items:center;flex-wrap:wrap">
+      <div style="text-align:center"><div style="width:180px;height:180px;background:linear-gradient(135deg,var(--green-3),#f5c4a0);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:4rem;margin:0 auto">🦠</div><p style="font-weight:700;margin-top:1rem;color:var(--green-1)">Probiotiques</p><p style="font-size:.8rem;color:var(--text-light);max-width:160px;margin:.5rem auto 0">Micro-organismes vivants bénéfiques</p></div>
+      <div style="font-size:2rem;font-weight:800;color:var(--green-2)">+</div>
+      <div style="text-align:center"><div style="width:180px;height:180px;background:linear-gradient(135deg,var(--warm),#fce5c5);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:4rem;margin:0 auto">🌿</div><p style="font-weight:700;margin-top:1rem;color:var(--green-1)">Prébiotiques</p><p style="font-size:.8rem;color:var(--text-light);max-width:160px;margin:.5rem auto 0">Fibres végétales nourrissant les bifidobactéries</p></div>
+    </div>
+    <div class="prebio-text"><h3>Effet symbiotique</h3>
+      <p>Les <strong>probiotiques</strong> sont des micro-organismes vivants qui, lorsqu'ils sont ingérés en quantité suffisante, exercent des effets positifs sur la santé du microbiote.</p>
+      <p>Les <strong>prébiotiques</strong> sont des fibres végétales qui se retrouvent au niveau du côlon où elles servent de nourriture aux bifidobactéries probiotiques. On dit des fibres prébiotiques qu'elles ont un effet bifidogène.</p>
+      <div class="highlight-box"><p>Comme les probiotiques et les prébiotiques travaillent en synergie, certains suppléments les combinent pour produire un effet appelé « symbiotique ». C'est le cas de Probaclac.</p></div>
+    </div>
+  </div></div>
+</section>
+
+<section>
+  <div class="multi-section reveal">
+    <div class="section-header" style="margin-bottom:3rem"><div class="section-tag">🧬 Multi-souches</div><h2>Probiotiques multi-souches et la flore intestinale</h2></div>
+    <div class="multi-grid">
+      <div class="multi-text"><h3>Pourquoi un probiotique avec Lactobacilles et Bifidobactéries ?</h3>
+        <p>Le corps humain contient une multitude de souches. Choisir un probiotique multi-souches tel que Probaclac est le meilleur choix pour couvrir tout le tractus gastro-intestinal.</p>
+        <p>Les Lactobacilles font leur travail au niveau de l'intestin grêle alors que les Bifidobactéries colonisent les niches du côlon. Chaque souche possède son activité spécifique créant une synergie d'action positive.</p>
+        <div class="highlight-box"><p>Selon les observations en recherche, il y aurait un lien entre le cancer du côlon et la perte des Bifidobactéries avec l'âge. Soyez vigilant dans le choix de votre probiotique !</p></div>
+      </div>
+      <div><h3 style="font-size:1.1rem;font-weight:700;margin-bottom:1.25rem">Comment les bactéries probiotiques maintiennent l'équilibre :</h3>
+        <ul class="benefit-list">
+          <li><span class="check">✓</span>Compétitionnent avec les pathogènes pour l'adhésion aux sites récepteurs</li>
+          <li><span class="check">✓</span>Compétitionnent pour les nutriments nécessaires à leur multiplication</li>
+          <li><span class="check">✓</span>Produisent de l'acide lactique favorisant le bon équilibre du pH intestinal</li>
+          <li><span class="check">✓</span>Produisent des substances antimicrobiennes inhibant la croissance des pathogènes</li>
+          <li><span class="check">✓</span>Génèrent de multiples activités enzymatiques stimulant le système immunitaire</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section style="background:var(--bg)">
+  <div class="yogurt-section reveal"><div class="yogurt-grid">
+    <div class="yogurt-text"><div class="section-tag">🥛 À savoir</div>
+      <h3 style="margin-top:1rem">Et les yogourts probiotiques dans tout ça ?</h3>
+      <p>Pour obtenir les bénéfices santé d'un probiotique liquide dans lequel des souches d'origine humaine ont été ajoutées en grande quantité, ce dernier doit être consommé à l'intérieur d'une semaine suivant la date de fabrication.</p>
+      <p>Un taux trop élevé de Lactobacilles dans un lait fermenté nuit au produit durant sa conservation.</p>
+    </div>
+    <div><h4 style="font-weight:700;margin-bottom:1rem">Questions à se poser avant d'acheter :</h4>
+      <div class="warning-cards">
+        <div class="warning-card"><span class="w-icon">❓</span><p>Quelle est la date réelle de fabrication du produit ?</p></div>
+        <div class="warning-card"><span class="w-icon">🌡️</span><p>Le produit a-t-il toujours été entreposé selon les directives de l'étiquette ?</p></div>
+        <div class="warning-card"><span class="w-icon">🚛</span><p>Les standards de température entre 3 et 8°C ont-ils été respectés durant le transport ?</p></div>
+        <div class="warning-card"><span class="w-icon">🔬</span><p>Les études cliniques ont-elles été faites sur un produit fraîchement fabriqué ou sur celui des tablettes ?</p></div>
+      </div>
+      <div class="highlight-box" style="margin-top:1.5rem"><p>Choisissez un probiotique qui ne nécessite pas de réfrigération pour vous assurer que l'efficacité n'a pas été altérée.</p></div>
+    </div>
+  </div></div>
+</section>
+
+<section id="pourquoi">
+  <div class="why-section reveal">
+    <div class="section-header"><div class="section-tag">⭐ Avantages</div><h2>Pourquoi opter pour Probaclac&nbsp;?</h2><p>Des formulations de grade pharmaceutique, testées cliniquement et certifiées NPN.</p></div>
+    <div class="why-grid">
+      <div class="why-card"><div class="wc-icon">🧬</div><h4>Multi-souches</h4><p>Formulations à base de Bifidobactéries et Lactobacilles reflétant la composition naturelle de la flore, avec S. Thermophilus et S. Boulardii.</p></div>
+      <div class="why-card"><div class="wc-icon">🏥</div><h4>Grade pharmaceutique</h4><p>Des souches probiotiques testées cliniquement et certifiées NPN pour garantir qualité et efficacité.</p></div>
+      <div class="why-card"><div class="wc-icon">🎯</div><h4>Formules spécifiques</h4><p>Probiotiques formulés selon l'âge ou la condition pour une efficacité optimale et ciblée.</p></div>
+      <div class="why-card"><div class="wc-icon">🌿</div><h4>Prébiotiques inclus</h4><p>Chaque formule contient des prébiotiques pour un effet symbiotique et une meilleure colonisation.</p></div>
+      <div class="why-card"><div class="wc-icon">🛡️</div><h4>Sans allergènes</h4><p>Sans gluten, sans soya, sans lactose et sans allergènes classiques pour une consommation sans souci.</p></div>
+      <div class="why-card"><div class="wc-icon">⚜️</div><h4>Fabriqué au Québec</h4><p>Produit québécois de confiance, fabriqué selon les plus hauts standards de qualité au Canada.</p></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="cta-section reveal">
+    <h2>Prêt à prendre soin de votre <span style="background:linear-gradient(135deg,var(--green-1),var(--green-2));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text">flore intestinale</span> ?</h2>
+    <p>Trouvez le probiotique Probaclac adapté à vos besoins et commandez en ligne dès maintenant.</p>
+    <div class="cta-actions">
+      <a href="http://www.monprobiotique.ca" class="btn-primary" style="padding:1rem 2.5rem;font-size:1rem">Commander en ligne →</a>
+      <a href="https://www.probaclac.ca/foire-aux-questions" class="btn-outline" style="padding:.95rem 2.5rem;font-size:1rem">Consulter la FAQ</a>
+    </div>
+  </div>
+</section>
+
+<script>
+const isEmbed=window.self!==window.top;
+if(isEmbed)document.body.classList.add('is-embed');
+document.documentElement.classList.add('js-reveal');
+
+const navbar=document.getElementById('navbar');
+window.addEventListener('scroll',()=>{if(navbar)navbar.classList.toggle('scrolled',window.scrollY>50)});
+const reveals=document.querySelectorAll('.reveal');
+if(!isEmbed){
+  const observer=new IntersectionObserver(e=>{e.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add('visible');queueHeightSync()}})},{threshold:.1,rootMargin:'0px 0px -50px 0px'});
+  reveals.forEach(el=>observer.observe(el));
+}else{
+  reveals.forEach(el=>el.classList.add('visible'));
+}
+
+// Wix iframe height fix: measure the real rendered content instead of raw scrollHeight.
+let resizeFrame=0;
+function getContentHeight(){
+  const body=document.body;
+  const doc=document.documentElement;
+  const sections=[...document.querySelectorAll('header, section')].filter(el=>getComputedStyle(el).display!=='none');
+  const lastSection=sections[sections.length-1];
+  const lastBottom=lastSection?Math.ceil(lastSection.getBoundingClientRect().bottom+window.scrollY):0;
+  const bodyRect=Math.ceil(body.getBoundingClientRect().height);
+  const candidates=[
+    lastBottom,
+    Math.ceil(body.scrollHeight),
+    Math.ceil(body.offsetHeight),
+    Math.ceil(doc.offsetHeight),
+    bodyRect
+  ].filter(Boolean);
+  return Math.min(...candidates.filter(h=>h>0)) || 0;
+}
+function sendHeight(){
+  const h=getContentHeight();
+  if(!h)return;
+  window.parent.postMessage({type:'resize',height:h},'*');
+  window.parent.postMessage(JSON.stringify({type:'resize',height:h}),'*');
+  const wixHeight=document.getElementById('wix-embed-height');
+  if(wixHeight)wixHeight.textContent=String(h);
+}
+function queueHeightSync(){
+  cancelAnimationFrame(resizeFrame);
+  resizeFrame=requestAnimationFrame(sendHeight);
+}
+window.addEventListener('load',()=>{queueHeightSync();setTimeout(sendHeight,300);setTimeout(sendHeight,900)});
+window.addEventListener('resize',queueHeightSync);
+window.addEventListener('orientationchange',()=>setTimeout(sendHeight,250));
+document.querySelectorAll('img').forEach(img=>{
+  if(!img.complete)img.addEventListener('load',queueHeightSync,{once:true});
+});
+if(document.fonts&&document.fonts.ready){
+  document.fonts.ready.then(()=>setTimeout(sendHeight,50));
+}
+new ResizeObserver(queueHeightSync).observe(document.body);
+</script>
+</body>
+</html>

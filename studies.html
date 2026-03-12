@@ -1,0 +1,1051 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light only">
+<meta name="supported-color-schemes" content="light only">
+<title>Études scientifiques sur les probiotiques | Probaclac</title>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --bg:#f8f7f4;--bg-dark:#0d1117;--o1:#de6d38;--o2:#e8894f;--o3:#fde0cc;--o4:#fef3eb;
+  --medic:#3b7341;--medic-dark:#2f5f34;--medic-soft:#e8f5e6;
+  --vaginose:#6e9faf;--vaginose-dark:#5d8b9a;
+  --accent:#c45a2a;--warm:#f5e6d3;--text:#1a1a2e;--text-light:#5a5a72;--white:#ffffff;
+  --shadow-sm:0 2px 8px rgba(0,0,0,.04);--shadow-md:0 8px 32px rgba(0,0,0,.08);--shadow-lg:0 16px 64px rgba(0,0,0,.12);
+  --radius:16px;--radius-lg:24px;--radius-xl:32px;
+  --font-primary:"Helvetica Neue",Helvetica,Arial,sans-serif;
+  --font-secondary:"IBM Plex Sans","Helvetica Neue",Helvetica,Arial,sans-serif;
+  color-scheme:light only;
+}
+@media(prefers-color-scheme:dark){:root{--bg:#f8f7f4;--text:#1a1a2e;--text-light:#5a5a72;--white:#ffffff;--o4:#fef3eb;--o3:#fde0cc}}
+html{scroll-behavior:smooth;height:auto!important;min-height:0!important}
+body{font-family:var(--font-primary);font-weight:400;background:#f8f7f4;background-color:#f8f7f4;color:#1a1a2e;line-height:1.7;overflow-x:hidden;height:auto!important;display:block!important}
+html,body,header,section,footer,nav,div,main{flex-grow:0!important;flex-basis:auto!important}
+section{background-color:#f8f7f4!important}
+header{background-color:#f8f7f4!important}
+::-webkit-scrollbar{width:6px}::-webkit-scrollbar-thumb{background:var(--o2);border-radius:3px}
+
+.navbar{position:fixed;top:0;left:0;right:0;z-index:100;padding:1rem 2rem;transition:all .4s}
+.navbar.scrolled{background:rgba(248,247,244,.92);backdrop-filter:blur(20px) saturate(180%);box-shadow:0 1px 0 rgba(0,0,0,.05)}
+.nav-inner{max-width:1280px;margin:0 auto;display:flex;align-items:center;justify-content:space-between}
+.logo{font-family:var(--font-secondary);font-weight:700;font-size:1.5rem;color:var(--o1);letter-spacing:-.02em;text-decoration:none}.logo span{color:var(--o2)}
+.nav-links{display:flex;gap:2rem;align-items:center;list-style:none}
+.nav-links a{text-decoration:none;color:var(--text);font-weight:500;font-size:.9rem;transition:color .3s;position:relative}
+.nav-links a::after{content:'';position:absolute;bottom:-4px;left:0;width:0;height:2px;background:var(--o2);transition:width .3s}
+.nav-links a:hover{color:var(--o1)}.nav-links a:hover::after{width:100%}
+.btn-primary{font-family:var(--font-secondary);background:var(--o1);color:var(--white);padding:.7rem 1.5rem;border-radius:100px;text-decoration:none;font-weight:600;font-size:.9rem;transition:all .3s;border:none;cursor:pointer;display:inline-flex;align-items:center;gap:.5rem}
+.btn-primary:hover{background:var(--o2);transform:translateY(-2px);box-shadow:0 8px 24px rgba(222,109,56,.3)}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:.5rem}
+.hamburger span{width:24px;height:2px;background:var(--text);border-radius:2px}
+
+/* Hero */
+.hero{padding:4rem 2rem 3rem;position:relative;overflow:hidden;background-color:#f8f7f4}
+.hero::before{content:'';position:absolute;top:-200px;right:-200px;width:600px;height:600px;background:radial-gradient(circle,var(--o3) 0%,transparent 70%);opacity:.5;animation:float 8s ease-in-out infinite}
+.hero::after{content:'';position:absolute;bottom:-100px;left:-100px;width:400px;height:400px;background:radial-gradient(circle,var(--warm) 0%,transparent 70%);opacity:.4;animation:float 10s ease-in-out infinite reverse}
+@keyframes float{0%,100%{transform:translate(0,0)}50%{transform:translate(30px,-30px)}}
+.hero-layout{max-width:1100px;margin:0 auto;display:flex;align-items:center;gap:3rem;position:relative;z-index:1}
+.hero-text{flex:1}
+.hero-visual{flex:0 0 320px;display:flex;align-items:center;justify-content:center;position:relative}
+.hero-art{width:320px;height:360px;position:relative;animation:heroFloat 9s ease-in-out infinite}
+@keyframes heroFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+.hero-doc{position:absolute;border-radius:28px;background:linear-gradient(180deg,#fff,#f4f6f8);border:1px solid rgba(17,58,84,.08);box-shadow:0 24px 50px rgba(17,58,84,.08)}
+.hero-doc.back{inset:14% 10% 14% 12%;transform:rotate(-6deg);opacity:.72}
+.hero-doc.mid{inset:10% 7% 10% 15%;transform:rotate(4deg);opacity:.9}
+.hero-doc.front{inset:6% 12% 6% 8%;padding:1rem;display:flex;align-items:center;justify-content:center}
+.hero-chart-card{width:100%;background:#f7f9fb;border:1px solid rgba(0,0,0,.06);border-radius:20px;padding:1rem}
+.hero-chart-card svg{width:100%;height:auto;display:block}
+.hero-inner{max-width:800px;position:relative;z-index:1}
+.hero-badge{font-family:var(--font-secondary);display:inline-flex;align-items:center;gap:.5rem;background:var(--o4);color:var(--o1);padding:.5rem 1rem;border-radius:100px;font-size:.8rem;font-weight:600;margin-bottom:1.5rem;border:1px solid var(--o3)}
+.hero-badge .dot{width:8px;height:8px;background:var(--o2);border-radius:50%;animation:pulse 2s ease-in-out infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.4}}
+.hero h1{font-family:var(--font-primary);font-size:clamp(2.2rem,4.5vw,3.4rem);font-weight:300;line-height:1.1;letter-spacing:-.03em;margin-bottom:1.5rem}
+.hero h1 .gradient{background:linear-gradient(135deg,var(--o1),var(--o2),#d4523b);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.hero p{font-size:1.05rem;color:var(--text-light);max-width:540px;margin:0 0 2.5rem;line-height:1.8}
+@media(max-width:768px){.hero-layout{flex-direction:column-reverse;text-align:center}.hero-text{text-align:center}.hero p{margin:0 auto 2rem}.hero-visual{flex:0 0 auto}.hero-art{width:240px;height:280px}.hero-doc.front{padding:.75rem}.hero-chart-card{padding:.8rem}}
+
+/* Stats grid */
+.stats-bar{max-width:1400px;margin:-2rem auto 0;position:relative;z-index:2;display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:1rem;padding:0 2rem}
+.stat-card{background:var(--white);border-radius:28px;padding:1.45rem;box-shadow:var(--shadow-md);border:1px solid rgba(0,0,0,.04);transition:all .3s;display:grid;grid-template-rows:56px 150px auto;min-height:0}
+.stat-card:hover{transform:translateY(-4px);box-shadow:var(--shadow-lg)}
+.stat-card.accent-vaginal{border-color:rgba(110,159,175,.22)}
+.stat-card.accent-yeast{border-color:rgba(206,48,121,.16)}
+.stat-card.accent-ibs{border-color:rgba(42,123,155,.18)}
+.stat-card.accent-medic{border-color:rgba(79,173,79,.18)}
+.stat-topline{font-family:var(--font-secondary);font-size:.68rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--text-light);line-height:1.45;align-self:start}
+.stat-metric{display:flex;align-items:center;justify-content:flex-start}
+.stat-num{font-family:var(--font-primary);font-size:clamp(2.6rem,4vw,3.6rem);font-weight:400;color:var(--o1);line-height:.95;display:block;letter-spacing:-.04em}
+.stat-card.accent-vaginal .stat-num{color:var(--vaginose)}
+.stat-card.accent-yeast .stat-num{color:#ce3079}
+.stat-card.accent-ibs .stat-num{color:#2a7b9b}
+.stat-card.accent-medic .stat-num{color:var(--medic)}
+.stat-title{font-family:var(--font-secondary);font-size:.76rem;font-weight:700;line-height:1.28;color:var(--text);align-self:start;max-width:92%}
+
+/* Counter animation */
+.stat-num[data-target]{opacity:0;transform:translateY(20px);transition:all .6s}.stat-num[data-target].counted{opacity:1;transform:translateY(0)}
+
+/* Nav tabs */
+.study-nav{max-width:1280px;margin:4rem auto 2rem;padding:0 2rem;display:flex;gap:.75rem;flex-wrap:wrap;justify-content:center}
+.study-nav-btn{background:var(--white);border:2px solid var(--o3);border-radius:100px;padding:.65rem 1.5rem;font-size:.85rem;font-weight:600;color:var(--text);cursor:pointer;transition:all .3s;font-family:var(--font-secondary)}
+.study-nav-btn:hover,.study-nav-btn.active{background:var(--o1);color:var(--white);border-color:var(--o1)}
+.study-nav-btn[data-tab="vaginose"].active{background:var(--vaginose);border-color:var(--vaginose)}
+.study-nav-btn[data-tab="vaginose"]:hover{background:var(--vaginose);border-color:var(--vaginose);color:var(--white)}
+.study-nav-btn[data-tab="candidose"].active{background:#ce3079;border-color:#ce3079}
+.study-nav-btn[data-tab="candidose"]:hover{background:#ce3079;border-color:#ce3079;color:var(--white)}
+.study-nav-btn[data-tab="diarrhee"].active{background:var(--medic);border-color:var(--medic)}
+.study-nav-btn[data-tab="diarrhee"]:hover{background:var(--medic);border-color:var(--medic);color:var(--white)}
+.study-nav-btn[data-tab="ibs"].active{background:#2a7b9b;border-color:#2a7b9b}
+.study-nav-btn[data-tab="ibs"]:hover{background:#2a7b9b;border-color:#2a7b9b;color:var(--white)}
+/* Chart components */
+.chart-container{background:var(--white);border-radius:16px;padding:1.5rem;border:1px solid #eee;box-shadow:0 2px 12px rgba(0,0,0,.04);margin:1rem 0}
+.chart-title{font-family:var(--font-secondary);font-size:.8rem;font-weight:700;color:var(--text);margin-bottom:1rem;text-align:center}
+.chart-source{font-size:.65rem;color:#999;margin-top:.5rem;text-align:right;font-style:italic}
+.bar-chart{display:flex;align-items:flex-end;justify-content:center;gap:1.2rem;height:200px;padding:0 .5rem}
+.bar-group{display:flex;flex-direction:column;align-items:center;gap:.3rem;flex:1;max-width:80px}
+.bar-wrap{display:flex;align-items:flex-end;gap:4px;height:170px}
+.bar{border-radius:6px 6px 0 0;min-width:24px;transition:height .8s ease;position:relative}
+.bar-val{font-size:.65rem;font-weight:700;position:absolute;top:-18px;left:50%;transform:translateX(-50%);white-space:nowrap}
+.bar-label{font-size:.65rem;color:#666;text-align:center;line-height:1.2;max-width:90px}
+.chart-legend{display:flex;gap:1rem;justify-content:center;margin-top:.75rem;flex-wrap:wrap}
+.legend-item{display:flex;align-items:center;gap:4px;font-size:.65rem;color:#666}
+.legend-dot{width:10px;height:10px;border-radius:3px;flex-shrink:0}
+/* Line chart */
+.line-chart-wrap{position:relative;height:200px;padding:0 .5rem}
+.line-chart-svg{width:100%;height:100%}
+/* Comparison cards */
+.compare-cards{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin:1rem 0}
+.compare-card{background:var(--white);border-radius:14px;padding:1.25rem;border:1px solid #eee;text-align:center;box-shadow:0 2px 8px rgba(0,0,0,.04)}
+.cc-num{font-size:2.2rem;font-weight:900;line-height:1}
+.cc-label{font-size:.75rem;color:#666;margin-top:.35rem;line-height:1.3}
+.cc-sub{font-size:.65rem;color:#999;margin-top:.25rem}
+@media(max-width:768px){.compare-cards{grid-template-columns:1fr}.bar-chart{height:160px}.bar-wrap{height:130px}}
+.study-overview{display:grid;grid-template-columns:1fr 1.25fr;gap:1rem;margin:1.5rem 0}
+.overview-card,.protocol-card,.insight-card,.matrix-card{background:linear-gradient(180deg,#fff,#fff7f3);border:1px solid rgba(206,48,121,.14);border-radius:24px;box-shadow:var(--shadow-sm)}
+.overview-card{padding:1.4rem}
+.overview-kicker{font-family:var(--font-secondary);font-size:.72rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#ce3079;margin-bottom:.8rem}
+.overview-big{display:flex;align-items:flex-end;gap:.75rem;margin-bottom:.8rem}
+.overview-big strong{font-family:var(--font-primary);font-size:3.6rem;line-height:.9;color:#ce3079;font-weight:400}
+.overview-big span{font-size:1rem;font-weight:700;color:var(--text)}
+.overview-note{font-size:.82rem;color:var(--text-light);line-height:1.7}
+.protocol-card{padding:1.4rem;display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+.protocol-flow{display:flex;flex-direction:column;gap:.7rem}
+.flow-step{font-family:var(--font-secondary);position:relative;padding:1rem 1rem 1rem 1.1rem;border-radius:18px;color:#fff;font-weight:700;overflow:hidden}
+.flow-step::after{content:'';position:absolute;top:0;right:-22px;width:54px;height:100%;background:inherit;clip-path:polygon(0 0,100% 50%,0 100%)}
+.flow-step span,.flow-step small{position:relative;z-index:1;display:block}
+.flow-step small{margin-top:.2rem;font-size:.72rem;font-weight:600;opacity:.88}
+.flow-step.primary{background:linear-gradient(135deg,#ce3079,#a82563)}
+.flow-step.secondary{background:linear-gradient(135deg,#f0a54a,#d98722)}
+.flow-step.ghost{background:linear-gradient(135deg,#cfd3d8,#adb4bd);color:#3b4250}
+.protocol-meta{background:#f6e8ef;border-radius:18px;padding:1rem 1.1rem}
+.protocol-meta h5{font-family:var(--font-secondary);font-size:.9rem;margin-bottom:.55rem;color:var(--text)}
+.protocol-meta ul{padding-left:1rem;color:var(--text-light);font-size:.8rem;line-height:1.6}
+.protocol-meta li+li{margin-top:.25rem}
+.dual-charts{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin:1.2rem 0}
+.metric-card{background:#fff;border:1px solid rgba(0,0,0,.06);border-radius:22px;padding:1.2rem;box-shadow:var(--shadow-sm)}
+.metric-head{display:flex;align-items:flex-start;justify-content:space-between;gap:1rem;margin-bottom:.9rem}
+.metric-head h5{font-family:var(--font-primary);font-size:.95rem;line-height:1.25;color:var(--text);font-weight:400}
+.metric-pill{font-family:var(--font-secondary);padding:.35rem .7rem;border-radius:999px;background:#fdf0f6;color:#ce3079;font-size:.68rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;white-space:nowrap}
+.metric-sub{font-size:.76rem;color:var(--text-light);margin-top:.3rem;line-height:1.55}
+.insight-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:.9rem;margin:1.2rem 0}
+.insight-card{padding:1.15rem 1.1rem}
+.insight-card strong{display:block;font-family:var(--font-primary);font-size:1.9rem;line-height:1;color:#ce3079;margin-bottom:.35rem;font-weight:400}
+.insight-card span{display:block;font-family:var(--font-secondary);font-size:.8rem;font-weight:700;color:var(--text);margin-bottom:.28rem}
+.insight-card p{font-size:.74rem;color:var(--text-light);line-height:1.55}
+.matrix-card{padding:1.2rem;margin-top:1.25rem}
+.matrix-card h5{font-family:var(--font-primary);font-size:1rem;margin-bottom:.85rem;color:var(--text);font-weight:400}
+.evidence-matrix{display:grid;grid-template-columns:1.2fr repeat(3,1fr);gap:.6rem;font-size:.74rem}
+.matrix-head,.matrix-cell{border-radius:14px;padding:.8rem .85rem}
+.matrix-head{font-family:var(--font-secondary);background:#f8e7ef;font-weight:700;color:#8e2356;text-align:center}
+.matrix-head.topic{text-align:left}
+.matrix-cell{background:#fff;border:1px solid rgba(0,0,0,.06);color:var(--text-light)}
+.matrix-cell.topic{font-weight:700;color:var(--text)}
+.matrix-cell.good{background:#fff6fb;border-color:rgba(206,48,121,.18);color:#8e2356;font-weight:700;text-align:center}
+.matrix-cell.mid{background:#fffaf2;border-color:rgba(240,165,74,.22);color:#9a6220;font-weight:700;text-align:center}
+.mobile-matrix{display:none}
+.mobile-study-list,.mobile-summary-list{display:grid;gap:.9rem}
+.mobile-study-card,.mobile-summary-card{background:#fff;border:1px solid rgba(0,0,0,.06);border-radius:18px;padding:1rem}
+.mobile-study-head,.mobile-summary-head{display:flex;align-items:flex-start;justify-content:space-between;gap:.8rem;margin-bottom:.75rem}
+.mobile-study-head strong,.mobile-summary-head strong{font-family:var(--font-primary);font-size:1rem;font-weight:400;color:var(--text)}
+.mobile-study-head span,.mobile-summary-head span{font-family:var(--font-secondary);font-size:.72rem;color:var(--text-light);text-transform:uppercase;letter-spacing:.05em}
+.mobile-study-grid,.mobile-summary-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.65rem}
+.mobile-field{background:#fafafa;border:1px solid rgba(0,0,0,.05);border-radius:14px;padding:.75rem}
+.mobile-field-label{display:block;font-family:var(--font-secondary);font-size:.65rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--text-light);margin-bottom:.25rem}
+.mobile-field-value{display:block;font-size:.85rem;color:var(--text);line-height:1.45}
+.mobile-checks{display:flex;gap:.45rem;flex-wrap:wrap;margin-top:.75rem}
+.mobile-check{display:inline-flex;align-items:center;justify-content:center;min-width:2rem;height:2rem;padding:0 .6rem;border-radius:999px;background:#fff6fb;border:1px solid rgba(206,48,121,.18);color:#8e2356;font-family:var(--font-secondary);font-size:.72rem;font-weight:700}
+@media(max-width:900px){.study-overview,.dual-charts,.insight-grid{grid-template-columns:1fr}.protocol-card{grid-template-columns:1fr}}
+
+section{padding:4rem 2rem;flex-shrink:0;flex-grow:0;height:auto!important}
+
+/* Study section */
+.study-section{max-width:1080px;margin:0 auto 3rem;display:none}
+.study-section.active{display:block}
+
+/* Study card */
+.study-card{background:var(--white);border-radius:var(--radius-xl);overflow:hidden;margin-bottom:2rem;border:1px solid rgba(0,0,0,.05);transition:all .3s}
+.study-card:hover{box-shadow:var(--shadow-md)}
+.study-card-header{padding:2rem 2.5rem;cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:1rem;transition:background .3s}
+.study-card-header:hover{background:var(--o4)}
+.study-card-header h3{font-family:var(--font-primary);font-size:1.1rem;font-weight:400;display:flex;align-items:center;gap:.75rem;flex:1}
+.study-card-header .sc-icon{font-family:var(--font-secondary);width:36px;height:36px;background:var(--o4);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:.75rem;font-weight:700;color:var(--o1);flex-shrink:0;letter-spacing:-.02em}
+.study-card-header .chevron{width:32px;height:32px;background:var(--bg);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.9rem;transition:transform .3s;flex-shrink:0;color:var(--text-light)}
+.study-card.open .chevron{transform:rotate(180deg);background:var(--o4);color:var(--o1)}
+.study-card-body{max-height:0;overflow:hidden;transition:max-height .5s cubic-bezier(.4,0,.2,1)}
+.study-card.open .study-card-body{max-height:5000px}
+.study-card-content{padding:0 2.5rem 2.5rem}
+
+/* Content styles inside cards */
+.sc-text{color:var(--text-light);line-height:1.8;font-size:.92rem;margin-bottom:1rem}
+.sc-text strong{color:var(--text)}
+
+.result-highlight{background:linear-gradient(135deg,var(--o1),var(--accent));border-radius:var(--radius-lg);padding:2.5rem;color:var(--white);margin:1.5rem 0;display:flex;align-items:center;gap:2rem}
+.result-highlight.medic{background:linear-gradient(135deg,var(--medic),var(--medic-dark))}
+.result-highlight .rh-num{font-family:var(--font-primary);font-size:3.5rem;font-weight:400;line-height:1;flex-shrink:0;white-space:nowrap}
+.result-highlight .rh-text{font-size:.95rem;opacity:.9;line-height:1.7}
+
+.symptom-tags{display:flex;flex-wrap:wrap;gap:.5rem;margin:1rem 0}
+.symptom-tag{font-family:var(--font-secondary);background:var(--o4);color:var(--o1);padding:.4rem 1rem;border-radius:100px;font-size:.8rem;font-weight:600}
+
+.download-link{font-family:var(--font-secondary);display:inline-flex;align-items:center;gap:.5rem;background:var(--o4);color:var(--o1);padding:.7rem 1.2rem;border-radius:var(--radius);font-size:.82rem;font-weight:600;text-decoration:none;margin:.4rem .4rem .4rem 0;transition:all .3s;border:1px solid var(--o3)}
+.download-link:hover{background:var(--o1);color:var(--white);border-color:var(--o1);transform:translateY(-2px)}
+
+.info-box{background:var(--o4);border-left:4px solid var(--o2);border-radius:0 var(--radius) var(--radius) 0;padding:1.5rem;margin:1.5rem 0}
+.info-box p{color:var(--o1);font-weight:500;font-size:.88rem;line-height:1.7;margin:0}
+
+.causes-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:.75rem;margin:1rem 0}
+.cause-item{background:var(--bg);border-radius:var(--radius);padding:.8rem 1rem;font-size:.82rem;color:var(--text-light);display:flex;align-items:center;gap:.5rem}
+.cause-item .ci-dot{width:6px;height:6px;background:var(--o2);border-radius:50%;flex-shrink:0}
+
+/* Study figures - graph images */
+.study-figures{display:flex;gap:1rem;margin:1.5rem 0;flex-wrap:wrap;justify-content:center}
+.study-fig{flex:1;min-width:220px;max-width:420px;background:var(--white);border:1px solid rgba(0,0,0,.06);border-radius:var(--radius-lg);overflow:hidden;transition:all .4s;cursor:pointer;box-shadow:var(--shadow-sm)}
+.study-fig:hover{transform:translateY(-4px) scale(1.01);box-shadow:var(--shadow-lg)}
+.study-fig img{width:100%;height:auto;display:block;transition:transform .5s}
+.study-fig:hover img{transform:scale(1.03)}
+.study-fig figcaption{padding:.6rem 1rem;font-size:.72rem;color:var(--text-light);font-weight:500;text-align:center;border-top:1px solid rgba(0,0,0,.04);background:var(--o4)}
+.study-fig-solo{max-width:500px;margin:1.5rem auto}
+.study-fig-wide{max-width:560px;margin:1.5rem auto}
+@media(max-width:768px){
+  .study-figures{flex-direction:column}
+  .study-fig{max-width:100%}
+  .study-fig-solo,.study-fig-wide{max-width:100%}
+  .evidence-matrix{display:none}
+  .mobile-matrix{display:block}
+  .mobile-study-grid,.mobile-summary-grid{grid-template-columns:1fr}
+}
+
+/* References */
+.references-section{max-width:1080px;margin:0 auto}
+.ref-toggle{background:var(--white);border-radius:var(--radius-xl);padding:2rem 2.5rem;cursor:pointer;display:flex;align-items:center;justify-content:space-between;border:1px solid rgba(0,0,0,.05);transition:all .3s}
+.ref-toggle:hover{box-shadow:var(--shadow-sm)}
+.ref-toggle h3{font-size:1.1rem;font-weight:700;display:flex;align-items:center;gap:.75rem}
+.ref-toggle .chevron{width:32px;height:32px;background:var(--bg);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.9rem;transition:transform .3s;color:var(--text-light)}
+.ref-toggle.open .chevron{transform:rotate(180deg)}
+.ref-body{max-height:0;overflow:hidden;transition:max-height .5s}
+.ref-toggle.open+.ref-body{max-height:8000px}
+.ref-list{background:var(--white);border-radius:0 0 var(--radius-xl) var(--radius-xl);padding:0 2.5rem 2.5rem;columns:1;column-gap:2rem}
+.ref-item{font-size:.75rem;color:var(--text-light);line-height:1.6;padding:.4rem 0;break-inside:avoid;border-bottom:1px solid rgba(0,0,0,.03)}
+
+/* CTA */
+.cta-section{max-width:1000px;margin:3rem auto;text-align:center;background:linear-gradient(135deg,var(--o1),var(--accent));border-radius:var(--radius-xl);padding:4rem;color:var(--white)}
+.cta-section h2{font-family:var(--font-primary);font-size:clamp(1.6rem,3vw,2.2rem);font-weight:400;margin-bottom:1rem}
+.cta-section p{opacity:.85;max-width:500px;margin:0 auto 2rem;font-size:1rem}
+.cta-section .btn-white{font-family:var(--font-secondary);background:var(--white);color:var(--o1);padding:.85rem 2rem;border-radius:100px;text-decoration:none;font-weight:700;font-size:.95rem;transition:all .3s;display:inline-flex;align-items:center;gap:.5rem}
+.cta-section .btn-white:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(0,0,0,.2)}
+
+/* Footer */
+.footer{background:var(--bg-dark);color:rgba(255,255,255,.7);padding:4rem 2rem 2rem;margin-top:2rem}
+.footer-inner{max-width:1280px;margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr;gap:3rem}
+.footer h4{font-family:var(--font-secondary);color:var(--white);font-size:.9rem;font-weight:700;margin-bottom:1rem}
+.footer a{color:rgba(255,255,255,.6);text-decoration:none;font-size:.85rem;transition:color .3s}
+.footer a:hover{color:var(--o2)}
+.footer-links{list-style:none;display:flex;flex-direction:column;gap:.5rem}
+.footer-bottom{max-width:1280px;margin:3rem auto 0;padding-top:2rem;border-top:1px solid rgba(255,255,255,.1);display:flex;justify-content:space-between;align-items:center;font-size:.8rem}
+.footer-logo{font-family:var(--font-primary);font-weight:400;font-size:1.2rem;color:var(--white);margin-bottom:.75rem}
+
+.reveal{opacity:0;transform:translateY(30px);transition:all .7s cubic-bezier(.4,0,.2,1)}.reveal.visible{opacity:1;transform:translateY(0)}
+
+.mobile-menu{display:none;position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(248,247,244,.98);backdrop-filter:blur(20px);z-index:99;flex-direction:column;align-items:center;justify-content:center;gap:2rem;opacity:0;pointer-events:none;transition:opacity .3s}
+.mobile-menu.active{display:flex;opacity:1;pointer-events:all}
+.mobile-menu a{font-size:1.2rem;font-weight:600;color:var(--text);text-decoration:none}
+.mobile-close{position:absolute;top:1.5rem;right:2rem;font-size:2rem;background:none;border:none;cursor:pointer;color:var(--text)}
+
+@media(max-width:1280px){.stats-bar{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media(max-width:1024px){.stats-bar{grid-template-columns:repeat(2,minmax(0,1fr))}.result-highlight{flex-direction:column;text-align:center}.footer-inner{grid-template-columns:1fr 1fr}}
+@media(max-width:768px){.nav-links{display:none}.hamburger{display:flex}.stats-bar{grid-template-columns:1fr}.stat-card{min-height:auto}.study-card-header{padding:1.5rem}.study-card-content{padding:0 1.5rem 1.5rem}.ref-list{padding:0 1.5rem 1.5rem}.footer-inner{grid-template-columns:1fr}.footer-bottom{flex-direction:column;gap:1rem;text-align:center}.causes-grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="hero-layout">
+    <div class="hero-text">
+      <div class="hero-badge"><span class="dot"></span> Recherche clinique</div>
+      <h1>Études <span class="gradient">scientifiques</span> sur Probaclac</h1>
+      <p>Des formules probiotiques éprouvées cliniquement. Découvrez les études à double insu, randomisées et contrôlées qui démontrent l'efficacité de nos produits.</p>
+    </div>
+    <div class="hero-visual">
+      <div class="hero-art" aria-hidden="true">
+        <div class="hero-doc back"></div>
+        <div class="hero-doc mid"></div>
+        <div class="hero-doc front">
+          <div class="hero-chart-card">
+            <svg viewBox="0 0 220 110" xmlns="http://www.w3.org/2000/svg">
+              <line x1="18" y1="12" x2="18" y2="92" stroke="#d8d8de"/>
+              <line x1="18" y1="92" x2="202" y2="92" stroke="#d8d8de"/>
+              <rect x="34" y="60" width="20" height="32" rx="8" fill="#cfcfcf"/>
+              <rect x="62" y="44" width="20" height="48" rx="8" fill="#1c1c1c"/>
+              <rect x="90" y="26" width="20" height="66" rx="8" fill="#e06d34"/>
+              <rect x="118" y="50" width="20" height="42" rx="8" fill="#cfcfcf"/>
+              <rect x="146" y="34" width="20" height="58" rx="8" fill="#1c1c1c"/>
+              <rect x="174" y="18" width="20" height="74" rx="8" fill="#e06d34"/>
+              <polyline points="44,70 72,54 100,36 128,58 156,42 184,26" fill="none" stroke="#1c1c1c" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+              <circle cx="44" cy="70" r="4" fill="#1c1c1c"/>
+              <circle cx="72" cy="54" r="4" fill="#1c1c1c"/>
+              <circle cx="100" cy="36" r="4" fill="#1c1c1c"/>
+              <circle cx="128" cy="58" r="4" fill="#1c1c1c"/>
+              <circle cx="156" cy="42" r="4" fill="#1c1c1c"/>
+              <circle cx="184" cy="26" r="4" fill="#1c1c1c"/>
+            </svg>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<div class="stats-bar reveal">
+  <article class="stat-card">
+    <div class="stat-topline">Clostridium<br>difficile</div>
+    <div class="stat-metric"><span class="stat-num" data-target="61" data-prefix="-" data-suffix="%">0</span></div>
+    <h3 class="stat-title">Réduction de la DACD<br>en milieu hospitalier</h3>
+  </article>
+  <article class="stat-card accent-medic">
+    <div class="stat-topline">Diarrhée et antibiotiques</div>
+    <div class="stat-metric"><span class="stat-num" data-target="86" data-prefix="-" data-suffix="%">0</span></div>
+    <h3 class="stat-title">Baisse du risque avec<br>supplémentation</h3>
+  </article>
+  <article class="stat-card accent-vaginal">
+    <div class="stat-topline">Vaginose<br>bactérienne</div>
+    <div class="stat-metric"><span class="stat-num" data-target="84" data-prefix="-" data-suffix="%">0</span></div>
+    <h3 class="stat-title">Récurrence réduite<br>avec probiotiques vaginaux</h3>
+  </article>
+  <article class="stat-card accent-yeast">
+    <div class="stat-topline">Infection à<br>levure</div>
+    <div class="stat-metric"><span class="stat-num" data-target="91" data-suffix="%">0</span></div>
+    <h3 class="stat-title">Femmes sans rechute<br>après 4 mois</h3>
+  </article>
+  <article class="stat-card accent-ibs">
+    <div class="stat-topline">Syndrome de l'intestin<br>irritable</div>
+    <div class="stat-metric"><span class="stat-num" style="color:#2a7b9b">+33%</span></div>
+    <h3 class="stat-title">Fréquence des selles<br>en IBS-C</h3>
+  </article>
+  <article class="stat-card accent-ibs">
+    <div class="stat-topline">Syndrome de l'intestin<br>irritable</div>
+    <div class="stat-metric"><span class="stat-num" style="color:#2a7b9b">-21%</span></div>
+    <h3 class="stat-title">Fréquence des selles<br>en IBS-D</h3>
+  </article>
+</div>
+
+<section id="etudes">
+  <div class="study-nav reveal">
+    <button class="study-nav-btn active" data-tab="cdifficile">C. Difficile</button>
+    <button class="study-nav-btn" data-tab="diarrhee">Diarrhee &amp; Antibiotiques</button>
+    <button class="study-nav-btn" data-tab="vaginose">Vaginose bacterienne</button>
+    <button class="study-nav-btn" data-tab="candidose">Infection a levure</button>
+    <button class="study-nav-btn" data-tab="ibs">Syndrome de l'intestin irritable</button>
+    <button class="study-nav-btn" data-tab="acidite">Resistance a l'acide</button>
+  </div>
+
+  <div class="study-section active" id="cdifficile">
+    <div class="study-card open reveal">
+      <div class="study-card-header" onclick="toggleCard(this)">
+        <h3><span class="sc-icon">01</span> Clostridium difficile - Etude Hopital Santa Cabrini</h3>
+        <span class="chevron">▼</span>
+      </div>
+      <div class="study-card-body"><div class="study-card-content">
+        <p class="sc-text">La <strong>Clostridium difficile</strong> est une bactérie qui réside normalement sans causer aucun problème dans l'intestin d'environ 5% de la population. Suite à un traitement antibiotique, la colonisation bactérienne dans l'intestin diminue, ce qui favorise la prolifération du C. difficile. Bien installées, les bactéries produisent des toxines qui peuvent endommager l'intestin et causer la diarrhée.</p>
+        <p class="sc-text">La diarrhée associée au Clostridium difficile (DACD) représente la <strong>premiere cause de diarrhees infectieuses nosocomiales</strong>.</p>
+
+        <div class="symptom-tags">
+          <span class="symptom-tag">Diarrhee</span>
+          <span class="symptom-tag">Crampes abdominales</span>
+          <span class="symptom-tag">Fievre</span>
+        </div>
+
+        <figure class="study-fig study-fig-solo"><img src="https://static.wixstatic.com/media/623234_7ef7133fa2a54bfeb58564ab7890e248~mv2.png/v1/fill/w_980,h_518,al_c,q_90,usm_0.66_1.00_0.01,enc_avif,quality_auto/61pctpbl.png" alt="Reduction de 61% du C. difficile"><figcaption>Reduction de 61 % des infections a C. difficile - Hopital Santa Cabrini</figcaption></figure>
+
+        <p class="sc-text">Generalement, les personnes atteintes guerissent a l'aide du traitement antibiotique, bien que les recherches estiment que <strong>le traitement initial echoue chez plus de 20% des patients</strong>. Les personnes suivant une antibiotherapie sont 7 a 10 fois plus susceptibles de souffrir de l'infection.</p>
+
+        <div class="result-highlight">
+          <div class="rh-num">-61%</div>
+          <div class="rh-text">L'administration de probiotiques Probaclac comme mesure preventive a permis de reduire la DACD de 61% a l'Hopital Santa Cabrini de Montreal. Etude realisee sur 8 mois aupres de 5 000 patients, a double insu et independamment des Laboratoires Nicar.</div>
+        </div>
+
+        <div class="info-box"><p>Les personnes dans un milieu hospitalier ou dans une maison de repos sont une population a risque. Il est aussi possible de retrouver du sang, du mucus ou du pus dans les selles.</p></div>
+
+        <h4 style="font-size:.95rem;font-weight:700;margin:1.5rem 0 .75rem">Etude concernant Probaclac Adultes :</h4>
+        <a href="https://www.probaclac.ca/_files/ugd/623234_54c1ac82c86a49e888c75701801b14ba.pdf" class="download-link">↓ Important risk reduction in nosocomial C. difficile with institution of probiotic prophylaxis - Telecharger</a>
+      </div></div>
+    </div>
+  </div>
+
+  <div class="study-section" id="diarrhee">
+    <div class="study-card open reveal">
+      <div class="study-card-header" onclick="toggleCard(this)">
+        <h3><span class="sc-icon">02</span> Probaclac Medic - S. boulardii</h3>
+        <span class="chevron">▼</span>
+      </div>
+      <div class="study-card-body"><div class="study-card-content">
+        <p class="sc-text">Les antibiotiques a large spectre agissent contre un grand nombre de bactéries sans faire de distinction entre les bactéries pathogènes et les bonnes bactéries résidentes de la flore intestinale. Le déséquilibre bactérien intestinal ainsi causé peut entraîner une <strong>diarrhée associée aux antibiotiques (DAA)</strong>.</p>
+        <p class="sc-text">Plusieurs études ont confirmé l'efficacité de la levure probiotique <strong>Saccharomyces boulardii</strong> dans le traitement préventif. Ce probiotique ne peut être affecté par les antibiotiques et aide à restaurer la flore intestinale.</p>
+
+        <div class="result-highlight medic">
+          <div class="rh-num">-86%</div>
+          <div class="rh-text">Une étude randomisée contrôlée à double insu auprès de 151 patients adultes hospitalisés : le groupe placebo a développé la diarrhée dans un ratio de 9% alors que le groupe avec supplémentation avait un ratio de 1,4% - une diminution de 86%.</div>
+        </div>
+
+        <figure class="study-fig study-fig-solo"><img src="https://static.wixstatic.com/media/623234_b2f2ace0ffdd47ab8595fee2d72f4dba~mv2.png/v1/fill/w_980,h_401,al_c,q_90,usm_0.66_1.00_0.01,enc_avif,quality_auto/86PCT.png" alt="Reduction de 86% de la diarrhee"><figcaption>Reduction de 86 % de la DAA avec S. boulardii - Etude a double insu</figcaption></figure>
+
+        <p class="sc-text">L'effet bénéfique a aussi été reproduit dans un essai randomisé contrôlé à double insu auprès de <strong>269 enfants âgés entre 6 mois et 14 ans</strong>. La formule Probaclac Medic contient 5 milliards de cellules actives par capsule.</p>
+
+        <h4 style="font-size:.95rem;font-weight:700;margin:1.5rem 0 .75rem">Etudes concernant Probaclac Medic :</h4>
+        <a href="https://www.probaclac.ca/_files/ugd/623234_779d25202386422a88c1fc39b1cece37.pdf" class="download-link">↓ S. boulardii in prevention of antibiotic-associated diarrhoea in children</a>
+        <a href="https://www.probaclac.ca/_files/ugd/623234_6850b59346164519a6fdbe960b99d1fe.pdf" class="download-link">↓ Prophylactic S. boulardii in prevention of antibiotic-associated diarrhea</a>
+      </div></div>
+    </div>
+
+    <div class="study-card reveal">
+      <div class="study-card-header" onclick="toggleCard(this)">
+        <h3><span class="sc-icon">03</span> Probaclac GI - Lactobacillus rhamnosus GG</h3>
+        <span class="chevron">▼</span>
+      </div>
+      <div class="study-card-body"><div class="study-card-content">
+        <p class="sc-text">Recommandés pour prévenir la diarrhée associée aux antibiotiques, <strong>Lactobacillus rhamnosus GG</strong> réduit significativement le risque d'être atteint de diarrhée associée à la prise d'antibiotiques.</p>
+
+        <div class="result-highlight">
+          <div class="rh-num">-88%</div>
+          <div class="rh-text">Lactobacillus rhamnosus GG a démontré cliniquement sa propension à favoriser la croissance de bactéries amicales. La souche GG a la capacité naturelle de survivre à l'acidité gastrique et de servir de barrière aux bactéries pathogènes.</div>
+        </div>
+
+        <div class="study-figures">
+          <figure class="study-fig"><img src="https://static.wixstatic.com/media/623234_a226fb6c54754f15a822a06ebe31fc00~mv2.png/v1/fill/w_980,h_461,al_c,q_90,usm_0.66_1.00_0.01,enc_avif,quality_auto/88pct.png" alt="Reduction de 88% - Lactobacillus GG"><figcaption>Reduction de 88 % avec L. rhamnosus GG</figcaption></figure>
+          <figure class="study-fig"><img src="https://static.wixstatic.com/media/623234_59133920c9904367804dc27d5174dbcf~mv2.jpg/v1/fill/w_980,h_1053,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/GRAPHIQUEGG.jpg" alt="Graphique Lactobacillus GG"><figcaption>Efficacite clinique de la souche GG</figcaption></figure>
+        </div>
+
+        <p class="sc-text">Les diarrhées infectieuses sont des diarrhées aiguës. L'OMS les définit par l'émission d'au moins 3 selles molles à liquides par jour depuis moins de 2 semaines. Les études suggèrent que l'équilibre intestinal pourra être rétabli par la réhydratation et la supplémentation probiotiques.</p>
+        <p class="sc-text">Les données cliniques sur GG ont prouvé sa capacité à <strong>réduire l'incidence et la durée d'épisodes de diarrhée</strong> causée par des infections d'origine virale ou bactérienne.</p>
+
+        <h4 style="font-size:.95rem;font-weight:700;margin:1.5rem 0 .75rem">Etudes concernant Probaclac GI :</h4>
+        <a href="https://www.probaclac.ca/_files/ugd/623234_4215de22536a4a2fa3e1ef44bd2a996d.pdf" class="download-link">↓ Effect of oral Lactobacillus GG on antibiotic-associated GI side-effects</a>
+        <a href="https://www.probaclac.ca/_files/ugd/623234_90566cd26c2947dc9febf3e9f2f868ea.pdf" class="download-link">↓ Effect of different probiotic preparations on anti-H. pylori therapy</a>
+        <a href="https://www.probaclac.ca/_files/ugd/623234_bf5cf6f31d9b42a986df6c07feac4052.pdf" class="download-link">↓ Effect of Lactobacillus GG supplementation - Pilot study</a>
+      </div></div>
+    </div>
+  </div>
+
+  <div class="study-section" id="vaginose">
+    <div class="study-card open reveal">
+      <div class="study-card-header" onclick="toggleCard(this)">
+        <h3><span class="sc-icon">04</span> Probaclac Vaginal - Vaginose bacterienne</h3>
+        <span class="chevron">▼</span>
+      </div>
+      <div class="study-card-body"><div class="study-card-content">
+        <p class="sc-text">La flore vaginale est composee d'un ensemble de micro-organismes dont une tres grande quantite de bacteries lactobacilles, appelee la <strong>flore de Doderlein</strong> qui represente environ 95% de l'ecosysteme vaginal. Les bonnes bacteries forment un biofilm protecteur de la muqueuse vaginale.</p>
+        <p class="sc-text">L'effet protecteur des lactobacilles se decline en differentes actions : elles inhibent la croissance des bacteries pathogenes en secretant une variete de substances et elles nuisent a leur adhesion aux cellules epitheliales vaginales.</p>
+
+        <div class="result-highlight" style="background:linear-gradient(135deg,#6e9faf,#5d8b9a)">
+          <div class="rh-num">-84%</div>
+          <div class="rh-text">Une etude aupres de 120 femmes avec un historique de vaginose bacterienne recurrente demontre que l'insertion de probiotiques dans la cavite vaginale reduit la recurrence de la vaginose bacterienne de plus de 84%.</div>
+        </div>
+
+        <div class="study-figures">
+          <figure class="study-fig"><img src="https://static.wixstatic.com/media/623234_24c947ad80f64cf2ba0da13139caec8c~mv2.jpg/v1/crop/x_0,y_5,w_1143,h_402/fill/w_980,h_345,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/84PCT.jpg" alt="Reduction de 84% de la vaginose bacterienne"><figcaption>Reduction de 84 % de la recurrence de la VB</figcaption></figure>
+          <figure class="study-fig"><img src="https://static.wixstatic.com/media/623234_f34e278849df456591e4b7a699a7359e~mv2.png/v1/crop/x_0,y_10,w_2336,h_1184/fill/w_980,h_497,al_c,q_90,usm_0.66_1.00_0.01,enc_avif,quality_auto/etudevaginal.png" alt="Etude Probaclac Vaginal"><figcaption>Resultats cliniques - Probaclac Vaginal</figcaption></figure>
+        </div>
+
+        <p class="sc-text">La formule Probaclac Vaginal contient <strong>8 milliards de bacteries de 3 differentes souches</strong> et aide a reguler la flore de Doderlein en la repeuplant.</p>
+
+        <h4 style="font-size:.9rem;font-weight:700;margin:1.5rem 0 .5rem">Causes pouvant mener a un desequilibre :</h4>
+        <div class="causes-grid">
+          <div class="cause-item"><span class="ci-dot"></span>Variations hormonales (grossesse)</div>
+          <div class="cause-item"><span class="ci-dot"></span>Antibiotherapie</div>
+          <div class="cause-item"><span class="ci-dot"></span>Hygiene vaginale excessive</div>
+          <div class="cause-item"><span class="ci-dot"></span>Rapports sexuels</div>
+          <div class="cause-item"><span class="ci-dot"></span>Stress</div>
+          <div class="cause-item"><span class="ci-dot"></span>Tabac</div>
+        </div>
+
+        <p class="sc-text" style="margin-top:1.25rem">Une vaginose bacterienne est un desequilibre pouvant etre cause par la proliferation de bacteries comme la <em>Gardnerella vaginalis</em> ou la <em>Prevotella</em>. Ce changement implique une augmentation du pH vaginal normalement acide. Cette infection est asymptomatique chez la moitie des femmes.</p>
+
+        <figure class="study-fig study-fig-wide"><img src="https://static.wixstatic.com/media/623234_da39a55e774b48e1b8fdf38627ef2571~mv2.jpg/v1/crop/x_0,y_2,w_1400,h_914/fill/w_980,h_640,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/VAGINOSEfr.jpg" alt="Schema vaginose bacterienne"><figcaption>Mecanisme de la vaginose bacterienne et role de la flore de Doderlein</figcaption></figure>
+
+        <h4 style="font-size:.95rem;font-weight:700;margin:1.5rem 0 .75rem">Etude concernant Probaclac Vaginal :</h4>
+        <a href="https://www.probaclac.ca/_files/ugd/623234_b79c99ec5a3b4524b22388c3e45be291.pdf" class="download-link">↓ Efficacy of vaginal probiotic capsules for recurrent bacterial vaginosis</a>
+      </div></div>
+    </div>
+  </div>
+
+  <div class="study-section" id="candidose">
+    <div class="study-card open reveal">
+      <div class="study-card-header" onclick="toggleCard(this)">
+        <h3><span class="sc-icon">05</span> Candidose vulvo-vaginale récurrente</h3>
+        <span class="chevron">▼</span>
+      </div>
+      <div class="study-card-body"><div class="study-card-content">
+        <p class="sc-text"><strong>L. plantarum</strong> est une souche unique isolée d'une flore vaginale saine, bénéficiant de preuves mécanistiques et cliniques complètes. Étudiée chez plus de <strong>800 femmes</strong> dans 6 études cliniques, elle démontre son efficacité pour le maintien d'un équilibre vaginal optimal et la prise en charge de la candidose vulvo-vaginale récurrente (rVVC).</p>
+
+        <div class="result-highlight" style="background:linear-gradient(135deg,#ce3079,#a82563)">
+          <div class="rh-num">91%</div>
+          <div class="rh-text">des femmes n'ont pas eu de rechute après 4 mois de suivi dans l'étude Carriero (2007) portant sur 476 femmes atteintes de candidose vulvo-vaginale.</div>
+        </div>
+
+        <div class="study-overview">
+          <div class="overview-card">
+            <div class="overview-kicker">Souche clinique</div>
+            <div class="overview-big">
+              <strong>800+</strong>
+              <span>femmes étudiées<br>dans 6 essais</span>
+            </div>
+            <p class="overview-note">Cette souche est issue d'une flore vaginale humaine saine. Les données documentent à la fois le maintien de l'équilibre vaginal, la candidose vulvo-vaginale récurrente et l'amélioration des symptômes observés après traitement.</p>
+          </div>
+          <div class="protocol-card">
+            <div class="protocol-flow">
+              <div class="flow-step primary">
+                <span>Origine humaine</span>
+                <small>souche isolée d'une flore vaginale saine</small>
+              </div>
+              <div class="flow-step secondary">
+                <span>Action documentée</span>
+                <small>pH, symptômes, recolonisation et rechutes</small>
+              </div>
+              <div class="flow-step ghost">
+                <span>Usage clinique</span>
+                <small>en adjuvant d'un traitement antifongique</small>
+              </div>
+            </div>
+            <div class="protocol-meta">
+              <h5>Points clés</h5>
+              <ul>
+                <li>6 études cliniques, dont 4 par voie vaginale</li>
+                <li>contribue à la santé vaginale en cas de VVC récurrente</li>
+                <li>normalise le pH et favorise une flore associée à la santé vaginale</li>
+                <li>adhésion et interférence avec <em>Candida albicans</em> observées in vitro</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="info-box" style="border-color:#ce3079"><p>Cette souche démontre une activité inhibitrice <strong>forte</strong> contre <em>E. coli</em> et <em>K. pneumoniae</em>, et <strong>intermédiaire</strong> contre <em>P. mirabilis</em>. Ces bactéries sont impliquées dans plusieurs infections urinaires et vaginales.</p></div>
+
+        <div class="dual-charts">
+          <div class="metric-card">
+            <div class="metric-head">
+              <div>
+                <h5>Nava 2002 - réduction du pH et des symptômes</h5>
+                <p class="metric-sub">Étude sur 30 femmes avec vaginite d'origine bactérienne ou fongique, 6 jours de prise puis 9 jours de suivi.</p>
+              </div>
+              <span class="metric-pill">T7 / T15</span>
+            </div>
+            <svg viewBox="0 0 360 220" style="width:100%;height:auto" xmlns="http://www.w3.org/2000/svg">
+              <line x1="32" y1="26" x2="32" y2="178" stroke="#d8d8de"/>
+              <line x1="32" y1="178" x2="332" y2="178" stroke="#d8d8de"/>
+              <text x="70" y="196" text-anchor="middle" font-size="10" fill="#7f8791">Démangeaison</text>
+              <text x="126" y="196" text-anchor="middle" font-size="10" fill="#7f8791">Brûlure</text>
+              <text x="182" y="196" text-anchor="middle" font-size="10" fill="#7f8791">Œdème</text>
+              <text x="238" y="196" text-anchor="middle" font-size="10" fill="#7f8791">Érythème</text>
+              <text x="294" y="196" text-anchor="middle" font-size="10" fill="#7f8791">Leucorrhée</text>
+              <rect x="54" y="78" width="12" height="100" rx="6" fill="#a8adb4"/>
+              <rect x="68" y="140" width="12" height="38" rx="6" fill="#d95a84"/>
+              <rect x="82" y="148" width="12" height="30" rx="6" fill="#e9a2b8"/>
+              <rect x="110" y="78" width="12" height="100" rx="6" fill="#a8adb4"/>
+              <rect x="124" y="146" width="12" height="32" rx="6" fill="#d95a84"/>
+              <rect x="138" y="162" width="12" height="16" rx="6" fill="#e9a2b8"/>
+              <rect x="166" y="112" width="12" height="66" rx="6" fill="#a8adb4"/>
+              <rect x="180" y="162" width="12" height="16" rx="6" fill="#d95a84"/>
+              <rect x="194" y="162" width="12" height="16" rx="6" fill="#e9a2b8"/>
+              <rect x="222" y="106" width="12" height="72" rx="6" fill="#a8adb4"/>
+              <rect x="236" y="162" width="12" height="16" rx="6" fill="#d95a84"/>
+              <rect x="250" y="162" width="12" height="16" rx="6" fill="#e9a2b8"/>
+              <rect x="278" y="66" width="12" height="112" rx="6" fill="#a8adb4"/>
+              <rect x="292" y="126" width="12" height="52" rx="6" fill="#d95a84"/>
+              <rect x="306" y="136" width="12" height="42" rx="6" fill="#e9a2b8"/>
+              <polyline points="256,66 290,120 320,132" fill="none" stroke="#0f5777" stroke-width="3.5" stroke-linecap="round"/>
+              <circle cx="256" cy="66" r="4.5" fill="#0f5777"/>
+              <circle cx="290" cy="120" r="4.5" fill="#0f5777"/>
+              <circle cx="320" cy="132" r="4.5" fill="#0f5777"/>
+              <text x="258" y="54" font-size="10" fill="#0f5777" font-weight="700">pH 5.3</text>
+              <text x="286" y="108" font-size="10" fill="#0f5777" font-weight="700">5.0</text>
+              <text x="314" y="120" font-size="10" fill="#0f5777" font-weight="700">4.9</text>
+            </svg>
+            <div class="chart-legend">
+              <span class="legend-item"><span class="legend-dot" style="background:#a8adb4"></span>Initial</span>
+              <span class="legend-item"><span class="legend-dot" style="background:#d95a84"></span>Jour 7</span>
+              <span class="legend-item"><span class="legend-dot" style="background:#e9a2b8"></span>Jour 15</span>
+              <span class="legend-item"><span class="legend-dot" style="background:#0f5777"></span>pH</span>
+            </div>
+          </div>
+
+          <div class="metric-card">
+            <div class="metric-head">
+              <div>
+                <h5>Carriero 2007 - maintien sans rechute</h5>
+                <p class="metric-sub">Après pré-traitement au fluconazole oral, trois cycles mensuels en fin de période menstruelle.</p>
+              </div>
+              <span class="metric-pill">4 semaines / 4 mois</span>
+            </div>
+            <svg viewBox="0 0 360 220" style="width:100%;height:auto" xmlns="http://www.w3.org/2000/svg">
+              <line x1="42" y1="22" x2="42" y2="180" stroke="#d8d8de"/>
+              <line x1="42" y1="180" x2="330" y2="180" stroke="#d8d8de"/>
+              <text x="108" y="198" text-anchor="middle" font-size="10" fill="#7f8791">4 semaines</text>
+              <text x="252" y="198" text-anchor="middle" font-size="10" fill="#7f8791">4 mois</text>
+              <rect x="78" y="48" width="28" height="132" rx="10" fill="#ce3079"/>
+              <rect x="112" y="134" width="28" height="46" rx="10" fill="#c8cdd3"/>
+              <rect x="222" y="36" width="28" height="144" rx="10" fill="#ce3079"/>
+              <rect x="256" y="150" width="28" height="30" rx="10" fill="#c8cdd3"/>
+              <text x="92" y="42" text-anchor="middle" font-size="11" font-weight="700" fill="#ce3079">83%</text>
+              <text x="126" y="128" text-anchor="middle" font-size="11" font-weight="700" fill="#7f8791">17%</text>
+              <text x="236" y="30" text-anchor="middle" font-size="11" font-weight="700" fill="#ce3079">91%</text>
+              <text x="270" y="144" text-anchor="middle" font-size="11" font-weight="700" fill="#7f8791">9%</text>
+            </svg>
+            <div class="chart-legend">
+              <span class="legend-item"><span class="legend-dot" style="background:#ce3079"></span>Sans rechute</span>
+              <span class="legend-item"><span class="legend-dot" style="background:#c8cdd3"></span>Rechute</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="insight-grid">
+          <div class="insight-card">
+            <strong>90%</strong>
+            <span>amélioration perçue des symptômes</span>
+            <p>Observée dans l'étude De Seta 2014, contre 68% dans le groupe comparateur.</p>
+          </div>
+          <div class="insight-card">
+            <strong>80%</strong>
+            <span>niveaux élevés de lactobacilles</span>
+            <p>Après 90 jours, contre 40% dans le groupe comparateur.</p>
+          </div>
+          <div class="insight-card">
+            <strong>83.3%</strong>
+            <span>résolution clinique déclarée</span>
+            <p>Dans l'étude Cianci 2016, versus 47.8% dans le groupe témoin.</p>
+          </div>
+        </div>
+
+        <h4 style="font-size:.95rem;font-weight:700;margin:1.5rem 0 .75rem">Synthèse des études vaginales</h4>
+        <div class="matrix-card">
+          <h5>Tableau clinique</h5>
+          <div class="evidence-matrix" style="grid-template-columns:1fr 1.05fr .75fr 1.5fr .9fr .9fr .9fr;">
+            <div class="matrix-head topic">Année / auteur</div>
+            <div class="matrix-head">Condition</div>
+            <div class="matrix-head">N</div>
+            <div class="matrix-head">Regime</div>
+            <div class="matrix-head">pH</div>
+            <div class="matrix-head">Symptomes</div>
+            <div class="matrix-head">Persistance</div>
+
+            <div class="matrix-cell topic">Cianci 2016</div>
+            <div class="matrix-cell">VB et/ou AV</div>
+            <div class="matrix-cell">94</div>
+            <div class="matrix-cell">6 jours consécutifs puis 1 capsule la semaine suivante</div>
+            <div class="matrix-cell good">✓</div>
+            <div class="matrix-cell good">✓</div>
+            <div class="matrix-cell good">✓</div>
+
+            <div class="matrix-cell topic">De Seta 2014</div>
+            <div class="matrix-cell">VVC</div>
+            <div class="matrix-cell">80</div>
+            <div class="matrix-cell">6 jours consécutifs puis 1 capsule par semaine durant 4 semaines</div>
+            <div class="matrix-cell good">✓</div>
+            <div class="matrix-cell good">✓</div>
+            <div class="matrix-cell good">✓</div>
+
+            <div class="matrix-cell topic">Carriero 2007</div>
+            <div class="matrix-cell">VVC</div>
+            <div class="matrix-cell">476</div>
+            <div class="matrix-cell">3 mois : 6 jours de prise en fin de cycle menstruel</div>
+            <div class="matrix-cell good">✓</div>
+            <div class="matrix-cell good">✓</div>
+            <div class="matrix-cell good">✓</div>
+
+            <div class="matrix-cell topic">Nava 2002</div>
+            <div class="matrix-cell">VVC ou VB</div>
+            <div class="matrix-cell">30</div>
+            <div class="matrix-cell">6 jours de prise / 9 jours de suivi</div>
+            <div class="matrix-cell good">✓</div>
+            <div class="matrix-cell good">✓</div>
+            <div class="matrix-cell good">✓</div>
+
+            <div class="matrix-cell topic">Nava 2002</div>
+            <div class="matrix-cell">VVC</div>
+            <div class="matrix-cell">30</div>
+            <div class="matrix-cell">6 jours par mois + 3 mois de suivi</div>
+            <div class="matrix-cell good">✓</div>
+            <div class="matrix-cell good">✓</div>
+            <div class="matrix-cell good">✓</div>
+          </div>
+          <div class="mobile-matrix">
+            <div class="mobile-study-list">
+              <div class="mobile-study-card">
+                <div class="mobile-study-head"><strong>Cianci 2016</strong><span>94 participantes</span></div>
+                <div class="mobile-study-grid">
+                  <div class="mobile-field"><span class="mobile-field-label">Condition</span><span class="mobile-field-value">VB et/ou AV</span></div>
+                  <div class="mobile-field"><span class="mobile-field-label">Régime</span><span class="mobile-field-value">6 jours consécutifs puis 1 capsule la semaine suivante</span></div>
+                </div>
+                <div class="mobile-checks"><span class="mobile-check">pH ✓</span><span class="mobile-check">Symptômes ✓</span><span class="mobile-check">Persistance ✓</span></div>
+              </div>
+              <div class="mobile-study-card">
+                <div class="mobile-study-head"><strong>De Seta 2014</strong><span>80 participantes</span></div>
+                <div class="mobile-study-grid">
+                  <div class="mobile-field"><span class="mobile-field-label">Condition</span><span class="mobile-field-value">VVC</span></div>
+                  <div class="mobile-field"><span class="mobile-field-label">Régime</span><span class="mobile-field-value">6 jours consécutifs puis 1 capsule par semaine durant 4 semaines</span></div>
+                </div>
+                <div class="mobile-checks"><span class="mobile-check">pH ✓</span><span class="mobile-check">Symptômes ✓</span><span class="mobile-check">Persistance ✓</span></div>
+              </div>
+              <div class="mobile-study-card">
+                <div class="mobile-study-head"><strong>Carriero 2007</strong><span>476 participantes</span></div>
+                <div class="mobile-study-grid">
+                  <div class="mobile-field"><span class="mobile-field-label">Condition</span><span class="mobile-field-value">VVC</span></div>
+                  <div class="mobile-field"><span class="mobile-field-label">Régime</span><span class="mobile-field-value">3 mois : 6 jours de prise en fin de cycle menstruel</span></div>
+                </div>
+                <div class="mobile-checks"><span class="mobile-check">pH ✓</span><span class="mobile-check">Symptômes ✓</span><span class="mobile-check">Persistance ✓</span></div>
+              </div>
+              <div class="mobile-study-card">
+                <div class="mobile-study-head"><strong>Nava 2002</strong><span>30 participantes</span></div>
+                <div class="mobile-study-grid">
+                  <div class="mobile-field"><span class="mobile-field-label">Condition</span><span class="mobile-field-value">VVC ou VB</span></div>
+                  <div class="mobile-field"><span class="mobile-field-label">Régime</span><span class="mobile-field-value">6 jours de prise / 9 jours de suivi</span></div>
+                </div>
+                <div class="mobile-checks"><span class="mobile-check">pH ✓</span><span class="mobile-check">Symptômes ✓</span><span class="mobile-check">Persistance ✓</span></div>
+              </div>
+              <div class="mobile-study-card">
+                <div class="mobile-study-head"><strong>Nava 2002</strong><span>30 participantes</span></div>
+                <div class="mobile-study-grid">
+                  <div class="mobile-field"><span class="mobile-field-label">Condition</span><span class="mobile-field-value">VVC</span></div>
+                  <div class="mobile-field"><span class="mobile-field-label">Régime</span><span class="mobile-field-value">6 jours par mois + 3 mois de suivi</span></div>
+                </div>
+                <div class="mobile-checks"><span class="mobile-check">pH ✓</span><span class="mobile-check">Symptômes ✓</span><span class="mobile-check">Persistance ✓</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <p class="sc-text"><strong>Allégations santé au Canada :</strong> En association avec un traitement antifongique, aide à retarder la rechute de la candidose vulvo-vaginale (CVV) ou de la candidose vulvo-vaginale récurrente (CVVr). Réduit les signes cliniques (démangeaisons, brûlures, pertes vaginales, rougeur, gonflement). Contribue à améliorer la santé vaginale (microbiome).</p>
+      </div></div>
+    </div>
+  </div>
+
+  <div class="study-section" id="ibs">
+    <div class="study-card open reveal">
+      <div class="study-card-header" onclick="toggleCard(this)">
+        <h3><span class="sc-icon">06</span> L. paracasei HA-196 - Syndrome de l'intestin irritable</h3>
+        <span class="chevron">▼</span>
+      </div>
+      <div class="study-card-body"><div class="study-card-content">
+        <p class="sc-text"><strong>Lacticaseibacillus paracasei HA-196</strong> est une bactérie bénéfique que l'on retrouve naturellement dans la bouche et les intestins. Elle produit de l'acide lactique, contribuant à <strong>abaisser le pH digestif</strong> et à freiner la croissance des bactéries nuisibles. Sa capacité d'adhésion aux cellules épithéliales du côlon lui confère un avantage compétitif contre les pathogènes.</p>
+
+        <div class="result-highlight" style="background:linear-gradient(135deg,#2a7b9b,#1a5a73)">
+          <div class="rh-num">-21%</div>
+          <div class="rh-text">de fréquence des selles chez les personnes atteintes du SII-D (diarrhée) après 8 semaines de prise de <em>L. paracasei</em> HA-196 (10 milliards CFU/jour) - contribuant à des habitudes intestinales plus régulières. (p&lt;0.05 vs placebo, n=23)</div>
+        </div>
+
+        <h4 style="font-size:.95rem;font-weight:700;margin:1.5rem 0 .75rem">Architecture de l'étude IBS</h4>
+        <p class="sc-text">Cette section reprend l'esprit des planches de synthèse fournies, mais avec des graphiques, cartes et compositions intégralement redessinés pour l'univers Probaclac.</p>
+
+        <div class="study-overview">
+          <div class="overview-card" style="border-color:rgba(42,123,155,.16);background:linear-gradient(180deg,#fff,#f4f9fc)">
+            <div class="overview-kicker" style="color:#2a7b9b">Lecture rapide</div>
+            <div class="overview-big">
+              <strong style="color:#2a7b9b">251</strong>
+              <span>adultes évalués<br>sur 8 semaines</span>
+            </div>
+            <p class="overview-note">Participants présentant des sous-types IBS-C, IBS-D ou IBS-M. L'étude randomisée, à double insu et contrôlée par placebo suivait les variations de symptômes digestifs et de qualité de vie.</p>
+          </div>
+          <div class="protocol-card" style="border-color:rgba(42,123,155,.16);background:linear-gradient(180deg,#fff,#f4f9fc)">
+            <div class="protocol-flow">
+              <div class="flow-step primary" style="background:linear-gradient(135deg,#2a7b9b,#1a5a73)">
+                <span>L. paracasei HA-196</span>
+                <small>10 milliards CFU par jour pendant 8 semaines</small>
+              </div>
+              <div class="flow-step secondary">
+                <span>B. longum Rosell-175</span>
+                <small>bras comparatif actif à dose équivalente</small>
+              </div>
+              <div class="flow-step ghost">
+                <span>Placebo</span>
+                <small>suivi parallèle et lecture à la semaine 8</small>
+              </div>
+            </div>
+            <div class="protocol-meta" style="background:#e9f2f7">
+              <h5>6 questionnaires validés</h5>
+              <ul>
+                <li>IBS-SSS et échelle de Bristol</li>
+                <li>IBS-QOL, HADS, SF-36</li>
+                <li>journal quotidien des symptômes</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="dual-charts">
+          <div class="metric-card">
+            <div class="metric-head">
+              <div>
+                <h5>Qualite de vie - SF-36</h5>
+                <p class="metric-sub">Deux dimensions se distinguent a la semaine 8 : bien-etre emotionnel et fonctionnement social.</p>
+              </div>
+              <span class="metric-pill" style="background:#edf6fa;color:#2a7b9b">SF-36</span>
+            </div>
+            <svg viewBox="0 0 360 220" style="width:100%;height:auto" xmlns="http://www.w3.org/2000/svg">
+              <line x1="42" y1="24" x2="42" y2="178" stroke="#d8d8de"/>
+              <line x1="42" y1="178" x2="332" y2="178" stroke="#d8d8de"/>
+              <line x1="42" y1="132" x2="332" y2="132" stroke="#eef1f4"/>
+              <line x1="42" y1="86" x2="332" y2="86" stroke="#eef1f4"/>
+              <text x="96" y="198" text-anchor="middle" font-size="10" fill="#7f8791">Bien-etre</text>
+              <text x="238" y="198" text-anchor="middle" font-size="10" fill="#7f8791">Social</text>
+              <rect x="72" y="95" width="28" height="83" rx="10" fill="#2a7b9b"/>
+              <rect x="106" y="68" width="28" height="110" rx="10" fill="#f0a54a"/>
+              <rect x="140" y="118" width="28" height="60" rx="10" fill="#c9ced5"/>
+              <rect x="214" y="58" width="28" height="120" rx="10" fill="#2a7b9b"/>
+              <rect x="248" y="78" width="28" height="100" rx="10" fill="#f0a54a"/>
+              <rect x="282" y="126" width="28" height="52" rx="10" fill="#c9ced5"/>
+              <text x="86" y="88" text-anchor="middle" font-size="11" font-weight="700" fill="#2a7b9b">*</text>
+              <text x="120" y="61" text-anchor="middle" font-size="11" font-weight="700" fill="#f0a54a">*</text>
+              <text x="228" y="51" text-anchor="middle" font-size="11" font-weight="700" fill="#2a7b9b">**</text>
+              <text x="262" y="71" text-anchor="middle" font-size="11" font-weight="700" fill="#f0a54a">*</text>
+            </svg>
+            <div class="chart-legend">
+              <span class="legend-item"><span class="legend-dot" style="background:#2a7b9b"></span>HA-196</span>
+              <span class="legend-item"><span class="legend-dot" style="background:#f0a54a"></span>B. longum</span>
+              <span class="legend-item"><span class="legend-dot" style="background:#c9ced5"></span>Placebo</span>
+            </div>
+          </div>
+
+          <div class="metric-card">
+            <div class="metric-head">
+              <div>
+                <h5>Frequence des selles selon le sous-type IBS</h5>
+                <p class="metric-sub">Lecture simplifiee des sous-groupes IBS-D et IBS-C entre le depart, la semaine 4 et la semaine 8.</p>
+              </div>
+              <span class="metric-pill" style="background:#edf6fa;color:#2a7b9b">Bristol</span>
+            </div>
+            <svg viewBox="0 0 360 220" style="width:100%;height:auto" xmlns="http://www.w3.org/2000/svg">
+              <line x1="30" y1="28" x2="30" y2="188" stroke="#d8d8de"/>
+              <line x1="30" y1="188" x2="338" y2="188" stroke="#d8d8de"/>
+              <text x="88" y="204" text-anchor="middle" font-size="10" fill="#7f8791">Depart</text>
+              <text x="166" y="204" text-anchor="middle" font-size="10" fill="#7f8791">Sem. 4</text>
+              <text x="244" y="204" text-anchor="middle" font-size="10" fill="#7f8791">Sem. 8</text>
+              <polyline points="64,96 166,106 268,132" fill="none" stroke="#2a7b9b" stroke-width="4" stroke-linecap="round"/>
+              <polyline points="64,74 166,66 268,70" fill="none" stroke="#9aa3ad" stroke-width="3" stroke-dasharray="7 6" stroke-linecap="round"/>
+              <circle cx="64" cy="96" r="5" fill="#2a7b9b"/><circle cx="166" cy="106" r="5" fill="#2a7b9b"/><circle cx="268" cy="132" r="5" fill="#2a7b9b"/>
+              <circle cx="64" cy="74" r="4.5" fill="#9aa3ad"/><circle cx="166" cy="66" r="4.5" fill="#9aa3ad"/><circle cx="268" cy="70" r="4.5" fill="#9aa3ad"/>
+              <polyline points="64,146 166,132 268,120" fill="none" stroke="#f0a54a" stroke-width="4" stroke-linecap="round"/>
+              <text x="274" y="126" font-size="11" font-weight="700" fill="#2a7b9b">-21%</text>
+              <text x="274" y="114" font-size="11" font-weight="700" fill="#f0a54a">+33%</text>
+              <text x="292" y="58" font-size="10" fill="#7f8791">IBS-D vs placebo</text>
+              <text x="292" y="154" font-size="10" fill="#7f8791">IBS-C</text>
+            </svg>
+            <div class="chart-legend">
+              <span class="legend-item"><span class="legend-dot" style="background:#2a7b9b"></span>HA-196</span>
+              <span class="legend-item"><span class="legend-dot" style="background:#f0a54a"></span>gain IBS-C</span>
+              <span class="legend-item"><span class="legend-dot" style="background:#9aa3ad"></span>placebo</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="insight-grid">
+          <div class="insight-card" style="border-color:rgba(42,123,155,.16);background:linear-gradient(180deg,#fff,#f4f9fc)">
+            <strong style="color:#2a7b9b">-21%</strong>
+            <span>frequence des selles en IBS-D</span>
+            <p>Une baisse significative apres 8 semaines versus placebo.</p>
+          </div>
+          <div class="insight-card" style="border-color:rgba(42,123,155,.16);background:linear-gradient(180deg,#fff,#f4f9fc)">
+            <strong style="color:#2a7b9b">+33%</strong>
+            <span>frequence des selles en IBS-C</span>
+            <p>Accompagnee d'une reduction du besoin en laxatif.</p>
+          </div>
+          <div class="insight-card" style="border-color:rgba(42,123,155,.16);background:linear-gradient(180deg,#fff,#f4f9fc)">
+            <strong style="color:#2a7b9b">2</strong>
+            <span>dimensions SF-36 marquees</span>
+            <p>Bien-etre emotionnel et fonctionnement social ressortent nettement.</p>
+          </div>
+        </div>
+
+        <div class="matrix-card" style="border-color:rgba(42,123,155,.16);background:linear-gradient(180deg,#fff,#f4f9fc)">
+          <h5>Synthese clinique HA-196</h5>
+          <div class="evidence-matrix">
+            <div class="matrix-head topic" style="background:#e7f2f7;color:#1a5a73">Axe</div>
+            <div class="matrix-head" style="background:#e7f2f7;color:#1a5a73">Observation</div>
+            <div class="matrix-head" style="background:#eef8fb;color:#1a5a73">Sous-groupe</div>
+            <div class="matrix-head" style="background:#eef8fb;color:#1a5a73">Impact</div>
+
+            <div class="matrix-cell topic">Transit</div>
+            <div class="matrix-cell good" style="background:#f1f9fc;color:#1a5a73;border-color:rgba(42,123,155,.18)">-21% en IBS-D</div>
+            <div class="matrix-cell mid" style="background:#fffaf2">IBS-D</div>
+            <div class="matrix-cell">Habitudes intestinales plus regulieres.</div>
+
+            <div class="matrix-cell topic">Constipation</div>
+            <div class="matrix-cell good" style="background:#f1f9fc;color:#1a5a73;border-color:rgba(42,123,155,.18)">+33% en IBS-C</div>
+            <div class="matrix-cell mid" style="background:#fffaf2">IBS-C</div>
+            <div class="matrix-cell">Frequence accrue et moindre recours aux laxatifs.</div>
+
+            <div class="matrix-cell topic">Qualite de vie</div>
+            <div class="matrix-cell good" style="background:#f1f9fc;color:#1a5a73;border-color:rgba(42,123,155,.18)">amelioration SF-36</div>
+            <div class="matrix-cell mid" style="background:#fffaf2">cohorte globale</div>
+            <div class="matrix-cell">Meilleur ressenti emotionnel et social.</div>
+
+            <div class="matrix-cell topic">Methodologie</div>
+            <div class="matrix-cell good" style="background:#f1f9fc;color:#1a5a73;border-color:rgba(42,123,155,.18)">6 outils valides</div>
+            <div class="matrix-cell mid" style="background:#fffaf2">8 semaines</div>
+            <div class="matrix-cell">Lecture clinique robuste et multi-dimensionnelle.</div>
+          </div>
+          <div class="mobile-matrix">
+            <div class="mobile-summary-list">
+              <div class="mobile-summary-card">
+                <div class="mobile-summary-head"><strong>Transit</strong><span>IBS-D</span></div>
+                <div class="mobile-summary-grid">
+                  <div class="mobile-field"><span class="mobile-field-label">Observation</span><span class="mobile-field-value">-21% en IBS-D</span></div>
+                  <div class="mobile-field"><span class="mobile-field-label">Impact</span><span class="mobile-field-value">Habitudes intestinales plus régulières.</span></div>
+                </div>
+              </div>
+              <div class="mobile-summary-card">
+                <div class="mobile-summary-head"><strong>Constipation</strong><span>IBS-C</span></div>
+                <div class="mobile-summary-grid">
+                  <div class="mobile-field"><span class="mobile-field-label">Observation</span><span class="mobile-field-value">+33% en IBS-C</span></div>
+                  <div class="mobile-field"><span class="mobile-field-label">Impact</span><span class="mobile-field-value">Fréquence accrue et moindre recours aux laxatifs.</span></div>
+                </div>
+              </div>
+              <div class="mobile-summary-card">
+                <div class="mobile-summary-head"><strong>Qualité de vie</strong><span>Cohorte globale</span></div>
+                <div class="mobile-summary-grid">
+                  <div class="mobile-field"><span class="mobile-field-label">Observation</span><span class="mobile-field-value">Amélioration SF-36</span></div>
+                  <div class="mobile-field"><span class="mobile-field-label">Impact</span><span class="mobile-field-value">Meilleur ressenti émotionnel et social.</span></div>
+                </div>
+              </div>
+              <div class="mobile-summary-card">
+                <div class="mobile-summary-head"><strong>Méthodologie</strong><span>8 semaines</span></div>
+                <div class="mobile-summary-grid">
+                  <div class="mobile-field"><span class="mobile-field-label">Observation</span><span class="mobile-field-value">6 outils validés</span></div>
+                  <div class="mobile-field"><span class="mobile-field-label">Impact</span><span class="mobile-field-value">Lecture clinique robuste et multi-dimensionnelle.</span></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="info-box" style="border-color:#2a7b9b"><p><strong>Activite antimicrobienne demontree in vitro</strong> contre <em>E. coli</em>, <em>Salmonella typhimurium</em>, <em>Listeria monocytogenes</em>, <em>Clostridium difficile</em>, <em>Staphylococcus aureus</em> SARM et <em>Klebsiella pneumoniae</em>. HA-196 produit egalement du peroxyde d'hydrogene, inhibant la croissance des pathogenes.</p></div>
+
+        <p class="sc-text"><strong>Donnees marche :</strong> 25 % des consommateurs canadiens souffrent du syndrome de l'intestin irritable au moins occasionnellement. Seuls 42 % se declarent satisfaits de leur sante digestive en 2024, contre 61 % en 2022. 45 % trouveraient attrayant un complement portant l'allegation « soulage les symptomes du SII ».</p>
+
+        <p class="sc-text"><strong>Allegation sante au Canada :</strong> Cliniquement eprouve pour reduire l'inconfort lie au syndrome de l'intestin irritable. Pour la diarrhee (IBS-D) : reduit la frequence des selles de 21 %. Pour la constipation (IBS-C) : augmente la frequence des selles de 33 %. 1 capsule par jour, 10 milliards CFU.</p>
+      </div></div>
+    </div>
+  </div>
+
+  <div class="study-section" id="acidite">
+    <div class="study-card open reveal">
+      <div class="study-card-header" onclick="toggleCard(this)">
+        <h3><span class="sc-icon">07</span> Resistance a l'acide gastrique</h3>
+        <span class="chevron">▼</span>
+      </div>
+      <div class="study-card-body"><div class="study-card-content">
+        <p class="sc-text"><strong>Les souches probiotiques Probaclac survivent sans enrobage entero-soluble dans un pH de 3.</strong></p>
+        <p class="sc-text">Une fois consommes, les probiotiques suivent le trajet naturel du tube digestif. En traversant la bouche puis l'oesophage, les probiotiques se rendent a l'estomac, un milieu tres acide lorsqu'il est vide. Son taux d'acidite varie : a jeun, l'estomac a un pH d'environ 1 et un pH de plus ou moins 6 lorsqu'il est plein.</p>
+
+        <div class="info-box"><p>L'alcalinisation de l'estomac lorsqu'il contient des nutriments est la raison pour laquelle il est preferable de consommer des probiotiques en mangeant. Le nombre de bacteries actives peut etre affecte dans un milieu trop acide.</p></div>
+
+        <p class="sc-text">Afin de garantir l'efficacite des produits, les fabricants doivent demontrer que leurs souches probiotiques peuvent resister a un pH de 3. <strong>Toutes les souches Probaclac sont capables de faire face a cette acidite</strong> - la viabilite des bacteries est assuree jusqu'aux intestins. Nul besoin d'un enrobage enterique.</p>
+        <p class="sc-text">Les souches Lactobacilles se trouvent naturellement dans l'estomac - le trajet parcouru presente donc une opportunite pour repeupler cette flore.</p>
+
+        <figure class="study-fig study-fig-solo"><img src="https://static.wixstatic.com/media/623234_e593602eae0f4101bb57b21fb1c9a175~mv2.png/v1/fill/w_980,h_653,al_c,q_90,usm_0.66_1.00_0.01,enc_avif,quality_auto/ChatGPT%20Image%2016%20oct_%202025%2C%2009_43_43.png" alt="Resistance a l'acide gastrique - trajet digestif"><figcaption>Trajet digestif des probiotiques - Resistance a pH 3 sans enrobage</figcaption></figure>
+
+        <div class="result-highlight" style="background:linear-gradient(135deg,#1a1a2e,#2d2d44)">
+          <div class="rh-num">pH 3</div>
+          <div class="rh-text">Toutes les souches Probaclac resistent a un pH de 3 sans aucun enrobage entero-soluble. Les bacteries arrivent vivantes et actives aux intestins.</div>
+        </div>
+      </div></div>
+    </div>
+  </div>
+</section>
+
+<section style="background-color:#f8f7f4">
+  <div class="references-section reveal">
+    <div class="ref-toggle" onclick="this.classList.toggle('open')">
+      <h3>References scientifiques (42)</h3>
+      <span class="chevron">▼</span>
+    </div>
+    <div class="ref-body"><div class="ref-list">
+      <p class="ref-item"><strong>1.</strong> Universite Laval - Contact : Entrevue avec Andre Marette, Professeur au Departement de medecine et Chercheur a l'IUCPQ.</p>
+      <p class="ref-item"><strong>2.</strong> Guarino A, Guandalini S et Lo Vecchio A. Probiotics for Prevention and Treatment of Diarrhea. J Clin Gastroenterol. 2015;49 Suppl 1:s37-45.</p>
+      <p class="ref-item"><strong>3.</strong> Allen SJ et al. A high-dose preparation of lactobacilli and bifidobacteria in the prevention of antibiotic-associated and C. difficile diarrhoea (PLACIDE). Health Technol Assess. 2013;17(57):1-140.</p>
+      <p class="ref-item"><strong>4.</strong> McFarland LV. Meta-Analysis of Probiotics for the Prevention of AAD and the Treatment of C. difficile Disease. Am J Gastroenterol. 2006;101:812-822.</p>
+      <p class="ref-item"><strong>5.</strong> Perna S et al. Important Risk Reduction in Nosocomial C. Difficile with Institution of Probiotic Prophylaxis. Annu Rev Microbiol. 2014;68:217-35.</p>
+      <p class="ref-item"><strong>6.</strong> Micklefield G. S. boulardii in the treatment and prevention of antibiotic-associated diarrhea. MMW Fortschr Med. 2014;156 Suppl 1:18-22.</p>
+      <p class="ref-item"><strong>7.</strong> Kotowska M, Albrecht P et Szajewska H. S. boulardii in the prevention of AAD in children: a randomized double-blind placebo-controlled trial. Aliment Pharmacol Ther. 2005;21(5):583-90.</p>
+      <p class="ref-item"><strong>8.</strong> Bischoff SC. Microbiota and aging. Curr Opin Clin Nutr Metab Care. 2016;19(1):26-30.</p>
+      <p class="ref-item"><strong>9.</strong> Rondanelli M et al. Review on microbiota and effectiveness of probiotics use in older. World J Clin Cases. 2015;3(2):156-62.</p>
+      <p class="ref-item"><strong>10.</strong> Kollaritsch H et al. Traveler's Diarrhea. Infect Dis Clin North Am. 2012;26(3):691-706.</p>
+      <p class="ref-item"><strong>11.</strong> Hill DR et Beeching NJ. Travelers' diarrhea. Curr Opin Infect Dis. 2010;23(5):481-7.</p>
+      <p class="ref-item"><strong>12.</strong> Martinez-Martinez MI et al. The effect of probiotics as a treatment for constipation in elderly people. Arch Gerontol Geriatr. 2017;71:142-149.</p>
+      <p class="ref-item"><strong>13.</strong> Societe canadienne de pediatrie. L'utilisation de probiotiques au sein de la population pediatrique. 2015.</p>
+      <p class="ref-item"><strong>14.</strong> Brenner DM et al. The utility of probiotics in the treatment of IBS: a systematic review. Am J Gastroenterol. 2009;104(4):1033-49.</p>
+      <p class="ref-item"><strong>15.</strong> Akbari E et al. Effect of Probiotic Supplementation on Cognitive Function and Metabolic Status in Alzheimer's Disease. Front Aging Neurosci. 2016;8:26-30.</p>
+      <p class="ref-item"><strong>16.</strong> Hanson L et al. Probiotics for Treatment and Prevention of Urogenital Infections in Women. J Midwifery Womens Health. 2016;3:339-355.</p>
+      <p class="ref-item"><strong>17.</strong> Ya W, Reifer C et Miller LE. Efficacy of vaginal probiotic capsules for recurrent bacterial vaginosis. Am J Obstet Gynecol. 2010;2:120.</p>
+      <p class="ref-item"><strong>18.</strong> Kovachev S et al. Effect of L. casei var rhamnosus in restoring the vaginal flora. Akush Ginekol (Sofiia). 2013;52 Suppl 1:48-53.</p>
+      <p class="ref-item"><strong>19-42.</strong> Voir les references completes sur probaclac.ca - incluant etudes sur le microbiote, l'obesite, la sante cognitive, le cholesterol, la pression arterielle, les psychobiotiques et l'autisme.</p>
+    </div></div>
+  </div>
+</section>
+
+<section>
+  <div class="cta-section reveal">
+    <h2>Des probiotiques prouves scientifiquement</h2>
+    <p>Probaclac - des formules testees cliniquement, certifiees NPN et recommandees par les professionnels de la sante.</p>
+    <a href="http://www.monprobiotique.ca" class="btn-white">Commander en ligne →</a>
+  </div>
+</section>
+
+<script>
+const reveals=document.querySelectorAll('.reveal');
+const obs=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting)x.target.classList.add('visible')})},{threshold:.1,rootMargin:'0px 0px -40px 0px'});
+reveals.forEach(el=>obs.observe(el));
+
+function animateCounter(el){
+  const target=+el.dataset.target;
+  const prefix=el.dataset.prefix ?? '';
+  const suffix=el.dataset.suffix ?? '%';
+  const duration=1500;
+  const start=performance.now();
+  el.classList.add('counted');
+  function update(now){
+    const p=Math.min((now-start)/duration,1);
+    const ease=1-Math.pow(1-p,3);
+    el.textContent=prefix+Math.round(ease*target).toLocaleString()+suffix;
+    if(p<1)requestAnimationFrame(update);
+    else el.textContent=prefix+target.toLocaleString()+suffix;
+  }
+  requestAnimationFrame(update);
+}
+const counters=document.querySelectorAll('.stat-num[data-target]');
+const cObs=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting){animateCounter(x.target);cObs.unobserve(x.target)}})},{threshold:.5});
+counters.forEach(c=>cObs.observe(c));
+
+document.querySelectorAll('.study-nav-btn').forEach(btn=>{
+  btn.addEventListener('click',()=>{
+    document.querySelectorAll('.study-nav-btn').forEach(b=>b.classList.remove('active'));
+    btn.classList.add('active');
+    document.querySelectorAll('.study-section').forEach(s=>s.classList.remove('active'));
+    document.getElementById(btn.dataset.tab).classList.add('active');
+  });
+});
+
+function toggleCard(header){
+  header.closest('.study-card').classList.toggle('open');
+}
+</script>
+</body>
+</html>
