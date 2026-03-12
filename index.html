@@ -73,8 +73,7 @@ a{text-decoration:none;color:inherit}
 .nav{position:fixed;top:0;left:0;right:0;z-index:200;padding:1.25rem 2.5rem;transition:all .4s cubic-bezier(.16,1,.3,1)}
 .nav.scrolled{background:rgba(250,247,244,.94);backdrop-filter:blur(24px) saturate(180%);padding:.9rem 2.5rem;box-shadow:0 1px 0 var(--border)}
 .nav-inner{max-width:var(--max);margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:2rem}
-.nav-logo img{height:36px;width:auto;transition:filter .4s}
-.nav.dark-nav .nav-logo img{filter:brightness(0) invert(1)}
+.nav-logo img{height:36px;width:auto}
 .nav-links{display:flex;gap:2rem;list-style:none;align-items:center}
 .nav-links a{font-size:.83rem;font-weight:500;color:var(--white);opacity:.85;transition:opacity .2s;position:relative;white-space:nowrap}
 .nav.scrolled .nav-links a{color:var(--txm)}
@@ -93,20 +92,65 @@ a{text-decoration:none;color:inherit}
 .nav.scrolled .hamburger span{background:var(--tx)}
 
 /* Products mega dropdown */
-.nav-item-drop{position:relative}
-.drop-menu{position:absolute;top:calc(100% + .75rem);left:50%;transform:translateX(-50%) translateY(8px);opacity:0;visibility:hidden;pointer-events:none;transition:all .3s cubic-bezier(.16,1,.3,1);width:720px;background:var(--white);border-radius:var(--rl);box-shadow:0 20px 64px rgba(0,0,0,.12),0 0 0 1px rgba(0,0,0,.04);padding:1.75rem}
-.drop-menu::before{content:'';position:absolute;top:-7px;left:50%;transform:translateX(-50%);width:14px;height:14px;background:var(--white);rotate:45deg;border-radius:2px;box-shadow:-1px -1px 0 rgba(0,0,0,.04)}
+.nav-item-drop{position:static}
+.drop-menu{
+  position:fixed;
+  top:86px;left:50%;
+  transform:translateX(-50%) translateY(10px);
+  opacity:0;visibility:hidden;pointer-events:none;
+  transition:opacity .3s cubic-bezier(.16,1,.3,1),transform .3s cubic-bezier(.16,1,.3,1),visibility .3s;
+  width:min(calc(100vw - 2.5rem), 1320px);
+  background:rgba(255,255,255,.98);
+  backdrop-filter:blur(16px) saturate(160%);
+  border-radius:28px;
+  box-shadow:0 28px 90px rgba(0,0,0,.16),0 0 0 1px rgba(0,0,0,.04);
+  padding:1.5rem;
+}
+.drop-menu::before{
+  content:'';position:absolute;top:-8px;left:22%;
+  width:16px;height:16px;background:rgba(255,255,255,.98);
+  rotate:45deg;border-radius:3px;box-shadow:-1px -1px 0 rgba(0,0,0,.04)
+}
 .nav-item-drop:hover .drop-menu{opacity:1;visibility:visible;pointer-events:auto;transform:translateX(-50%) translateY(0)}
-.dm-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:1.25rem;padding-bottom:1rem;border-bottom:1px solid var(--border)}
-.dm-head span{font-size:.75rem;font-weight:700;color:var(--tx);letter-spacing:.05em;text-transform:uppercase}
-.dm-head a{font-size:.75rem;font-weight:600;color:var(--o)}
-.dm-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:.75rem}
-.dm-item{display:flex;flex-direction:column;align-items:center;gap:.5rem;padding:.75rem .5rem;border-radius:var(--r);transition:background .2s;cursor:pointer}
-.dm-item:hover{background:var(--obg)}
-.dm-img{width:60px;height:60px;border-radius:10px;overflow:hidden;background:var(--grey);flex-shrink:0}
+.dm-shell{display:grid;grid-template-columns:320px 1fr;gap:1.25rem;align-items:stretch}
+.dm-feature{
+  position:relative;overflow:hidden;border-radius:22px;
+  background:
+    radial-gradient(circle at 25% 18%, rgba(255,255,255,.16), transparent 24%),
+    linear-gradient(160deg,var(--dp2),var(--dp));
+  padding:1.4rem;color:#fff;min-height:360px;
+}
+.dm-feature::after{
+  content:'';position:absolute;inset:auto -10% -30% auto;width:220px;height:220px;
+  background:radial-gradient(circle, rgba(224,100,50,.28), rgba(224,100,50,0) 72%);
+}
+.dm-feature-top{position:relative;z-index:1}
+.dm-kicker{font-size:.7rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.6)}
+.dm-feature h3{margin-top:.85rem;font-family:var(--serif);font-size:2rem;line-height:.98;letter-spacing:-.03em}
+.dm-feature p{margin-top:.9rem;font-size:.82rem;line-height:1.75;color:rgba(255,255,255,.66);max-width:24ch}
+.dm-feature img{
+  position:absolute;right:-2%;bottom:-1%;width:78%;max-width:260px;
+  filter:drop-shadow(0 28px 48px rgba(0,0,0,.3));
+}
+.dm-feature-link{
+  position:absolute;left:1.4rem;bottom:1.35rem;z-index:1;
+  display:inline-flex;align-items:center;gap:.45rem;font-size:.78rem;font-weight:700;color:var(--orange-2)
+}
+.dm-main{display:flex;flex-direction:column;gap:1rem}
+.dm-head{display:flex;justify-content:space-between;align-items:center;padding:.2rem .2rem .9rem;border-bottom:1px solid var(--border)}
+.dm-head span{font-size:.74rem;font-weight:700;color:var(--tx);letter-spacing:.06em;text-transform:uppercase}
+.dm-head a{font-size:.78rem;font-weight:600;color:var(--o)}
+.dm-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:.85rem}
+.dm-item{
+  display:flex;flex-direction:column;gap:.75rem;padding:.8rem;border-radius:18px;
+  transition:background .22s cubic-bezier(.16,1,.3,1),transform .22s cubic-bezier(.16,1,.3,1),box-shadow .22s cubic-bezier(.16,1,.3,1);
+  cursor:pointer;border:1px solid rgba(0,0,0,.04);background:#fff;
+}
+.dm-item:hover{background:var(--obg);transform:translateY(-2px);box-shadow:0 10px 28px rgba(224,100,50,.12)}
+.dm-img{width:100%;aspect-ratio:1;border-radius:14px;overflow:hidden;background:var(--grey);flex-shrink:0}
 .dm-img img{width:100%;height:100%;object-fit:cover}
-.dm-name{font-size:.68rem;font-weight:700;color:var(--tx);text-align:center;line-height:1.3}
-.dm-cat{font-size:.6rem;color:var(--txl);text-align:center}
+.dm-name{font-size:.76rem;font-weight:700;color:var(--tx);line-height:1.3}
+.dm-cat{font-size:.65rem;color:var(--txm);line-height:1.45}
 
 /* ─── HERO (dark purple) ─── */
 .hero{position:relative;min-height:100vh;display:flex;flex-direction:column;justify-content:center;overflow:hidden;background:var(--dp)}
@@ -177,15 +221,58 @@ a{text-decoration:none;color:inherit}
 .ed-list li{display:flex;align-items:flex-start;gap:.75rem;font-size:.88rem;color:var(--txm);line-height:1.5}
 .ed-list li::before{content:'';width:20px;height:20px;border-radius:50%;background:var(--obg);border:1.5px solid var(--o3);flex-shrink:0;margin-top:2px;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='10' viewBox='0 0 10 10'%3E%3Cpath d='M2 5l2.5 2.5L8 3' stroke='%23E06432' stroke-width='1.5' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:center}
 .ed-visual{position:relative}
-.ed-img-wrap{border-radius:var(--rl);overflow:hidden;aspect-ratio:4/5;background:var(--grey)}
-.ed-img-wrap img{width:100%;height:100%;object-fit:cover}
-.ed-pill{position:absolute;bottom:2rem;left:-2rem;background:var(--white);border-radius:var(--rl);padding:1rem 1.25rem;box-shadow:0 12px 40px rgba(0,0,0,.1);display:flex;align-items:center;gap:.75rem;max-width:220px}
-.ed-pill-icon{width:40px;height:40px;border-radius:10px;background:var(--obg);display:flex;align-items:center;justify-content:center;flex-shrink:0}
-.ed-pill-icon svg{width:20px;height:20px;stroke:var(--o);fill:none;stroke-width:2;stroke-linecap:round}
-.ed-pill strong{font-size:.8rem;font-weight:700;color:var(--tx);display:block}
-.ed-pill span{font-size:.68rem;color:var(--txm);line-height:1.3}
-.ed-tag-wrap{position:absolute;top:2rem;right:-1.5rem;display:flex;flex-direction:column;gap:.6rem}
-.ed-tag{background:var(--white);border-radius:100px;padding:.4rem .9rem;font-size:.65rem;font-weight:700;color:var(--o);box-shadow:0 4px 16px rgba(0,0,0,.08);white-space:nowrap}
+.pack-slider{position:relative;min-height:720px;padding:1rem 4.5rem 4.75rem}
+.pack-stack{position:relative;height:640px}
+.pack-card{
+  position:absolute;inset:0;
+  border-radius:var(--rl);overflow:hidden;
+  background:linear-gradient(160deg,var(--obg),var(--o3));
+  box-shadow:0 24px 64px rgba(0,0,0,.14);
+  border:1px solid rgba(0,0,0,.04);
+  transition:transform .56s cubic-bezier(.22,1,.36,1),opacity .42s cubic-bezier(.22,1,.36,1),filter .56s cubic-bezier(.22,1,.36,1),box-shadow .56s cubic-bezier(.22,1,.36,1);
+  will-change:transform,opacity;
+}
+.pack-card img{width:100%;height:100%;object-fit:cover}
+.pack-card::after{
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(to top,rgba(0,0,0,.08),rgba(0,0,0,0) 36%);
+  pointer-events:none;
+}
+.pack-card.is-current{z-index:4;transform:translate3d(0,0,0) scale(1);opacity:1;filter:none}
+.pack-card.is-next{z-index:3;transform:translate3d(20px,18px,0) scale(.95);opacity:.98;filter:saturate(.96) brightness(.98)}
+.pack-card.is-third{z-index:2;transform:translate3d(38px,34px,0) scale(.89);opacity:.9;filter:saturate(.88) brightness(.95)}
+.pack-card.is-fourth{z-index:1;transform:translate3d(54px,48px,0) scale(.84);opacity:.5;filter:saturate(.7) brightness(.9)}
+.pack-card.is-hidden{opacity:0;pointer-events:none;transform:translate3d(80px,54px,0) scale(.8)}
+.pack-slider.is-shifting-next .pack-card.is-current{transform:translate3d(110px,-34px,0) rotate(8deg) scale(.98);opacity:0}
+.pack-slider.is-shifting-prev .pack-card.is-current{transform:translate3d(-110px,-34px,0) rotate(-8deg) scale(.98);opacity:0}
+.pack-shadow{
+  position:absolute;left:10%;right:8%;bottom:72px;height:48px;
+  background:radial-gradient(ellipse at center, rgba(12,9,32,.18), rgba(12,9,32,0) 72%);
+  filter:blur(10px);pointer-events:none;
+}
+.pack-controls{
+  position:absolute;inset:50% 0 auto 0;transform:translateY(-50%);
+  display:flex;justify-content:space-between;pointer-events:none;z-index:6;
+}
+.pack-arrow{
+  pointer-events:auto;
+  width:52px;height:52px;border-radius:50%;
+  border:1px solid rgba(27,23,40,.08);
+  background:rgba(255,255,255,.92);
+  box-shadow:0 14px 32px rgba(0,0,0,.12);
+  display:flex;align-items:center;justify-content:center;
+  color:var(--tx);cursor:pointer;
+  transition:transform .25s cubic-bezier(.22,1,.36,1),box-shadow .25s cubic-bezier(.22,1,.36,1),background .25s cubic-bezier(.22,1,.36,1),color .25s cubic-bezier(.22,1,.36,1);
+}
+.pack-arrow:hover,.pack-arrow:focus-visible{background:var(--o);color:var(--white);transform:translateY(-2px);box-shadow:0 18px 36px rgba(224,100,50,.24);outline:none}
+.pack-arrow svg{width:18px;height:18px;stroke:currentColor;fill:none;stroke-width:2.1;stroke-linecap:round;stroke-linejoin:round}
+.pack-caption{
+  position:absolute;left:4.5rem;right:4.5rem;bottom:0;
+  display:flex;justify-content:space-between;align-items:flex-end;gap:1rem;
+}
+.pack-meta strong{display:block;font-family:var(--serif);font-size:1.08rem;color:var(--tx)}
+.pack-meta span{display:block;margin-top:.28rem;font-size:.78rem;color:var(--txm)}
+.pack-count{font-size:.76rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--o)}
 
 /* ─── BENEFITS ─── */
 .benefits{padding:7rem 2.5rem;background:var(--cream)}
@@ -300,7 +387,7 @@ a{text-decoration:none;color:inherit}
 footer{background:var(--dp2);padding:5rem 2.5rem 2.5rem}
 .footer-top{max-width:var(--max);margin:0 auto;display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:4rem;padding-bottom:4rem;border-bottom:1px solid rgba(255,255,255,.08)}
 .footer-brand{}
-.footer-logo img{height:32px;width:auto;filter:brightness(0) invert(1);opacity:.85;margin-bottom:1.25rem}
+.footer-logo img{height:32px;width:auto;opacity:.85;margin-bottom:1.25rem}
 .footer-tagline{font-size:.82rem;font-weight:300;line-height:1.7;color:rgba(255,255,255,.45);max-width:260px;margin-bottom:1.75rem}
 .footer-social{display:flex;gap:.65rem}
 .social-btn{width:34px;height:34px;border:1px solid rgba(255,255,255,.15);border-radius:8px;display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,.5);transition:all .2s}
@@ -339,8 +426,9 @@ footer{background:var(--dp2);padding:5rem 2.5rem 2.5rem}
 @media(max-width:900px){
   .editorial-inner{grid-template-columns:1fr;gap:3.5rem}
   .ed-visual{order:-1}
-  .ed-pill{left:0}
-  .ed-tag-wrap{right:0}
+  .pack-slider{padding:0 1rem 4.25rem}
+  .pack-stack{height:520px}
+  .pack-caption{left:1rem;right:1rem}
   .featured-inner{grid-template-columns:1fr;gap:3rem}
   .feat-visual{max-width:380px}
   .prod-grid{grid-template-columns:repeat(2,1fr)}
@@ -358,6 +446,13 @@ footer{background:var(--dp2);padding:5rem 2.5rem 2.5rem}
   .benefits-grid{grid-template-columns:1fr}
   .science-stats{grid-template-columns:1fr 1fr}
   .cta-inner{padding:3.5rem 2rem}
+  .pack-slider{padding:0 0 4rem}
+  .pack-stack{height:420px}
+  .pack-card.is-next{transform:translate3d(14px,14px,0) scale(.95)}
+  .pack-card.is-third{transform:translate3d(26px,24px,0) scale(.9)}
+  .pack-card.is-fourth{transform:translate3d(38px,34px,0) scale(.85)}
+  .pack-arrow{width:44px;height:44px}
+  .pack-caption{left:0;right:0;bottom:-.25rem}
 }
 @media(max-width:560px){
   .prod-grid{grid-template-columns:1fr}
@@ -374,43 +469,71 @@ footer{background:var(--dp2);padding:5rem 2.5rem 2.5rem}
 <nav class="nav dark-nav" id="nav">
   <div class="nav-inner">
     <a href="index.html">
-      <img src="brand_assets/logo_probaclac.png" alt="Probaclac" style="height:34px;width:auto;transition:filter .4s" id="navLogo">
+      <img src="brand_assets/logo-blanc.png" alt="Probaclac" style="height:34px;width:auto" id="navLogo">
     </a>
     <ul class="nav-links">
       <li><a href="index.html">Accueil</a></li>
       <li class="nav-item-drop">
         <a href="#produits">Nos produits</a>
         <div class="drop-menu">
-          <div class="dm-head">
-            <span>Nos produits</span>
-            <a href="#produits">Voir tous les produits →</a>
-          </div>
-          <div class="dm-grid">
-            <a class="dm-item" href="produits/probaclac-adulte.html">
-              <div class="dm-img"><img src="images/adultes.jpg" alt="Adultes"></div>
-              <div class="dm-name">Probaclac Adultes</div>
-              <div class="dm-cat">Formule quotidienne</div>
+          <div class="dm-shell">
+            <a class="dm-feature" href="studies.html">
+              <div class="dm-feature-top">
+                <div class="dm-kicker">Science Probaclac</div>
+                <h3>Des formules ciblées. <br>Une logique de terrain.</h3>
+                <p>Âge, condition, microbiote, équilibre. Une gamme conçue pour être lue rapidement, puis choisie précisément.</p>
+              </div>
+              <img src="images/sci.jpg" alt="Probaclac SCI / IBS">
+              <span class="dm-feature-link">Explorer les études →</span>
             </a>
-            <a class="dm-item" href="https://www.probaclac.ca/probiotique-vaginal">
-              <div class="dm-img"><img src="images/vaginal.jpg" alt="Vaginal"></div>
-              <div class="dm-name">Probaclac Vaginal</div>
-              <div class="dm-cat">Flore féminine</div>
-            </a>
-            <a class="dm-item" href="https://www.probaclac.ca/probiotique-enfant">
-              <div class="dm-img"><img src="images/enfants.jpg" alt="Enfants"></div>
-              <div class="dm-name">Probaclac Enfants</div>
-              <div class="dm-cat">3 à 12 ans</div>
-            </a>
-            <a class="dm-item" href="https://www.probaclac.ca/probiotique-voyage">
-              <div class="dm-img"><img src="images/voyage.jpg" alt="Voyage"></div>
-              <div class="dm-name">Probaclac Voyage</div>
-              <div class="dm-cat">Résistant à la chaleur</div>
-            </a>
-            <a class="dm-item" href="https://www.probaclac.ca/probiotique-50-et-plus">
-              <div class="dm-img"><img src="images/50plus.jpg" alt="50 ans et plus"></div>
-              <div class="dm-name">Probaclac 50+</div>
-              <div class="dm-cat">50 ans et plus</div>
-            </a>
+            <div class="dm-main">
+              <div class="dm-head">
+                <span>Nos produits</span>
+                <a href="#produits">Voir tous les produits →</a>
+              </div>
+              <div class="dm-grid">
+                <a class="dm-item" href="produits/probaclac-adulte.html">
+                  <div class="dm-img"><img src="images/adultes.jpg" alt="Adultes"></div>
+                  <div class="dm-name">Probaclac Adultes</div>
+                  <div class="dm-cat">Formule quotidienne</div>
+                </a>
+                <a class="dm-item" href="https://www.probaclac.ca/probiotique-vaginal">
+                  <div class="dm-img"><img src="images/vaginal.jpg" alt="Vaginal"></div>
+                  <div class="dm-name">Probaclac Vaginal</div>
+                  <div class="dm-cat">Flore féminine</div>
+                </a>
+                <a class="dm-item" href="https://www.probaclac.ca/probiotique-enfant">
+                  <div class="dm-img"><img src="images/enfants.jpg" alt="Enfants"></div>
+                  <div class="dm-name">Probaclac Enfants</div>
+                  <div class="dm-cat">3 à 12 ans</div>
+                </a>
+                <a class="dm-item" href="https://www.probaclac.ca/probiotique-voyage">
+                  <div class="dm-img"><img src="images/voyage.jpg" alt="Voyage"></div>
+                  <div class="dm-name">Probaclac Voyage</div>
+                  <div class="dm-cat">Résistant à la chaleur</div>
+                </a>
+                <a class="dm-item" href="https://www.probaclac.ca/probiotique-50-et-plus">
+                  <div class="dm-img"><img src="images/50plus.jpg" alt="50 ans et plus"></div>
+                  <div class="dm-name">Probaclac 50+</div>
+                  <div class="dm-cat">50 ans et plus</div>
+                </a>
+                <a class="dm-item" href="https://www.probaclac.ca/probiotique-antibiotique">
+                  <div class="dm-img"><img src="images/medic.jpg" alt="Medic"></div>
+                  <div class="dm-name">Probaclac Medic</div>
+                  <div class="dm-cat">Antibiotiques</div>
+                </a>
+                <a class="dm-item" href="https://www.probaclac.ca/probiotique-gastro-intestinal">
+                  <div class="dm-img"><img src="images/gi.jpg" alt="GI"></div>
+                  <div class="dm-name">Probaclac GI</div>
+                  <div class="dm-cat">Gastro-intestinal</div>
+                </a>
+                <a class="dm-item" href="https://www.probaclac.ca/probiotique-infection-urinaire">
+                  <div class="dm-img"><img src="images/canneberge.jpg" alt="Canneberges"></div>
+                  <div class="dm-name">Probaclac Canneberges</div>
+                  <div class="dm-cat">Urinaire</div>
+                </a>
+              </div>
+            </div>
           </div>
         </div>
       </li>
@@ -557,21 +680,61 @@ footer{background:var(--dp2);padding:5rem 2.5rem 2.5rem}
       <a href="microbiote.html" class="btn-ghost">Découvrir la science du microbiote</a>
     </div>
     <div class="ed-visual reveal-right">
-      <div class="ed-img-wrap">
-        <img src="images/sci.jpg" alt="Microbiote et bien-être">
-      </div>
-      <div class="ed-pill">
-        <div class="ed-pill-icon">
-          <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+      <div class="pack-slider" id="packSlider" aria-label="Slider produits Probaclac">
+        <div class="pack-controls">
+          <button class="pack-arrow" id="packPrev" type="button" aria-label="Produit précédent">
+            <svg viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></svg>
+          </button>
+          <button class="pack-arrow" id="packNext" type="button" aria-label="Produit suivant">
+            <svg viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></svg>
+          </button>
         </div>
-        <div>
-          <strong>Certifié GMP</strong>
-          <span>Contrôle qualité pharmaceutique</span>
+        <div class="pack-stack">
+          <article class="pack-card" data-title="SCI / IBS" data-subtitle="Ballonnements, diarrhée, constipation">
+            <img src="images/sci.jpg" alt="Probaclac SCI / IBS">
+          </article>
+          <article class="pack-card" data-title="Adultes" data-subtitle="Formule quotidienne gastro-intestinale">
+            <img src="images/adultes.jpg" alt="Probaclac Adultes">
+          </article>
+          <article class="pack-card" data-title="Medic" data-subtitle="Réduction du risque de diarrhée associée aux antibiotiques">
+            <img src="images/medic.jpg" alt="Probaclac Medic">
+          </article>
+          <article class="pack-card" data-title="50 ans et +" data-subtitle="Soutien digestif pour microbiote mature">
+            <img src="images/50plus.jpg" alt="Probaclac 50 ans et plus">
+          </article>
+          <article class="pack-card" data-title="Voyageurs" data-subtitle="Confort intestinal en déplacement">
+            <img src="images/voyage.jpg" alt="Probaclac Voyageurs">
+          </article>
+          <article class="pack-card" data-title="GI" data-subtitle="Soutien gastro-intestinal et diarrhée infectieuse aiguë">
+            <img src="images/gi.jpg" alt="Probaclac GI">
+          </article>
+          <article class="pack-card" data-title="Extra-fort" data-subtitle="Concentration élevée pour périodes aiguës">
+            <img src="images/extra.jpg" alt="Probaclac Extra-fort">
+          </article>
+          <article class="pack-card" data-title="Enfants" data-subtitle="Microbiote, immunité et croissance saine">
+            <img src="images/enfants.jpg" alt="Probaclac Enfants">
+          </article>
+          <article class="pack-card" data-title="Croquable" data-subtitle="Formule facile dès 3 ans">
+            <img src="images/croquable.jpg" alt="Probaclac Croquable">
+          </article>
+          <article class="pack-card" data-title="Canneberges" data-subtitle="Équilibre du tractus urinaire">
+            <img src="images/canneberge.jpg" alt="Probaclac Canneberges">
+          </article>
+          <article class="pack-card" data-title="Vaginal" data-subtitle="Équilibre du pH vaginal et flore féminine">
+            <img src="images/vaginal.jpg" alt="Probaclac Vaginal">
+          </article>
+          <article class="pack-card" data-title="Rosella" data-subtitle="Santé féminine et équilibre vaginal">
+            <img src="images/rosella.jpg" alt="Probaclac Rosella">
+          </article>
         </div>
-      </div>
-      <div class="ed-tag-wrap">
-        <div class="ed-tag">14 souches actives</div>
-        <div class="ed-tag">Prébiotiques inclus</div>
+        <div class="pack-shadow" aria-hidden="true"></div>
+        <div class="pack-caption">
+          <div class="pack-meta">
+            <strong id="packTitle">SCI / IBS</strong>
+            <span id="packSubtitle">Ballonnements, diarrhée, constipation</span>
+          </div>
+          <div class="pack-count" id="packCount">01 / 12</div>
+        </div>
       </div>
     </div>
   </div>
@@ -883,7 +1046,7 @@ footer{background:var(--dp2);padding:5rem 2.5rem 2.5rem}
   <div class="footer-top">
     <div class="footer-brand">
       <div class="footer-logo">
-        <img src="brand_assets/logo_probaclac.png" alt="Probaclac">
+        <img src="brand_assets/logo-blanc.png" alt="Probaclac">
       </div>
       <p class="footer-tagline">Des probiotiques de grade pharmaceutique pour soutenir votre microbiote et votre bien-être au quotidien.</p>
       <div class="footer-social">
@@ -954,10 +1117,10 @@ function updateNav() {
   // Hero is dark; after scrolling past it, nav gets light bg
   if (scrolled) {
     nav.classList.remove('dark-nav');
-    logo.style.filter = 'none'; // show black logo
+    logo.src = 'brand_assets/logo-noir.png';
   } else {
     nav.classList.add('dark-nav');
-    logo.style.filter = 'brightness(0) invert(1)'; // white logo
+    logo.src = 'brand_assets/logo-blanc.png';
   }
 }
 window.addEventListener('scroll', updateNav, { passive: true });
@@ -1065,6 +1228,70 @@ const io = new IntersectionObserver((entries) => {
 }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
 
 document.querySelectorAll('.reveal, .reveal-left, .reveal-right').forEach(el => io.observe(el));
+
+// ── PRODUCT STACK SLIDER
+(function(){
+  const slider = document.getElementById('packSlider');
+  if (!slider) return;
+
+  const cards = Array.from(slider.querySelectorAll('.pack-card'));
+  const prevBtn = document.getElementById('packPrev');
+  const nextBtn = document.getElementById('packNext');
+  const titleEl = document.getElementById('packTitle');
+  const subtitleEl = document.getElementById('packSubtitle');
+  const countEl = document.getElementById('packCount');
+  const total = cards.length;
+  let current = 0;
+  let locked = false;
+
+  function modulo(index){
+    return (index + total) % total;
+  }
+
+  function updateMeta(){
+    const active = cards[current];
+    if (titleEl) titleEl.textContent = active.dataset.title || '';
+    if (subtitleEl) subtitleEl.textContent = active.dataset.subtitle || '';
+    if (countEl) countEl.textContent = `${String(current + 1).padStart(2, '0')} / ${String(total).padStart(2, '0')}`;
+  }
+
+  function paint(){
+    cards.forEach((card, index) => {
+      card.classList.remove('is-current', 'is-next', 'is-third', 'is-fourth', 'is-hidden');
+      const distance = modulo(index - current);
+      if (distance === 0) card.classList.add('is-current');
+      else if (distance === 1) card.classList.add('is-next');
+      else if (distance === 2) card.classList.add('is-third');
+      else if (distance === 3) card.classList.add('is-fourth');
+      else card.classList.add('is-hidden');
+    });
+    updateMeta();
+  }
+
+  function shift(direction){
+    if (locked) return;
+    locked = true;
+    slider.classList.remove('is-shifting-next', 'is-shifting-prev');
+    slider.classList.add(direction === 1 ? 'is-shifting-next' : 'is-shifting-prev');
+
+    window.setTimeout(() => {
+      current = modulo(current + direction);
+      slider.classList.remove('is-shifting-next', 'is-shifting-prev');
+      paint();
+      window.setTimeout(() => { locked = false; }, 80);
+    }, 340);
+  }
+
+  prevBtn?.addEventListener('click', () => shift(-1));
+  nextBtn?.addEventListener('click', () => shift(1));
+
+  slider.addEventListener('keydown', (event) => {
+    if (event.key === 'ArrowLeft') shift(-1);
+    if (event.key === 'ArrowRight') shift(1);
+  });
+
+  paint();
+})();
 </script>
 </body>
 </html>
