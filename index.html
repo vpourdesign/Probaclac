@@ -136,7 +136,7 @@ a{text-decoration:none;color:inherit}
 .hero-visual{position:relative;display:flex;justify-content:center;align-items:center}
 .hero-card{background:rgba(255,255,255,.07);backdrop-filter:blur(20px);border:1px solid rgba(255,255,255,.12);border-radius:var(--rl);padding:2rem;width:100%;max-width:420px}
 .hero-card-img{width:100%;aspect-ratio:1;border-radius:var(--r);overflow:hidden;background:linear-gradient(135deg,rgba(224,100,50,.3),rgba(60,40,160,.4));margin-bottom:1.5rem;display:flex;align-items:center;justify-content:center}
-.hero-card-img img{width:75%;height:auto}
+.hero-card-img img{width:100%;height:100%;object-fit:cover}
 .hero-card-name{font-family:var(--serif);font-size:1.3rem;font-weight:600;color:var(--white);margin-bottom:.35rem}
 .hero-card-sub{font-size:.78rem;color:rgba(255,255,255,.55);margin-bottom:1.25rem}
 .hero-card-footer{display:flex;justify-content:space-between;align-items:center}
@@ -211,7 +211,7 @@ a{text-decoration:none;color:inherit}
 .featured-inner{max-width:var(--max);margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center}
 .feat-visual{position:relative}
 .feat-img{border-radius:var(--rl);overflow:hidden;aspect-ratio:3/4;background:linear-gradient(160deg,var(--obg),var(--o3));display:flex;align-items:center;justify-content:center}
-.feat-img img{width:65%;height:auto}
+.feat-img img{width:100%;height:100%;object-fit:cover}
 .feat-badge-wrap{position:absolute;top:1.5rem;left:1.5rem;display:flex;flex-direction:column;gap:.5rem}
 .feat-badge{display:inline-block;padding:.3rem .8rem;border-radius:100px;font-size:.62rem;font-weight:700;letter-spacing:.05em;text-transform:uppercase}
 .feat-badge-new{background:var(--o);color:var(--white)}
@@ -253,7 +253,7 @@ a{text-decoration:none;color:inherit}
 .prod-card{background:var(--cream);border-radius:var(--rl);overflow:hidden;border:1px solid var(--border);transition:all .35s cubic-bezier(.16,1,.3,1);cursor:pointer}
 .prod-card:hover{transform:translateY(-8px);box-shadow:0 20px 60px rgba(0,0,0,.1);border-color:var(--o3)}
 .pc-img-wrap{width:100%;aspect-ratio:4/3;background:linear-gradient(135deg,var(--obg),var(--o3));display:flex;align-items:center;justify-content:center;overflow:hidden;position:relative}
-.pc-img-wrap img{width:55%;height:auto;transition:transform .5s cubic-bezier(.16,1,.3,1)}
+.pc-img-wrap img{width:100%;height:100%;object-fit:cover;transition:transform .5s cubic-bezier(.16,1,.3,1)}
 .prod-card:hover .pc-img-wrap img{transform:scale(1.08) translateY(-4px)}
 .pc-tag-label{position:absolute;top:.75rem;left:.75rem;background:rgba(255,255,255,.9);color:var(--o);font-size:.6rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:.25rem .65rem;border-radius:100px}
 .pc-body{padding:1.5rem}
@@ -386,29 +386,29 @@ footer{background:var(--dp2);padding:5rem 2.5rem 2.5rem}
             <a href="#produits">Voir tous les produits →</a>
           </div>
           <div class="dm-grid">
-            <a class="dm-item" href="#">
-              <div class="dm-img"><img src="https://placehold.co/60x60/FEF1E8/E06432?text=A" alt="Adultes"></div>
+            <a class="dm-item" href="produits/probaclac-adulte.html">
+              <div class="dm-img"><img src="images/adultes.jpg" alt="Adultes"></div>
               <div class="dm-name">Probaclac Adultes</div>
               <div class="dm-cat">Formule quotidienne</div>
             </a>
-            <a class="dm-item" href="#">
-              <div class="dm-img"><img src="https://placehold.co/60x60/FEF1E8/E06432?text=F" alt="Femme+"></div>
-              <div class="dm-name">Probaclac Femme+</div>
+            <a class="dm-item" href="https://www.probaclac.ca/probiotique-vaginal">
+              <div class="dm-img"><img src="images/vaginal.jpg" alt="Vaginal"></div>
+              <div class="dm-name">Probaclac Vaginal</div>
               <div class="dm-cat">Flore féminine</div>
             </a>
-            <a class="dm-item" href="#">
-              <div class="dm-img"><img src="https://placehold.co/60x60/FEF1E8/E06432?text=E" alt="Enfants"></div>
+            <a class="dm-item" href="https://www.probaclac.ca/probiotique-enfant">
+              <div class="dm-img"><img src="images/enfants.jpg" alt="Enfants"></div>
               <div class="dm-name">Probaclac Enfants</div>
               <div class="dm-cat">3 à 12 ans</div>
             </a>
-            <a class="dm-item" href="#">
-              <div class="dm-img"><img src="https://placehold.co/60x60/FEF1E8/E06432?text=V" alt="Voyage"></div>
+            <a class="dm-item" href="https://www.probaclac.ca/probiotique-voyage">
+              <div class="dm-img"><img src="images/voyage.jpg" alt="Voyage"></div>
               <div class="dm-name">Probaclac Voyage</div>
               <div class="dm-cat">Résistant à la chaleur</div>
             </a>
-            <a class="dm-item" href="#">
-              <div class="dm-img"><img src="https://placehold.co/60x60/FEF1E8/E06432?text=S" alt="Senior"></div>
-              <div class="dm-name">Probaclac Senior</div>
+            <a class="dm-item" href="https://www.probaclac.ca/probiotique-50-et-plus">
+              <div class="dm-img"><img src="images/50plus.jpg" alt="50 ans et plus"></div>
+              <div class="dm-name">Probaclac 50+</div>
               <div class="dm-cat">50 ans et plus</div>
             </a>
           </div>
@@ -459,7 +459,7 @@ footer{background:var(--dp2);padding:5rem 2.5rem 2.5rem}
     <div class="hero-visual">
       <div class="hero-card">
         <div class="hero-card-img">
-          <img src="https://placehold.co/200x220/FEF1E8/E06432?text=P+" alt="Probaclac Adultes">
+          <img src="images/adultes.jpg" alt="Probaclac Adultes">
         </div>
         <div class="hero-card-name">Probaclac Adultes</div>
         <div class="hero-card-sub">Formule quotidienne · 30 milliards UFC</div>
@@ -558,7 +558,7 @@ footer{background:var(--dp2);padding:5rem 2.5rem 2.5rem}
     </div>
     <div class="ed-visual reveal-right">
       <div class="ed-img-wrap">
-        <img src="https://placehold.co/480x600/FEF1E8/E06432?text=+" alt="Microbiote et bien-être">
+        <img src="images/sci.jpg" alt="Microbiote et bien-être">
       </div>
       <div class="ed-pill">
         <div class="ed-pill-icon">
@@ -618,7 +618,7 @@ footer{background:var(--dp2);padding:5rem 2.5rem 2.5rem}
   <div class="featured-inner">
     <div class="feat-visual reveal-left">
       <div class="feat-img">
-        <img src="https://placehold.co/260x320/FEF1E8/E06432?text=Probaclac" alt="Probaclac Femme+">
+        <img src="images/vaginal.jpg" alt="Probaclac Vaginal">
       </div>
       <div class="feat-badge-wrap">
         <span class="feat-badge feat-badge-new">Nouvelle formule</span>
@@ -628,29 +628,29 @@ footer{background:var(--dp2);padding:5rem 2.5rem 2.5rem}
     <div class="feat-text reveal-right">
       <div class="stag">Produit vedette</div>
       <h2 class="feat-heading f-display">La formule pensée<br>pour la femme.</h2>
-      <div class="feat-name">Probaclac Femme+</div>
-      <p class="feat-desc">Une association unique de 14 souches probiotiques sélectionnées pour équilibrer la flore vaginale, soutenir le système immunitaire et améliorer le bien-être général de la femme à chaque étape de sa vie.</p>
+      <div class="feat-name">Probaclac Vaginal</div>
+      <p class="feat-desc">Une formule ciblée pour aider à réduire la récurrence de la vaginose bactérienne, soutenir l’équilibre du pH vaginal et accompagner la flore féminine avec plus de précision.</p>
       <div class="feat-specs">
         <div class="feat-spec">
-          <strong>30 milliards</strong>
-          <span>UFC par dose</span>
+          <strong>8 milliards</strong>
+          <span>Cellules actives</span>
         </div>
         <div class="feat-spec">
-          <strong>14 souches</strong>
+          <strong>3 souches</strong>
           <span>Actives et ciblées</span>
         </div>
         <div class="feat-spec">
-          <strong>Prébiotiques</strong>
-          <span>FOS inclus</span>
+          <strong>Équilibre</strong>
+          <span>Flore féminine</span>
         </div>
         <div class="feat-spec">
-          <strong>60 jours</strong>
-          <span>De traitement</span>
+          <strong>14 caps.</strong>
+          <span>Usage vaginal</span>
         </div>
       </div>
       <div class="feat-actions">
-        <a href="#" class="btn btn-orange">Acheter — 39,99 $</a>
-        <a href="#" class="btn-ghost">En savoir plus</a>
+        <a href="https://www.probaclac.ca/probiotique-vaginal" class="btn btn-orange">Découvrir la formule</a>
+        <a href="studies.html" class="btn-ghost">Voir les études</a>
       </div>
     </div>
   </div>
@@ -702,7 +702,7 @@ footer{background:var(--dp2);padding:5rem 2.5rem 2.5rem}
     <div class="prod-grid">
       <div class="prod-card reveal">
         <div class="pc-img-wrap">
-          <img src="https://placehold.co/200x180/FEF1E8/E06432?text=PA" alt="Probaclac Adultes">
+          <img src="images/adultes.jpg" alt="Probaclac Adultes">
           <span class="pc-tag-label">Populaire</span>
         </div>
         <div class="pc-body">
@@ -710,27 +710,27 @@ footer{background:var(--dp2);padding:5rem 2.5rem 2.5rem}
           <div class="pc-tagline">Formule quotidienne · Équilibre intestinal · 30 milliards UFC</div>
           <div class="pc-footer">
             <span class="pc-price f-display">34,99 $</span>
-            <a href="#" class="pc-cta">Acheter</a>
+            <a href="produits/probaclac-adulte.html" class="pc-cta">Acheter</a>
           </div>
         </div>
       </div>
       <div class="prod-card reveal" style="transition-delay:.08s">
         <div class="pc-img-wrap" style="background:linear-gradient(135deg,#fdf0f8,#f5c0d8)">
-          <img src="https://placehold.co/200x180/fdf0f8/ce3079?text=PF" alt="Probaclac Femme+">
+          <img src="images/vaginal.jpg" alt="Probaclac Vaginal">
           <span class="pc-tag-label" style="color:#ce3079">Vedette</span>
         </div>
         <div class="pc-body">
-          <div class="pc-name f-display">Probaclac Femme+</div>
-          <div class="pc-tagline">Flore féminine · 14 souches · Prébiotiques FOS</div>
+          <div class="pc-name f-display">Probaclac Vaginal</div>
+          <div class="pc-tagline">Flore féminine · Équilibre du pH · Usage ciblé</div>
           <div class="pc-footer">
             <span class="pc-price f-display">39,99 $</span>
-            <a href="#" class="pc-cta">Acheter</a>
+            <a href="https://www.probaclac.ca/probiotique-vaginal" class="pc-cta">Acheter</a>
           </div>
         </div>
       </div>
       <div class="prod-card reveal" style="transition-delay:.16s">
         <div class="pc-img-wrap" style="background:linear-gradient(135deg,#eaf5e8,#b5e0b0)">
-          <img src="https://placehold.co/200x180/eaf5e8/2a7b3a?text=PE" alt="Probaclac Enfants">
+          <img src="images/enfants.jpg" alt="Probaclac Enfants">
           <span class="pc-tag-label" style="color:#2a7b3a">Enfants</span>
         </div>
         <div class="pc-body">
@@ -738,13 +738,13 @@ footer{background:var(--dp2);padding:5rem 2.5rem 2.5rem}
           <div class="pc-tagline">3 à 12 ans · Immunité · Croissance saine</div>
           <div class="pc-footer">
             <span class="pc-price f-display">29,99 $</span>
-            <a href="#" class="pc-cta">Acheter</a>
+            <a href="https://www.probaclac.ca/probiotique-enfant" class="pc-cta">Acheter</a>
           </div>
         </div>
       </div>
       <div class="prod-card reveal" style="transition-delay:.24s">
         <div class="pc-img-wrap" style="background:linear-gradient(135deg,#e8f0fe,#a8c4f8)">
-          <img src="https://placehold.co/200x180/e8f0fe/2a5b9b?text=PV" alt="Probaclac Voyage">
+          <img src="images/voyage.jpg" alt="Probaclac Voyage">
           <span class="pc-tag-label" style="color:#2a5b9b">Voyage</span>
         </div>
         <div class="pc-body">
@@ -752,35 +752,35 @@ footer{background:var(--dp2);padding:5rem 2.5rem 2.5rem}
           <div class="pc-tagline">Résistant à la chaleur · Sans réfrigération</div>
           <div class="pc-footer">
             <span class="pc-price f-display">32,99 $</span>
-            <a href="#" class="pc-cta">Acheter</a>
+            <a href="https://www.probaclac.ca/probiotique-voyage" class="pc-cta">Acheter</a>
           </div>
         </div>
       </div>
       <div class="prod-card reveal" style="transition-delay:.32s">
         <div class="pc-img-wrap" style="background:linear-gradient(135deg,#fef3e2,#f8d08a)">
-          <img src="https://placehold.co/200x180/fef3e2/8a7a20?text=PS" alt="Probaclac Senior">
-          <span class="pc-tag-label" style="color:#8a7a20">Senior</span>
+          <img src="images/50plus.jpg" alt="Probaclac 50 ans et plus">
+          <span class="pc-tag-label" style="color:#8a7a20">50+</span>
         </div>
         <div class="pc-body">
-          <div class="pc-name f-display">Probaclac Senior</div>
+          <div class="pc-name f-display">Probaclac 50+</div>
           <div class="pc-tagline">50 ans et plus · Digestion · Vitalité</div>
           <div class="pc-footer">
             <span class="pc-price f-display">36,99 $</span>
-            <a href="#" class="pc-cta">Acheter</a>
+            <a href="https://www.probaclac.ca/probiotique-50-et-plus" class="pc-cta">Acheter</a>
           </div>
         </div>
       </div>
       <div class="prod-card reveal" style="transition-delay:.40s">
         <div class="pc-img-wrap" style="background:linear-gradient(135deg,#f0e8fe,#c8a0f8)">
-          <img src="https://placehold.co/200x180/f0e8fe/7b3dc7?text=SP" alt="Probaclac Sport">
-          <span class="pc-tag-label" style="color:#7b3dc7">Sport</span>
+          <img src="images/sci.jpg" alt="Probaclac SCI">
+          <span class="pc-tag-label" style="color:#2a5b9b">SCI</span>
         </div>
         <div class="pc-body">
-          <div class="pc-name f-display">Probaclac Sport</div>
-          <div class="pc-tagline">Performance · Récupération · Énergie</div>
+          <div class="pc-name f-display">Probaclac SCI / IBS</div>
+          <div class="pc-tagline">Ballonnements · Diarrhée · Constipation</div>
           <div class="pc-footer">
             <span class="pc-price f-display">37,99 $</span>
-            <a href="#" class="pc-cta">Acheter</a>
+            <a href="studies.html" class="pc-cta">Acheter</a>
           </div>
         </div>
       </div>
