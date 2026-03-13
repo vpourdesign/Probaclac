@@ -90,7 +90,7 @@ button,input{font:inherit}
 .summary{padding:0 2.5rem;transform:translateY(-56px);position:relative;z-index:2}
 .summary-inner{max-width:var(--max);margin:0 auto;background:rgba(255,255,255,.96);backdrop-filter:blur(20px);border-radius:30px;box-shadow:0 26px 64px rgba(12,9,32,.12);border:1px solid rgba(0,0,0,.04);display:grid;grid-template-columns:1.1fr .9fr}
 .accordion-col{padding:2rem 2rem 1.5rem}
-.dose-col{padding:2rem;background:var(--grey);border-radius:0 30px 30px 0}
+.dose-col{padding:2rem;background:linear-gradient(180deg,#f1eee8 0%,#ece7df 100%);border-radius:0 30px 30px 0;display:flex;flex-direction:column;justify-content:space-between;gap:1.5rem}
 .acc-item{border-bottom:1px solid var(--border)}
 .acc-btn{width:100%;background:none;border:none;display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:1rem 0;font-size:.9rem;font-weight:700;color:var(--tx);cursor:pointer;text-align:left}
 .acc-btn svg{width:16px;height:16px;stroke:var(--tx);fill:none;stroke-width:2;transition:transform .25s}
@@ -107,6 +107,21 @@ button,input{font:inherit}
 .dose-col h3{font-size:.78rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--txm)}
 .dose-col p{margin-top:.85rem;font-size:.86rem;line-height:1.75;color:var(--txm)}
 .dose-col strong{color:var(--tx)}
+.dose-copy{display:flex;flex-direction:column;gap:.2rem}
+.dose-stats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:.7rem}
+.dose-stat{background:rgba(255,255,255,.72);border:1px solid rgba(0,0,0,.05);border-radius:18px;padding:1rem .95rem;min-height:112px;display:flex;flex-direction:column;justify-content:space-between}
+.dose-stat strong{display:block;font-family:var(--serif);font-size:1.7rem;line-height:1;color:var(--o)}
+.dose-stat span{display:block;margin-top:.45rem;font-size:.68rem;line-height:1.45;color:var(--txm)}
+.dose-card{background:#fff;border-radius:22px;padding:1.15rem 1.15rem 1.2rem;box-shadow:0 14px 34px rgba(12,9,32,.06);border:1px solid rgba(0,0,0,.04)}
+.dose-card h4{font-size:.72rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--txm)}
+.dose-list{list-style:none;display:flex;flex-direction:column;gap:.6rem;margin-top:.9rem}
+.dose-list li{display:flex;align-items:flex-start;gap:.65rem;font-size:.8rem;line-height:1.55;color:var(--tx)}
+.dose-list li::before{content:'';width:18px;height:18px;border-radius:50%;flex-shrink:0;margin-top:.1rem;background:var(--obg);border:1px solid var(--o3);background-image:url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='10' viewBox='0 0 10 10'%3E%3Cpath d='M2 5l2.5 2.5L8 3' stroke='%23E06432' stroke-width='1.5' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E\");background-repeat:no-repeat;background-position:center}
+.dose-note{display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:1rem 1.05rem;border-radius:20px;background:linear-gradient(135deg,#201946,#100d27);color:#fff}
+.dose-note strong{display:block;font-size:.9rem;color:#fff}
+.dose-note span{display:block;margin-top:.25rem;font-size:.75rem;line-height:1.55;color:rgba(255,255,255,.72)}
+.dose-note a{display:inline-flex;align-items:center;justify-content:center;border-radius:100px;padding:.72rem 1rem;background:var(--o);color:#fff;font-size:.74rem;font-weight:800;white-space:nowrap}
+.dose-note a:hover{background:var(--o2)}
 
 .section{padding:2rem 2.5rem 6rem}
 .section-inner{max-width:var(--max);margin:0 auto}
@@ -170,6 +185,7 @@ button,input{font:inherit}
   .hero-icons{grid-template-columns:repeat(2,minmax(0,1fr))}
   .summary-inner{grid-template-columns:1fr}
   .dose-col{border-radius:0 0 30px 30px}
+  .dose-stats{grid-template-columns:repeat(3,minmax(0,1fr))}
   .related-track{grid-template-columns:repeat(4,minmax(0,1fr))}
 }
 @media(max-width:900px){
@@ -181,12 +197,15 @@ button,input{font:inherit}
   .usage-grid{grid-template-columns:1fr}
   .usage-side{grid-template-rows:auto 240px}
   .usage-points{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .dose-stats{grid-template-columns:1fr 1fr}
   .footer-top{grid-template-columns:1fr}
   .footer-bottom{flex-direction:column;align-items:flex-start}
 }
 @media(max-width:640px){
   .hero-meta{grid-template-columns:1fr}
   .study-card{grid-template-columns:1fr;text-align:left}
+  .dose-stats{grid-template-columns:1fr}
+  .dose-note{flex-direction:column;align-items:flex-start}
   .related-track{grid-template-columns:repeat(2,minmax(0,1fr))}
   .allergen-panel{padding:1.5rem}
   .allergen-panel h3{font-size:1.55rem}
@@ -294,11 +313,41 @@ button,input{font:inherit}
       </div>
     </div>
     <div class="dose-col" id="acheter">
-      <h3>Posologie</h3>
-      <p><strong>Adolescents de 13 ans et plus et adultes :</strong><br>Prendre une capsule deux fois par jour au déjeuner et au dîner.</p>
-      <p>Prendre à jeun ou 2 à 3 heures avant ou après la prise d'antibiotiques, quand nécessaire, afin d'en maximiser l'assimilation.</p>
-      <p><strong>Formats :</strong> 30 capsules ou 60 capsules.</p>
-      <p><strong>Prix indicatif :</strong> format 30 capsules à 20,99 $ et format 60 capsules à 32,99 $.</p>
+      <div class="dose-copy">
+        <h3>Posologie</h3>
+        <p><strong>Adolescents de 13 ans et plus et adultes :</strong><br>Prendre une capsule deux fois par jour au déjeuner et au dîner.</p>
+        <p>Prendre à jeun ou 2 à 3 heures avant ou après la prise d'antibiotiques, quand nécessaire, afin d'en maximiser l'assimilation.</p>
+      </div>
+      <div class="dose-stats">
+        <div class="dose-stat">
+          <strong>30</strong>
+          <span>capsules pour une routine courte ou un premier essai</span>
+        </div>
+        <div class="dose-stat">
+          <strong>60</strong>
+          <span>capsules pour une continuité plus confortable au quotidien</span>
+        </div>
+        <div class="dose-stat">
+          <strong>NPN</strong>
+          <span>80013765, approuvé par Santé Canada</span>
+        </div>
+      </div>
+      <div class="dose-card">
+        <h4>Repères rapides</h4>
+        <ul class="dose-list">
+          <li>2 prises par jour, idéalement au déjeuner et au dîner.</li>
+          <li>Espacer de 2 à 3 heures si une antibiothérapie est en cours.</li>
+          <li>Format 30 capsules à 20,99 $ et format 60 capsules à 32,99 $.</li>
+          <li>Utilisation régulière recommandée pour installer la routine digestive.</li>
+        </ul>
+      </div>
+      <div class="dose-note">
+        <div>
+          <strong>Besoin d'aller plus vite?</strong>
+          <span>Choisissez votre format en ligne et passez directement à la commande.</span>
+        </div>
+        <a href="https://www.monprobiotique.ca">Commander</a>
+      </div>
     </div>
   </div>
 </section>
