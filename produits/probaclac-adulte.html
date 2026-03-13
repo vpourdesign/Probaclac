@@ -189,7 +189,10 @@ button,input{font:inherit}
   color:var(--tx);padding:1.35rem 1.45rem;z-index:1
 }
 .usage-kicker{position:relative;z-index:1;font-size:.72rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--txm)}
-.usage-label h3{position:relative;z-index:1;font-family:var(--serif);font-size:clamp(2.2rem,3.5vw,3.2rem);line-height:.95;letter-spacing:-.055em;max-width:8ch}
+.usage-label h3{
+  position:relative;z-index:1;font-family:var(--serif);font-size:clamp(1.7rem,2.5vw,2.35rem);
+  line-height:.98;letter-spacing:-.05em;max-width:11ch
+}
 .usage-photo{
   position:absolute;left:1.2rem;right:1.2rem;bottom:1.2rem;top:210px;
   border-radius:28px;overflow:hidden;background:linear-gradient(160deg,#d0d4da,#f2f4f6)
@@ -214,7 +217,7 @@ button,input{font:inherit}
   margin-top:1rem;display:grid;grid-template-columns:1fr 1fr;gap:1.3rem 1.8rem;align-items:start
 }
 .usage-copy-text p{
-  font-size:1.03rem;line-height:1.92;color:rgba(255,255,255,.94)
+  font-size:1.14rem;line-height:1.88;color:rgba(255,255,255,.96)
 }
 .usage-copy-text p:last-child{padding-top:1.2rem;border-top:1px solid rgba(255,255,255,.16)}
 .usage-note{
@@ -225,7 +228,7 @@ button,input{font:inherit}
   background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.14)
 }
 .usage-note-mark svg{width:20px;height:20px;stroke:#fff;fill:none;stroke-width:1.8}
-.usage-note span{font-size:.78rem;line-height:1.7;color:rgba(255,255,255,.8);max-width:42ch}
+.usage-note span{font-size:.88rem;line-height:1.72;color:rgba(255,255,255,.84);max-width:52ch}
 
 .related{padding:0 2.5rem 6rem}
 .related-track{max-width:var(--max);margin:1.8rem auto 0;display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:.75rem}
@@ -276,6 +279,7 @@ button,input{font:inherit}
   .usage-grid{grid-template-columns:1fr}
   .usage-side{min-height:640px}
   .usage-copy-text{grid-template-columns:1fr}
+  .usage-label h3{max-width:100%}
   .footer-top{grid-template-columns:1fr}
   .footer-bottom{flex-direction:column;align-items:flex-start}
 }
@@ -404,7 +408,6 @@ button,input{font:inherit}
 
 <section class="section">
   <div class="section-inner">
-    <h2 class="sect-title reveal">Études <em>cliniques</em></h2>
     <a class="study-banner reveal" href="../studies.html#cdifficile">
       <span class="study-chip">C. difficile</span>
       <div class="study-banner-copy">
