@@ -191,7 +191,7 @@ button,input{font:inherit}
 .usage-kicker{position:relative;z-index:1;font-size:.72rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--txm)}
 .usage-label h3{
   position:relative;z-index:1;font-family:var(--serif);font-size:clamp(1.7rem,2.5vw,2.35rem);
-  line-height:.98;letter-spacing:-.05em;max-width:11ch
+  line-height:.98;letter-spacing:-.05em;max-width:13ch
 }
 .usage-photo{
   position:absolute;left:1.2rem;right:1.2rem;bottom:1.2rem;top:210px;
@@ -214,12 +214,12 @@ button,input{font:inherit}
 .usage-copy-kicker{display:inline-flex;align-items:center;gap:.5rem;font-size:.72rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.72)}
 .usage-copy-kicker::before{content:'';width:20px;height:1.5px;background:rgba(255,255,255,.5)}
 .usage-copy-text{
-  margin-top:1rem;display:grid;grid-template-columns:1fr 1fr;gap:1.3rem 1.8rem;align-items:start
+  margin-top:1rem;display:grid;grid-template-columns:1fr;gap:1.1rem;align-items:start
 }
 .usage-copy-text p{
   font-size:1.14rem;line-height:1.88;color:rgba(255,255,255,.96)
 }
-.usage-copy-text p:last-child{padding-top:1.2rem;border-top:1px solid rgba(255,255,255,.16)}
+.usage-copy-text p + p{padding-top:1.2rem;border-top:1px solid rgba(255,255,255,.16)}
 .usage-note{
   display:flex;align-items:center;gap:1rem;padding-top:1.15rem
 }
@@ -278,7 +278,6 @@ button,input{font:inherit}
   .summary,.section,.related,.allergen,.footer{padding-left:1.4rem;padding-right:1.4rem}
   .usage-grid{grid-template-columns:1fr}
   .usage-side{min-height:640px}
-  .usage-copy-text{grid-template-columns:1fr}
   .usage-label h3{max-width:100%}
   .footer-top{grid-template-columns:1fr}
   .footer-bottom{flex-direction:column;align-items:flex-start}
@@ -421,7 +420,7 @@ button,input{font:inherit}
       <div class="usage-side">
         <div class="usage-label">
           <span class="usage-kicker">Routine digestive</span>
-          <h3>Comment prendre Probaclac Adultes?</h3>
+          <h3>Comment prendre<br>Probaclac Adultes?</h3>
         </div>
         <div class="usage-photo">
           <img src="../images/kitchen.jpg" alt="Probaclac Adultes sur comptoir de cuisine">
