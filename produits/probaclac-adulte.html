@@ -139,46 +139,93 @@ button,input{font:inherit}
 .section-inner{max-width:var(--max);margin:0 auto}
 .sect-title{font-family:var(--serif);font-size:clamp(2rem,4vw,3rem);line-height:1.05;letter-spacing:-.03em;color:var(--tx)}
 .sect-title em{font-style:italic;color:var(--o)}
-.study-block{margin-top:2rem;background:linear-gradient(180deg,#e66f2f 0%,#d96024 100%);border-radius:32px;padding:1.15rem}
-.study-pill{display:inline-flex;align-items:center;gap:.55rem;background:#fff;color:var(--tx);border-radius:100px;padding:.45rem .95rem;font-size:.76rem;font-weight:800}
-.study-pill::before{content:'';width:14px;height:14px;border-radius:50%;background:var(--o);box-shadow:inset 0 0 0 4px #fff}
-.study-card{margin-top:1rem;background:#fff;border-radius:24px;padding:1.5rem;display:grid;grid-template-columns:150px 1fr;gap:1.6rem;align-items:center}
-.study-card img{width:120px;height:120px;object-fit:cover;border-radius:18px;background:var(--grey)}
-.study-card h3{font-size:.92rem;font-weight:800;letter-spacing:.06em;text-transform:uppercase}
-.study-card p{margin-top:.85rem;font-size:.84rem;line-height:1.8;color:var(--txm)}
-
-.usage-grid{margin-top:2rem;display:grid;grid-template-columns:.78fr 1.22fr;gap:1rem;align-items:stretch}
-.usage-side{display:grid;grid-template-rows:180px 1fr;gap:1rem}
-.usage-label{
-  position:relative;display:flex;flex-direction:column;align-items:flex-start;justify-content:space-between;
-  border-radius:28px;background:linear-gradient(160deg,#f2efea,#ece7df);color:var(--tx);padding:1.5rem 1.6rem;overflow:hidden
+.study-banner{
+  margin-top:2rem;position:relative;display:grid;grid-template-columns:220px 1fr auto;gap:1.4rem;align-items:center;
+  padding:1.35rem 1.45rem;border-radius:32px;overflow:hidden;
+  background:
+    radial-gradient(circle at 82% 16%, rgba(255,255,255,.16), transparent 22%),
+    linear-gradient(135deg,#f07a35 0%,#dd6529 58%,#c9531f 100%);
+  box-shadow:0 24px 58px rgba(224,100,50,.24);
 }
-.usage-label::after{
-  content:'';position:absolute;right:-44px;top:-44px;width:180px;height:180px;border-radius:50%;
-  background:radial-gradient(circle, rgba(224,100,50,.14), rgba(224,100,50,0) 72%);
+.study-banner::before{
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(90deg, rgba(255,255,255,.06), transparent 28%, transparent 72%, rgba(255,255,255,.06));
+  pointer-events:none;
+}
+.study-chip{
+  position:relative;z-index:1;display:inline-flex;align-items:center;gap:.6rem;width:max-content;
+  background:rgba(255,255,255,.12);color:#fff;border:1px solid rgba(255,255,255,.18);
+  border-radius:100px;padding:.5rem .95rem;font-size:.74rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase
+}
+.study-chip::before{content:'';width:12px;height:12px;border-radius:50%;background:#fff;box-shadow:inset 0 0 0 4px var(--o)}
+.study-banner-copy{position:relative;z-index:1;color:#fff}
+.study-banner-copy h3{font-family:var(--serif);font-size:clamp(1.75rem,3vw,2.4rem);line-height:1;letter-spacing:-.04em}
+.study-banner-copy p{margin-top:.7rem;font-size:.9rem;line-height:1.7;color:rgba(255,255,255,.84);max-width:52ch}
+.study-banner-cta{
+  position:relative;z-index:1;display:inline-flex;align-items:center;gap:.55rem;padding:.95rem 1.2rem;
+  background:#fff;color:var(--tx);border-radius:20px;font-size:.82rem;font-weight:800;white-space:nowrap;
+  box-shadow:0 12px 28px rgba(0,0,0,.12);transition:transform .22s cubic-bezier(.16,1,.3,1),box-shadow .22s cubic-bezier(.16,1,.3,1)
+}
+.study-banner-cta:hover{transform:translateY(-2px);box-shadow:0 16px 32px rgba(0,0,0,.16)}
+.study-banner-cta::after{content:'→';color:var(--o);font-size:1rem;line-height:1}
+
+.usage-grid{margin-top:2rem;display:grid;grid-template-columns:.72fr 1.28fr;gap:1.35rem;align-items:stretch}
+.usage-side{
+  position:relative;border-radius:34px;overflow:hidden;min-height:720px;
+  background:linear-gradient(180deg,#f3efe9 0%,#ece7df 32%,#f3efe9 100%);
+  box-shadow:0 20px 48px rgba(12,9,32,.08)
+}
+.usage-side::before{
+  content:'';position:absolute;top:1.2rem;left:1.2rem;right:1.2rem;height:170px;border-radius:24px;
+  background:linear-gradient(145deg,#f6f3ee,#e9e3da)
+}
+.usage-side::after{
+  content:'';position:absolute;right:-50px;top:-50px;width:190px;height:190px;border-radius:50%;
+  background:radial-gradient(circle, rgba(224,100,50,.12), rgba(224,100,50,0) 72%)
+}
+.usage-label{
+  position:absolute;top:1.2rem;left:1.2rem;right:1.2rem;height:170px;
+  display:flex;flex-direction:column;align-items:flex-start;justify-content:space-between;
+  color:var(--tx);padding:1.35rem 1.45rem;z-index:1
 }
 .usage-kicker{position:relative;z-index:1;font-size:.72rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--txm)}
-.usage-label h3{position:relative;z-index:1;font-family:var(--serif);font-size:clamp(2.1rem,3.4vw,3rem);line-height:.98;letter-spacing:-.05em}
-.usage-photo{border-radius:28px;overflow:hidden;background:linear-gradient(160deg,#d0d4da,#f2f4f6)}
+.usage-label h3{position:relative;z-index:1;font-family:var(--serif);font-size:clamp(2.2rem,3.5vw,3.2rem);line-height:.95;letter-spacing:-.055em;max-width:8ch}
+.usage-photo{
+  position:absolute;left:1.2rem;right:1.2rem;bottom:1.2rem;top:210px;
+  border-radius:28px;overflow:hidden;background:linear-gradient(160deg,#d0d4da,#f2f4f6)
+}
 .usage-photo img{width:100%;height:100%;object-fit:cover}
 .usage-copy{
-  position:relative;border-radius:28px;background:linear-gradient(180deg,#e66f2f 0%,#d96024 100%);
-  padding:1.6rem 1.7rem;color:#fff;display:flex;flex-direction:column;justify-content:space-between;overflow:hidden
-}
-.usage-copy::before{
-  content:'';position:absolute;right:-80px;top:-40px;width:260px;height:260px;border-radius:50%;
-  background:radial-gradient(circle, rgba(255,255,255,.12), rgba(255,255,255,0) 70%);
+  position:relative;border-radius:34px;overflow:hidden;
+  background:
+    radial-gradient(circle at 82% 18%, rgba(255,255,255,.12), transparent 24%),
+    linear-gradient(180deg,#ef7b37 0%,#df682b 52%,#cc561f 100%);
+  padding:2rem 2.1rem;color:#fff;display:flex;flex-direction:column;justify-content:space-between;
+  box-shadow:0 24px 58px rgba(224,100,50,.24)
 }
 .usage-copy::after{
-  content:'';position:absolute;left:-10%;right:-10%;bottom:-16px;height:140px;
-  background:linear-gradient(180deg, rgba(0,0,0,0), rgba(120,45,12,.12));
+  content:'';position:absolute;left:2rem;right:2rem;bottom:7.2rem;height:1px;background:rgba(255,255,255,.18)
 }
 .usage-copy-top,.usage-copy-bottom{position:relative;z-index:1}
-.usage-copy-top{max-width:780px}
+.usage-copy-top{max-width:860px}
 .usage-copy-kicker{display:inline-flex;align-items:center;gap:.5rem;font-size:.72rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.72)}
 .usage-copy-kicker::before{content:'';width:20px;height:1.5px;background:rgba(255,255,255,.5)}
-.usage-copy p{font-size:1rem;line-height:1.9;color:rgba(255,255,255,.94)}
-.usage-copy p + p{margin-top:1.15rem;padding-top:1.15rem;border-top:1px solid rgba(255,255,255,.16)}
+.usage-copy-text{
+  margin-top:1rem;display:grid;grid-template-columns:1fr 1fr;gap:1.3rem 1.8rem;align-items:start
+}
+.usage-copy-text p{
+  font-size:1.03rem;line-height:1.92;color:rgba(255,255,255,.94)
+}
+.usage-copy-text p:last-child{padding-top:1.2rem;border-top:1px solid rgba(255,255,255,.16)}
+.usage-note{
+  display:flex;align-items:center;gap:1rem;padding-top:1.15rem
+}
+.usage-note-mark{
+  width:44px;height:44px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;
+  background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.14)
+}
+.usage-note-mark svg{width:20px;height:20px;stroke:#fff;fill:none;stroke-width:1.8}
+.usage-note span{font-size:.78rem;line-height:1.7;color:rgba(255,255,255,.8);max-width:42ch}
 
 .related{padding:0 2.5rem 6rem}
 .related-track{max-width:var(--max);margin:1.8rem auto 0;display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:.75rem}
@@ -227,13 +274,14 @@ button,input{font:inherit}
   .hero-inner{padding:7.5rem 1.4rem 4rem;grid-template-columns:1fr;gap:2rem}
   .summary,.section,.related,.allergen,.footer{padding-left:1.4rem;padding-right:1.4rem}
   .usage-grid{grid-template-columns:1fr}
-  .usage-side{grid-template-rows:auto 240px}
+  .usage-side{min-height:640px}
+  .usage-copy-text{grid-template-columns:1fr}
   .footer-top{grid-template-columns:1fr}
   .footer-bottom{flex-direction:column;align-items:flex-start}
 }
 @media(max-width:640px){
   .hero-meta{grid-template-columns:1fr}
-  .study-card{grid-template-columns:1fr;text-align:left}
+  .study-banner{grid-template-columns:1fr;gap:1rem}
   .strain{grid-template-columns:1fr;gap:.35rem}
   .strain-leader{display:none}
   .related-track{grid-template-columns:repeat(2,minmax(0,1fr))}
@@ -357,23 +405,20 @@ button,input{font:inherit}
 <section class="section">
   <div class="section-inner">
     <h2 class="sect-title reveal">Études <em>cliniques</em></h2>
-    <div class="study-block reveal">
-      <span class="study-pill">C. difficile</span>
-      <div class="study-card">
-        <img src="../images/adultes.jpg" alt="Probaclac Adultes">
-        <div>
-          <h3>Probaclac maintient votre santé</h3>
-          <p>Les données disponibles montrent une réduction notable du risque de diarrhée associée au <em>Clostridium difficile</em> lorsque des probiotiques sont intégrés comme mesure préventive en contexte hospitalier. Une logique simple : soutenir le terrain intestinal avant qu'il ne se désorganise.</p>
-          <p>Cette page produit reste focalisée sur le quotidien. Les détails d'études, les graphiques et les conditions associées sont accessibles dans notre section scientifique dédiée.</p>
-        </div>
+    <a class="study-banner reveal" href="../studies.html#cdifficile">
+      <span class="study-chip">C. difficile</span>
+      <div class="study-banner-copy">
+        <h3>Voir les études sur le <em>C. difficile</em></h3>
+        <p>Accédez directement à la section scientifique dédiée et consultez les données cliniques liées à la réduction du risque en contexte hospitalier.</p>
       </div>
-    </div>
+      <span class="study-banner-cta">Explorer la page études</span>
+    </a>
 
     <div class="usage-grid reveal">
       <div class="usage-side">
         <div class="usage-label">
           <span class="usage-kicker">Routine digestive</span>
-          <h3>Comment prendre<br>Probaclac<br>Adultes?</h3>
+          <h3>Comment prendre Probaclac Adultes?</h3>
         </div>
         <div class="usage-photo">
           <img src="../images/kitchen.jpg" alt="Probaclac Adultes sur comptoir de cuisine">
@@ -382,8 +427,18 @@ button,input{font:inherit}
       <div class="usage-copy">
         <div class="usage-copy-top">
           <span class="usage-copy-kicker">Conseil d'usage</span>
-          <p>Prendre Probaclac Adultes chaque matin, à l’année longue permet de bénéficier pleinement des bienfaits des probiotiques et aidera ainsi les personnes qui souffrent de troubles digestifs, les personnes qui suivent un traitement antibiotique ou tout simplement celles qui veulent avoir un système digestif en santé.</p>
-          <p>La gamme de probiotiques Probaclac est éprouvée depuis plus de 20 ans et utilisée dans les hôpitaux, ils sont également recommandés par les pharmaciens, médecins, infirmières, nutritionnistes et autres professionnels de la santé. Le probiotique Probaclac adulte est sans allergène prioritaire et convient donc à tous.</p>
+          <div class="usage-copy-text">
+            <p>Prendre Probaclac Adultes chaque matin, à l’année longue permet de bénéficier pleinement des bienfaits des probiotiques et aidera ainsi les personnes qui souffrent de troubles digestifs, les personnes qui suivent un traitement antibiotique ou tout simplement celles qui veulent avoir un système digestif en santé.</p>
+            <p>La gamme de probiotiques Probaclac est éprouvée depuis plus de 20 ans et utilisée dans les hôpitaux, ils sont également recommandés par les pharmaciens, médecins, infirmières, nutritionnistes et autres professionnels de la santé. Le probiotique Probaclac adulte est sans allergène prioritaire et convient donc à tous.</p>
+          </div>
+        </div>
+        <div class="usage-copy-bottom">
+          <div class="usage-note">
+            <div class="usage-note-mark">
+              <svg viewBox="0 0 24 24"><path d="M12 3v18M5 12h14"/></svg>
+            </div>
+            <span>Une routine simple, pensée pour un usage quotidien et pour les périodes où l'équilibre digestif demande plus de constance.</span>
+          </div>
         </div>
       </div>
     </div>
