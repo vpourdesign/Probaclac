@@ -149,13 +149,41 @@ button,input{font:inherit}
 
 .usage-grid{margin-top:2rem;display:grid;grid-template-columns:.8fr 1.2fr;gap:1.25rem;align-items:stretch}
 .usage-side{display:grid;grid-template-rows:220px 1fr;gap:1.25rem}
-.usage-label{display:flex;align-items:center;justify-content:center;border-radius:28px;background:#efeeec;color:var(--tx);font-family:var(--serif);font-size:clamp(1.8rem,3vw,2.6rem);line-height:1.05;text-align:center;padding:2rem}
-.usage-photo{border-radius:28px;overflow:hidden;background:linear-gradient(160deg,#f3c6ae,#fef1e8)}
+.usage-label{
+  position:relative;display:flex;flex-direction:column;align-items:flex-start;justify-content:space-between;
+  border-radius:28px;background:linear-gradient(160deg,#f2efea,#ece7df);color:var(--tx);padding:2rem;overflow:hidden
+}
+.usage-label::after{
+  content:'';position:absolute;right:-44px;top:-44px;width:180px;height:180px;border-radius:50%;
+  background:radial-gradient(circle, rgba(224,100,50,.14), rgba(224,100,50,0) 72%);
+}
+.usage-kicker{position:relative;z-index:1;font-size:.72rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--txm)}
+.usage-label h3{position:relative;z-index:1;font-family:var(--serif);font-size:clamp(2.15rem,3.6vw,3.2rem);line-height:1;letter-spacing:-.05em}
+.usage-label p{position:relative;z-index:1;font-size:.82rem;line-height:1.65;color:var(--txm);max-width:24ch}
+.usage-photo{border-radius:28px;overflow:hidden;background:linear-gradient(160deg,#d0d4da,#f2f4f6)}
 .usage-photo img{width:100%;height:100%;object-fit:cover}
-.usage-copy{border-radius:28px;background:linear-gradient(180deg,#e66f2f 0%,#d96024 100%);padding:2rem;color:#fff;display:flex;flex-direction:column;justify-content:space-between}
-.usage-copy p{font-size:.89rem;line-height:1.85;color:rgba(255,255,255,.85)}
+.usage-copy{
+  position:relative;border-radius:28px;background:linear-gradient(180deg,#e66f2f 0%,#d96024 100%);
+  padding:2rem;color:#fff;display:flex;flex-direction:column;justify-content:space-between;overflow:hidden
+}
+.usage-copy::before{
+  content:'';position:absolute;right:-80px;top:-40px;width:260px;height:260px;border-radius:50%;
+  background:radial-gradient(circle, rgba(255,255,255,.12), rgba(255,255,255,0) 70%);
+}
+.usage-copy::after{
+  content:'';position:absolute;left:-10%;right:-10%;bottom:-16px;height:140px;
+  background:linear-gradient(180deg, rgba(0,0,0,0), rgba(120,45,12,.12));
+}
+.usage-copy-top,.usage-copy-bottom{position:relative;z-index:1}
+.usage-copy-top{max-width:780px}
+.usage-copy-kicker{display:inline-flex;align-items:center;gap:.5rem;font-size:.72rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.72)}
+.usage-copy-kicker::before{content:'';width:20px;height:1.5px;background:rgba(255,255,255,.5)}
+.usage-copy h3{margin-top:1rem;font-family:var(--serif);font-size:clamp(2.1rem,3.8vw,3.1rem);line-height:1.02;letter-spacing:-.04em}
+.usage-copy h3 em{font-style:italic;color:#ffd6bf}
+.usage-copy p{font-size:.92rem;line-height:1.92;color:rgba(255,255,255,.9)}
+.usage-copy p + p{margin-top:1rem}
 .usage-points{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:.8rem;margin-top:1.5rem}
-.usage-point{display:flex;flex-direction:column;gap:.45rem}
+.usage-point{display:flex;flex-direction:column;gap:.45rem;padding-top:1rem;border-top:1px solid rgba(255,255,255,.18)}
 .usage-point svg{width:20px;height:20px;stroke:#fff;fill:none;stroke-width:1.8}
 .usage-point span{font-size:.68rem;line-height:1.5;color:rgba(255,255,255,.82)}
 
@@ -351,17 +379,24 @@ button,input{font:inherit}
 
     <div class="usage-grid reveal">
       <div class="usage-side">
-        <div class="usage-label">Comment<br>prendre Probaclac<br>Adultes?</div>
+        <div class="usage-label">
+          <span class="usage-kicker">Routine digestive</span>
+          <h3>Comment prendre<br>Probaclac<br>Adultes?</h3>
+          <p>Une prise simple, une logique régulière, un geste facile à tenir à l'année.</p>
+        </div>
         <div class="usage-photo">
-          <img src="../images/50plus.jpg" alt="Probaclac 50 plus">
+          <img src="../images/adultes.jpg" alt="Probaclac Adultes">
         </div>
       </div>
       <div class="usage-copy">
-        <div>
-          <p>Prendre Probaclac Adultes chaque matin, à l'entrée du repas, permet de favoriser pleinement les bienfaits des probiotiques et d'aider ainsi à préserver l'équilibre digestif. Pour les personnes qui suivent un traitement antibiotique ou qui vivent avec un système digestif sensible, la régularité compte davantage que l'intensité.</p>
-          <p>La gamme de probiotiques Probaclac est éprouvée depuis plus de 20 ans et utilisée dans des hôpitaux, tout en étant recommandée par des pharmaciens, médecins, infirmières, nutritionnistes et naturopathes.</p>
+        <div class="usage-copy-top">
+          <span class="usage-copy-kicker">Conseil d'usage</span>
+          <h3>La force d'une routine <em>simple</em></h3>
+          <p>Prendre Probaclac Adultes chaque matin, à l'année longue, permet de bénéficier pleinement des bienfaits des probiotiques et d'aider ainsi les personnes qui souffrent de troubles digestifs, les personnes qui suivent un traitement antibiotique ou tout simplement celles qui veulent avoir un système digestif en santé.</p>
+          <p>La gamme de probiotiques Probaclac est éprouvée depuis plus de 20 ans et utilisée dans les hôpitaux. Elle est également recommandée par les pharmaciens, médecins, infirmières, nutritionnistes et autres professionnels de la santé. Probaclac Adultes est sans allergène prioritaire et convient donc à tous.</p>
         </div>
-        <div class="usage-points">
+        <div class="usage-copy-bottom">
+          <div class="usage-points">
           <div class="usage-point">
             <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
             <span>Soutien digestif au quotidien</span>
@@ -377,6 +412,7 @@ button,input{font:inherit}
           <div class="usage-point">
             <svg viewBox="0 0 24 24"><path d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="10"/></svg>
             <span>Sans allergènes majeurs et capsules végétales</span>
+          </div>
           </div>
         </div>
       </div>
