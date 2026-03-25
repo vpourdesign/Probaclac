@@ -155,6 +155,8 @@ header{background-color:#f8f7f4!important}
 /* Stats grid */
 .stats-bar{max-width:1400px;margin:-2rem auto 0;position:relative;z-index:2;display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:1rem;padding:0 2rem}
 .stat-card{background:var(--white);border-radius:28px;padding:1.45rem;box-shadow:var(--shadow-md);border:1px solid rgba(0,0,0,.04);transition:all .3s;display:grid;grid-template-rows:56px 150px auto;min-height:0}
+@media(max-width:1024px){.stats-bar{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:600px){.stats-bar{grid-template-columns:1fr;gap:.75rem;padding:0 1rem;margin-top:-1rem}.stat-card{grid-template-rows:auto auto auto;grid-template-columns:auto 1fr;column-gap:1rem;padding:1.25rem 1.5rem;border-radius:20px}.stat-topline{grid-column:1/-1}.stat-metric{grid-column:1;grid-row:2}.stat-title{grid-column:2;grid-row:2;align-self:center}}
 .stat-card:hover{transform:translateY(-4px);box-shadow:var(--shadow-lg)}
 .stat-card.accent-vaginal{border-color:rgba(110,159,175,.22)}
 .stat-card.accent-yeast{border-color:rgba(206,48,121,.16)}
