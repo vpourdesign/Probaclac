@@ -197,6 +197,23 @@ header{background-color:#f8f7f4!important}
 /* PAGE-SPECIFIC STYLES                         */
 /* ============================================ */
 
+/* Superscript refs */
+.ref-sup{font-size:.6em;vertical-align:super;line-height:0;color:var(--o1);text-decoration:none;font-weight:600;margin-left:1px}
+.ref-sup:hover{text-decoration:underline}
+
+/* References accordion */
+.references-section{max-width:1080px;margin:0 auto;padding:0 2rem 3rem}
+.ref-toggle{background:var(--white);border-radius:var(--radius-xl);padding:2rem 2.5rem;cursor:pointer;display:flex;align-items:center;justify-content:space-between;border:1px solid rgba(0,0,0,.05);transition:all .3s}
+.ref-toggle:hover{box-shadow:var(--shadow-sm)}
+.ref-toggle h3{font-size:1.1rem;font-weight:700;display:flex;align-items:center;gap:.75rem}
+.ref-toggle .chevron{width:32px;height:32px;background:var(--bg);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.9rem;transition:transform .3s;color:var(--text-light)}
+.ref-toggle.open .chevron{transform:rotate(180deg)}
+.ref-body{max-height:0;overflow:hidden;transition:max-height .5s}
+.ref-toggle.open+.ref-body{max-height:8000px}
+.ref-list{background:var(--white);border-radius:0 0 var(--radius-xl) var(--radius-xl);padding:0 2.5rem 2.5rem}
+.ref-item{font-size:.75rem;color:var(--text-light);line-height:1.6;padding:.4rem 0;break-inside:avoid;border-bottom:1px solid rgba(0,0,0,.03)}
+@media(max-width:768px){.ref-toggle{padding:1.5rem}.ref-list{padding:0 1.5rem 1.5rem}}
+
 /* Sub-nav */
 .sub-nav{background:var(--o1);position:sticky;top:80px;z-index:999;overflow-x:auto;scrollbar-width:none;-ms-overflow-style:none}
 .sub-nav::-webkit-scrollbar{display:none}
@@ -531,7 +548,7 @@ section{padding:0;flex-shrink:0;flex-grow:0;height:auto!important}
     </div>
     <div class="bento-grid">
       <div class="bento-card wide reveal">
-        <h4><span class="bento-dot"></span> Faciliter la digestion</h4>
+        <h4><span class="bento-dot"></span> Faciliter la digestion <a href="#references" class="ref-sup">2,3,4,5,6,7,8,9,10,11,12</a></h4>
         <ul>
           <li>Ballonnements</li>
           <li>Diarrhée associée aux antibiotiques</li>
@@ -540,28 +557,28 @@ section{padding:0;flex-shrink:0;flex-grow:0;height:auto!important}
         </ul>
       </div>
       <div class="bento-card reveal reveal-d1">
-        <h4><span class="bento-dot"></span> Prévenir les réactions auto-immunes</h4>
+        <h4><span class="bento-dot"></span> Prévenir les réactions auto-immunes <a href="#references" class="ref-sup">13,20,21</a></h4>
         <ul>
           <li>Allergies alimentaires</li>
           <li>Eczéma</li>
         </ul>
       </div>
       <div class="bento-card reveal reveal-d2">
-        <h4><span class="bento-dot"></span> Protéger le coeur</h4>
+        <h4><span class="bento-dot"></span> Protéger le cœur <a href="#references" class="ref-sup">22,23</a></h4>
         <ul>
           <li>Dyslipidémie (Cholestérol sanguin)</li>
           <li>Hypertension artérielle</li>
         </ul>
       </div>
       <div class="bento-card reveal reveal-d3">
-        <h4><span class="bento-dot"></span> Améliorer la performance cognitive</h4>
+        <h4><span class="bento-dot"></span> Améliorer la performance cognitive <a href="#references" class="ref-sup">25,26</a></h4>
         <ul>
           <li>Pertes de mémoire</li>
           <li>Mauvaise humeur</li>
         </ul>
       </div>
       <div class="bento-card wide reveal reveal-d1">
-        <h4><span class="bento-dot"></span> Réguler l'appétit et maintenir un poids santé</h4>
+        <h4><span class="bento-dot"></span> Réguler l'appétit et maintenir un poids santé <a href="#references" class="ref-sup">1,15,32,33</a></h4>
         <ul>
           <li>Obésité ou embonpoint</li>
           <li>Troubles alimentaires</li>
@@ -569,7 +586,7 @@ section{padding:0;flex-shrink:0;flex-grow:0;height:auto!important}
         </ul>
       </div>
       <div class="bento-card wide reveal reveal-d2">
-        <h4><span class="bento-dot"></span> Soutenir l'immunité</h4>
+        <h4><span class="bento-dot"></span> Soutenir l'immunité <a href="#references" class="ref-sup">14,16,17,18,19</a></h4>
         <ul>
           <li>Infections respiratoires</li>
           <li>Infections urinaires</li>
@@ -578,7 +595,7 @@ section{padding:0;flex-shrink:0;flex-grow:0;height:auto!important}
         </ul>
       </div>
       <div class="bento-card reveal reveal-d3">
-        <h4><span class="bento-dot"></span> Réduire le stress psychologique</h4>
+        <h4><span class="bento-dot"></span> Réduire le stress psychologique <a href="#references" class="ref-sup">24,25,26,28,29</a></h4>
         <ul>
           <li>Anxiété</li>
           <li>Dépression</li>
@@ -586,7 +603,7 @@ section{padding:0;flex-shrink:0;flex-grow:0;height:auto!important}
         </ul>
       </div>
       <div class="bento-card reveal reveal-d4">
-        <h4><span class="bento-dot"></span> Retarder le vieillissement dermatologique</h4>
+        <h4><span class="bento-dot"></span> Retarder le vieillissement dermatologique <a href="#references" class="ref-sup">34</a></h4>
         <ul>
           <li>Rides</li>
           <li>Sécheresse de la peau</li>
@@ -594,21 +611,21 @@ section{padding:0;flex-shrink:0;flex-grow:0;height:auto!important}
         </ul>
       </div>
       <div class="bento-card reveal reveal-d5">
-        <h4><span class="bento-dot"></span> Prévenir les maladies inflammatoires</h4>
+        <h4><span class="bento-dot"></span> Prévenir les maladies inflammatoires <a href="#references" class="ref-sup">13,14</a></h4>
         <ul>
           <li>Maladie de Crohn</li>
           <li>Syndrome d'intestin irritable</li>
         </ul>
       </div>
       <div class="bento-card reveal">
-        <h4><span class="bento-dot"></span> Prévenir les carences nutritives</h4>
+        <h4><span class="bento-dot"></span> Prévenir les carences nutritives <a href="#references" class="ref-sup">30,31</a></h4>
         <ul>
           <li>Troubles du spectre d'autisme</li>
           <li>Intolérances alimentaires</li>
         </ul>
       </div>
       <div class="bento-card wide reveal reveal-d1">
-        <h4><span class="bento-dot"></span> Ralentir la progression des maladies dégénératives</h4>
+        <h4><span class="bento-dot"></span> Ralentir la progression des maladies dégénératives <a href="#references" class="ref-sup">15</a></h4>
         <ul>
           <li>Maladie d'Alzheimer</li>
           <li>Maladie de Parkinson</li>
@@ -700,7 +717,15 @@ section{padding:0;flex-shrink:0;flex-grow:0;height:auto!important}
             <p>Formule à concentration élevée pour les personnes ayant des problèmes intestinaux aigus.</p>
           </div>
         </a>
-        <a href="https://www.probaclac.ca/probiotique-gastro-intestinal" class="product-card reveal reveal-d3">
+        <a href="https://www.probaclac.ca/probiotique-colon-irritable" class="product-card reveal reveal-d3">
+          <img class="product-card-img" src="../../images/sci.jpg" alt="Probaclac SCI/IBS">
+          <div class="product-card-body">
+            <h4>Côlon irritable (SCI)</h4>
+            <span class="product-tag">Syndrome du côlon irritable</span>
+            <p>Contribue à soulager les gaz, ballonnements et inconforts liés à la diarrhée et constipation. 10 milliards de cellules actives.</p>
+          </div>
+        </a>
+        <a href="https://www.probaclac.ca/probiotique-gastro-intestinal" class="product-card reveal reveal-d4">
           <img class="product-card-img" src="../etudes/produits/gi.jpg" alt="Probaclac Gastro-intestinal">
           <div class="product-card-body">
             <h4>Gastro-intestinal</h4>
@@ -826,6 +851,51 @@ section{padding:0;flex-shrink:0;flex-grow:0;height:auto!important}
     </div>
   </div>
 </section>
+
+<!-- REFERENCES -->
+<div class="references-section" id="references">
+  <div class="ref-toggle" onclick="this.classList.toggle('open')">
+    <h3>📄 Références</h3>
+    <span class="chevron">▼</span>
+  </div>
+  <div class="ref-body">
+    <div class="ref-list">
+      <div class="ref-item">1. Kadooka Y. et al. Effect of Lactobacillus gasseri SBT2055 in fermented milk on abdominal adiposity. European Journal of Clinical Nutrition. 2013.</div>
+      <div class="ref-item">2. McFarland LV. Meta-analysis of probiotics for the prevention of antibiotic associated diarrhea. World J Gastroenterol. 2006.</div>
+      <div class="ref-item">3. Surawicz CM. et al. Prevention of antibiotic-associated diarrhea by Saccharomyces boulardii. Gastroenterology. 1989.</div>
+      <div class="ref-item">4. Kotowska M. et al. Saccharomyces boulardii in the prevention of antibiotic-associated diarrhoea in children. Aliment Pharmacol Ther. 2005.</div>
+      <div class="ref-item">5. Hickson M. et al. Use of probiotic Lactobacillus preparation to prevent diarrhoea associated with antibiotics. BMJ. 2007.</div>
+      <div class="ref-item">6. Szajewska H. et al. Probiotics in the prevention of antibiotic-associated diarrhea in children. J Pediatr. 2006.</div>
+      <div class="ref-item">7. Can M. et al. Prophylactic Saccharomyces boulardii in the prevention of antibiotic-associated diarrhea. Med Sci Monit. 2006.</div>
+      <div class="ref-item">8. Cindoruk M. et al. Efficacy and safety of Saccharomyces boulardii in the 14-day triple anti-Helicobacter pylori therapy. J Clin Gastroenterol. 2007.</div>
+      <div class="ref-item">9. Duman DG. et al. Efficacy and safety of Saccharomyces boulardii in prevention of antibiotic-associated diarrhoea due to Helicobacter pylori eradication. Eur J Gastroenterol Hepatol. 2005.</div>
+      <div class="ref-item">10. Cremonini F. et al. Meta-analysis: the effect of probiotic administration on antibiotic-associated diarrhoea. Aliment Pharmacol Ther. 2002.</div>
+      <div class="ref-item">11. D'Souza AL. et al. Probiotics in prevention of antibiotic associated diarrhoea: meta-analysis. BMJ. 2002.</div>
+      <div class="ref-item">12. Sazawal S. et al. Efficacy of probiotics in prevention of acute diarrhoea: a meta-analysis. Lancet Infect Dis. 2006.</div>
+      <div class="ref-item">13. Isolauri E. et al. Probiotics: effects on immunity. Am J Clin Nutr. 2001.</div>
+      <div class="ref-item">14. Guarner F. et al. Gut flora in health and disease. Lancet. 2003.</div>
+      <div class="ref-item">15. Dinan TG. et al. The Microbiome-Gut-Brain Axis in Health and Disease. Gastroenterol Clin North Am. 2017.</div>
+      <div class="ref-item">16. Hao Q. et al. Probiotics for preventing acute upper respiratory tract infections. Cochrane Database Syst Rev. 2015.</div>
+      <div class="ref-item">17. Falagas ME. et al. Probiotics for the treatment of women with bacterial vaginosis. Clin Microbiol Infect. 2007.</div>
+      <div class="ref-item">18. Reid G. et al. Oral use of Lactobacillus rhamnosus GR-1 and L. fermentum RC-14 significantly alters vaginal flora. FEMS Immunol Med Microbiol. 2003.</div>
+      <div class="ref-item">19. Taipale T. et al. Bifidobacterium animalis subsp. lactis BB-12 in reducing the risk of infections in infancy. Br J Nutr. 2011.</div>
+      <div class="ref-item">20. Kalliomäki M. et al. Probiotics in primary prevention of atopic disease: a randomised placebo-controlled trial. Lancet. 2001.</div>
+      <div class="ref-item">21. Wickens K. et al. A differential effect of 2 probiotics in the prevention of eczema and atopy. J Allergy Clin Immunol. 2008.</div>
+      <div class="ref-item">22. Jones ML. et al. Cholesterol-lowering efficacy of a microencapsulated bile salt hydrolase-active Lactobacillus reuteri. Eur J Clin Nutr. 2012.</div>
+      <div class="ref-item">23. Khalesi S. et al. Effect of probiotics on blood pressure: a systematic review and meta-analysis. Hypertension. 2014.</div>
+      <div class="ref-item">24. Messaoudi M. et al. Assessment of psychotropic-like properties of a probiotic formulation. Br J Nutr. 2011.</div>
+      <div class="ref-item">25. Akbari E. et al. Effect of probiotic supplementation on cognitive function and metabolic status in Alzheimer's disease. Front Aging Neurosci. 2016.</div>
+      <div class="ref-item">26. Steenbergen L. et al. A randomized controlled trial to test the effect of multispecies probiotics on cognitive reactivity to sad mood. Brain Behav Immun. 2015.</div>
+      <div class="ref-item">28. Wallace CJK. et al. The effects of probiotics on depressive symptoms in humans: a systematic review. Ann Gen Psychiatry. 2017.</div>
+      <div class="ref-item">29. Liu RT. et al. Prebiotics and probiotics for depression and anxiety: A systematic review and meta-analysis. BMJ Nutr Prev Health. 2019.</div>
+      <div class="ref-item">30. Kang DW. et al. Microbiota Transfer Therapy alters gut ecosystem and improves gastrointestinal and autism symptoms. Microbiome. 2017.</div>
+      <div class="ref-item">31. Oak SJ. et al. The effects of probiotics in lactose intolerance: A systematic review. Crit Rev Food Sci Nutr. 2019.</div>
+      <div class="ref-item">32. Sanchez M. et al. Effect of Lactobacillus rhamnosus CGMCC1.3724 supplementation on weight loss and maintenance in obese men and women. Br J Nutr. 2014.</div>
+      <div class="ref-item">33. Cani PD. et al. Changes in gut microbiota control metabolic endotoxemia-induced inflammation in high-fat diet-induced obesity and diabetes in mice. Diabetes. 2008.</div>
+      <div class="ref-item">34. Kober MM. et al. The effect of probiotics on immune regulation, acne, and photoaging. Int J Womens Dermatol. 2015.</div>
+    </div>
+  </div>
+</div>
 
 <!-- FOOTER -->
 <footer class="pbc-footer">
