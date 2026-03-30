@@ -197,20 +197,31 @@ header{background-color:#f8f7f4!important}
 /* PAGE-SPECIFIC STYLES                         */
 /* ============================================ */
 
+/* Sub-nav */
+.sub-nav{background:var(--o1);position:sticky;top:80px;z-index:999;overflow-x:auto;scrollbar-width:none;-ms-overflow-style:none}
+.sub-nav::-webkit-scrollbar{display:none}
+.sub-nav-inner{max-width:1400px;margin:0 auto;display:flex;align-items:center;justify-content:center;gap:0;padding:0 1rem}
+.sub-nav a{display:block;padding:.7rem 1.2rem;font-family:var(--font-secondary);font-size:.78rem;font-weight:600;color:rgba(255,255,255,.75);text-decoration:none;white-space:nowrap;transition:color .3s,background .3s;border-bottom:2px solid transparent}
+.sub-nav a:hover,.sub-nav a.active{color:#fff;background:rgba(255,255,255,.08);border-bottom-color:rgba(255,255,255,.5)}
+@media(max-width:768px){.sub-nav{top:70px}.sub-nav-inner{justify-content:flex-start}.sub-nav a{font-size:.72rem;padding:.6rem 1rem}}
+
 /* Hero */
-.hero{padding:5rem 2rem 4rem;position:relative;overflow:hidden;background-color:#f8f7f4;margin-top:80px}
+.hero{padding:3rem 2rem 4rem;position:relative;overflow:hidden;background-color:#f8f7f4;margin-top:0}
 .hero::before{content:'';position:absolute;top:-200px;right:-200px;width:600px;height:600px;background:radial-gradient(circle,var(--o3) 0%,transparent 70%);opacity:.5;animation:float 8s ease-in-out infinite}
 .hero::after{content:'';position:absolute;bottom:-100px;left:-100px;width:400px;height:400px;background:radial-gradient(circle,var(--warm) 0%,transparent 70%);opacity:.4;animation:float 10s ease-in-out infinite reverse}
 @keyframes float{0%,100%{transform:translate(0,0)}50%{transform:translate(30px,-30px)}}
-.hero-inner{max-width:800px;margin:0 auto;text-align:center;position:relative;z-index:1}
+.hero-inner{max-width:1100px;margin:0 auto;position:relative;z-index:1;display:flex;align-items:center;gap:3rem}
+.hero-text{flex:1;text-align:left}
+.hero-visual{flex:0 0 auto}
+.hero-visual img{width:clamp(220px,28vw,380px);height:auto;filter:drop-shadow(0 16px 40px rgba(0,0,0,.1));animation:heroFloat 6s ease-in-out infinite}
+@keyframes heroFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
 .hero-badge{font-family:var(--font-secondary);display:inline-flex;align-items:center;gap:.5rem;background:var(--o4);color:var(--o1);padding:.5rem 1rem;border-radius:100px;font-size:.8rem;font-weight:600;margin-bottom:1.5rem;border:1px solid var(--o3)}
 .hero-badge .dot{width:8px;height:8px;background:var(--o2);border-radius:50%;animation:pulse 2s ease-in-out infinite}
 @keyframes pulse{0%,100%{opacity:1}50%{opacity:.4}}
 .hero h1{font-family:var(--font-primary);font-size:clamp(2.2rem,4.5vw,3.4rem);font-weight:300;line-height:1.1;letter-spacing:-.03em;margin-bottom:1.5rem}
 .hero h1 .gradient{background:linear-gradient(135deg,var(--o1),var(--o2),#d4523b);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
-.hero p{font-size:1.05rem;color:var(--text-light);max-width:600px;margin:0 auto 2rem;line-height:1.8}
-.hero-video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.2;z-index:0}
-@media(max-width:768px){.hero{margin-top:70px;padding:3rem 1.5rem 2.5rem}}
+.hero p{font-size:1.05rem;color:var(--text-light);max-width:540px;margin:0 0 2rem;line-height:1.8}
+@media(max-width:768px){.hero{margin-top:0;padding:3rem 1.5rem 2.5rem}.hero-inner{flex-direction:column-reverse;text-align:center}.hero-text{text-align:center}.hero p{margin:0 auto 2rem}.hero-visual img{width:clamp(200px,60vw,300px)}}
 
 /* Reveal animation */
 .reveal{opacity:0;transform:translateY(24px);transition:opacity .7s cubic-bezier(0.16,1,0.3,1),transform .7s cubic-bezier(0.16,1,0.3,1)}
@@ -259,16 +270,16 @@ header{background-color:#f8f7f4!important}
 
 /* Product cards (Sections 4 & 5) */
 .product-grid-age{display:grid;grid-template-columns:repeat(4,1fr);gap:1.25rem}
-.product-grid-condition{display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem}
-.product-card{background:var(--white);border-radius:28px;overflow:hidden;border:1px solid rgba(0,0,0,.04);box-shadow:var(--shadow-sm);transition:all .3s}
+.product-grid-condition{display:flex;flex-wrap:wrap;gap:1.25rem;justify-content:center}.product-grid-condition .product-card{width:calc(25% - 1rem)}
+.product-card{background:var(--white);border-radius:28px;overflow:hidden;border:1px solid rgba(0,0,0,.04);box-shadow:var(--shadow-sm);transition:all .3s;text-decoration:none;color:inherit;display:block}
 .product-card:hover{transform:translateY(-4px);box-shadow:var(--shadow-md)}
 .product-card-img{width:100%;aspect-ratio:405/533;object-fit:cover;display:block}
 .product-card-body{padding:1.25rem 1.5rem 1.5rem}
 .product-card-body h4{font-family:var(--font-secondary);font-size:.9rem;font-weight:700;color:var(--text);margin-bottom:.25rem}
 .product-card-body .product-tag{font-family:var(--font-secondary);display:inline-block;background:var(--o4);color:var(--o1);padding:.2rem .7rem;border-radius:100px;font-size:.7rem;font-weight:600;margin-bottom:.5rem}
 .product-card-body p{font-size:.82rem;color:var(--text-light);line-height:1.6}
-@media(max-width:900px){.product-grid-age{grid-template-columns:repeat(2,1fr)}.product-grid-condition{grid-template-columns:repeat(2,1fr)}}
-@media(max-width:600px){.product-grid-age{grid-template-columns:1fr}.product-grid-condition{grid-template-columns:1fr}}
+@media(max-width:900px){.product-grid-age{grid-template-columns:repeat(2,1fr)}.product-grid-condition .product-card{width:calc(50% - .75rem)}}
+@media(max-width:600px){.product-grid-age{grid-template-columns:1fr}.product-grid-condition .product-card{width:100%}}
 
 /* Allergen section */
 .allergen-highlight{background:linear-gradient(135deg,var(--o1),var(--accent));border-radius:var(--radius-xl);padding:2.5rem;color:var(--white);margin-bottom:1.5rem}
@@ -311,7 +322,7 @@ header{background-color:#f8f7f4!important}
 .yogurt-callout{background:var(--o4);border-radius:var(--radius-xl);padding:2.5rem;border:2px solid var(--o3);margin-top:1.5rem}
 .yogurt-callout h4{font-family:var(--font-secondary);font-size:.9rem;font-weight:700;color:var(--o1);text-transform:uppercase;letter-spacing:.08em;margin-bottom:.75rem}
 .yogurt-callout p{font-size:.88rem;color:var(--text-light);line-height:1.7}
-@media(max-width:768px){.yogurt-callout{padding:1.5rem}}
+@media(max-width:768px){.yogurt-callout{padding:1.5rem}.info-card[style*="display:flex"]{flex-direction:column!important}.info-card[style*="display:flex"] div[style*="flex:0 0 280px"]{flex:none!important;width:100%}}
 
 section{padding:0;flex-shrink:0;flex-grow:0;height:auto!important}
 </style>
@@ -443,52 +454,67 @@ section{padding:0;flex-shrink:0;flex-grow:0;height:auto!important}
   </div>
 </div>
 
+<!-- SUB-NAV -->
+<nav class="sub-nav">
+  <div class="sub-nav-inner">
+    <a href="#pourquoi">Pourquoi Probaclac</a>
+    <a href="#quotidien">Au quotidien</a>
+    <a href="#formules">Trouvez votre formule</a>
+    <a href="#prebiotiques">Prébiotiques</a>
+    <a href="#yogourts">Yogourts</a>
+    <a href="#allergenes">Allergènes</a>
+  </div>
+</nav>
+
 <!-- SECTION 1: HERO -->
 <header class="hero">
-  <video class="hero-video" autoplay muted loop playsinline preload="auto">
-    <source src="../../videos/gut-bacteria.webm" type="video/webm">
-  </video>
   <div class="hero-inner">
-    <div class="hero-badge reveal"><span class="dot"></span> Guide complet</div>
-    <h1 class="reveal reveal-d1">Choisir le bon <span class="gradient">probiotique</span></h1>
-    <p class="reveal reveal-d2">Découvrez pourquoi Probaclac se démarque et trouvez la formule adaptée à votre profil.</p>
+    <div class="hero-text">
+      <div class="hero-badge reveal"><span class="dot"></span> Guide complet</div>
+      <h1 class="reveal reveal-d1">Choisir le bon <span class="gradient">probiotique</span></h1>
+      <p class="reveal reveal-d2">Découvrez pourquoi Probaclac se démarque et trouvez la formule adaptée à votre profil.</p>
+    </div>
+    <div class="hero-visual reveal reveal-d3">
+      <img src="3produits.png" alt="Gamme Probaclac - Adultes 50+, Adultes, Voyageurs">
+    </div>
   </div>
 </header>
 
 <!-- SECTION 2: POURQUOI PROBACLAC -->
-<section>
-  <div class="page-section">
+<section id="pourquoi" style="position:relative;overflow:hidden">
+  <div style="position:absolute;inset:0;background:url('bacterie.jpg') center/cover no-repeat;filter:grayscale(1);opacity:.25;z-index:0"></div>
+  <div class="page-section" style="position:relative;z-index:1">
     <div class="section-header reveal">
-      <h2>Pourquoi <span class="gradient">Probaclac</span>?</h2>
+      <h2 style="font-weight:700;color:var(--text)">Pourquoi Probaclac ?</h2>
     </div>
     <div class="trust-grid">
       <div class="trust-card reveal">
-        <div class="trust-icon">&#x2705;</div>
+        <div class="trust-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--o1)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg></div>
         <h3>Certifié NPN</h3>
         <p>Tous nos produits sont certifiés NPN et approuvés par Santé Canada.</p>
       </div>
       <div class="trust-card reveal reveal-d1">
-        <div class="trust-icon">&#x1F3C6;</div>
+        <div class="trust-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--o1)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></div>
         <h3>Normes les plus élevées</h3>
         <p>Probaclac est fabriqué selon les normes les plus élevées et contient des souches probiotiques testées cliniquement.</p>
       </div>
       <div class="trust-card reveal reveal-d2">
-        <div class="trust-icon">&#x1F52C;</div>
+        <div class="trust-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--o1)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 3h6v7l4 9H5l4-9V3z"/><path d="M8 3h8"/></svg></div>
         <h3>Testé cliniquement</h3>
         <p>Probaclac est soumis à un contrôle de qualité rigoureux et est testé cliniquement pour démontrer les effets recherchés.</p>
       </div>
       <div class="trust-card reveal reveal-d3">
-        <div class="trust-icon">&#x1F4C5;</div>
+        <div class="trust-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--o1)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
         <h3>20 ans de confiance</h3>
         <p>Probaclac est une marque de confiance depuis plus de 20 ans.</p>
       </div>
       <div class="trust-card reveal reveal-d4">
-        <div class="trust-icon">&#x1F33F;</div>
+        <div class="trust-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--o1)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22V8"/><path d="M5 12H2a10 10 0 0020 0h-3"/><path d="M8 5.2C9.2 3.4 10.5 2 12 2c1.5 0 2.8 1.4 4 3.2"/></svg></div>
         <h3>Formules avec prébiotiques</h3>
         <p>Formules Probaclac avec prébiotiques, adaptées à chaque âge et condition.</p>
       </div>
       <div class="trust-card reveal reveal-d5">
-        <div class="trust-icon">&#x1F1E8;&#x1F1E6;</div>
+        <div class="trust-icon" style="background:none"><img src="faitqc.png" alt="Fabriqué au Québec" style="width:48px;height:auto"></div>
         <h3>Fabriqué au Québec</h3>
         <p>La gamme Probaclac est fièrement fabriquée au Québec et approuvée par les Produits du Québec.</p>
       </div>
@@ -497,7 +523,7 @@ section{padding:0;flex-shrink:0;flex-grow:0;height:auto!important}
 </section>
 
 <!-- SECTION 3: PROBACLAC AU QUOTIDIEN -->
-<section>
+<section id="quotidien">
   <div class="page-section">
     <div class="section-header reveal">
       <h2>Probaclac au <span class="gradient">quotidien</span></h2>
@@ -593,7 +619,7 @@ section{padding:0;flex-shrink:0;flex-grow:0;height:auto!important}
 </section>
 
 <!-- SECTIONS 4, 5, 6: TABBED CONTENT -->
-<section>
+<section id="formules">
   <div class="page-section">
     <div class="section-header reveal">
       <h2>Trouvez votre <span class="gradient">formule</span></h2>
@@ -612,34 +638,34 @@ section{padding:0;flex-shrink:0;flex-grow:0;height:auto!important}
         <p>La composition de la flore intestinale chez l'humain évolue au fil de la vie.</p>
       </div>
       <div class="product-grid-age">
-        <div class="product-card reveal">
+        <a href="https://www.probaclac.ca/probiotique-bebes" class="product-card reveal">
           <img class="product-card-img" src="../etudes/produits/enfants.jpg" alt="Probaclac Enfants">
           <div class="product-card-body">
             <h4>Enfants 1 à 3 ans</h4>
             <p>Dès la naissance, le microbiote se développe et se diversifie. La capsule ouvrable est conçue pour en faciliter la consommation chez l'enfant.</p>
           </div>
-        </div>
-        <div class="product-card reveal reveal-d1">
+        </a>
+        <a href="https://www.probaclac.ca/probiotique-enfant" class="product-card reveal reveal-d1">
           <img class="product-card-img" src="../etudes/produits/croquable.jpg" alt="Probaclac Croquable">
           <div class="product-card-body">
             <h4>Enfants croquables 3 ans+</h4>
             <p>Dès l'âge de 3 ans, le microbiote intestinal continue de se développer jusqu'à l'âge adulte.</p>
           </div>
-        </div>
-        <div class="product-card reveal reveal-d2">
+        </a>
+        <a href="https://www.probaclac.ca/probiotique-adulte" class="product-card reveal reveal-d2">
           <img class="product-card-img" src="../etudes/produits/adultes.jpg" alt="Probaclac Adultes">
           <div class="product-card-body">
             <h4>Adultes</h4>
             <p>À l'âge adulte, la composition de la flore probiotique intestinale se stabilise.</p>
           </div>
-        </div>
-        <div class="product-card reveal reveal-d3">
+        </a>
+        <a href="https://www.probaclac.ca/probiotique-50-et-plus" class="product-card reveal reveal-d3">
           <img class="product-card-img" src="../etudes/produits/50plus.jpg" alt="Probaclac 50 ans et +">
           <div class="product-card-body">
             <h4>50 ans et +</h4>
             <p>Après l'âge de 50 ans, la concentration de bonnes bactéries, particulièrement les Bifidobactéries, diminue graduellement.</p>
           </div>
-        </div>
+        </a>
       </div>
     </div>
 
@@ -650,54 +676,54 @@ section{padding:0;flex-shrink:0;flex-grow:0;height:auto!important}
         <p>Probaclac propose une gamme de probiotiques conçus pour s'adapter à différentes conditions.</p>
       </div>
       <div class="product-grid-condition">
-        <div class="product-card reveal">
+        <a href="https://www.probaclac.ca/probiotique-voyage" class="product-card reveal">
           <img class="product-card-img" src="../etudes/produits/voyage.jpg" alt="Probaclac Voyageurs">
           <div class="product-card-body">
             <h4>Voyageurs</h4>
             <span class="product-tag">Diarrhée du voyageur</span>
             <p>Formule assurant un confort intestinal durant les voyages.</p>
           </div>
-        </div>
-        <div class="product-card reveal reveal-d1">
+        </a>
+        <a href="https://www.probaclac.ca/probiotique-antibiotique" class="product-card reveal reveal-d1">
           <img class="product-card-img" src="../etudes/produits/medic.jpg" alt="Probaclac Medic">
           <div class="product-card-body">
             <h4>Medic</h4>
             <span class="product-tag">Diarrhée associée aux antibiotiques</span>
             <p>Formule indiquée pour la réduction de la diarrhée associée à la prise d'antibiotiques.</p>
           </div>
-        </div>
-        <div class="product-card reveal reveal-d2">
+        </a>
+        <a href="https://www.probaclac.ca/probiotique-extra-fort" class="product-card reveal reveal-d2">
           <img class="product-card-img" src="../etudes/produits/extra.jpg" alt="Probaclac Extra-fort">
           <div class="product-card-body">
             <h4>Extra-fort</h4>
             <span class="product-tag">Problèmes intestinaux aigus</span>
             <p>Formule à concentration élevée pour les personnes ayant des problèmes intestinaux aigus.</p>
           </div>
-        </div>
-        <div class="product-card reveal reveal-d3">
+        </a>
+        <a href="https://www.probaclac.ca/probiotique-gastro-intestinal" class="product-card reveal reveal-d3">
           <img class="product-card-img" src="../etudes/produits/gi.jpg" alt="Probaclac Gastro-intestinal">
           <div class="product-card-body">
             <h4>Gastro-intestinal</h4>
             <span class="product-tag">Diarrhée associée à l'antibiothérapie</span>
             <p>Formule pour la réduction de la diarrhée associée aux antibiotiques et aide à contrôler la diarrhée infectieuse aiguë.</p>
           </div>
-        </div>
-        <div class="product-card reveal reveal-d4">
+        </a>
+        <a href="https://www.probaclac.ca/probiotique-infection-urinaire" class="product-card reveal reveal-d4">
           <img class="product-card-img" src="../etudes/produits/canneberge.jpg" alt="Probaclac Canneberges">
           <div class="product-card-body">
             <h4>Canneberges</h4>
             <span class="product-tag">Infection urinaire</span>
             <p>Formule qui supporte l'équilibre bactérien du tractus urinaire.</p>
           </div>
-        </div>
-        <div class="product-card reveal reveal-d5">
+        </a>
+        <a href="https://www.probaclac.ca/probiotique-vaginal" class="product-card reveal reveal-d5">
           <img class="product-card-img" src="../etudes/produits/vaginal.jpg" alt="Probaclac Vaginal">
           <div class="product-card-body">
             <h4>Vaginal</h4>
             <span class="product-tag">Vaginose bactérienne</span>
             <p>Formule probiotique féminine qui aide à réduire la récurrence de la vaginose bactérienne.</p>
           </div>
-        </div>
+        </a>
       </div>
     </div>
 
@@ -705,7 +731,7 @@ section{padding:0;flex-shrink:0;flex-grow:0;height:auto!important}
 </section>
 
 <!-- SECTION 7: PROBIOTIQUES ET PRÉBIOTIQUES -->
-<section>
+<section id="prebiotiques">
   <div class="page-section">
     <div class="section-header reveal">
       <h2>Probiotiques et <span class="gradient">prébiotiques</span></h2>
@@ -730,24 +756,29 @@ section{padding:0;flex-shrink:0;flex-grow:0;height:auto!important}
 </section>
 
 <!-- SECTION 8: YOGOURTS -->
-<section>
+<section id="yogourts">
   <div class="page-section">
     <div class="section-header reveal">
       <h2>Et les yogourts probiotiques <span class="gradient">dans tout ça?</span></h2>
     </div>
-    <div class="info-card reveal">
-      <p>Les yogourts probiotiques réfrigérés posent plusieurs défis en termes de fiabilité. La chaîne de température, la durée de conservation et les conditions de fabrication rendent difficile la garantie d'un nombre suffisant de bactéries vivantes au moment de la consommation.</p>
-      <p>De plus, la date de fabrication des yogourts probiotiques ne garantit pas la viabilité des souches jusqu'à la date de péremption. Les conditions de stockage et de transport peuvent compromettre l'efficacité des probiotiques contenus dans ces produits.</p>
-      <div class="yogurt-callout">
-        <h4>Choisir un probiotique qui ne nécessite pas de réfrigération</h4>
-        <p>Les probiotiques Probaclac sont formulés pour rester stables à température ambiante, ce qui garantit leur efficacité du moment de la fabrication jusqu'à la date de péremption, sans dépendre d'une chaîne de froid fragile.</p>
+    <div class="info-card reveal" style="display:flex;gap:2.5rem;align-items:stretch">
+      <div style="flex:1">
+        <p>Les yogourts probiotiques réfrigérés posent plusieurs défis en termes de fiabilité. La chaîne de température, la durée de conservation et les conditions de fabrication rendent difficile la garantie d'un nombre suffisant de bactéries vivantes au moment de la consommation.</p>
+        <p>De plus, la date de fabrication des yogourts probiotiques ne garantit pas la viabilité des souches jusqu'à la date de péremption. Les conditions de stockage et de transport peuvent compromettre l'efficacité des probiotiques contenus dans ces produits.</p>
+        <div class="yogurt-callout">
+          <h4>Choisir un probiotique qui ne nécessite pas de réfrigération</h4>
+          <p>Les probiotiques Probaclac sont formulés pour rester stables à température ambiante, ce qui garantit leur efficacité du moment de la fabrication jusqu'à la date de péremption, sans dépendre d'une chaîne de froid fragile.</p>
+        </div>
+      </div>
+      <div style="flex:0 0 360px;align-self:center">
+        <img src="yogurt.jpg" alt="Yogourt probiotique" style="width:100%;height:440px;object-fit:cover;border-radius:20px;display:block">
       </div>
     </div>
   </div>
 </section>
 
 <!-- SECTION: LES ALLERGÈNES -->
-<section>
+<section id="allergenes">
   <div class="page-section">
     <div class="section-header reveal">
       <h2>Probiotiques sans <span class="gradient">allergènes</span></h2>
@@ -758,19 +789,19 @@ section{padding:0;flex-shrink:0;flex-grow:0;height:auto!important}
     </div>
     <div class="allergen-badges reveal">
       <div class="allergen-badge">
-        <div class="allergen-badge-icon">&#x1F33E;</div>
+        <div class="allergen-badge-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--o1)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="4.93" y1="4.93" x2="19.07" y2="19.07"/></svg></div>
         <span>Sans gluten</span>
       </div>
       <div class="allergen-badge">
-        <div class="allergen-badge-icon">&#x1FAD8;</div>
+        <div class="allergen-badge-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--o1)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6L6 18M6 6l12 12"/></svg></div>
         <span>Sans soya</span>
       </div>
       <div class="allergen-badge">
-        <div class="allergen-badge-icon">&#x1F95B;</div>
+        <div class="allergen-badge-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--o1)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 2h8l4 10H4L8 2z"/><path d="M12 12v10"/><path d="M8 22h8"/></svg></div>
         <span>Sans lactose</span>
       </div>
       <div class="allergen-badge">
-        <div class="allergen-badge-icon">&#x1F48A;</div>
+        <div class="allergen-badge-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--o1)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3h12l2 6H4l2-6z"/><path d="M12 9v13"/><circle cx="12" cy="17" r="4"/></svg></div>
         <span>Capsules végétales</span>
       </div>
     </div>
@@ -890,6 +921,18 @@ if (hamburger && mobileMenu) {
     document.body.style.overflow = mobileMenu.classList.contains('open') ? 'hidden' : '';
   });
 }
+
+// Sub-nav active state on scroll
+const subNavLinks = document.querySelectorAll('.sub-nav a');
+const sections = Array.from(subNavLinks).map(a => document.querySelector(a.getAttribute('href'))).filter(Boolean);
+window.addEventListener('scroll', () => {
+  const scrollY = window.scrollY + 160;
+  let current = '';
+  sections.forEach(s => { if (s.offsetTop <= scrollY) current = s.id; });
+  subNavLinks.forEach(a => {
+    a.classList.toggle('active', a.getAttribute('href') === '#' + current);
+  });
+}, { passive: true });
 </script>
 </body>
 </html>
