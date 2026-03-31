@@ -38,8 +38,8 @@
     padding:0 5%; height:68px;
     display:flex; align-items:center; justify-content:space-between;
   }
-  .nav-logo { font-family:'Playfair Display',serif; font-size:1.5rem; font-weight:900; color:var(--pink); letter-spacing:-0.02em; }
-  .nav-logo span { font-style:italic; color:var(--pink-dark); }
+  .nav-logo { display:flex; align-items:center; }
+  .nav-logo img { height:32px; width:auto; display:block; }
   .nav-links { display:flex; gap:2rem; list-style:none; }
   .nav-links a { text-decoration:none; color:var(--text-muted); font-size:.875rem; font-weight:500; transition:color .2s; }
   .nav-links a:hover { color:var(--pink); }
@@ -265,7 +265,7 @@
   /* FOOTER */
   footer { background:var(--text); color:white; padding:4rem 8% 2rem; }
   .footer-grid { display:grid; grid-template-columns:2fr 1fr 1fr 1fr; gap:3rem; padding-bottom:3rem; border-bottom:1px solid rgba(255,255,255,.1); margin-bottom:2rem; }
-  .footer-brand .nav-logo { color:var(--pink-light); font-size:1.7rem; }
+  .footer-brand .nav-logo img { height:36px; filter:brightness(0) invert(1); }
   .footer-brand p { color:rgba(255,255,255,.55); font-size:.85rem; line-height:1.7; margin-top:1rem; }
   .footer-col h4 { font-size:.8rem; font-weight:600; text-transform:uppercase; letter-spacing:.08em; color:rgba(255,255,255,.5); margin-bottom:1rem; }
   .footer-col ul { list-style:none; }
@@ -301,7 +301,7 @@
 
 <!-- NAV -->
 <nav>
-  <div class="nav-logo">Proba<span>clac</span></div>
+  <div class="nav-logo"><img src="logo_probaclac.svg" alt="Probaclac"></div>
   <ul class="nav-links">
     <li><a href="#produit">The Product</a></li>
     <li><a href="#pourquoi">Why It Works</a></li>
@@ -768,7 +768,7 @@
 <footer>
   <div class="footer-grid">
     <div class="footer-brand">
-      <div class="nav-logo" style="color:var(--pink-light)">Proba<span style="color:var(--pink-light);font-style:italic">clac</span></div>
+      <div class="nav-logo"><img src="logo_probaclac.svg" alt="Probaclac"></div>
       <p>Pharmaceutical-grade probiotics, made in Quebec by Nicar Laboratories. Committed to providing allergen-free, clinically studied supplements.</p>
       <div class="footer-fab">
         <img src="yeast.png" alt="Fabriqué au Québec" style="height:44px;width:auto;">
