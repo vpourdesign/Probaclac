@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html class="light" lang="fr">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Probaclac SCI — Probiotique cliniquement prouvé pour le syndrome de l'intestin irritable</title>
+<meta name="description" content="10 milliards de bactéries L. paracasei HA-196. Réduit la fréquence des selles de 21% (IBS-D), augmente de 33% (IBS-C). Étude clinique sur 251 adultes. NPN 80140258.">
+<link href="https://api.fontshare.com/v2/css?f[]=migra@400,500,600,700,400i,700i&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script>
+tailwind.config = {
+  darkMode: "class",
+  theme: {
+    extend: {
+      colors: {
+        "abyss": "#0a1628",
+        "lab": "#111d30",
+        "teal-v": "#3db5c8",
+        "teal-b": "#5ccfdf",
+        "teal-d": "#006875",
+        "teal-deep": "#004e59",
+        "amber-s": "#e8a838",
+        "cryo": "#f7f9fc",
+        "frost": "#dce3ed",
+        "graphite": "#121d2e",
+        "slate-b": "#4a5568",
+        "dim": "#3a4a62",
+      },
+      fontFamily: {
+        headline: ["Migra", "serif"],
+        body: ["Helvetica Neue", "Helvetica", "Arial", "sans-serif"],
+        mono: ["JetBrains Mono", "monospace"],
+      },
+      borderRadius: {
+        DEFAULT: "1rem",
+        lg: "2rem",
+        xl: "3rem",
+      },
+    },
+  },
+}
+</script>
+<style>
+body { font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; }
+h1, h2, h3, h4, .serif { font-family: 'Migra', serif; }
+.material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+.clinical-gradient { background: linear-gradient(135deg, #006875 0%, #3db5c8 100%); }
+.glass-nav { backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); }
+.ticker-scroll { animation: ticker 28s linear infinite; }
+@keyframes ticker { 0%{transform:translateX(0)} 100%{transform:translateX(-50%)} }
+/* Bubbles */
+.bubbles-container { position:absolute; inset:0; overflow:hidden; pointer-events:none; z-index:1; }
+.bubble {
+  position:absolute; border-radius:50%;
+  background: radial-gradient(circle at 30% 30%, rgba(255,255,255,0.25), rgba(255,255,255,0.05));
+  border: 1px solid rgba(255,255,255,0.12);
+  animation: bubbleFloat var(--dur, 8s) ease-in-out infinite;
+  animation-delay: var(--delay, 0s);
+}
+@keyframes bubbleFloat {
+  0%   { transform: translateY(0) scale(1); opacity: var(--opa, 0.5); }
+  50%  { transform: translateY(calc(var(--drift, -40px))) scale(1.08); opacity: calc(var(--opa, 0.5) * 1.3); }
+  100% { transform: translateY(0) scale(1); opacity: var(--opa, 0.5); }
+}
+/* Diagonal separators */
+.diag-sep { line-height:0; font-size:0; margin:-1px 0; }
+.diag-sep svg { display:block; width:100%; height:clamp(50px,7vw,100px); }
+/* Chart hover */
+.chart-card:hover { border-color: #3db5c8; }
+.chart-card { transition: border-color .3s ease; }
+/* Reveal */
+.js .reveal { opacity:0; transform:translateY(24px); transition: opacity .7s cubic-bezier(.16,1,.3,1), transform .7s cubic-bezier(.16,1,.3,1); }
+.js .reveal.visible { opacity:1; transform:translateY(0); }
+</style>
+</head>
+<body class="bg-cryo text-graphite overflow-x-hidden">
+<script>document.documentElement.classList.add('js');</script>
+
+<!-- ═══ NAV ═══ -->
+<nav class="fixed top-0 w-full z-50 bg-cyan-50/80 backdrop-blur-xl shadow-sm shadow-cyan-900/5">
+  <div class="flex justify-between items-center w-full px-6 md:px-8 py-4 max-w-screen-xl mx-auto">
+    <a href="https://www.probaclac.ca" aria-label="Probaclac">
+      <svg viewBox="0 0 378.44 100" xmlns="http://www.w3.org/2000/svg" class="h-6 w-auto">
+        <path fill="#006875" d="M42.37,10.57v36.38c0,3.16-3.74,5.86-7.15,5.15V10.57h7.15ZM35.22,57.36h3.99c9.6,0,17.55-8.06,17.55-17.54V15.13c0-5.38-4.44-9.82-9.82-9.82H15.81v5.27h5.14v78.23h-5.14v5.16h24.69v-5.16h-5.28v-31.45Z"/>
+        <polygon fill="#006875" points="62.37 88.8 67.52 88.8 67.52 31.4 62.37 31.4 62.37 26.13 74.66 26.13 74.66 37.24 85.78 26.13 92.2 26.13 92.2 40.4 81.79 40.4 81.79 88.8 87.05 88.8 87.05 93.96 62.37 93.96 62.37 88.8"/>
+        <path fill="#006875" d="M117.83,88.8h-7.14V31.4h7.14v57.41ZM106.12,93.96h16.26c5.39,0,9.72-4.44,9.72-9.71v-48.41c0-5.27-4.33-9.71-9.72-9.71h-16.26c-5.26,0-9.71,4.44-9.71,9.71v48.41c0,5.27,4.44,9.71,9.71,9.71"/>
+        <path fill="#006875" d="M160.29,31.4v52.15c0,3.27-3.74,5.85-7.13,5.26V31.4h7.13ZM174.57,76.41v-40.57c0-5.27-4.33-9.71-9.71-9.71h-11.7V5.3h-19.54v5.27h5.26v83.39h18.14c9.71,0,17.55-8.07,17.55-17.55"/>
+        <path fill="#006875" d="M199.48,50.81v37.99h-6.44v-31.45l6.44-6.55ZM213.88,26.13h-16.26c-9.6,0-17.56,8.07-17.56,17.55v1.28h5.16v-1.28c0-5.5,4.21-12.28,12.4-12.28h1.86v11.69l-20.71,20.71v20.45c0,5.27,4.33,9.71,9.72,9.71h30.53v-5.16h-5.15V26.13Z"/>
+        <path fill="#006875" d="M244.06,88.8c2.46,0,4.56-2.1,4.56-4.56v-5.85h5.15v5.85c0,5.27-4.44,9.71-9.71,9.71h-11.12c-5.26,0-9.7-4.44-9.7-9.71v-48.41c0-5.27,4.44-9.71,9.7-9.71h20.83v15.56h-5.15v-10.29h-11.12v57.41h6.56Z"/>
+        <polygon fill="#006875" points="256.69 10.57 256.69 5.3 276.12 5.3 276.12 88.8 281.38 88.8 281.38 93.96 256.69 93.96 256.69 88.8 261.84 88.8 261.84 10.57 256.69 10.57"/>
+        <path fill="#006875" d="M303.6,50.81v37.99h-6.43v-31.45l6.43-6.55ZM318,26.13h-16.26c-9.59,0-17.55,8.07-17.55,17.55v1.28h5.15v-1.28c0-5.5,4.21-12.28,12.4-12.28h1.87v11.69l-20.7,20.71v20.45c0,5.27,4.33,9.71,9.71,9.71h30.54v-5.16h-5.15V26.13Z"/>
+        <path fill="#006875" d="M348.18,88.8c2.46,0,4.56-2.1,4.56-4.56v-5.85h5.15v5.85c0,5.27-4.45,9.71-9.71,9.71h-11.12c-5.25,0-9.71-4.44-9.71-9.71v-48.41c0-5.27,4.45-9.71,9.71-9.71h20.83v15.56h-5.15v-10.29h-11.12v57.41h6.56Z"/>
+      </svg>
+    </a>
+    <div class="hidden md:flex items-center gap-8 font-body tracking-tight font-bold text-sm">
+      <a class="text-teal-d/70 hover:text-teal-d transition-colors" href="#science">La science</a>
+      <a class="text-teal-d/70 hover:text-teal-d transition-colors" href="#produit">Produit</a>
+    </div>
+    <a href="#acheter" class="bg-teal-d hover:bg-teal-deep text-white px-7 py-3 rounded-full font-bold transition-all hover:scale-[1.02] active:scale-95 text-sm shadow-lg shadow-teal-d/20">
+      Acheter maintenant
+    </a>
+  </div>
+</nav>
+
+<!-- ═══ HERO ═══ -->
+<main class="pt-[72px]">
+<section class="relative min-h-[90vh] clinical-gradient flex items-center px-6 md:px-16 overflow-hidden">
+  <div class="max-w-screen-xl mx-auto w-full grid grid-cols-1 lg:grid-cols-12 gap-10 items-center py-16 lg:py-0">
+    <div class="lg:col-span-7 space-y-7 z-10">
+      <span class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/10 border border-white/20 text-white font-medium text-xs tracking-widest uppercase">
+        <span class="w-1.5 h-1.5 rounded-full bg-teal-b animate-pulse"></span>
+        Nouveau — Cliniquement prouvé
+      </span>
+      <h1 class="text-5xl md:text-7xl lg:text-[5.5rem] text-white font-bold leading-[1.02] tracking-tighter">
+        10 milliards de bactéries.<br/>
+        <span class="italic font-normal text-teal-b/90">Une seule fonction.</span>
+      </h1>
+      <p class="text-lg md:text-xl text-cyan-50/85 max-w-xl leading-relaxed font-light">
+        Soulager le <strong class="text-white font-semibold">syndrome de l'intestin irritable</strong> avec
+        <strong class="text-white font-semibold">L.&nbsp;paracasei&nbsp;HA&#8209;196</strong> — la souche probiotique
+        cliniquement prouvée qui réduit les symptômes du SII dès 8&nbsp;semaines.
+      </p>
+      <div class="flex flex-wrap gap-4 pt-2">
+        <a href="#acheter" class="inline-flex items-center gap-2 bg-white text-teal-d px-8 py-4 rounded-full font-bold text-base hover:bg-cyan-50 transition-all shadow-xl shadow-teal-deep/30 hover:scale-[1.02] active:scale-95">
+          <span class="material-symbols-outlined text-xl">local_pharmacy</span>
+          Acheter en pharmacie
+        </a>
+        <a href="#acheter" class="inline-flex items-center gap-2 bg-transparent border-2 border-white/30 text-white px-8 py-4 rounded-full font-bold text-base hover:bg-white/10 transition-all hover:border-white/60">
+          <span class="material-symbols-outlined text-xl">shopping_cart</span>
+          Acheter sur Amazon
+        </a>
+      </div>
+    </div>
+    <div class="lg:col-span-5 relative flex justify-center lg:justify-end">
+      <!-- Bubbles behind bottle -->
+      <div class="bubbles-container">
+        <div class="bubble" style="width:120px;height:120px;top:10%;left:15%;--dur:7s;--delay:0s;--drift:-35px;--opa:0.3"></div>
+        <div class="bubble" style="width:60px;height:60px;top:60%;left:5%;--dur:9s;--delay:1.2s;--drift:-50px;--opa:0.4"></div>
+        <div class="bubble" style="width:180px;height:180px;top:25%;right:5%;--dur:11s;--delay:0.5s;--drift:-30px;--opa:0.15"></div>
+        <div class="bubble" style="width:40px;height:40px;top:70%;right:20%;--dur:6s;--delay:2s;--drift:-45px;--opa:0.5"></div>
+        <div class="bubble" style="width:90px;height:90px;top:5%;right:30%;--dur:8s;--delay:1.8s;--drift:-55px;--opa:0.25"></div>
+        <div class="bubble" style="width:30px;height:30px;top:80%;left:30%;--dur:5s;--delay:0.8s;--drift:-60px;--opa:0.5"></div>
+        <div class="bubble" style="width:70px;height:70px;top:45%;left:40%;--dur:10s;--delay:3s;--drift:-25px;--opa:0.2"></div>
+        <div class="bubble" style="width:50px;height:50px;top:15%;left:55%;--dur:7.5s;--delay:2.5s;--drift:-40px;--opa:0.35"></div>
+        <div class="bubble" style="width:25px;height:25px;top:55%;right:10%;--dur:6.5s;--delay:1s;--drift:-50px;--opa:0.45"></div>
+        <div class="bubble" style="width:140px;height:140px;top:50%;left:20%;--dur:12s;--delay:0.3s;--drift:-20px;--opa:0.1"></div>
+      </div>
+      <img alt="Probaclac SCI — 10 milliards de cellules actives, 45 capsules végétales" src="SCI.png" class="w-[500px] lg:w-[650px] drop-shadow-[0_20px_60px_rgba(0,104,117,0.35)] relative z-10" loading="eager"/>
+      <span class="absolute bottom-2 right-4 text-[10px] font-mono text-white/30 z-10">NPN 80140258</span>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ DIAG: hero → white ═══ -->
+<div class="diag-sep"><svg viewBox="0 0 1440 80" preserveAspectRatio="none"><polygon points="0,0 1440,80 0,80" fill="#f7f9fc"/><polygon points="0,0 1440,80 1440,0" fill="#3db5c8"/></svg></div>
+
+<!-- ═══ PROBLEM SECTION (LIGHT) ═══ -->
+<section class="bg-cryo py-20 px-6 md:px-16">
+  <div class="max-w-screen-xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+    <div class="reveal">
+      <div class="font-headline text-[clamp(3.5rem,10vw,7rem)] font-bold leading-[0.9] tracking-tighter bg-gradient-to-b from-teal-d to-teal-deep bg-clip-text text-transparent">1 canadien<br>sur 4</div>
+      <p class="text-lg text-slate-b leading-relaxed mt-4 max-w-md">
+        souffre du <strong class="text-graphite">syndrome de l'intestin irritable</strong> au moins occasionnellement. Seuls <strong class="text-graphite">42%</strong> se déclarent satisfaits de leur santé digestive en 2024.
+      </p>
+    </div>
+    <div class="grid grid-cols-2 gap-4 reveal">
+      <div class="bg-white border border-frost rounded-2xl p-5 hover:border-teal-v hover:-translate-y-1 transition-all shadow-sm group">
+        <div class="w-10 h-10 rounded-xl bg-teal-v/10 flex items-center justify-center mb-3"><span class="material-symbols-outlined text-teal-d">gas_meter</span></div>
+        <div class="font-bold text-sm mb-1">Gaz</div>
+        <div class="text-xs text-slate-b leading-relaxed">Ballonnements et flatulences inconfortables au quotidien.</div>
+      </div>
+      <div class="bg-white border border-frost rounded-2xl p-5 hover:border-teal-v hover:-translate-y-1 transition-all shadow-sm group">
+        <div class="w-10 h-10 rounded-xl bg-teal-v/10 flex items-center justify-center mb-3"><span class="material-symbols-outlined text-teal-d">water_drop</span></div>
+        <div class="font-bold text-sm mb-1">Ballonnement</div>
+        <div class="text-xs text-slate-b leading-relaxed">Sensation de distension abdominale persistante.</div>
+      </div>
+      <div class="bg-white border border-frost rounded-2xl p-5 hover:border-teal-v hover:-translate-y-1 transition-all shadow-sm group">
+        <div class="w-10 h-10 rounded-xl bg-teal-v/10 flex items-center justify-center mb-3"><span class="material-symbols-outlined text-teal-d">bolt</span></div>
+        <div class="font-bold text-sm mb-1">Diarrhée</div>
+        <div class="text-xs text-slate-b leading-relaxed">Épisodes fréquents et urgents qui perturbent la vie.</div>
+      </div>
+      <div class="bg-white border border-frost rounded-2xl p-5 hover:border-teal-v hover:-translate-y-1 transition-all shadow-sm group">
+        <div class="w-10 h-10 rounded-xl bg-teal-v/10 flex items-center justify-center mb-3"><span class="material-symbols-outlined text-teal-d">lock</span></div>
+        <div class="font-bold text-sm mb-1">Constipation</div>
+        <div class="text-xs text-slate-b leading-relaxed">Difficulté de transit et inconfort chronique.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ WHAT IS IBS SECTION ═══ -->
+<section class="bg-gray-100 py-20 px-6 md:px-16 overflow-hidden">
+  <div class="max-w-screen-xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+    <!-- Intestin illustration with wipe reveal -->
+    <div class="relative flex justify-center reveal" id="intestin-wipe">
+      <img src="intestinblanc.png" alt="Intestin — état irrité" class="w-[340px] lg:w-[420px] relative z-1"/>
+      <div class="absolute inset-0 flex justify-center overflow-hidden z-2" id="intestin-blue-mask" style="clip-path:inset(0 0 100% 0)">
+        <img src="intestinbleu.png" alt="Intestin — état soulagé" class="w-[340px] lg:w-[420px]"/>
+      </div>
+    </div>
+    <!-- Content -->
+    <div>
+      <div class="section-label on-light reveal" style="display:inline-flex;align-items:center;gap:.5rem;font-size:.68rem;font-weight:600;text-transform:uppercase;letter-spacing:.14em;color:#006875;margin-bottom:1rem">
+        <span style="width:24px;height:1px;background:#006875;display:inline-block"></span>Comprendre le SII
+      </div>
+      <h2 class="font-headline text-3xl md:text-4xl font-bold text-graphite leading-tight tracking-tight mb-6 reveal">
+        Mais qu'est-ce que, réellement, le syndrome du côlon irritable?
+      </h2>
+      <p class="text-base text-slate-b leading-relaxed mb-6 reveal">
+        Le syndrome de l'intestin irritable (SII) est un trouble fonctionnel chronique du système digestif. Il ne cause pas de dommages visibles à l'intestin, mais perturbe profondément la qualité de vie de ceux qui en souffrent — souvent en silence.
+      </p>
+      <ul class="space-y-4 reveal">
+        <li class="flex items-start gap-3">
+          <span class="mt-1 w-6 h-6 rounded-full bg-teal-v/10 flex items-center justify-center shrink-0"><span class="material-symbols-outlined text-teal-d text-base">gastroenterology</span></span>
+          <span class="text-sm text-slate-b leading-relaxed"><strong class="text-graphite">Douleurs abdominales récurrentes</strong> — crampes, spasmes et inconfort liés aux contractions anormales de l'intestin.</span>
+        </li>
+        <li class="flex items-start gap-3">
+          <span class="mt-1 w-6 h-6 rounded-full bg-teal-v/10 flex items-center justify-center shrink-0"><span class="material-symbols-outlined text-teal-d text-base">swap_vert</span></span>
+          <span class="text-sm text-slate-b leading-relaxed"><strong class="text-graphite">Transit imprévisible</strong> — alternance entre diarrhée (IBS-D), constipation (IBS-C) ou les deux (IBS-M), sans schéma prévisible.</span>
+        </li>
+        <li class="flex items-start gap-3">
+          <span class="mt-1 w-6 h-6 rounded-full bg-teal-v/10 flex items-center justify-center shrink-0"><span class="material-symbols-outlined text-teal-d text-base">air</span></span>
+          <span class="text-sm text-slate-b leading-relaxed"><strong class="text-graphite">Ballonnements et gaz excessifs</strong> — distension abdominale qui s'aggrave après les repas et impacte le confort quotidien.</span>
+        </li>
+        <li class="flex items-start gap-3">
+          <span class="mt-1 w-6 h-6 rounded-full bg-teal-v/10 flex items-center justify-center shrink-0"><span class="material-symbols-outlined text-teal-d text-base">psychology</span></span>
+          <span class="text-sm text-slate-b leading-relaxed"><strong class="text-graphite">Impact psychologique majeur</strong> — anxiété, évitement social et fatigue chronique. Le SII affecte autant le corps que l'esprit.</span>
+        </li>
+        <li class="flex items-start gap-3">
+          <span class="mt-1 w-6 h-6 rounded-full bg-teal-v/10 flex items-center justify-center shrink-0"><span class="material-symbols-outlined text-teal-d text-base">microbiology</span></span>
+          <span class="text-sm text-slate-b leading-relaxed"><strong class="text-graphite">Déséquilibre du microbiote</strong> — la flore intestinale altérée joue un rôle central. C'est précisément là que les probiotiques ciblés interviennent.</span>
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ CLAIM BANNER ═══ -->
+<div class="clinical-gradient py-14 px-6 text-center">
+  <div class="max-w-3xl mx-auto">
+    <p class="font-headline italic text-white text-xl md:text-3xl leading-snug reveal">
+      &laquo;&thinsp;Cliniquement éprouvé pour <em class="text-teal-b not-italic font-bold">réduire l'inconfort</em> lié au syndrome de l'intestin irritable.&thinsp;&raquo;
+    </p>
+    <span class="block mt-4 font-mono text-[10px] uppercase tracking-[.15em] text-white/50 reveal">Allégation santé approuvée — Santé Canada</span>
+  </div>
+</div>
+
+<!-- ═══ DIAG: teal → white ═══ -->
+<div class="diag-sep"><svg viewBox="0 0 1440 80" preserveAspectRatio="none"><polygon points="0,80 1440,0 1440,80" fill="#f7f9fc"/><polygon points="0,0 1440,0 0,80" fill="#3db5c8"/></svg></div>
+
+<!-- ═══ SCIENCE SECTION (LIGHT) ═══ -->
+<section class="bg-cryo py-20 px-6 md:px-16" id="science">
+  <div class="max-w-screen-xl mx-auto">
+    <div class="mb-14 reveal">
+      <h2 class="text-4xl md:text-5xl font-bold text-teal-d mb-3 tracking-tight font-headline">Rigueur Scientifique</h2>
+      <p class="text-base text-slate-b max-w-2xl">Étude randomisée, à double insu et contrôlée par placebo sur 251&nbsp;adultes pendant 8&nbsp;semaines. Six questionnaires cliniques validés.</p>
+    </div>
+
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+      <!-- Charts Column -->
+      <div class="lg:col-span-8 space-y-8">
+        <!-- SF-36 Chart -->
+        <div class="chart-card bg-white p-6 md:p-10 rounded-2xl shadow-sm border border-frost reveal">
+          <div class="flex justify-between items-start mb-8">
+            <div>
+              <h3 class="text-xl font-bold text-graphite mb-1">Qualité de vie — SF-36</h3>
+              <p class="text-sm text-slate-b">Bien-être émotionnel et fonctionnement social à la semaine 8.</p>
+            </div>
+            <span class="px-3 py-1 bg-teal-v/10 text-teal-d text-[10px] font-mono font-bold rounded-full uppercase tracking-widest">SF-36</span>
+          </div>
+          <svg viewBox="0 0 400 220" class="w-full h-auto" xmlns="http://www.w3.org/2000/svg">
+            <line x1="55" y1="30" x2="55" y2="180" stroke="#dce3ed" stroke-width="1"/>
+            <line x1="55" y1="180" x2="370" y2="180" stroke="#dce3ed" stroke-width="1"/>
+            <line x1="55" y1="135" x2="370" y2="135" stroke="#dce3ed" stroke-width="1" stroke-dasharray="4 4"/>
+            <line x1="55" y1="90" x2="370" y2="90" stroke="#dce3ed" stroke-width="1" stroke-dasharray="4 4"/>
+            <line x1="55" y1="45" x2="370" y2="45" stroke="#dce3ed" stroke-width="1" stroke-dasharray="4 4"/>
+            <text x="120" y="200" text-anchor="middle" font-size="11" font-family="Plus Jakarta Sans" fill="#4a5568">Bien-être</text>
+            <text x="280" y="200" text-anchor="middle" font-size="11" font-family="Plus Jakarta Sans" fill="#4a5568">Social</text>
+            <rect x="88" y="95" width="28" height="85" rx="6" fill="#006875"/>
+            <rect x="122" y="72" width="28" height="108" rx="6" fill="#e8a838"/>
+            <rect x="156" y="122" width="28" height="58" rx="6" fill="#dce3ed"/>
+            <rect x="248" y="58" width="28" height="122" rx="6" fill="#006875"/>
+            <rect x="282" y="78" width="28" height="102" rx="6" fill="#e8a838"/>
+            <rect x="316" y="128" width="28" height="52" rx="6" fill="#dce3ed"/>
+            <text x="102" y="88" text-anchor="middle" font-size="14" font-weight="700" fill="#006875">*</text>
+            <text x="136" y="65" text-anchor="middle" font-size="14" font-weight="700" fill="#e8a838">*</text>
+            <text x="262" y="51" text-anchor="middle" font-size="14" font-weight="700" fill="#006875">**</text>
+            <text x="296" y="71" text-anchor="middle" font-size="14" font-weight="700" fill="#e8a838">*</text>
+          </svg>
+          <div class="flex gap-6 mt-4 pt-4 border-t border-frost">
+            <span class="flex items-center gap-2 text-xs text-slate-b"><span class="w-2.5 h-2.5 rounded-full bg-teal-d"></span>HA-196</span>
+            <span class="flex items-center gap-2 text-xs text-slate-b"><span class="w-2.5 h-2.5 rounded-full bg-amber-s"></span>B. longum</span>
+            <span class="flex items-center gap-2 text-xs text-slate-b"><span class="w-2.5 h-2.5 rounded-full bg-frost"></span>Placebo</span>
+          </div>
+        </div>
+
+        <!-- Stool Frequency Chart -->
+        <div class="chart-card bg-white p-6 md:p-10 rounded-2xl shadow-sm border border-frost reveal">
+          <div class="flex justify-between items-start mb-8">
+            <div>
+              <h3 class="text-xl font-bold text-graphite mb-1">Fréquence des selles par sous-type</h3>
+              <p class="text-sm text-slate-b">IBS-D et IBS-C entre le départ, semaine 4 et semaine 8.</p>
+            </div>
+            <span class="px-3 py-1 bg-teal-v/10 text-teal-d text-[10px] font-mono font-bold rounded-full uppercase tracking-widest">Bristol</span>
+          </div>
+          <svg viewBox="0 0 400 220" class="w-full h-auto" xmlns="http://www.w3.org/2000/svg">
+            <line x1="45" y1="30" x2="45" y2="185" stroke="#dce3ed" stroke-width="1"/>
+            <line x1="45" y1="185" x2="370" y2="185" stroke="#dce3ed" stroke-width="1"/>
+            <line x1="45" y1="140" x2="370" y2="140" stroke="#dce3ed" stroke-width="1" stroke-dasharray="4 4"/>
+            <line x1="45" y1="95" x2="370" y2="95" stroke="#dce3ed" stroke-width="1" stroke-dasharray="4 4"/>
+            <line x1="45" y1="50" x2="370" y2="50" stroke="#dce3ed" stroke-width="1" stroke-dasharray="4 4"/>
+            <text x="100" y="203" text-anchor="middle" font-size="11" font-family="Plus Jakarta Sans" fill="#4a5568">Départ</text>
+            <text x="195" y="203" text-anchor="middle" font-size="11" font-family="Plus Jakarta Sans" fill="#4a5568">Sem. 4</text>
+            <text x="290" y="203" text-anchor="middle" font-size="11" font-family="Plus Jakarta Sans" fill="#4a5568">Sem. 8</text>
+            <!-- IBS-D HA-196 -->
+            <polyline points="100,95 195,108 290,132" fill="none" stroke="#006875" stroke-width="3.5" stroke-linecap="round"/>
+            <!-- Placebo -->
+            <polyline points="100,75 195,70 290,72" fill="none" stroke="#dce3ed" stroke-width="2.5" stroke-dasharray="7 5" stroke-linecap="round"/>
+            <!-- IBS-C HA-196 -->
+            <polyline points="100,148 195,135 290,122" fill="none" stroke="#e8a838" stroke-width="3.5" stroke-linecap="round"/>
+            <circle cx="100" cy="95" r="5" fill="#006875"/><circle cx="195" cy="108" r="5" fill="#006875"/><circle cx="290" cy="132" r="5" fill="#006875"/>
+            <circle cx="100" cy="75" r="4" fill="#dce3ed"/><circle cx="195" cy="70" r="4" fill="#dce3ed"/><circle cx="290" cy="72" r="4" fill="#dce3ed"/>
+            <circle cx="100" cy="148" r="5" fill="#e8a838"/><circle cx="195" cy="135" r="5" fill="#e8a838"/><circle cx="290" cy="122" r="5" fill="#e8a838"/>
+            <text x="300" y="126" font-size="12" font-weight="700" font-family="JetBrains Mono" fill="#006875">-21%</text>
+            <text x="300" y="116" font-size="12" font-weight="700" font-family="JetBrains Mono" fill="#e8a838">+33%</text>
+          </svg>
+          <div class="flex gap-6 mt-4 pt-4 border-t border-frost">
+            <span class="flex items-center gap-2 text-xs text-slate-b"><span class="w-2.5 h-2.5 rounded-full bg-teal-d"></span>HA-196 (IBS-D)</span>
+            <span class="flex items-center gap-2 text-xs text-slate-b"><span class="w-2.5 h-2.5 rounded-full bg-amber-s"></span>HA-196 (IBS-C)</span>
+            <span class="flex items-center gap-2 text-xs text-slate-b"><span class="w-2.5 h-2.5 rounded-full bg-frost"></span>Placebo</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Sidebar Stats -->
+      <div class="lg:col-span-4 space-y-5">
+        <div class="bg-white p-7 rounded-2xl border border-frost reveal">
+          <div class="text-5xl font-headline font-bold text-teal-d mb-1 font-mono">251</div>
+          <h4 class="text-xs font-bold uppercase tracking-widest text-graphite mb-3">Participants évalués</h4>
+          <p class="text-sm text-slate-b leading-relaxed">Sous-types IBS-C, IBS-D et IBS-M. Randomisée, double insu, contrôlée par placebo.</p>
+        </div>
+        <div class="bg-teal-d text-white p-7 rounded-2xl reveal">
+          <div class="text-5xl font-headline italic mb-1">-21%</div>
+          <h4 class="text-xs font-bold uppercase tracking-widest text-cyan-100 mb-3">IBS-D · Diarrhée</h4>
+          <p class="text-sm text-cyan-50/75 leading-relaxed">Réduction significative de la fréquence des selles après 8 semaines. (p&lt;0.05 vs placebo)</p>
+        </div>
+        <div class="bg-amber-s/10 border border-amber-s/20 p-7 rounded-2xl reveal">
+          <div class="text-5xl font-headline italic text-amber-s mb-1">+33%</div>
+          <h4 class="text-xs font-bold uppercase tracking-widest text-graphite mb-3">IBS-C · Constipation</h4>
+          <p class="text-sm text-slate-b leading-relaxed">Augmentation de la fréquence avec réduction du besoin en laxatifs.</p>
+        </div>
+        <div class="bg-white p-7 rounded-2xl border border-frost reveal">
+          <div class="flex items-center gap-3 mb-3">
+            <span class="material-symbols-outlined text-teal-d">verified</span>
+            <span class="text-xs font-bold uppercase tracking-widest text-graphite">Résistance acide</span>
+          </div>
+          <p class="text-sm text-slate-b leading-relaxed">Toutes les souches résistent à un pH de 3 <strong>sans enrobage</strong> entéro-soluble. Les bactéries arrivent vivantes aux intestins.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Clinical Synthesis Table -->
+    <div class="mt-14 reveal">
+      <h3 class="font-headline text-2xl font-bold text-graphite mb-6">Synthèse clinique HA-196</h3>
+      <div class="grid grid-cols-4 text-sm rounded-2xl overflow-hidden border border-frost">
+        <div class="bg-teal-d text-white p-4 font-mono text-[10px] uppercase tracking-widest font-bold">Axe</div>
+        <div class="bg-teal-d text-white p-4 font-mono text-[10px] uppercase tracking-widest font-bold">Observation</div>
+        <div class="bg-teal-d text-white p-4 font-mono text-[10px] uppercase tracking-widest font-bold">Sous-groupe</div>
+        <div class="bg-teal-d text-white p-4 font-mono text-[10px] uppercase tracking-widest font-bold">Impact</div>
+        <div class="bg-cryo p-4 font-bold text-graphite border-b border-frost">Transit</div>
+        <div class="bg-cryo p-4 font-mono text-teal-d font-bold border-b border-frost">-21% en IBS-D</div>
+        <div class="bg-cryo p-4 font-mono text-amber-s text-xs border-b border-frost">IBS-D</div>
+        <div class="bg-cryo p-4 text-slate-b text-xs border-b border-frost">Habitudes intestinales plus régulières.</div>
+        <div class="bg-white p-4 font-bold text-graphite border-b border-frost">Constipation</div>
+        <div class="bg-white p-4 font-mono text-teal-d font-bold border-b border-frost">+33% en IBS-C</div>
+        <div class="bg-white p-4 font-mono text-amber-s text-xs border-b border-frost">IBS-C</div>
+        <div class="bg-white p-4 text-slate-b text-xs border-b border-frost">Fréquence accrue, moindre recours aux laxatifs.</div>
+        <div class="bg-cryo p-4 font-bold text-graphite border-b border-frost">Qualité de vie</div>
+        <div class="bg-cryo p-4 font-mono text-teal-d font-bold border-b border-frost">Amélioration SF-36</div>
+        <div class="bg-cryo p-4 font-mono text-amber-s text-xs border-b border-frost">Cohorte</div>
+        <div class="bg-cryo p-4 text-slate-b text-xs border-b border-frost">Bien-être émotionnel et social amélioré.</div>
+        <div class="bg-white p-4 font-bold text-graphite">Méthodologie</div>
+        <div class="bg-white p-4 font-mono text-teal-d font-bold">6 outils validés</div>
+        <div class="bg-white p-4 font-mono text-amber-s text-xs">8 semaines</div>
+        <div class="bg-white p-4 text-slate-b text-xs">Lecture clinique robuste et multi-dimensionnelle.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ DIAG: white → dark ═══ -->
+<div class="diag-sep"><svg viewBox="0 0 1440 80" preserveAspectRatio="none"><polygon points="0,0 1440,80 1440,0" fill="#f7f9fc"/><polygon points="0,0 1440,80 0,80" fill="#004e59"/></svg></div>
+
+<!-- ═══ PRODUCT SECTION (DARK) ═══ -->
+<section class="bg-teal-deep py-20 px-6 md:px-16 overflow-hidden" id="produit">
+  <div class="max-w-screen-xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+    <div class="relative order-2 lg:order-1 flex justify-center reveal">
+      <div class="bg-white rounded-[3rem] p-10 shadow-2xl shadow-black/20">
+        <img alt="Probaclac SCI" src="SCI.png" class="w-[280px]"/>
+      </div>
+      <div class="absolute -bottom-8 -right-4 bg-white p-5 rounded-xl shadow-2xl max-w-[240px]">
+        <div class="flex items-center gap-3 mb-2">
+          <div class="w-9 h-9 bg-teal-v rounded-full flex items-center justify-center text-white"><span class="material-symbols-outlined text-lg">science</span></div>
+          <span class="font-bold text-sm text-graphite">L. paracasei HA-196</span>
+        </div>
+        <p class="text-[11px] text-slate-b">10 milliards CFU — souche cliniquement prouvée contre le SII.</p>
+      </div>
+    </div>
+    <div class="order-1 lg:order-2 space-y-8">
+      <h2 class="text-4xl md:text-5xl font-bold text-white leading-tight font-headline reveal">L'équilibre intestinal <em class="italic text-teal-b">redéfini.</em></h2>
+      <div class="space-y-6 reveal">
+        <div class="flex gap-5">
+          <div class="shrink-0 w-11 h-11 rounded-full border border-cyan-400/30 flex items-center justify-center text-teal-b font-mono text-sm font-bold">01</div>
+          <div><h4 class="text-lg font-bold text-white mb-1">Réduit la diarrhée de 21%</h4><p class="text-sm text-cyan-200/60">Fréquence des selles significativement réduite chez les IBS-D après 8 semaines.</p></div>
+        </div>
+        <div class="flex gap-5">
+          <div class="shrink-0 w-11 h-11 rounded-full border border-cyan-400/30 flex items-center justify-center text-teal-b font-mono text-sm font-bold">02</div>
+          <div><h4 class="text-lg font-bold text-white mb-1">Augmente le transit de 33%</h4><p class="text-sm text-cyan-200/60">Les IBS-C voient leur fréquence augmenter avec réduction du besoin en laxatifs.</p></div>
+        </div>
+        <div class="flex gap-5">
+          <div class="shrink-0 w-11 h-11 rounded-full border border-cyan-400/30 flex items-center justify-center text-teal-b font-mono text-sm font-bold">03</div>
+          <div><h4 class="text-lg font-bold text-white mb-1">Améliore la qualité de vie</h4><p class="text-sm text-cyan-200/60">Bien-être émotionnel et fonctionnement social mesurés par SF-36.</p></div>
+        </div>
+        <div class="flex gap-5">
+          <div class="shrink-0 w-11 h-11 rounded-full border border-cyan-400/30 flex items-center justify-center text-teal-b font-mono text-sm font-bold">04</div>
+          <div><h4 class="text-lg font-bold text-white mb-1">1 capsule / jour — sans allergènes</h4><p class="text-sm text-cyan-200/60">45 capsules végétales. Résiste à l'acidité gastrique sans enrobage. Fabriqué au Québec.</p></div>
+        </div>
+      </div>
+      <div class="flex flex-wrap gap-4 pt-4 reveal">
+        <a href="#acheter" class="inline-flex items-center gap-2 bg-white text-teal-deep px-8 py-4 rounded-full font-bold hover:bg-cyan-50 transition-all shadow-xl">
+          <span class="material-symbols-outlined text-xl">local_pharmacy</span>Acheter en pharmacie
+        </a>
+        <a href="#acheter" class="inline-flex items-center gap-2 bg-amber-s text-graphite px-8 py-4 rounded-full font-bold hover:bg-amber-400 transition-all shadow-lg shadow-amber-s/20">
+          <span class="material-symbols-outlined text-xl">shopping_cart</span>Acheter sur Amazon
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ DIAG: dark → white ═══ -->
+<div class="diag-sep"><svg viewBox="0 0 1440 80" preserveAspectRatio="none"><polygon points="0,80 1440,0 1440,80" fill="#f7f9fc"/><polygon points="0,0 1440,0 0,80" fill="#004e59"/></svg></div>
+
+<!-- ═══ FINAL CTA ═══ -->
+<section class="bg-cryo py-24 px-6 text-center" id="acheter">
+  <div class="max-w-2xl mx-auto reveal">
+    <h2 class="font-headline text-4xl md:text-5xl font-bold text-graphite leading-tight mb-4">Prêt à reprendre le contrôle <em class="italic text-teal-d">de votre intestin?</em></h2>
+    <p class="text-slate-b text-base mb-8 max-w-md mx-auto">Disponible en pharmacie partout au Canada et sur Amazon. Une capsule par jour. Résultats dès 8&nbsp;semaines.</p>
+    <div class="flex flex-wrap gap-4 justify-center">
+      <a href="https://www.probaclac.ca/trouver-pharmacie" class="inline-flex items-center gap-2 bg-teal-d text-white px-10 py-5 rounded-full font-bold text-lg hover:bg-teal-deep transition-all shadow-xl shadow-teal-d/25 hover:scale-[1.02]">
+        <span class="material-symbols-outlined">local_pharmacy</span>Acheter en pharmacie
+      </a>
+      <a href="#" class="inline-flex items-center gap-2 bg-amber-s text-graphite px-10 py-5 rounded-full font-bold text-lg hover:bg-amber-400 transition-all shadow-lg shadow-amber-s/20 hover:scale-[1.02]">
+        <span class="material-symbols-outlined">shopping_cart</span>Acheter sur Amazon
+      </a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ═══ FOOTER ═══ -->
+<footer class="bg-abyss rounded-t-[2rem]">
+  <div class="grid grid-cols-1 md:grid-cols-2 px-8 md:px-12 py-14 gap-8 max-w-screen-xl mx-auto">
+    <div class="space-y-4">
+      <svg viewBox="0 0 378.44 100" xmlns="http://www.w3.org/2000/svg" class="h-5 w-auto">
+        <path fill="#3a4a62" d="M42.37,10.57v36.38c0,3.16-3.74,5.86-7.15,5.15V10.57h7.15ZM35.22,57.36h3.99c9.6,0,17.55-8.06,17.55-17.54V15.13c0-5.38-4.44-9.82-9.82-9.82H15.81v5.27h5.14v78.23h-5.14v5.16h24.69v-5.16h-5.28v-31.45Z"/>
+        <polygon fill="#3a4a62" points="62.37 88.8 67.52 88.8 67.52 31.4 62.37 31.4 62.37 26.13 74.66 26.13 74.66 37.24 85.78 26.13 92.2 26.13 92.2 40.4 81.79 40.4 81.79 88.8 87.05 88.8 87.05 93.96 62.37 93.96 62.37 88.8"/>
+        <path fill="#3a4a62" d="M117.83,88.8h-7.14V31.4h7.14v57.41ZM106.12,93.96h16.26c5.39,0,9.72-4.44,9.72-9.71v-48.41c0-5.27-4.33-9.71-9.72-9.71h-16.26c-5.26,0-9.71,4.44-9.71,9.71v48.41c0,5.27,4.44,9.71,9.71,9.71"/>
+        <path fill="#3a4a62" d="M160.29,31.4v52.15c0,3.27-3.74,5.85-7.13,5.26V31.4h7.13ZM174.57,76.41v-40.57c0-5.27-4.33-9.71-9.71-9.71h-11.7V5.3h-19.54v5.27h5.26v83.39h18.14c9.71,0,17.55-8.07,17.55-17.55"/>
+        <path fill="#3a4a62" d="M199.48,50.81v37.99h-6.44v-31.45l6.44-6.55ZM213.88,26.13h-16.26c-9.6,0-17.56,8.07-17.56,17.55v1.28h5.16v-1.28c0-5.5,4.21-12.28,12.4-12.28h1.86v11.69l-20.71,20.71v20.45c0,5.27,4.33,9.71,9.72,9.71h30.53v-5.16h-5.15V26.13Z"/>
+        <path fill="#3a4a62" d="M244.06,88.8c2.46,0,4.56-2.1,4.56-4.56v-5.85h5.15v5.85c0,5.27-4.44,9.71-9.71,9.71h-11.12c-5.26,0-9.7-4.44-9.7-9.71v-48.41c0-5.27,4.44-9.71,9.7-9.71h20.83v15.56h-5.15v-10.29h-11.12v57.41h6.56Z"/>
+        <polygon fill="#3a4a62" points="256.69 10.57 256.69 5.3 276.12 5.3 276.12 88.8 281.38 88.8 281.38 93.96 256.69 93.96 256.69 88.8 261.84 88.8 261.84 10.57 256.69 10.57"/>
+        <path fill="#3a4a62" d="M303.6,50.81v37.99h-6.43v-31.45l6.43-6.55ZM318,26.13h-16.26c-9.59,0-17.55,8.07-17.55,17.55v1.28h5.15v-1.28c0-5.5,4.21-12.28,12.4-12.28h1.87v11.69l-20.7,20.71v20.45c0,5.27,4.33,9.71,9.71,9.71h30.54v-5.16h-5.15V26.13Z"/>
+        <path fill="#3a4a62" d="M348.18,88.8c2.46,0,4.56-2.1,4.56-4.56v-5.85h5.15v5.85c0,5.27-4.45,9.71-9.71,9.71h-11.12c-5.25,0-9.71-4.44-9.71-9.71v-48.41c0-5.27,4.45-9.71,9.71-9.71h20.83v15.56h-5.15v-10.29h-11.12v57.41h6.56Z"/>
+      </svg>
+      <p class="text-dim/60 text-xs leading-relaxed max-w-md">© 2024 Probaclac. Tous droits réservés. NPN 80140258.<br>Ce produit n'est pas destiné à diagnostiquer, traiter, guérir ou prévenir une maladie.</p>
+    </div>
+    <div class="flex gap-8 justify-end items-start">
+      <a href="https://www.probaclac.ca" class="text-dim/50 text-xs hover:text-teal-b transition-colors">probaclac.ca</a>
+      <a href="https://www.probaclac.ca/etudes" class="text-dim/50 text-xs hover:text-teal-b transition-colors">Études</a>
+    </div>
+  </div>
+</footer>
+
+<!-- ═══ SCRIPTS ═══ -->
+<script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis/bundled/lenis.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3/dist/ScrollTrigger.min.js"></script>
+<script>
+/* Lenis */
+const lenis = new Lenis({ duration: 1.2, easing: t => Math.min(1, 1.001 - Math.pow(2, -10 * t)) });
+function raf(time) { lenis.raf(time); requestAnimationFrame(raf); }
+requestAnimationFrame(raf);
+gsap.ticker.add(time => lenis.raf(time * 1000));
+gsap.ticker.lagSmoothing(0);
+gsap.registerPlugin(ScrollTrigger);
+
+/* Reveal */
+const obs = new IntersectionObserver(entries => {
+  entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('visible'); obs.unobserve(e.target); }});
+}, { threshold: 0.1, rootMargin: '0px 0px -30px 0px' });
+document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+
+/* Intestin wipe reveal — blue over white */
+const blueMask = document.getElementById('intestin-blue-mask');
+if (blueMask) {
+  gsap.to(blueMask, {
+    clipPath: 'inset(0 0 0% 0)',
+    ease: 'none',
+    scrollTrigger: {
+      trigger: '#intestin-wipe',
+      start: 'top 95%',
+      end: 'top 25%',
+      scrub: 0.5,
+    }
+  });
+}
+
+/* Smooth anchors */
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    e.preventDefault();
+    const t = document.querySelector(a.getAttribute('href'));
+    if(t) lenis.scrollTo(t, { offset: -80 });
+  });
+});
+
+/* Nav scroll */
+window.addEventListener('scroll', () => {
+  document.querySelector('nav').classList.toggle('shadow-md', window.scrollY > 60);
+}, { passive: true });
+</script>
+</body>
+</html>
