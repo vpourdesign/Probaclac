@@ -43,10 +43,114 @@ tailwind.config = {
 }
 </script>
 <style>
+:root{--bg:#f8f7f4;--o1:#de6d38;--o2:#e8894f;--o3:#fde0cc;--o4:#fef3eb;--text:#1a1a2e;--text-light:#5a5a72;--white:#ffffff}
 body { font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; }
+
+/* ═══ PROBACLAC GLOBAL NAV ═══ */
+.pbc-nav-header{position:sticky;top:0;left:0;right:0;z-index:1000;background:var(--white);box-shadow:0 2px 8px rgba(0,0,0,.04);transition:all .3s}
+.pbc-nav-container{max-width:1400px;margin:0 auto;padding:0 2rem;display:flex;align-items:center;justify-content:space-between;height:80px}
+.pbc-nav-left{display:flex;align-items:center;gap:2rem}
+.pbc-logo-link{display:flex;align-items:center;gap:.8rem;text-decoration:none}
+.pbc-logo-link img{height:50px;width:auto;display:block}
+.pbc-quebec-badge img{height:60px;width:auto;display:block}
+.pbc-nav-center{display:flex;align-items:center;gap:3rem;flex:1;justify-content:center}
+.pbc-nav-menu{list-style:none;display:flex;align-items:center;gap:2.5rem;margin:0;padding:0}
+.pbc-nav-item{position:static}
+.pbc-nav-item.has-dropdown{position:relative}
+.pbc-nav-link{text-decoration:none;color:var(--text);font-weight:500;font-size:.95rem;transition:color .3s;display:flex;align-items:center;gap:.3rem}
+.pbc-nav-link:hover{color:var(--o1)}
+.pbc-nav-link.active-link{color:var(--o1)}
+.pbc-nav-item.has-mega:hover .pbc-mega-menu,.pbc-nav-item.has-dropdown:hover .pbc-dropdown-menu{opacity:1;visibility:visible;transform:translateY(0)}
+.pbc-mega-menu{position:fixed;top:80px;left:0;right:0;width:100vw;background:var(--white);box-shadow:0 12px 32px rgba(0,0,0,.12);padding:2.5rem 0;opacity:0;visibility:hidden;transform:translateY(-10px);transition:all .3s;z-index:1001}
+.pbc-mega-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:1.5rem;max-width:1200px;margin:0 auto;padding:0 2rem}
+.pbc-mega-product{text-decoration:none;border-radius:8px;overflow:hidden;transition:transform .3s,box-shadow .3s;display:flex;flex-direction:column}
+.pbc-mega-product:hover{transform:translateY(-4px);box-shadow:0 8px 32px rgba(0,0,0,.08)}
+.pbc-mega-product img{width:100%;height:auto;aspect-ratio:405/533;object-fit:cover;display:block}
+.pbc-mega-product-name{padding:.75rem .5rem;background:var(--white);text-align:center;font-size:.82rem;font-weight:600;color:var(--text)}
+.pbc-mega-product:hover .pbc-mega-product-name{background:var(--o4);color:var(--o1)}
+.pbc-dropdown-menu{position:absolute;top:100%;left:0;background:var(--white);border-radius:12px;box-shadow:0 12px 32px rgba(0,0,0,.12);min-width:280px;opacity:0;visibility:hidden;transform:translateY(-10px);transition:all .3s;margin-top:.5rem;z-index:1001}
+.pbc-dropdown-menu a{display:block;padding:1rem 1.5rem;text-decoration:none;color:var(--text);font-size:.95rem;transition:all .3s;border-bottom:1px solid rgba(0,0,0,.05)}
+.pbc-dropdown-menu a:last-child{border-bottom:none}
+.pbc-dropdown-menu a:hover{background:var(--o4);color:var(--o1);padding-left:2rem}
+.pbc-nav-right{display:flex;align-items:center;gap:.5rem}
+.pbc-lang-toggle{background:none;border:none;color:var(--text);font-weight:500;font-size:.9rem;cursor:pointer;padding:.4rem .6rem;border-radius:4px;transition:all .3s;text-decoration:none}
+.pbc-lang-toggle:hover{color:var(--o1)}
+.pbc-lang-toggle.active-lang{color:var(--o1);font-weight:700}
+.pbc-lang-separator{color:#ccc;font-size:.9rem;user-select:none}
+/* Hamburger */
+.pbc-hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:.5rem;z-index:1002}
+.pbc-hamburger span{width:24px;height:2px;background:var(--text);border-radius:2px;transition:all .3s}
+.pbc-hamburger.open span:nth-child(1){transform:rotate(45deg) translate(5px,5px)}
+.pbc-hamburger.open span:nth-child(2){opacity:0}
+.pbc-hamburger.open span:nth-child(3){transform:rotate(-45deg) translate(5px,-5px)}
+.pbc-mobile-menu{position:fixed;top:70px;left:0;right:0;bottom:0;background:var(--white);z-index:999;padding:1.5rem;overflow-y:auto;transform:translateX(100%);transition:transform .35s cubic-bezier(0.16,1,0.3,1)}
+.pbc-mobile-menu.open{transform:translateX(0)}
+.pbc-mobile-menu ul{list-style:none;display:flex;flex-direction:column;gap:0;margin:0;padding:0}
+.pbc-mobile-menu li{border-bottom:1px solid rgba(0,0,0,.06)}
+.pbc-mobile-menu a{display:block;padding:1rem 0;text-decoration:none;color:var(--text);font-weight:500;font-size:1rem;transition:color .3s}
+.pbc-mobile-menu a:hover,.pbc-mobile-menu a.active-link{color:var(--o1)}
+.pbc-mobile-menu .mobile-sub{padding-left:1rem}
+.pbc-mobile-menu .mobile-sub a{font-size:.9rem;font-weight:400;padding:.6rem 0;color:var(--text-light)}
+.pbc-mobile-menu .mobile-sub a:hover{color:var(--o1)}
+.pbc-mobile-menu .mobile-lang{display:flex;gap:.5rem;padding:1.5rem 0;justify-content:center}
+.pbc-mobile-menu .mobile-lang a{padding:.4rem .8rem;border-radius:4px;font-size:.9rem;font-weight:500}
+.pbc-mobile-menu .mobile-lang a.active-lang{color:var(--o1);font-weight:700}
+
+/* ═══ PROBACLAC GLOBAL FOOTER ═══ */
+.pbc-footer{background:rgb(239,106,0);color:#fff;padding:1rem 0 0}
+.pbc-footer-container{margin:0 auto;padding:0 40px}
+.pbc-footer-logo-section{display:flex;align-items:center;justify-content:center;gap:1.2rem;padding:1.8rem 0 1.5rem}
+.pbc-footer-logo-section img:first-child{height:48px;width:auto;display:block}
+.pbc-footer-logo-section img:last-child{height:62px;width:auto;display:block}
+.pbc-footer-content{display:grid;grid-template-columns:0.25fr 0.234fr 0.2375fr 0.278fr;gap:0;padding:0 0 1.5rem;align-items:stretch}
+.pbc-footer-column{padding:1rem 1.5rem}
+.pbc-footer-column h4{font-family:helvetica-w01-bold,"Helvetica Neue",Helvetica,Arial,sans-serif;font-size:25px;font-weight:normal;letter-spacing:0;text-transform:none;margin-bottom:0;color:#fff;white-space:nowrap;line-height:1.4}
+.pbc-footer-column.col-label{display:flex;align-items:center;justify-content:flex-start;border-right:1px solid rgba(255,255,255,.72);padding-right:1.5rem}
+.pbc-footer-column.col-label-right{display:flex;align-items:center;justify-content:flex-start;border-left:1px solid rgba(255,255,255,.72);padding-left:1.5rem}
+.pbc-footer-links{list-style:none;display:grid;gap:.1rem;margin:0;padding:0}
+.pbc-footer-links a{text-decoration:none;color:#fff;font-size:16px;line-height:1.6;transition:color .3s}
+.pbc-footer-links a:hover{text-decoration:underline}
+.pbc-footer-contact{display:grid;gap:.25rem}
+.pbc-footer-contact p{font-size:16px;line-height:1.6;color:#fff;margin:0}
+.pbc-footer-contact a{color:#fff;text-decoration:underline;transition:color .3s}
+.pbc-footer-tel-label{color:#fff;font-size:16px}
+.pbc-social-icons{display:flex;gap:16px;margin-top:.75rem}
+.pbc-social-icons a{width:35px;height:35px;display:flex;align-items:center;justify-content:center;text-decoration:none;transition:opacity .3s}
+.pbc-social-icons a:hover{opacity:.8}
+.pbc-social-icons img{width:35px;height:35px;display:block;object-fit:contain}
+.pbc-footer-bottom{padding:1rem 1.5rem 1.5rem;display:grid;grid-template-columns:1fr 1fr;gap:1rem;align-items:center}
+.pbc-footer-meta{font-size:16px;line-height:1.6;color:#fff;text-align:center}
+.pbc-footer-meta p{margin:0}
+.pbc-footer-meta a{color:#fff;text-decoration:underline}
+.pbc-footer-partner{background:#fff;border-radius:15px;padding:1rem 1.5rem;display:flex;align-items:center;justify-content:center;gap:1.2rem;text-decoration:none;transition:all .3s;white-space:nowrap;max-width:50%;margin-left:auto}
+.pbc-footer-partner:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(0,0,0,.15)}
+.pbc-footer-partner-text{font-family:helvetica-w01-light,"Helvetica Neue",Helvetica,Arial,sans-serif;font-size:18px;font-weight:400;color:#2f2d44;text-align:right}
+.pbc-footer-partner img{height:55px;width:auto;display:block}
+
+@media(max-width:1024px){
+  .pbc-mega-grid{grid-template-columns:repeat(4,1fr);gap:1rem}
+  .pbc-nav-menu{gap:1.5rem}
+  .pbc-nav-link{font-size:.9rem}
+}
+@media(max-width:768px){
+  .pbc-nav-container{height:70px;padding:0 1rem}
+  .pbc-nav-left{gap:1rem}
+  .pbc-logo-link img{height:40px}
+  .pbc-quebec-badge img{height:50px}
+  .pbc-nav-center{display:none}
+  .pbc-nav-right{display:none}
+  .pbc-hamburger{display:flex}
+  .pbc-mega-menu,.pbc-dropdown-menu{display:none}
+  .pbc-footer-content{grid-template-columns:1fr;gap:0}
+  .pbc-footer-column.col-label,.pbc-footer-column.col-label-right{display:none}
+  .pbc-footer-column{border:none!important;padding:1rem}
+  .pbc-footer-bottom{grid-template-columns:1fr;text-align:center}
+  .pbc-footer-partner{justify-content:center;white-space:normal;max-width:80%;margin:0 auto}
+}
 h1, h2, h3, h4, .serif { font-family: 'Migra', serif; }
 .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
 .clinical-gradient { background: linear-gradient(135deg, #006875 0%, #3db5c8 100%); }
+.amazon-btn:hover { background: #e8920e !important; }
 .glass-nav { backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); }
 .ticker-scroll { animation: ticker 28s linear infinite; }
 @keyframes ticker { 0%{transform:translateX(0)} 100%{transform:translateX(-50%)} }
@@ -78,34 +182,126 @@ h1, h2, h3, h4, .serif { font-family: 'Migra', serif; }
 <body class="bg-cryo text-graphite overflow-x-hidden">
 <script>document.documentElement.classList.add('js');</script>
 
-<!-- ═══ NAV ═══ -->
-<nav class="fixed top-0 w-full z-50 bg-cyan-50/80 backdrop-blur-xl shadow-sm shadow-cyan-900/5">
-  <div class="flex justify-between items-center w-full px-6 md:px-8 py-4 max-w-screen-xl mx-auto">
-    <a href="https://www.probaclac.ca" aria-label="Probaclac">
-      <svg viewBox="0 0 378.44 100" xmlns="http://www.w3.org/2000/svg" class="h-6 w-auto">
-        <path fill="#006875" d="M42.37,10.57v36.38c0,3.16-3.74,5.86-7.15,5.15V10.57h7.15ZM35.22,57.36h3.99c9.6,0,17.55-8.06,17.55-17.54V15.13c0-5.38-4.44-9.82-9.82-9.82H15.81v5.27h5.14v78.23h-5.14v5.16h24.69v-5.16h-5.28v-31.45Z"/>
-        <polygon fill="#006875" points="62.37 88.8 67.52 88.8 67.52 31.4 62.37 31.4 62.37 26.13 74.66 26.13 74.66 37.24 85.78 26.13 92.2 26.13 92.2 40.4 81.79 40.4 81.79 88.8 87.05 88.8 87.05 93.96 62.37 93.96 62.37 88.8"/>
-        <path fill="#006875" d="M117.83,88.8h-7.14V31.4h7.14v57.41ZM106.12,93.96h16.26c5.39,0,9.72-4.44,9.72-9.71v-48.41c0-5.27-4.33-9.71-9.72-9.71h-16.26c-5.26,0-9.71,4.44-9.71,9.71v48.41c0,5.27,4.44,9.71,9.71,9.71"/>
-        <path fill="#006875" d="M160.29,31.4v52.15c0,3.27-3.74,5.85-7.13,5.26V31.4h7.13ZM174.57,76.41v-40.57c0-5.27-4.33-9.71-9.71-9.71h-11.7V5.3h-19.54v5.27h5.26v83.39h18.14c9.71,0,17.55-8.07,17.55-17.55"/>
-        <path fill="#006875" d="M199.48,50.81v37.99h-6.44v-31.45l6.44-6.55ZM213.88,26.13h-16.26c-9.6,0-17.56,8.07-17.56,17.55v1.28h5.16v-1.28c0-5.5,4.21-12.28,12.4-12.28h1.86v11.69l-20.71,20.71v20.45c0,5.27,4.33,9.71,9.72,9.71h30.53v-5.16h-5.15V26.13Z"/>
-        <path fill="#006875" d="M244.06,88.8c2.46,0,4.56-2.1,4.56-4.56v-5.85h5.15v5.85c0,5.27-4.44,9.71-9.71,9.71h-11.12c-5.26,0-9.7-4.44-9.7-9.71v-48.41c0-5.27,4.44-9.71,9.7-9.71h20.83v15.56h-5.15v-10.29h-11.12v57.41h6.56Z"/>
-        <polygon fill="#006875" points="256.69 10.57 256.69 5.3 276.12 5.3 276.12 88.8 281.38 88.8 281.38 93.96 256.69 93.96 256.69 88.8 261.84 88.8 261.84 10.57 256.69 10.57"/>
-        <path fill="#006875" d="M303.6,50.81v37.99h-6.43v-31.45l6.43-6.55ZM318,26.13h-16.26c-9.59,0-17.55,8.07-17.55,17.55v1.28h5.15v-1.28c0-5.5,4.21-12.28,12.4-12.28h1.87v11.69l-20.7,20.71v20.45c0,5.27,4.33,9.71,9.71,9.71h30.54v-5.16h-5.15V26.13Z"/>
-        <path fill="#006875" d="M348.18,88.8c2.46,0,4.56-2.1,4.56-4.56v-5.85h5.15v5.85c0,5.27-4.45,9.71-9.71,9.71h-11.12c-5.25,0-9.71-4.44-9.71-9.71v-48.41c0-5.27,4.45-9.71,9.71-9.71h20.83v15.56h-5.15v-10.29h-11.12v57.41h6.56Z"/>
-      </svg>
-    </a>
-    <div class="hidden md:flex items-center gap-8 font-body tracking-tight font-bold text-sm">
-      <a class="text-teal-d/70 hover:text-teal-d transition-colors" href="#science">La science</a>
-      <a class="text-teal-d/70 hover:text-teal-d transition-colors" href="#produit">Produit</a>
+<!-- ═══ NAV (Probaclac global) ═══ -->
+<header class="pbc-nav-header">
+  <div class="pbc-nav-container">
+    <div class="pbc-nav-left">
+      <a href="https://www.probaclac.ca/" class="pbc-logo-link">
+        <img src="https://static.wixstatic.com/media/623234_5fd0bbcbc6d24e6ebf93c0a53e260b95~mv2.png/v1/fill/w_694,h_189,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/623234_5fd0bbcbc6d24e6ebf93c0a53e260b95~mv2.png" alt="Probaclac Logo">
+        <span class="pbc-quebec-badge"><img src="https://static.wixstatic.com/media/623234_5cef3d9c748c43cbb7f17e67e10affa9~mv2.png/v1/fill/w_162,h_203,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/LOGO_FABRIQUE_au_QUEBEC_FabriqueQc_Complet_PMS.png" alt="Fabriqué au Québec"></span>
+      </a>
     </div>
-    <a href="#acheter" class="bg-teal-d hover:bg-teal-deep text-white px-7 py-3 rounded-full font-bold transition-all hover:scale-[1.02] active:scale-95 text-sm shadow-lg shadow-teal-d/20">
-      Acheter maintenant
-    </a>
+    <nav class="pbc-nav-center">
+      <ul class="pbc-nav-menu">
+        <li class="pbc-nav-item has-mega">
+          <a href="https://www.probaclac.ca/" class="pbc-nav-link">Nos produits</a>
+          <div class="pbc-mega-menu">
+            <div class="pbc-mega-grid">
+              <a href="https://www.probaclac.ca/probiotique-adulte" class="pbc-mega-product">
+                <img src="../etudes/produits/adultes.jpg" alt="Adultes">
+                <span class="pbc-mega-product-name">Adultes</span>
+              </a>
+              <a href="https://www.probaclac.ca/probiotique-50-et-plus" class="pbc-mega-product">
+                <img src="../etudes/produits/50plus.jpg" alt="50 ans et +">
+                <span class="pbc-mega-product-name">50 ans et +</span>
+              </a>
+              <a href="https://www.probaclac.ca/probiotique-voyage" class="pbc-mega-product">
+                <img src="../etudes/produits/voyage.jpg" alt="Voyageurs">
+                <span class="pbc-mega-product-name">Voyageurs</span>
+              </a>
+              <a href="https://www.probaclac.ca/probiotique-colon-irritable" class="pbc-mega-product">
+                <img src="../etudes/produits/sci.jpg" alt="Côlon Irritable">
+                <span class="pbc-mega-product-name">Côlon Irritable</span>
+              </a>
+              <a href="https://www.probaclac.ca/probiotique-enfant" class="pbc-mega-product">
+                <img src="../etudes/produits/croquable.jpg" alt="Croquable">
+                <span class="pbc-mega-product-name">Croquable</span>
+              </a>
+              <a href="https://www.probaclac.ca/probiotique-bebes" class="pbc-mega-product">
+                <img src="../etudes/produits/enfants.jpg" alt="Enfants">
+                <span class="pbc-mega-product-name">Enfants</span>
+              </a>
+              <a href="https://www.probaclac.ca/probiotique-antibiotique" class="pbc-mega-product">
+                <img src="../etudes/produits/medic.jpg" alt="Medic">
+                <span class="pbc-mega-product-name">Medic</span>
+              </a>
+              <a href="https://www.probaclac.ca/probiotique-gastro-intestinal" class="pbc-mega-product">
+                <img src="../etudes/produits/gi.jpg" alt="Gastro-Intestinal">
+                <span class="pbc-mega-product-name">Gastro-Intestinal</span>
+              </a>
+              <a href="https://www.probaclac.ca/probiotique-extra-fort" class="pbc-mega-product">
+                <img src="../etudes/produits/extra.jpg" alt="Extra-fort">
+                <span class="pbc-mega-product-name">Extra-fort</span>
+              </a>
+              <a href="https://www.probaclac.ca/probiotique-vaginal" class="pbc-mega-product">
+                <img src="../etudes/produits/vaginal.jpg" alt="Vaginose bactérienne">
+                <span class="pbc-mega-product-name">Vaginose bactérienne</span>
+              </a>
+              <a href="https://www.probaclac.ca/probiotique-infection-a-levure" class="pbc-mega-product">
+                <img src="../etudes/produits/rosella.jpg" alt="Infection à levure">
+                <span class="pbc-mega-product-name">Infection à levure</span>
+              </a>
+              <a href="https://www.probaclac.ca/probiotique-infection-urinaire" class="pbc-mega-product">
+                <img src="../etudes/produits/canneberge.jpg" alt="Infection urinaire">
+                <span class="pbc-mega-product-name">Infection urinaire</span>
+              </a>
+            </div>
+          </div>
+        </li>
+        <li class="pbc-nav-item has-dropdown">
+          <a href="https://www.probaclac.ca/" class="pbc-nav-link">À propos des probiotiques</a>
+          <div class="pbc-dropdown-menu">
+            <a href="https://www.probaclac.ca/avantages">Pourquoi Probaclac?</a>
+            <a href="https://www.probaclac.ca/meilleur-probiotique-pour-vous">Choisir le bon probiotique</a>
+            <a href="https://www.probaclac.ca/etudes2-1">Études sur Probaclac</a>
+            <a href="https://www.probaclac.ca/microbiote-probiotiques">Le microbiote humain</a>
+            <a href="https://www.probaclac.ca/diarrhee-du-voyageur">Diarrhée du voyageur</a>
+          </div>
+        </li>
+        <li class="pbc-nav-item">
+          <a href="../etudes/index.html" class="pbc-nav-link">Études</a>
+        </li>
+        <li class="pbc-nav-item">
+          <a href="https://www.probaclac.ca/foire-aux-questions" class="pbc-nav-link">FAQ</a>
+        </li>
+        <li class="pbc-nav-item">
+          <a href="http://www.monprobiotique.ca" class="pbc-nav-link">Commander en ligne</a>
+        </li>
+      </ul>
+    </nav>
+    <div class="pbc-nav-right">
+      <a href="../etudes/index.html" class="pbc-lang-toggle active-lang">FR</a>
+      <span class="pbc-lang-separator">|</span>
+      <a href="../etudes/studies.html" class="pbc-lang-toggle">EN</a>
+    </div>
+    <button class="pbc-hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
   </div>
-</nav>
+</header>
+<div class="pbc-mobile-menu">
+  <ul>
+    <li><a href="https://www.probaclac.ca/">Nos produits</a></li>
+    <li>
+      <a href="https://www.probaclac.ca/">À propos des probiotiques</a>
+      <div class="mobile-sub">
+        <a href="https://www.probaclac.ca/avantages">Pourquoi Probaclac?</a>
+        <a href="https://www.probaclac.ca/meilleur-probiotique-pour-vous">Choisir le bon probiotique</a>
+        <a href="https://www.probaclac.ca/etudes2-1">Études sur Probaclac</a>
+        <a href="https://www.probaclac.ca/microbiote-probiotiques">Le microbiote humain</a>
+        <a href="https://www.probaclac.ca/diarrhee-du-voyageur">Diarrhée du voyageur</a>
+      </div>
+    </li>
+    <li><a href="../etudes/index.html">Études</a></li>
+    <li><a href="https://www.probaclac.ca/foire-aux-questions">FAQ</a></li>
+    <li><a href="http://www.monprobiotique.ca">Commander en ligne</a></li>
+  </ul>
+  <div class="mobile-lang">
+    <a href="../etudes/index.html" class="active-lang">FR</a>
+    <a href="../etudes/studies.html">EN</a>
+  </div>
+</div>
 
 <!-- ═══ HERO ═══ -->
-<main class="pt-[72px]">
+<main>
 <section class="relative min-h-[90vh] clinical-gradient flex items-center px-6 md:px-16 overflow-hidden">
   <div class="max-w-screen-xl mx-auto w-full grid grid-cols-1 lg:grid-cols-12 gap-10 items-center py-16 lg:py-0">
     <div class="lg:col-span-7 space-y-7 z-10">
@@ -121,14 +317,18 @@ h1, h2, h3, h4, .serif { font-family: 'Migra', serif; }
         <strong class="text-white font-semibold">Probaclac SCI</strong> — le probiotique
         cliniquement prouvé qui soulage le <strong class="text-white font-semibold">syndrome de l'intestin irritable</strong> dès 8&nbsp;semaines. 10&nbsp;milliards de bactéries actives par capsule.
       </p>
-      <div class="flex flex-wrap gap-4 pt-2">
-        <a href="#acheter" class="inline-flex items-center gap-2 bg-white text-teal-d px-8 py-4 rounded-full font-bold text-base hover:bg-cyan-50 transition-all shadow-xl shadow-teal-deep/30 hover:scale-[1.02] active:scale-95">
-          <span class="material-symbols-outlined text-xl">location_on</span>
-          Trouver un magasin
-        </a>
-        <a href="#acheter" class="inline-flex items-center gap-2 bg-transparent border-2 border-white/30 text-white px-8 py-4 rounded-full font-bold text-base hover:bg-white/10 transition-all hover:border-white/60">
+      <div class="flex flex-wrap gap-3 pt-2">
+        <button type="button" data-open-cart class="inline-flex items-center gap-2 bg-white text-teal-d px-7 py-4 rounded-full font-bold text-base hover:bg-cyan-50 transition-all shadow-xl shadow-teal-deep/30 hover:scale-[1.02] active:scale-95 cursor-pointer">
           <span class="material-symbols-outlined text-xl">shopping_cart</span>
+          Ajouter au panier
+        </button>
+        <a href="https://www.amazon.ca/Probaclac-SCI-Probiotic-Supplement-Lactobacillus/dp/B0GFB9DYG1" target="_blank" rel="noopener" class="amazon-btn inline-flex items-center gap-2 px-7 py-4 rounded-full font-bold text-base transition-all hover:scale-[1.02] active:scale-95 shadow-lg cursor-pointer" style="background:#FF9900;color:#111;border:none">
+          <svg viewBox="0 0 24 24" class="w-5 h-5 shrink-0" fill="#111"><path d="M13.958 10.09c0 1.232.029 2.256-.591 3.351-.502.891-1.301 1.438-2.186 1.438-1.214 0-1.922-.924-1.922-2.292 0-2.692 2.415-3.182 4.7-3.182v.685zm3.186 7.705a.66.66 0 01-.753.077c-1.06-.879-1.247-1.287-1.826-2.125-1.748 1.782-2.982 2.315-5.246 2.315-2.678 0-4.762-1.653-4.762-4.96 0-2.582 1.399-4.339 3.392-5.198 1.727-.753 4.139-.891 5.982-1.098v-.411c0-.753.058-1.644-.384-2.294-.384-.576-1.118-.814-1.769-.814-1.2 0-2.271.616-2.533 1.891-.053.285-.263.566-.549.58l-3.072-.33c-.259-.058-.548-.264-.472-.658C5.943 1.891 8.932.5 11.612.5c1.37 0 3.162.365 4.243 1.398 1.37 1.283 1.24 2.993 1.24 4.859v4.395c0 1.321.548 1.901 1.064 2.614.181.254.221.559-.012.746-.581.485-1.616 1.388-2.185 1.894l-.018-.012z"/><path d="M21.781 18.768c-2.089 1.546-5.121 2.37-7.732 2.37-3.656 0-6.948-1.351-9.438-3.601-.196-.177-.021-.418.214-.281 2.688 1.563 6.012 2.504 9.444 2.504 2.316 0 4.862-.48 7.207-1.472.354-.149.649.233.305.48z"/><path d="M22.518 17.918c-.267-.34-1.764-.161-2.438-.081-.204.025-.236-.153-.052-.281 1.193-.838 3.151-.596 3.379-.316.229.285-.06 2.246-1.18 3.182-.172.144-.336.067-.26-.123.252-.627.818-2.04.551-2.381z"/></svg>
           Acheter sur Amazon
+        </a>
+        <a href="https://www.probaclac.ca/blank" class="inline-flex items-center gap-2 bg-transparent border-2 border-white/30 text-white px-7 py-4 rounded-full font-bold text-base hover:bg-white/10 transition-all hover:border-white/60">
+          <span class="material-symbols-outlined text-xl">location_on</span>
+          Trouver une pharmacie
         </a>
       </div>
     </div>
@@ -427,12 +627,16 @@ h1, h2, h3, h4, .serif { font-family: 'Migra', serif; }
           <div><h4 class="text-lg font-bold text-white mb-1">1 capsule / jour — sans allergènes</h4><p class="text-sm text-cyan-200/60">45 capsules végétales. Résiste à l'acidité gastrique sans enrobage. Fabriqué au Québec.</p></div>
         </div>
       </div>
-      <div class="flex flex-wrap gap-4 pt-4 reveal">
-        <a href="#acheter" class="inline-flex items-center gap-2 bg-white text-teal-deep px-8 py-4 rounded-full font-bold hover:bg-cyan-50 transition-all shadow-xl">
-          <span class="material-symbols-outlined text-xl">location_on</span>Trouver un magasin
+      <div class="flex flex-wrap gap-3 pt-4 reveal">
+        <button type="button" data-open-cart class="inline-flex items-center gap-2 bg-white text-teal-deep px-7 py-4 rounded-full font-bold hover:bg-cyan-50 transition-all shadow-xl cursor-pointer">
+          <span class="material-symbols-outlined text-xl">shopping_cart</span>Ajouter au panier
+        </button>
+        <a href="https://www.amazon.ca/Probaclac-SCI-Probiotic-Supplement-Lactobacillus/dp/B0GFB9DYG1" target="_blank" rel="noopener" class="amazon-btn inline-flex items-center gap-2 px-7 py-4 rounded-full font-bold transition-all hover:scale-[1.02] shadow-lg cursor-pointer" style="background:#FF9900;color:#111">
+          <svg viewBox="0 0 24 24" class="w-5 h-5 shrink-0" fill="#111"><path d="M13.958 10.09c0 1.232.029 2.256-.591 3.351-.502.891-1.301 1.438-2.186 1.438-1.214 0-1.922-.924-1.922-2.292 0-2.692 2.415-3.182 4.7-3.182v.685zm3.186 7.705a.66.66 0 01-.753.077c-1.06-.879-1.247-1.287-1.826-2.125-1.748 1.782-2.982 2.315-5.246 2.315-2.678 0-4.762-1.653-4.762-4.96 0-2.582 1.399-4.339 3.392-5.198 1.727-.753 4.139-.891 5.982-1.098v-.411c0-.753.058-1.644-.384-2.294-.384-.576-1.118-.814-1.769-.814-1.2 0-2.271.616-2.533 1.891-.053.285-.263.566-.549.58l-3.072-.33c-.259-.058-.548-.264-.472-.658C5.943 1.891 8.932.5 11.612.5c1.37 0 3.162.365 4.243 1.398 1.37 1.283 1.24 2.993 1.24 4.859v4.395c0 1.321.548 1.901 1.064 2.614.181.254.221.559-.012.746-.581.485-1.616 1.388-2.185 1.894l-.018-.012z"/><path d="M21.781 18.768c-2.089 1.546-5.121 2.37-7.732 2.37-3.656 0-6.948-1.351-9.438-3.601-.196-.177-.021-.418.214-.281 2.688 1.563 6.012 2.504 9.444 2.504 2.316 0 4.862-.48 7.207-1.472.354-.149.649.233.305.48z"/><path d="M22.518 17.918c-.267-.34-1.764-.161-2.438-.081-.204.025-.236-.153-.052-.281 1.193-.838 3.151-.596 3.379-.316.229.285-.06 2.246-1.18 3.182-.172.144-.336.067-.26-.123.252-.627.818-2.04.551-2.381z"/></svg>
+          Acheter sur Amazon
         </a>
-        <a href="#acheter" class="inline-flex items-center gap-2 bg-amber-s text-graphite px-8 py-4 rounded-full font-bold hover:bg-amber-400 transition-all shadow-lg shadow-amber-s/20">
-          <span class="material-symbols-outlined text-xl">shopping_cart</span>Acheter sur Amazon
+        <a href="https://www.probaclac.ca/blank" class="inline-flex items-center gap-2 bg-transparent border-2 border-cyan-400/30 text-white px-7 py-4 rounded-full font-bold hover:bg-white/10 transition-all hover:border-white/60">
+          <span class="material-symbols-outlined text-xl">location_on</span>Trouver une pharmacie
         </a>
       </div>
     </div>
@@ -447,12 +651,16 @@ h1, h2, h3, h4, .serif { font-family: 'Migra', serif; }
   <div class="max-w-2xl mx-auto reveal">
     <h2 class="font-headline text-4xl md:text-5xl font-bold text-graphite leading-tight mb-4">Prêt à reprendre le contrôle <em class="italic text-teal-d">de votre intestin?</em></h2>
     <p class="text-slate-b text-base mb-8 max-w-md mx-auto">Disponible en pharmacie partout au Canada et sur Amazon. Une capsule par jour. Résultats dès 8&nbsp;semaines.</p>
-    <div class="flex flex-wrap gap-4 justify-center">
-      <a href="https://www.probaclac.ca/trouver-pharmacie" class="inline-flex items-center gap-2 bg-teal-d text-white px-10 py-5 rounded-full font-bold text-lg hover:bg-teal-deep transition-all shadow-xl shadow-teal-d/25 hover:scale-[1.02]">
-        <span class="material-symbols-outlined">location_on</span>Trouver un magasin
+    <div class="flex flex-wrap gap-3 justify-center">
+      <button type="button" data-open-cart class="inline-flex items-center gap-2 bg-teal-d text-white px-9 py-5 rounded-full font-bold text-lg hover:bg-teal-deep transition-all shadow-xl shadow-teal-d/25 hover:scale-[1.02] cursor-pointer">
+        <span class="material-symbols-outlined">shopping_cart</span>Ajouter au panier
+      </button>
+      <a href="https://www.amazon.ca/Probaclac-SCI-Probiotic-Supplement-Lactobacillus/dp/B0GFB9DYG1" target="_blank" rel="noopener" class="amazon-btn inline-flex items-center gap-2 px-9 py-5 rounded-full font-bold text-lg transition-all hover:scale-[1.02] shadow-lg cursor-pointer" style="background:#FF9900;color:#111">
+        <svg viewBox="0 0 24 24" class="w-5 h-5 shrink-0" fill="#111"><path d="M13.958 10.09c0 1.232.029 2.256-.591 3.351-.502.891-1.301 1.438-2.186 1.438-1.214 0-1.922-.924-1.922-2.292 0-2.692 2.415-3.182 4.7-3.182v.685zm3.186 7.705a.66.66 0 01-.753.077c-1.06-.879-1.247-1.287-1.826-2.125-1.748 1.782-2.982 2.315-5.246 2.315-2.678 0-4.762-1.653-4.762-4.96 0-2.582 1.399-4.339 3.392-5.198 1.727-.753 4.139-.891 5.982-1.098v-.411c0-.753.058-1.644-.384-2.294-.384-.576-1.118-.814-1.769-.814-1.2 0-2.271.616-2.533 1.891-.053.285-.263.566-.549.58l-3.072-.33c-.259-.058-.548-.264-.472-.658C5.943 1.891 8.932.5 11.612.5c1.37 0 3.162.365 4.243 1.398 1.37 1.283 1.24 2.993 1.24 4.859v4.395c0 1.321.548 1.901 1.064 2.614.181.254.221.559-.012.746-.581.485-1.616 1.388-2.185 1.894l-.018-.012z"/><path d="M21.781 18.768c-2.089 1.546-5.121 2.37-7.732 2.37-3.656 0-6.948-1.351-9.438-3.601-.196-.177-.021-.418.214-.281 2.688 1.563 6.012 2.504 9.444 2.504 2.316 0 4.862-.48 7.207-1.472.354-.149.649.233.305.48z"/><path d="M22.518 17.918c-.267-.34-1.764-.161-2.438-.081-.204.025-.236-.153-.052-.281 1.193-.838 3.151-.596 3.379-.316.229.285-.06 2.246-1.18 3.182-.172.144-.336.067-.26-.123.252-.627.818-2.04.551-2.381z"/></svg>
+        Acheter sur Amazon
       </a>
-      <a href="#" class="inline-flex items-center gap-2 bg-amber-s text-graphite px-10 py-5 rounded-full font-bold text-lg hover:bg-amber-400 transition-all shadow-lg shadow-amber-s/20 hover:scale-[1.02]">
-        <span class="material-symbols-outlined">shopping_cart</span>Acheter sur Amazon
+      <a href="https://www.probaclac.ca/blank" class="inline-flex items-center gap-2 bg-white text-teal-d border-2 border-teal-d/20 px-9 py-5 rounded-full font-bold text-lg hover:bg-cyan-50 transition-all hover:scale-[1.02]">
+        <span class="material-symbols-outlined">location_on</span>Trouver une pharmacie
       </a>
     </div>
   </div>
@@ -461,28 +669,133 @@ h1, h2, h3, h4, .serif { font-family: 'Migra', serif; }
 </main>
 
 <!-- ═══ FOOTER ═══ -->
-<footer class="bg-abyss rounded-t-[2rem]">
-  <div class="grid grid-cols-1 md:grid-cols-2 px-8 md:px-12 py-14 gap-8 max-w-screen-xl mx-auto">
-    <div class="space-y-4">
-      <svg viewBox="0 0 378.44 100" xmlns="http://www.w3.org/2000/svg" class="h-5 w-auto">
-        <path fill="#3a4a62" d="M42.37,10.57v36.38c0,3.16-3.74,5.86-7.15,5.15V10.57h7.15ZM35.22,57.36h3.99c9.6,0,17.55-8.06,17.55-17.54V15.13c0-5.38-4.44-9.82-9.82-9.82H15.81v5.27h5.14v78.23h-5.14v5.16h24.69v-5.16h-5.28v-31.45Z"/>
-        <polygon fill="#3a4a62" points="62.37 88.8 67.52 88.8 67.52 31.4 62.37 31.4 62.37 26.13 74.66 26.13 74.66 37.24 85.78 26.13 92.2 26.13 92.2 40.4 81.79 40.4 81.79 88.8 87.05 88.8 87.05 93.96 62.37 93.96 62.37 88.8"/>
-        <path fill="#3a4a62" d="M117.83,88.8h-7.14V31.4h7.14v57.41ZM106.12,93.96h16.26c5.39,0,9.72-4.44,9.72-9.71v-48.41c0-5.27-4.33-9.71-9.72-9.71h-16.26c-5.26,0-9.71,4.44-9.71,9.71v48.41c0,5.27,4.44,9.71,9.71,9.71"/>
-        <path fill="#3a4a62" d="M160.29,31.4v52.15c0,3.27-3.74,5.85-7.13,5.26V31.4h7.13ZM174.57,76.41v-40.57c0-5.27-4.33-9.71-9.71-9.71h-11.7V5.3h-19.54v5.27h5.26v83.39h18.14c9.71,0,17.55-8.07,17.55-17.55"/>
-        <path fill="#3a4a62" d="M199.48,50.81v37.99h-6.44v-31.45l6.44-6.55ZM213.88,26.13h-16.26c-9.6,0-17.56,8.07-17.56,17.55v1.28h5.16v-1.28c0-5.5,4.21-12.28,12.4-12.28h1.86v11.69l-20.71,20.71v20.45c0,5.27,4.33,9.71,9.72,9.71h30.53v-5.16h-5.15V26.13Z"/>
-        <path fill="#3a4a62" d="M244.06,88.8c2.46,0,4.56-2.1,4.56-4.56v-5.85h5.15v5.85c0,5.27-4.44,9.71-9.71,9.71h-11.12c-5.26,0-9.7-4.44-9.7-9.71v-48.41c0-5.27,4.44-9.71,9.7-9.71h20.83v15.56h-5.15v-10.29h-11.12v57.41h6.56Z"/>
-        <polygon fill="#3a4a62" points="256.69 10.57 256.69 5.3 276.12 5.3 276.12 88.8 281.38 88.8 281.38 93.96 256.69 93.96 256.69 88.8 261.84 88.8 261.84 10.57 256.69 10.57"/>
-        <path fill="#3a4a62" d="M303.6,50.81v37.99h-6.43v-31.45l6.43-6.55ZM318,26.13h-16.26c-9.59,0-17.55,8.07-17.55,17.55v1.28h5.15v-1.28c0-5.5,4.21-12.28,12.4-12.28h1.87v11.69l-20.7,20.71v20.45c0,5.27,4.33,9.71,9.71,9.71h30.54v-5.16h-5.15V26.13Z"/>
-        <path fill="#3a4a62" d="M348.18,88.8c2.46,0,4.56-2.1,4.56-4.56v-5.85h5.15v5.85c0,5.27-4.45,9.71-9.71,9.71h-11.12c-5.25,0-9.71-4.44-9.71-9.71v-48.41c0-5.27,4.45-9.71,9.71-9.71h20.83v15.56h-5.15v-10.29h-11.12v57.41h6.56Z"/>
-      </svg>
-      <p class="text-dim/60 text-xs leading-relaxed max-w-md">© 2024 Probaclac. Tous droits réservés. NPN 80140258.<br>Ce produit n'est pas destiné à diagnostiquer, traiter, guérir ou prévenir une maladie.</p>
+<footer class="pbc-footer" style="margin-top:0">
+  <div class="pbc-footer-container">
+    <div class="pbc-footer-logo-section">
+      <img src="https://static.wixstatic.com/media/623234_a3521dd372024a989e6338baef2ad53d~mv2.png/v1/fill/w_818,h_222,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/logo_probaclac-transparent-blanc.png" alt="Logo Probaclac blanc">
+      <img src="https://static.wixstatic.com/media/623234_5cef3d9c748c43cbb7f17e67e10affa9~mv2.png/v1/fill/w_162,h_203,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/LOGO_FABRIQUE_au_QUEBEC_FabriqueQc_Complet_PMS.png" alt="Fabriqué au Québec">
     </div>
-    <div class="flex gap-8 justify-end items-start">
-      <a href="https://www.probaclac.ca" class="text-dim/50 text-xs hover:text-teal-b transition-colors">probaclac.ca</a>
-      <a href="https://www.probaclac.ca/etudes" class="text-dim/50 text-xs hover:text-teal-b transition-colors">Études</a>
+    <div class="pbc-footer-content">
+      <div class="pbc-footer-column col-label">
+        <h4>NOS PRODUITS</h4>
+      </div>
+      <div class="pbc-footer-column">
+        <ul class="pbc-footer-links">
+          <li><a href="https://www.probaclac.ca/probiotique-adulte">Adultes</a></li>
+          <li><a href="https://www.probaclac.ca/probiotique-50-et-plus">50 ans et +</a></li>
+          <li><a href="https://www.probaclac.ca/probiotique-voyage">Voyageurs</a></li>
+          <li><a href="https://www.probaclac.ca/probiotique-colon-irritable">Côlon irritable</a></li>
+          <li><a href="https://www.probaclac.ca/probiotique-bebes">Enfants</a></li>
+          <li><a href="https://www.probaclac.ca/probiotique-enfant">Croquable</a></li>
+          <li><a href="https://www.probaclac.ca/probiotique-extra-fort">Extra-fort</a></li>
+          <li><a href="https://www.probaclac.ca/probiotique-antibiotique">Medic</a></li>
+          <li><a href="https://www.probaclac.ca/probiotique-gastro-intestinal">Gastro intestinal</a></li>
+          <li><a href="https://www.probaclac.ca/probiotique-vaginal">Vaginose bactérienne</a></li>
+          <li><a href="https://www.probaclac.ca/probiotique-infection-a-levure">Infection à levure</a></li>
+          <li><a href="https://www.probaclac.ca/probiotique-infection-urinaire">Infection urinaire</a></li>
+        </ul>
+      </div>
+      <div class="pbc-footer-column col-label-right">
+        <h4>NOUS JOINDRE</h4>
+      </div>
+      <div class="pbc-footer-column">
+        <div class="pbc-footer-contact">
+          <p><span class="pbc-footer-tel-label">Tel. </span><a href="tel:18005679683" style="text-decoration:underline">1.800.567.9683</a><br><br>31 Rue Gaston-Dumoulin suite 103,<br>Blainville, QC J7C 6B4<br>Canada</p>
+          <div class="pbc-social-icons">
+            <a href="https://www.instagram.com/probaclac.ca" title="Instagram">
+              <img src="https://static.wixstatic.com/media/11062b_cef3b719166a4815b446d4dcfcb6120d~mv2.png/v1/fill/w_94,h_94,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/11062b_cef3b719166a4815b446d4dcfcb6120d~mv2.png" alt="Instagram">
+            </a>
+            <a href="https://www.facebook.com/Probaclac" title="Facebook">
+              <img src="https://static.wixstatic.com/media/11062b_ef6a6ac194704911951645990055c2ce~mv2.png/v1/fill/w_94,h_94,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/11062b_ef6a6ac194704911951645990055c2ce~mv2.png" alt="Facebook">
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pbc-footer-bottom">
+      <div class="pbc-footer-meta">
+        <p>&copy; 2025 Laboratoires Nicar.</p>
+        <p><a href="https://www.probaclac.ca/privacy-policy">Politique de confidentialité.</a></p>
+        <p>&nbsp;Site web: <a href="http://www.vpourdesign.com">V pour Design</a></p>
+      </div>
+      <a href="https://allergies-alimentaires.org/" class="pbc-footer-partner">
+        <span class="pbc-footer-partner-text">Fier partenaire de</span>
+        <img src="https://static.wixstatic.com/media/623234_db859228ec214ac89250f2a28a7eeb47~mv2.webp/v1/fill/w_365,h_174,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/Logo_Allergies_Quebec_PMS-768x367.webp" alt="Allergies Québec logo">
+      </a>
     </div>
   </div>
 </footer>
+
+<!-- ═══ SHOPIFY CART SIDE DRAWER ═══ -->
+<div id="shopify-cart-overlay" class="fixed inset-0 z-[999] pointer-events-none" style="font-family:'Helvetica Neue',Helvetica,Arial,sans-serif">
+  <div class="cart-backdrop absolute inset-0 bg-black/50 opacity-0 transition-opacity duration-[400ms]"></div>
+  <div id="shopify-cart-panel" class="absolute top-0 right-0 h-full w-full max-w-[440px] bg-white shadow-2xl translate-x-full transition-transform duration-[400ms] ease-[cubic-bezier(0.16,1,0.3,1)] flex flex-col">
+    <!-- Header -->
+    <div class="flex items-center justify-between px-6 py-5 border-b border-gray-100">
+      <div class="flex items-center gap-3">
+        <span class="material-symbols-outlined text-teal-d text-2xl">shopping_bag</span>
+        <span class="font-bold text-graphite text-lg tracking-tight">Votre panier</span>
+      </div>
+      <button id="cart-close" class="w-10 h-10 rounded-full hover:bg-gray-100 flex items-center justify-center transition-colors cursor-pointer">
+        <span class="material-symbols-outlined text-gray-400">close</span>
+      </button>
+    </div>
+    <!-- Product -->
+    <div class="flex-1 overflow-y-auto px-6 py-6">
+      <div class="flex gap-5">
+        <div class="shrink-0 w-28 h-28 rounded-2xl bg-gradient-to-br from-cyan-50 to-teal-50 flex items-center justify-center p-2 border border-gray-100">
+          <img src="SCI.png" alt="Probaclac SCI" class="h-full w-auto object-contain drop-shadow-md">
+        </div>
+        <div class="flex-1 min-w-0">
+          <p class="font-bold text-graphite text-base leading-tight">Probaclac syndrome du côlon irritable</p>
+          <p class="text-sm text-slate-b mt-1">Probiotique — 45 capsules</p>
+          <p class="text-xs text-gray-400 mt-0.5">NPN 80140258</p>
+          <div class="flex items-center gap-3 mt-4">
+            <div class="inline-flex items-center border border-gray-200 rounded-full overflow-hidden">
+              <button id="qty-minus" class="w-9 h-9 flex items-center justify-center text-gray-500 hover:bg-gray-50 transition-colors text-lg font-medium cursor-pointer">−</button>
+              <span id="cart-qty" class="w-8 text-center font-bold text-sm text-graphite">1</span>
+              <button id="qty-plus" class="w-9 h-9 flex items-center justify-center text-gray-500 hover:bg-gray-50 transition-colors text-lg font-medium cursor-pointer">+</button>
+            </div>
+            <span id="cart-unit-price" class="font-bold text-graphite text-base"></span>
+          </div>
+        </div>
+      </div>
+      <!-- Trust badges -->
+      <div class="mt-8 grid grid-cols-3 gap-3">
+        <div class="flex flex-col items-center gap-1.5 p-3 rounded-xl bg-cryo">
+          <span class="material-symbols-outlined text-teal-d text-xl">verified</span>
+          <span class="text-[10px] text-slate-b text-center leading-tight font-medium">Cliniquement<br>prouvé</span>
+        </div>
+        <div class="flex flex-col items-center gap-1.5 p-3 rounded-xl bg-cryo">
+          <span class="material-symbols-outlined text-teal-d text-xl">local_shipping</span>
+          <span class="text-[10px] text-slate-b text-center leading-tight font-medium">Livraison<br>gratuite 50$+</span>
+        </div>
+        <div class="flex flex-col items-center gap-1.5 p-3 rounded-xl bg-cryo">
+          <span class="material-symbols-outlined text-teal-d text-xl">eco</span>
+          <span class="text-[10px] text-slate-b text-center leading-tight font-medium">Fabriqué<br>au Québec</span>
+        </div>
+      </div>
+    </div>
+    <!-- Footer / Checkout -->
+    <div class="border-t border-gray-100 px-6 py-5 space-y-4 bg-white">
+      <div class="flex justify-between items-center">
+        <span class="text-sm text-slate-b">Sous-total</span>
+        <span id="cart-total" class="font-bold text-xl text-graphite"></span>
+      </div>
+      <div class="flex items-center gap-2 bg-emerald-50 border border-emerald-200 rounded-xl px-4 py-2.5">
+        <span class="material-symbols-outlined text-emerald-600 text-lg">local_shipping</span>
+        <span class="text-sm text-emerald-700 font-medium">Livraison gratuite pour les commandes de 50&nbsp;$&nbsp;et&nbsp;plus</span>
+      </div>
+      <button id="shopify-checkout" class="w-full bg-teal-d hover:bg-teal-deep text-white py-4 rounded-full font-bold text-base transition-all hover:scale-[1.01] active:scale-[0.98] shadow-lg shadow-teal-d/25 cursor-pointer">
+        Passer à la caisse
+      </button>
+      <div class="flex items-center justify-center gap-2 pt-1">
+        <svg viewBox="0 0 24 24" class="w-4 h-4 text-gray-300" fill="currentColor"><path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zm-6 9c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm3.1-9H8.9V6c0-1.71 1.39-3.1 3.1-3.1s3.1 1.39 3.1 3.1v2z"/></svg>
+        <span class="text-xs text-gray-400">Paiement sécurisé par Shopify</span>
+      </div>
+    </div>
+  </div>
+</div>
 
 <!-- ═══ SCRIPTS ═══ -->
 <script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis/bundled/lenis.min.js"></script>
@@ -527,10 +840,110 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
   });
 });
 
-/* Nav scroll */
-window.addEventListener('scroll', () => {
-  document.querySelector('nav').classList.toggle('shadow-md', window.scrollY > 60);
-}, { passive: true });
+/* Hamburger menu */
+const hamburger=document.querySelector('.pbc-hamburger');
+const mobileMenu=document.querySelector('.pbc-mobile-menu');
+if(hamburger&&mobileMenu){
+  hamburger.addEventListener('click',()=>{
+    hamburger.classList.toggle('open');
+    mobileMenu.classList.toggle('open');
+    document.body.style.overflow=mobileMenu.classList.contains('open')?'hidden':'';
+  });
+  mobileMenu.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{
+    hamburger.classList.remove('open');
+    mobileMenu.classList.remove('open');
+    document.body.style.overflow='';
+  }));
+}
+
+/* ═══ SHOPIFY CART DRAWER + REAL CHECKOUT ═══ */
+(function() {
+  var shopifyClient = null;
+  var shopifyCheckout = null;
+  var productVariantId = null;
+  var unitPrice = 0;
+  var qty = 1;
+
+  var overlay = document.getElementById('shopify-cart-overlay');
+  var panel = document.getElementById('shopify-cart-panel');
+  var backdrop = overlay.querySelector('.cart-backdrop');
+  var qtyDisplay = document.getElementById('cart-qty');
+  var totalDisplay = document.getElementById('cart-total');
+  var priceDisplay = document.getElementById('cart-unit-price');
+
+  function openCart() {
+    overlay.classList.remove('pointer-events-none');
+    backdrop.classList.remove('opacity-0');
+    panel.classList.remove('translate-x-full');
+  }
+  function closeCart() {
+    backdrop.classList.add('opacity-0');
+    panel.classList.add('translate-x-full');
+    setTimeout(function() { overlay.classList.add('pointer-events-none'); }, 400);
+  }
+  function updateDisplay() {
+    qtyDisplay.textContent = qty;
+    priceDisplay.textContent = unitPrice.toFixed(2) + ' $';
+    totalDisplay.textContent = (qty * unitPrice).toFixed(2) + ' $';
+  }
+
+  /* Open cart on CTA click */
+  document.querySelectorAll('[data-open-cart]').forEach(function(btn) {
+    btn.addEventListener('click', function(e) {
+      e.preventDefault();
+      e.stopPropagation();
+      openCart();
+    });
+  });
+
+  /* Close cart */
+  document.getElementById('cart-close').addEventListener('click', closeCart);
+  backdrop.addEventListener('click', closeCart);
+
+  /* Quantity */
+  document.getElementById('qty-minus').addEventListener('click', function() {
+    qty = Math.max(1, qty - 1); updateDisplay();
+  });
+  document.getElementById('qty-plus').addEventListener('click', function() {
+    qty++; updateDisplay();
+  });
+
+  /* Load Shopify JS Buy SDK (lightweight client, NOT the UI SDK) */
+  var script = document.createElement('script');
+  script.src = 'https://sdks.shopifycdn.com/js-buy-sdk/2.21.1/index.umd.min.js';
+  script.onload = function() {
+    shopifyClient = ShopifyBuy.buildClient({
+      domain: 'les-probiotiques-probaclac.myshopify.com',
+      storefrontAccessToken: '45cebe723fcd4ef3c4a1e0de10518978',
+    });
+    /* Fetch product to get variant ID and real price */
+    shopifyClient.product.fetch('gid://shopify/Product/8985046450316').then(function(product) {
+      var variant = product.variants[0];
+      productVariantId = variant.id;
+      unitPrice = parseFloat(variant.price.amount || variant.price);
+      updateDisplay();
+    });
+  };
+  document.head.appendChild(script);
+
+  /* Checkout button → direct Shopify cart URL (no API needed) */
+  var numericVariantId = null;
+  document.getElementById('shopify-checkout').addEventListener('click', function() {
+    var btn = this;
+    if (!numericVariantId && productVariantId) {
+      /* Extract numeric ID from gid://shopify/ProductVariant/123456 */
+      var match = String(productVariantId).match(/(\d+)$/);
+      numericVariantId = match ? match[1] : null;
+    }
+    if (!numericVariantId) {
+      btn.textContent = 'Chargement…';
+      setTimeout(function() { btn.textContent = 'Passer à la caisse'; }, 2000);
+      return;
+    }
+    btn.innerHTML = '<span class="inline-block w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin"></span> Redirection…';
+    window.location.href = 'https://les-probiotiques-probaclac.myshopify.com/cart/' + numericVariantId + ':' + qty;
+  });
+})();
 </script>
 </body>
 </html>
