@@ -604,7 +604,6 @@ src="https://www.facebook.com/tr?id=2440628703062561&ev=PageView&noscript=1"
           <div class="pbc-dropdown-menu">
             <a href="https://www.probaclac.ca/avantages">Pourquoi Probaclac?</a>
             <a href="https://www.probaclac.ca/meilleur-probiotique-pour-vous">Choisir le bon probiotique</a>
-            <a href="https://www.probaclac.ca/etudes2-1">Études sur Probaclac</a>
             <a href="https://www.probaclac.ca/microbiote-probiotiques">Le microbiote humain</a>
             <a href="https://www.probaclac.ca/diarrhee-du-voyageur">Diarrhée du voyageur</a>
           </div>
@@ -641,7 +640,6 @@ src="https://www.facebook.com/tr?id=2440628703062561&ev=PageView&noscript=1"
       <div class="mobile-sub">
         <a href="https://www.probaclac.ca/avantages">Pourquoi Probaclac?</a>
         <a href="https://www.probaclac.ca/meilleur-probiotique-pour-vous">Choisir le bon probiotique</a>
-        <a href="https://www.probaclac.ca/etudes2-1">Études sur Probaclac</a>
         <a href="https://www.probaclac.ca/microbiote-probiotiques">Le microbiote humain</a>
         <a href="https://www.probaclac.ca/diarrhee-du-voyageur">Diarrhée du voyageur</a>
       </div>
@@ -1193,10 +1191,6 @@ src="https://www.facebook.com/tr?id=2440628703062561&ev=PageView&noscript=1"
               <rect x="214" y="58" width="28" height="120" rx="10" fill="#2a7b9b"/>
               <rect x="248" y="78" width="28" height="100" rx="10" fill="#f0a54a"/>
               <rect x="282" y="126" width="28" height="52" rx="10" fill="#c9ced5"/>
-              <text x="86" y="88" text-anchor="middle" font-size="11" font-weight="700" fill="#2a7b9b">*</text>
-              <text x="120" y="61" text-anchor="middle" font-size="11" font-weight="700" fill="#f0a54a">*</text>
-              <text x="228" y="51" text-anchor="middle" font-size="11" font-weight="700" fill="#2a7b9b">**</text>
-              <text x="262" y="71" text-anchor="middle" font-size="11" font-weight="700" fill="#f0a54a">*</text>
             </svg>
             <div class="chart-legend">
               <span class="legend-item"><span class="legend-dot" style="background:#2a7b9b"></span>HA-196</span>
@@ -1553,6 +1547,22 @@ function toggleCard(header){
 if(studyClose){
   studyClose.addEventListener('click',()=>closeActiveStudySection(true));
 }
+
+function openTabFromHash(scroll){
+  const key=(location.hash||'').replace('#','').toLowerCase();
+  if(!key)return;
+  const btn=studyButtons.find(b=>b.dataset.tab===key);
+  if(!btn)return;
+  if(!btn.classList.contains('active'))btn.click();
+  if(scroll){
+    setTimeout(()=>{
+      const target=document.getElementById(key);
+      if(target)target.scrollIntoView({block:'start',behavior:'smooth'});
+    },200);
+  }
+}
+openTabFromHash(true);
+window.addEventListener('hashchange',()=>openTabFromHash(true));
 if(studyUp){
   studyUp.addEventListener('click',()=>{
     if(studyTabs)studyTabs.scrollIntoView({block:'start',behavior:'smooth'});
