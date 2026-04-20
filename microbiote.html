@@ -92,24 +92,19 @@ body{font-family:'Plus Jakarta Sans',system-ui,sans-serif;background:var(--bg);c
 /* ── CENTER: BODY IMAGE ── */
 .micro-img-col{position:sticky;top:5.5rem;align-self:start}
 .body-img-wrapper{position:relative;width:100%;overflow:hidden;user-select:none}
-.body-img-base{width:100%;display:block;border-radius:var(--radius-lg)}
-.organ-overlay{position:absolute;opacity:0;transition:opacity .5s cubic-bezier(.4,0,.2,1);pointer-events:none}
-.organ-overlay.active{opacity:1}
-
-/* Per-organ sizing: 2× natural PNG size, centered on measured grey organ center */
-#overlay-bouche-pharynx,     #mob-overlay-bouche-pharynx     { top:14.9%; left:42.9%; width:15.4%; height:14.8%; }
-#overlay-estomac,            #mob-overlay-estomac            { top:33.2%; left:18.3%; width:28.1%; height:26.7%; }
-#overlay-intestin-grele,     #mob-overlay-intestin-grele     { top:42.1%; left:26.2%; width:42.6%; height:15.8%; }
-#overlay-colon,              #mob-overlay-colon              { top:46.2%; left:20.6%; width:50.6%; height:24.6%; }
-#overlay-tractus-urogenital, #mob-overlay-tractus-urogenital { top:61.6%; left:34.3%; width:23.1%; height:12.8%; }
+.body-canvas{display:block;width:100%;height:auto}
+.body-hotspots{position:absolute;inset:0;width:100%;height:100%}
 
 /* Hotspot circles */
-.hotspot{position:absolute;width:22px;height:22px;border-radius:50%;background:var(--o1);border:2.5px solid rgba(255,255,255,.9);cursor:pointer;transform:translate(-50%,-50%);z-index:10;transition:all .35s;animation:hsPulse 2.5s ease-in-out infinite}
-@keyframes hsPulse{0%,100%{box-shadow:0 0 0 0 rgba(222,109,56,.5)}60%{box-shadow:0 0 0 10px rgba(222,109,56,0)}}
-.hotspot:hover{transform:translate(-50%,-50%) scale(1.3);animation:none;box-shadow:0 0 0 8px rgba(222,109,56,.2)}
-.hotspot.active{background:#fff;border-color:var(--o1);box-shadow:0 0 0 6px rgba(222,109,56,.25);animation:none}
-.hotspot-label{position:absolute;white-space:nowrap;font-size:.62rem;font-weight:700;background:var(--text);color:#fff;padding:.2rem .5rem;border-radius:6px;pointer-events:none;opacity:0;transition:opacity .2s;z-index:20}
+.hotspot{cursor:pointer}
+.hotspot-dot{fill:var(--o1);stroke:#fff;stroke-width:12;transition:transform .35s ease, fill .35s ease}
+.hotspot-ring{fill:none;stroke:rgba(222,109,56,.28);stroke-width:18;transition:opacity .35s ease}
+.hotspot.active .hotspot-dot,.hotspot:hover .hotspot-dot{fill:#fff}
+.hotspot.active .hotspot-ring,.hotspot:hover .hotspot-ring{opacity:1}
+.hotspot-label{opacity:0;transition:opacity .2s ease}
 .hotspot:hover .hotspot-label,.hotspot.active .hotspot-label{opacity:1}
+.hotspot-chip{fill:var(--text)}
+.hotspot-text{fill:#fff;font-size:22px;font-weight:700;letter-spacing:-.01em}
 
 /* ── RIGHT: CONTENT PANELS ── */
 .micro-content{display:flex;flex-direction:column;gap:0}
@@ -151,7 +146,6 @@ body{font-family:'Plus Jakarta Sans',system-ui,sans-serif;background:var(--bg);c
 
 /* ─── MOBILE IMAGE ─── */
 .micro-img-mobile{display:none;position:relative;margin-bottom:2rem}
-.micro-img-mobile .body-img-base{border-radius:var(--radius-lg)}
 .mobile-hotspots{position:absolute;top:0;left:0;width:100%;height:100%}
 
 /* ─── BACK TO TOP ─── */
@@ -251,12 +245,7 @@ body{font-family:'Plus Jakarta Sans',system-ui,sans-serif;background:var(--bg);c
 
   <!-- Mobile image (shown on small screens) -->
   <div class="micro-img-mobile">
-    <img src="microbiote/madame-probaclac-organes.png" alt="Corps humain — Microbiote" class="body-img-base" onerror="this.style.opacity='.2'">
-    <img src="microbiote/intestin-grele.png" class="organ-overlay" id="mob-overlay-intestin-grele" alt="" aria-hidden="true">
-    <img src="microbiote/bouche-pharynx.png" class="organ-overlay" id="mob-overlay-bouche-pharynx" alt="" aria-hidden="true" onerror="this.remove()">
-    <img src="microbiote/estomac.png" class="organ-overlay" id="mob-overlay-estomac" alt="" aria-hidden="true" onerror="this.remove()">
-    <img src="microbiote/colon.png" class="organ-overlay" id="mob-overlay-colon" alt="" aria-hidden="true" onerror="this.remove()">
-    <img src="microbiote/tractus-urogenital.png" class="organ-overlay" id="mob-overlay-tractus-urogenital" alt="" aria-hidden="true" onerror="this.remove()">
+    <canvas class="body-canvas" id="bodyCanvasMobile" width="676" height="1800" aria-label="Corps humain — Microbiote"></canvas>
   </div>
 
   <div class="micro-inner">
@@ -276,45 +265,59 @@ body{font-family:'Plus Jakarta Sans',system-ui,sans-serif;background:var(--bg);c
     <!-- ── CENTER: sticky body image ── -->
     <div class="micro-img-col">
       <div class="body-img-wrapper" id="bodyImgWrapper">
-
-        <!-- Base body image -->
-        <img src="microbiote/madame-probaclac-organes.png" alt="Corps humain — zones microbiote" class="body-img-base" id="bodyImgBase" onerror="this.style.opacity='.1'">
-
-        <!-- Organ overlay images (same dimensions as base, transparent PNGs) -->
-        <img src="microbiote/bouche-pharynx.png" class="organ-overlay" id="overlay-bouche-pharynx" alt="" aria-hidden="true" onerror="this.remove()">
-        <img src="microbiote/estomac.png" class="organ-overlay" id="overlay-estomac" alt="" aria-hidden="true" onerror="this.remove()">
-        <img src="microbiote/intestin-grele.png" class="organ-overlay active" id="overlay-intestin-grele" alt="" aria-hidden="true">
-        <img src="microbiote/colon.png" class="organ-overlay" id="overlay-colon" alt="" aria-hidden="true" onerror="this.remove()">
-        <img src="microbiote/tractus-urogenital.png" class="organ-overlay" id="overlay-tractus-urogenital" alt="" aria-hidden="true" onerror="this.remove()">
-
-        <!-- Hotspot clickable circles (positioned as % of image) -->
-        <!-- NOTE: adjust top/left % once actual body image is loaded -->
-        <a href="#sec-bouche-pharynx" class="hotspot js-scroll" id="hs-bouche-pharynx"
-           style="top:22.3%;left:50.7%"
-           title="Microbiote oral">
-          <span class="hotspot-label" style="left:28px;top:-2px">Oral</span>
-        </a>
-        <a href="#sec-estomac" class="hotspot js-scroll" id="hs-estomac"
-           style="top:46.5%;left:32.5%"
-           title="Microbiote gastrique">
-          <span class="hotspot-label" style="right:28px;top:-2px">Gastrique</span>
-        </a>
-        <a href="#sec-intestin-grele" class="hotspot js-scroll active" id="hs-intestin-grele"
-           style="top:50.0%;left:47.5%"
-           title="Intestin grêle">
-          <span class="hotspot-label" style="left:28px;top:-2px">Intestin grêle</span>
-        </a>
-        <a href="#sec-colon" class="hotspot js-scroll" id="hs-colon"
-           style="top:58.5%;left:46.0%"
-           title="Côlon">
-          <span class="hotspot-label" style="right:28px;top:-2px">Côlon</span>
-        </a>
-        <a href="#sec-tractus-urogenital" class="hotspot js-scroll" id="hs-tractus-urogenital"
-           style="top:68.0%;left:46.0%"
-           title="Microbiote vaginal">
-          <span class="hotspot-label" style="left:28px;top:-2px">Vaginal</span>
-        </a>
-
+        <canvas class="body-canvas" id="bodyCanvasDesktop" width="676" height="1800" aria-label="Corps humain — zones microbiote"></canvas>
+        <svg class="body-hotspots" viewBox="0 0 676 1800" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
+          <a href="#sec-bouche-pharynx" class="hotspot js-scroll" id="hs-bouche-pharynx">
+            <g transform="translate(337 336)">
+              <circle class="hotspot-ring" r="30" opacity=".9"/>
+              <circle class="hotspot-dot" r="17"/>
+              <g class="hotspot-label" transform="translate(34 -18)">
+                <rect class="hotspot-chip" rx="14" ry="14" width="96" height="38"/>
+                <text class="hotspot-text" x="48" y="25" text-anchor="middle">Oral</text>
+              </g>
+            </g>
+          </a>
+          <a href="#sec-estomac" class="hotspot js-scroll" id="hs-estomac">
+            <g transform="translate(271 800)">
+              <circle class="hotspot-ring" r="30" opacity=".9"/>
+              <circle class="hotspot-dot" r="17"/>
+              <g class="hotspot-label" transform="translate(-154 -18)">
+                <rect class="hotspot-chip" rx="14" ry="14" width="132" height="38"/>
+                <text class="hotspot-text" x="66" y="25" text-anchor="middle">Gastrique</text>
+              </g>
+            </g>
+          </a>
+          <a href="#sec-intestin-grele" class="hotspot js-scroll active" id="hs-intestin-grele">
+            <g transform="translate(339 944)">
+              <circle class="hotspot-ring" r="30" opacity=".9"/>
+              <circle class="hotspot-dot" r="17"/>
+              <g class="hotspot-label" transform="translate(34 -18)">
+                <rect class="hotspot-chip" rx="14" ry="14" width="170" height="38"/>
+                <text class="hotspot-text" x="85" y="25" text-anchor="middle">Intestin grêle</text>
+              </g>
+            </g>
+          </a>
+          <a href="#sec-colon" class="hotspot js-scroll" id="hs-colon">
+            <g transform="translate(349 1063)">
+              <circle class="hotspot-ring" r="30" opacity=".9"/>
+              <circle class="hotspot-dot" r="17"/>
+              <g class="hotspot-label" transform="translate(-104 -18)">
+                <rect class="hotspot-chip" rx="14" ry="14" width="82" height="38"/>
+                <text class="hotspot-text" x="41" y="25" text-anchor="middle">Côlon</text>
+              </g>
+            </g>
+          </a>
+          <a href="#sec-tractus-urogenital" class="hotspot js-scroll" id="hs-tractus-urogenital">
+            <g transform="translate(323 1263)">
+              <circle class="hotspot-ring" r="30" opacity=".9"/>
+              <circle class="hotspot-dot" r="17"/>
+              <g class="hotspot-label" transform="translate(34 -18)">
+                <rect class="hotspot-chip" rx="14" ry="14" width="112" height="38"/>
+                <text class="hotspot-text" x="56" y="25" text-anchor="middle">Vaginal</text>
+              </g>
+            </g>
+          </a>
+        </svg>
       </div>
     </div><!-- /micro-img-col -->
 
@@ -491,14 +494,55 @@ document.querySelectorAll('.js-scroll').forEach(el => {
 
 /* ── Organ activation on scroll ── */
 const organs = ['bouche-pharynx','estomac','intestin-grele','colon','tractus-urogenital'];
+const organDrawData = {
+  'bouche-pharynx': {src:'microbiote/bouche-pharynx.png', x:311, y:270, w:52, h:133},
+  'estomac': {src:'microbiote/estomac.png', x:223, y:684, w:95, h:240},
+  'intestin-grele': {src:'microbiote/intestin-grele.png', x:250, y:873, w:144, h:142},
+  'colon': {src:'microbiote/colon.png', x:250, y:954, w:171, h:221},
+  'tractus-urogenital': {src:'microbiote/tractus-urogenital.png', x:284, y:1206, w:78, h:115}
+};
+const bodyCanvases = [
+  document.getElementById('bodyCanvasDesktop'),
+  document.getElementById('bodyCanvasMobile')
+].filter(Boolean);
+const imageCache = new Map();
+
+function loadImage(src) {
+  if (imageCache.has(src)) return imageCache.get(src);
+  const promise = new Promise((resolve, reject) => {
+    const img = new Image();
+    img.onload = () => resolve(img);
+    img.onerror = reject;
+    img.src = src;
+  });
+  imageCache.set(src, promise);
+  return promise;
+}
+
+async function renderBodyGraphic(id) {
+  const data = organDrawData[id];
+  if (!data) return;
+  try {
+    const [baseImg, overlayImg] = await Promise.all([
+      loadImage('microbiote/madame-probaclac-organes.png'),
+      loadImage(data.src)
+    ]);
+    bodyCanvases.forEach(canvas => {
+      const ctx = canvas.getContext('2d');
+      if (!ctx) return;
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      ctx.drawImage(baseImg, 0, 0, canvas.width, canvas.height);
+      ctx.drawImage(overlayImg, data.x, data.y, data.w, data.h);
+    });
+  } catch (err) {
+    console.error('Unable to render microbiote graphic', err);
+  }
+}
 
 function activateOrgan(id) {
-  // Overlays, menu items, hotspots, content sections
+  renderBodyGraphic(id);
+  // Menu items, hotspots, content sections
   organs.forEach(o => {
-    const el = document.getElementById(`overlay-${o}`);
-    const mob = document.getElementById(`mob-overlay-${o}`);
-    if (el) el.classList.toggle('active', o === id);
-    if (mob) mob.classList.toggle('active', o === id);
     const menu = document.getElementById(`menu-${o}`);
     if (menu) menu.classList.toggle('active', o === id);
     const hs = document.getElementById(`hs-${o}`);

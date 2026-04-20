@@ -1,0 +1,1170 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light only">
+<meta name="supported-color-schemes" content="light only">
+<title>Études scientifiques sur les probiotiques | Probaclac</title>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --bg:#f8f7f4;--bg-dark:#0d1117;--o1:#de6d38;--o2:#e8894f;--o3:#fde0cc;--o4:#fef3eb;
+  --medic:#3b7341;--medic-dark:#2f5f34;--medic-soft:#e8f5e6;
+  --vaginose:#6e9faf;--vaginose-dark:#5d8b9a;
+  --accent:#c45a2a;--warm:#f5e6d3;--text:#1a1a2e;--text-light:#5a5a72;--white:#ffffff;
+  --shadow-sm:0 2px 8px rgba(0,0,0,.04);--shadow-md:0 8px 32px rgba(0,0,0,.08);--shadow-lg:0 16px 64px rgba(0,0,0,.12);
+  --radius:16px;--radius-lg:24px;--radius-xl:32px;
+  --font-primary:"Helvetica Neue",Helvetica,Arial,sans-serif;
+  --font-secondary:"IBM Plex Sans","Helvetica Neue",Helvetica,Arial,sans-serif;
+  color-scheme:light only;
+}
+@media(prefers-color-scheme:dark){:root{--bg:#f8f7f4;--text:#1a1a2e;--text-light:#5a5a72;--white:#ffffff;--o4:#fef3eb;--o3:#fde0cc}}
+html{scroll-behavior:auto!important;height:auto!important;min-height:0!important}
+body{font-family:var(--font-primary);font-weight:400;background:#f8f7f4;background-color:#f8f7f4;color:#1a1a2e;line-height:1.7;overflow-x:hidden;height:auto!important;display:block!important}
+html,body,header,section,footer,nav,div,main{flex-grow:0!important;flex-basis:auto!important}
+section{background-color:#f8f7f4!important}
+header{background-color:#f8f7f4!important}
+::-webkit-scrollbar{width:6px}::-webkit-scrollbar-thumb{background:var(--o2);border-radius:3px}
+
+.navbar{position:fixed;top:0;left:0;right:0;z-index:100;padding:1rem 2rem;transition:all .4s}
+.navbar.scrolled{background:rgba(248,247,244,.92);backdrop-filter:blur(20px) saturate(180%);box-shadow:0 1px 0 rgba(0,0,0,.05)}
+.nav-inner{max-width:1280px;margin:0 auto;display:flex;align-items:center;justify-content:space-between}
+.logo{font-family:var(--font-secondary);font-weight:700;font-size:1.5rem;color:var(--o1);letter-spacing:-.02em;text-decoration:none}.logo span{color:var(--o2)}
+.nav-links{display:flex;gap:2rem;align-items:center;list-style:none}
+.nav-links a{text-decoration:none;color:var(--text);font-weight:500;font-size:.9rem;transition:color .3s;position:relative}
+.nav-links a::after{content:'';position:absolute;bottom:-4px;left:0;width:0;height:2px;background:var(--o2);transition:width .3s}
+.nav-links a:hover{color:var(--o1)}.nav-links a:hover::after{width:100%}
+.btn-primary{font-family:var(--font-secondary);background:var(--o1);color:var(--white);padding:.7rem 1.5rem;border-radius:100px;text-decoration:none;font-weight:600;font-size:.9rem;transition:all .3s;border:none;cursor:pointer;display:inline-flex;align-items:center;gap:.5rem}
+.btn-primary:hover{background:var(--o2);transform:translateY(-2px);box-shadow:0 8px 24px rgba(222,109,56,.3)}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:.5rem}
+.hamburger span{width:24px;height:2px;background:var(--text);border-radius:2px}
+
+/* Hero */
+.hero{padding:4rem 2rem 3rem;position:relative;overflow:hidden;background-color:#f8f7f4}
+.hero::before{content:'';position:absolute;top:-200px;right:-200px;width:600px;height:600px;background:radial-gradient(circle,var(--o3) 0%,transparent 70%);opacity:.5;animation:float 8s ease-in-out infinite}
+.hero::after{content:'';position:absolute;bottom:-100px;left:-100px;width:400px;height:400px;background:radial-gradient(circle,var(--warm) 0%,transparent 70%);opacity:.4;animation:float 10s ease-in-out infinite reverse}
+@keyframes float{0%,100%{transform:translate(0,0)}50%{transform:translate(30px,-30px)}}
+.hero-layout{max-width:1100px;margin:0 auto;display:flex;align-items:center;gap:3rem;position:relative;z-index:1}
+.hero-text{flex:1}
+.hero-visual{flex:0 0 320px;display:flex;align-items:center;justify-content:center;position:relative}
+.hero-art{width:320px;height:360px;position:relative;animation:heroFloat 9s ease-in-out infinite}
+@keyframes heroFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+.hero-doc{position:absolute;border-radius:28px;background:linear-gradient(180deg,#fff,#f4f6f8);border:1px solid rgba(17,58,84,.08);box-shadow:0 24px 50px rgba(17,58,84,.08)}
+.hero-doc.back{inset:14% 10% 14% 12%;transform:rotate(-6deg);opacity:.72}
+.hero-doc.mid{inset:10% 7% 10% 15%;transform:rotate(4deg);opacity:.9}
+.hero-doc.front{inset:6% 12% 6% 8%;padding:1rem;display:flex;align-items:center;justify-content:center}
+.hero-chart-card{width:100%;background:#f7f9fb;border:1px solid rgba(0,0,0,.06);border-radius:20px;padding:1rem}
+.hero-chart-card svg{width:100%;height:auto;display:block}
+.hero-inner{max-width:800px;position:relative;z-index:1}
+.hero-badge{font-family:var(--font-secondary);display:inline-flex;align-items:center;gap:.5rem;background:var(--o4);color:var(--o1);padding:.5rem 1rem;border-radius:100px;font-size:.8rem;font-weight:600;margin-bottom:1.5rem;border:1px solid var(--o3)}
+.hero-badge .dot{width:8px;height:8px;background:var(--o2);border-radius:50%;animation:pulse 2s ease-in-out infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.4}}
+.hero h1{font-family:var(--font-primary);font-size:clamp(2.2rem,4.5vw,3.4rem);font-weight:300;line-height:1.1;letter-spacing:-.03em;margin-bottom:1.5rem}
+.hero h1 .gradient{background:linear-gradient(135deg,var(--o1),var(--o2),#d4523b);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.hero p{font-size:1.05rem;color:var(--text-light);max-width:540px;margin:0 0 2.5rem;line-height:1.8}
+@media(max-width:768px){.hero-layout{flex-direction:column-reverse;text-align:center}.hero-text{text-align:center}.hero p{margin:0 auto 2rem}.hero-visual{flex:0 0 auto}.hero-art{width:240px;height:280px}.hero-doc.front{padding:.75rem}.hero-chart-card{padding:.8rem}}
+
+/* Stats grid */
+.stats-bar{max-width:1400px;margin:-2rem auto 0;position:relative;z-index:2;display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:1rem;padding:0 2rem}
+.stat-card{background:var(--white);border-radius:28px;padding:1.45rem;box-shadow:var(--shadow-md);border:1px solid rgba(0,0,0,.04);transition:all .3s;display:grid;grid-template-rows:56px 150px auto;min-height:0}
+.stat-card:hover{transform:translateY(-4px);box-shadow:var(--shadow-lg)}
+.stat-card.accent-vaginal{border-color:rgba(110,159,175,.22)}
+.stat-card.accent-yeast{border-color:rgba(206,48,121,.16)}
+.stat-card.accent-ibs{border-color:rgba(42,123,155,.18)}
+.stat-card.accent-medic{border-color:rgba(79,173,79,.18)}
+.stat-topline{font-family:var(--font-secondary);font-size:.68rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--text-light);line-height:1.45;align-self:start}
+.stat-metric{display:flex;align-items:center;justify-content:flex-start}
+.stat-num{font-family:var(--font-primary);font-size:clamp(2.6rem,4vw,3.6rem);font-weight:400;color:var(--o1);line-height:.95;display:block;letter-spacing:-.04em}
+.stat-card.accent-vaginal .stat-num{color:var(--vaginose)}
+.stat-card.accent-yeast .stat-num{color:#ce3079}
+.stat-card.accent-ibs .stat-num{color:#2a7b9b}
+.stat-card.accent-medic .stat-num{color:var(--medic)}
+.stat-title{font-family:var(--font-secondary);font-size:.76rem;font-weight:700;line-height:1.28;color:var(--text);align-self:start;max-width:92%}
+
+/* Counter animation */
+.stat-num[data-target]{opacity:0;transform:translateY(20px);transition:all .6s}.stat-num[data-target].counted{opacity:1;transform:translateY(0)}
+
+/* Nav tabs */
+.study-nav{max-width:1280px;margin:4rem auto 2rem;padding:0 2rem;display:flex;gap:.75rem;flex-wrap:wrap;justify-content:center}
+.study-nav-btn{background:var(--white);border:2px solid var(--o3);border-radius:100px;padding:.65rem 1.5rem;font-size:.85rem;font-weight:600;color:var(--text);cursor:pointer;transition:all .3s;font-family:var(--font-secondary)}
+.study-nav-btn:hover,.study-nav-btn.active{background:var(--o1);color:var(--white);border-color:var(--o1)}
+.study-nav-btn[data-tab="vaginose"].active{background:var(--vaginose);border-color:var(--vaginose)}
+.study-nav-btn[data-tab="vaginose"]:hover{background:var(--vaginose);border-color:var(--vaginose);color:var(--white)}
+.study-nav-btn[data-tab="candidose"].active{background:#ce3079;border-color:#ce3079}
+.study-nav-btn[data-tab="candidose"]:hover{background:#ce3079;border-color:#ce3079;color:var(--white)}
+.study-nav-btn[data-tab="diarrhee"].active{background:var(--medic);border-color:var(--medic)}
+.study-nav-btn[data-tab="diarrhee"]:hover{background:var(--medic);border-color:var(--medic);color:var(--white)}
+.study-nav-btn[data-tab="ibs"].active{background:#2a7b9b;border-color:#2a7b9b}
+.study-nav-btn[data-tab="ibs"]:hover{background:#2a7b9b;border-color:#2a7b9b;color:var(--white)}
+/* Chart components */
+.chart-container{background:var(--white);border-radius:16px;padding:1.5rem;border:1px solid #eee;box-shadow:0 2px 12px rgba(0,0,0,.04);margin:1rem 0}
+.chart-title{font-family:var(--font-secondary);font-size:.8rem;font-weight:700;color:var(--text);margin-bottom:1rem;text-align:center}
+.chart-source{font-size:.65rem;color:#999;margin-top:.5rem;text-align:right;font-style:italic}
+.bar-chart{display:flex;align-items:flex-end;justify-content:center;gap:1.2rem;height:200px;padding:0 .5rem}
+.bar-group{display:flex;flex-direction:column;align-items:center;gap:.3rem;flex:1;max-width:80px}
+.bar-wrap{display:flex;align-items:flex-end;gap:4px;height:170px}
+.bar{border-radius:6px 6px 0 0;min-width:24px;transition:height .8s ease;position:relative}
+.bar-val{font-size:.65rem;font-weight:700;position:absolute;top:-18px;left:50%;transform:translateX(-50%);white-space:nowrap}
+.bar-label{font-size:.65rem;color:#666;text-align:center;line-height:1.2;max-width:90px}
+.chart-legend{display:flex;gap:1rem;justify-content:center;margin-top:.75rem;flex-wrap:wrap}
+.legend-item{display:flex;align-items:center;gap:4px;font-size:.65rem;color:#666}
+.legend-dot{width:10px;height:10px;border-radius:3px;flex-shrink:0}
+/* Line chart */
+.line-chart-wrap{position:relative;height:200px;padding:0 .5rem}
+.line-chart-svg{width:100%;height:100%}
+/* Comparison cards */
+.compare-cards{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin:1rem 0}
+.compare-card{background:var(--white);border-radius:14px;padding:1.25rem;border:1px solid #eee;text-align:center;box-shadow:0 2px 8px rgba(0,0,0,.04)}
+.cc-num{font-size:2.2rem;font-weight:900;line-height:1}
+.cc-label{font-size:.75rem;color:#666;margin-top:.35rem;line-height:1.3}
+.cc-sub{font-size:.65rem;color:#999;margin-top:.25rem}
+@media(max-width:768px){.compare-cards{grid-template-columns:1fr}.bar-chart{height:160px}.bar-wrap{height:130px}}
+.study-overview{display:grid;grid-template-columns:1fr 1.25fr;gap:1rem;margin:1.5rem 0}
+.overview-card,.protocol-card,.insight-card,.matrix-card{background:linear-gradient(180deg,#fff,#fff7f3);border:1px solid rgba(206,48,121,.14);border-radius:24px;box-shadow:var(--shadow-sm)}
+.overview-card{padding:1.4rem}
+.overview-kicker{font-family:var(--font-secondary);font-size:.72rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#ce3079;margin-bottom:.8rem}
+.overview-big{display:flex;align-items:flex-end;gap:.75rem;margin-bottom:.8rem}
+.overview-big strong{font-family:var(--font-primary);font-size:3.6rem;line-height:.9;color:#ce3079;font-weight:400}
+.overview-big span{font-size:1rem;font-weight:700;color:var(--text)}
+.overview-note{font-size:.82rem;color:var(--text-light);line-height:1.7}
+.protocol-card{padding:1.4rem;display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+.protocol-flow{display:flex;flex-direction:column;gap:.7rem}
+.flow-step{font-family:var(--font-secondary);position:relative;padding:1rem 1rem 1rem 1.1rem;border-radius:18px;color:#fff;font-weight:700;overflow:hidden}
+.flow-step::after{content:'';position:absolute;top:0;right:-22px;width:54px;height:100%;background:inherit;clip-path:polygon(0 0,100% 50%,0 100%)}
+.flow-step span,.flow-step small{position:relative;z-index:1;display:block}
+.flow-step small{margin-top:.2rem;font-size:.72rem;font-weight:600;opacity:.88}
+.flow-step.primary{background:linear-gradient(135deg,#ce3079,#a82563)}
+.flow-step.secondary{background:linear-gradient(135deg,#f0a54a,#d98722)}
+.flow-step.ghost{background:linear-gradient(135deg,#cfd3d8,#adb4bd);color:#3b4250}
+.protocol-meta{background:#f6e8ef;border-radius:18px;padding:1rem 1.1rem}
+.protocol-meta h5{font-family:var(--font-secondary);font-size:.9rem;margin-bottom:.55rem;color:var(--text)}
+.protocol-meta ul{padding-left:1rem;color:var(--text-light);font-size:.8rem;line-height:1.6}
+.protocol-meta li+li{margin-top:.25rem}
+.dual-charts{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin:1.2rem 0}
+.metric-card{background:#fff;border:1px solid rgba(0,0,0,.06);border-radius:22px;padding:1.2rem;box-shadow:var(--shadow-sm)}
+.metric-head{display:flex;align-items:flex-start;justify-content:space-between;gap:1rem;margin-bottom:.9rem}
+.metric-head h5{font-family:var(--font-primary);font-size:.95rem;line-height:1.25;color:var(--text);font-weight:400}
+.metric-pill{font-family:var(--font-secondary);padding:.35rem .7rem;border-radius:999px;background:#fdf0f6;color:#ce3079;font-size:.68rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;white-space:nowrap}
+.metric-sub{font-size:.76rem;color:var(--text-light);margin-top:.3rem;line-height:1.55}
+.insight-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:.9rem;margin:1.2rem 0}
+.insight-card{padding:1.15rem 1.1rem}
+.insight-card strong{display:block;font-family:var(--font-primary);font-size:1.9rem;line-height:1;color:#ce3079;margin-bottom:.35rem;font-weight:400}
+.insight-card span{display:block;font-family:var(--font-secondary);font-size:.8rem;font-weight:700;color:var(--text);margin-bottom:.28rem}
+.insight-card p{font-size:.74rem;color:var(--text-light);line-height:1.55}
+.matrix-card{padding:1.2rem;margin-top:1.25rem}
+.matrix-card h5{font-family:var(--font-primary);font-size:1rem;margin-bottom:.85rem;color:var(--text);font-weight:400}
+.evidence-matrix{display:grid;grid-template-columns:1.2fr repeat(3,1fr);gap:.6rem;font-size:.74rem}
+.matrix-head,.matrix-cell{border-radius:14px;padding:.8rem .85rem}
+.matrix-head{font-family:var(--font-secondary);background:#f8e7ef;font-weight:700;color:#8e2356;text-align:center}
+.matrix-head.topic{text-align:left}
+.matrix-cell{background:#fff;border:1px solid rgba(0,0,0,.06);color:var(--text-light)}
+.matrix-cell.topic{font-weight:700;color:var(--text)}
+.matrix-cell.good{background:#fff6fb;border-color:rgba(206,48,121,.18);color:#8e2356;font-weight:700;text-align:center}
+.matrix-cell.mid{background:#fffaf2;border-color:rgba(240,165,74,.22);color:#9a6220;font-weight:700;text-align:center}
+.matrix-cell.na{background:#fafafa;border-color:rgba(0,0,0,.08);color:#7d7d8d;font-weight:600;text-align:center}
+.mobile-matrix{display:none}
+.mobile-study-list,.mobile-summary-list{display:grid;gap:.9rem}
+.mobile-study-card,.mobile-summary-card{background:#fff;border:1px solid rgba(0,0,0,.06);border-radius:18px;padding:1rem}
+.mobile-study-head,.mobile-summary-head{display:flex;align-items:flex-start;justify-content:space-between;gap:.8rem;margin-bottom:.75rem}
+.mobile-study-head strong,.mobile-summary-head strong{font-family:var(--font-primary);font-size:1rem;font-weight:400;color:var(--text)}
+.mobile-study-head span,.mobile-summary-head span{font-family:var(--font-secondary);font-size:.72rem;color:var(--text-light);text-transform:uppercase;letter-spacing:.05em}
+.mobile-study-grid,.mobile-summary-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.65rem}
+.mobile-field{background:#fafafa;border:1px solid rgba(0,0,0,.05);border-radius:14px;padding:.75rem}
+.mobile-field-label{display:block;font-family:var(--font-secondary);font-size:.65rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--text-light);margin-bottom:.25rem}
+.mobile-field-value{display:block;font-size:.85rem;color:var(--text);line-height:1.45}
+.mobile-checks{display:flex;gap:.45rem;flex-wrap:wrap;margin-top:.75rem}
+.mobile-check{display:inline-flex;align-items:center;justify-content:center;min-width:2rem;height:2rem;padding:0 .6rem;border-radius:999px;background:#fff6fb;border:1px solid rgba(206,48,121,.18);color:#8e2356;font-family:var(--font-secondary);font-size:.72rem;font-weight:700}
+.mobile-check.na{background:#fafafa;border-color:rgba(0,0,0,.08);color:#7d7d8d}
+@media(max-width:900px){.study-overview,.dual-charts,.insight-grid{grid-template-columns:1fr}.protocol-card{grid-template-columns:1fr}}
+
+section{padding:4rem 2rem;flex-shrink:0;flex-grow:0;height:auto!important}
+
+/* Study section */
+.study-section{max-width:1080px;margin:0 auto 3rem;display:none}
+.study-section.active{display:block}
+.study-actions{position:fixed;right:24px;bottom:24px;z-index:120;display:none;flex-direction:column;align-items:center;gap:.8rem}
+.study-actions.visible{display:flex}
+.study-fab{width:52px;height:52px;border:none;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:var(--font-secondary);font-size:1.15rem;font-weight:700;cursor:pointer;color:var(--white);box-shadow:0 18px 38px rgba(10,15,35,.16);transition:transform .25s ease,box-shadow .25s ease,background .25s ease}
+.study-fab:hover{transform:translateY(-2px);box-shadow:0 22px 42px rgba(10,15,35,.2)}
+.study-fab.close{background:#111629}
+.study-fab.up{background:var(--o1)}
+
+/* Study card */
+.study-card{background:var(--white);border-radius:var(--radius-xl);overflow:hidden;margin-bottom:2rem;border:1px solid rgba(0,0,0,.05);transition:all .3s}
+.study-card:hover{box-shadow:var(--shadow-md)}
+.study-card-header{padding:2rem 2.5rem;cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:1rem;transition:background .3s}
+.study-card-header:hover{background:var(--o4)}
+.study-card-header h3{font-family:var(--font-primary);font-size:1.1rem;font-weight:400;display:flex;align-items:center;gap:.75rem;flex:1}
+.study-card-header .sc-icon{font-family:var(--font-secondary);width:36px;height:36px;background:var(--o4);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:.75rem;font-weight:700;color:var(--o1);flex-shrink:0;letter-spacing:-.02em}
+.study-card-header .chevron{width:32px;height:32px;background:var(--bg);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.9rem;transition:transform .3s;flex-shrink:0;color:var(--text-light)}
+.study-card.open .chevron{transform:rotate(180deg);background:var(--o4);color:var(--o1)}
+.study-card-body{display:none;overflow:visible}
+.study-card.open .study-card-body{display:block}
+.study-card-content{padding:0 2.5rem 2.5rem}
+
+/* Content styles inside cards */
+.sc-text{color:var(--text-light);line-height:1.8;font-size:.92rem;margin-bottom:1rem}
+.sc-text strong{color:var(--text)}
+
+.result-highlight{background:linear-gradient(135deg,var(--o1),var(--accent));border-radius:var(--radius-lg);padding:2.5rem;color:var(--white);margin:1.5rem 0;display:flex;align-items:center;gap:2rem}
+.result-highlight.medic{background:linear-gradient(135deg,var(--medic),var(--medic-dark))}
+.result-highlight .rh-num{font-family:var(--font-primary);font-size:3.5rem;font-weight:400;line-height:1;flex-shrink:0;white-space:nowrap}
+.result-highlight .rh-text{font-size:.95rem;opacity:.9;line-height:1.7}
+
+.symptom-tags{display:flex;flex-wrap:wrap;gap:.5rem;margin:1rem 0}
+.symptom-tag{font-family:var(--font-secondary);background:var(--o4);color:var(--o1);padding:.4rem 1rem;border-radius:100px;font-size:.8rem;font-weight:600}
+
+.download-link{font-family:var(--font-secondary);display:inline-flex;align-items:center;gap:.5rem;background:var(--o4);color:var(--o1);padding:.7rem 1.2rem;border-radius:var(--radius);font-size:.82rem;font-weight:600;text-decoration:none;margin:.4rem .4rem .4rem 0;transition:all .3s;border:1px solid var(--o3)}
+.download-link:hover{background:var(--o1);color:var(--white);border-color:var(--o1);transform:translateY(-2px)}
+
+.info-box{background:var(--o4);border-left:4px solid var(--o2);border-radius:0 var(--radius) var(--radius) 0;padding:1.5rem;margin:1.5rem 0}
+.info-box p{color:var(--o1);font-weight:500;font-size:.88rem;line-height:1.7;margin:0}
+
+.causes-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:.75rem;margin:1rem 0}
+.cause-item{background:var(--bg);border-radius:var(--radius);padding:.8rem 1rem;font-size:.82rem;color:var(--text-light);display:flex;align-items:center;gap:.5rem}
+.cause-item .ci-dot{width:6px;height:6px;background:var(--o2);border-radius:50%;flex-shrink:0}
+
+/* Study figures - graph images */
+.study-figures{display:flex;gap:1rem;margin:1.5rem 0;flex-wrap:wrap;justify-content:center}
+.study-fig{flex:1;min-width:220px;max-width:420px;background:var(--white);border:1px solid rgba(0,0,0,.06);border-radius:var(--radius-lg);overflow:hidden;transition:all .4s;cursor:pointer;box-shadow:var(--shadow-sm)}
+.study-fig:hover{transform:translateY(-4px) scale(1.01);box-shadow:var(--shadow-lg)}
+.study-fig img{width:100%;height:auto;display:block;transition:transform .5s}
+.study-fig:hover img{transform:scale(1.03)}
+.study-fig figcaption{padding:.6rem 1rem;font-size:.72rem;color:var(--text-light);font-weight:500;text-align:center;border-top:1px solid rgba(0,0,0,.04);background:var(--o4)}
+.study-fig-solo{max-width:500px;margin:1.5rem auto}
+.study-fig-wide{max-width:560px;margin:1.5rem auto}
+@media(max-width:768px){
+  .study-figures{flex-direction:column}
+  .study-fig{max-width:100%}
+  .study-fig-solo,.study-fig-wide{max-width:100%}
+  .evidence-matrix{display:none}
+  .mobile-matrix{display:block}
+  .mobile-study-grid,.mobile-summary-grid{grid-template-columns:1fr}
+  .study-actions{right:14px;bottom:14px}
+  .study-fab{width:46px;height:46px}
+}
+
+/* References */
+.references-section{max-width:1080px;margin:0 auto}
+.ref-toggle{background:var(--white);border-radius:var(--radius-xl);padding:2rem 2.5rem;cursor:pointer;display:flex;align-items:center;justify-content:space-between;border:1px solid rgba(0,0,0,.05);transition:all .3s}
+.ref-toggle:hover{box-shadow:var(--shadow-sm)}
+.ref-toggle h3{font-size:1.1rem;font-weight:700;display:flex;align-items:center;gap:.75rem}
+.ref-toggle .chevron{width:32px;height:32px;background:var(--bg);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.9rem;transition:transform .3s;color:var(--text-light)}
+.ref-toggle.open .chevron{transform:rotate(180deg)}
+.ref-body{max-height:0;overflow:hidden;transition:max-height .5s}
+.ref-toggle.open+.ref-body{max-height:8000px}
+.ref-list{background:var(--white);border-radius:0 0 var(--radius-xl) var(--radius-xl);padding:0 2.5rem 2.5rem;columns:1;column-gap:2rem}
+.ref-item{font-size:.75rem;color:var(--text-light);line-height:1.6;padding:.4rem 0;break-inside:avoid;border-bottom:1px solid rgba(0,0,0,.03)}
+
+/* CTA */
+.cta-section{max-width:1000px;margin:3rem auto;text-align:center;background:linear-gradient(135deg,var(--o1),var(--accent));border-radius:var(--radius-xl);padding:4rem;color:var(--white)}
+.cta-section h2{font-family:var(--font-primary);font-size:clamp(1.6rem,3vw,2.2rem);font-weight:400;margin-bottom:1rem}
+.cta-section p{opacity:.85;max-width:500px;margin:0 auto 2rem;font-size:1rem}
+.cta-section .btn-white{font-family:var(--font-secondary);background:var(--white);color:var(--o1);padding:.85rem 2rem;border-radius:100px;text-decoration:none;font-weight:700;font-size:.95rem;transition:all .3s;display:inline-flex;align-items:center;gap:.5rem}
+.cta-section .btn-white:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(0,0,0,.2)}
+
+/* Site footer */
+.site-footer{display:none}
+.site-footer::before{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(255,255,255,.04),rgba(0,0,0,.03));pointer-events:none}
+.site-footer-inner{position:relative;max-width:1280px;margin:0 auto}
+.site-footer-brand{display:flex;align-items:center;justify-content:center;gap:1rem;padding-bottom:1.8rem;margin-bottom:1.8rem;border-bottom:1px solid rgba(255,255,255,.72)}
+.site-footer-brand img{height:76px;width:auto;display:block}
+.quebec-badge{display:inline-flex;align-items:center;justify-content:center}
+.quebec-badge img{height:110px;width:auto;display:block}
+.site-footer-grid{display:grid;grid-template-columns:1.2fr 1.2fr;gap:2.5rem;align-items:start}
+.site-footer-block{display:grid;grid-template-columns:180px 1fr;gap:1.8rem;min-height:264px}
+.site-footer-label{display:flex;align-items:center;justify-content:center;font-family:var(--font-secondary);font-size:1rem;font-weight:700;text-transform:uppercase;letter-spacing:.02em}
+.site-footer-links-panel,.site-footer-contact{padding-left:1.8rem;border-left:1px solid rgba(255,255,255,.72)}
+.site-footer-links-panel ul{list-style:none;display:grid;gap:.35rem}
+.site-footer-links-panel a,.site-footer-contact a{color:#fff;text-decoration:none;font-size:1rem;line-height:1.55}
+.site-footer-links-panel a:hover,.site-footer-contact a:hover,.site-footer-meta a:hover{text-decoration:underline}
+.site-footer-contact{display:grid;gap:1rem}
+.site-footer-contact p{font-size:1rem;line-height:1.55}
+.site-footer-contact-block{display:grid;grid-template-columns:180px 1fr;gap:1.8rem;min-height:264px}
+.site-footer-social{display:flex;gap:1rem;margin-top:.25rem}
+.site-footer-social a{width:42px;height:42px;border-radius:50%;border:2px solid rgba(255,255,255,.92);display:inline-flex;align-items:center;justify-content:center;color:#fff;text-decoration:none;transition:transform .2s ease,background .2s ease}
+.site-footer-social a:hover{transform:translateY(-2px);background:rgba(255,255,255,.1)}
+.site-footer-social svg{width:20px;height:20px;display:block;fill:currentColor}
+.site-footer-bottom{display:grid;grid-template-columns:1fr auto;gap:2rem;align-items:end;margin-top:2rem}
+.site-footer-meta{display:grid;gap:.35rem;justify-items:start}
+.site-footer-meta p,.site-footer-meta a{color:#fff;font-size:1rem;text-decoration:none}
+.site-footer-partner{background:#fff;border-radius:22px;padding:1rem 1.6rem;display:flex;align-items:center;justify-content:center;gap:1.2rem;min-width:360px;text-decoration:none}
+.site-footer-partner span{font-family:var(--font-primary);font-size:.98rem;color:#2f2d44}
+.site-footer-partner img{height:72px;width:auto;max-width:260px;display:block}
+.embed-bottom-mask{display:none}
+.is-embed .embed-bottom-mask{display:block;position:fixed;left:0;right:0;bottom:0;height:120px;pointer-events:none;z-index:30;background:linear-gradient(180deg,rgba(248,247,244,0),rgba(248,247,244,.92) 34%,#f8f7f4 72%);box-shadow:0 -24px 48px rgba(248,247,244,.95) inset}
+
+/* Footer */
+.footer{background:var(--bg-dark);color:rgba(255,255,255,.7);padding:4rem 2rem 2rem;margin-top:2rem}
+.footer-inner{max-width:1280px;margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr;gap:3rem}
+.footer h4{font-family:var(--font-secondary);color:var(--white);font-size:.9rem;font-weight:700;margin-bottom:1rem}
+.footer a{color:rgba(255,255,255,.6);text-decoration:none;font-size:.85rem;transition:color .3s}
+.footer a:hover{color:var(--o2)}
+.footer-links{list-style:none;display:flex;flex-direction:column;gap:.5rem}
+.footer-bottom{max-width:1280px;margin:3rem auto 0;padding-top:2rem;border-top:1px solid rgba(255,255,255,.1);display:flex;justify-content:space-between;align-items:center;font-size:.8rem}
+.footer-logo{font-family:var(--font-primary);font-weight:400;font-size:1.2rem;color:var(--white);margin-bottom:.75rem}
+
+.reveal{opacity:0;transform:translateY(30px);transition:all .7s cubic-bezier(.4,0,.2,1)}.reveal.visible{opacity:1;transform:translateY(0)}
+
+.mobile-menu{display:none;position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(248,247,244,.98);backdrop-filter:blur(20px);z-index:99;flex-direction:column;align-items:center;justify-content:center;gap:2rem;opacity:0;pointer-events:none;transition:opacity .3s}
+.mobile-menu.active{display:flex;opacity:1;pointer-events:all}
+.mobile-menu a{font-size:1.2rem;font-weight:600;color:var(--text);text-decoration:none}
+.mobile-close{position:absolute;top:1.5rem;right:2rem;font-size:2rem;background:none;border:none;cursor:pointer;color:var(--text)}
+
+@media(max-width:1280px){.stats-bar{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media(max-width:1024px){.stats-bar{grid-template-columns:repeat(2,minmax(0,1fr))}.result-highlight{flex-direction:column;text-align:center}.footer-inner{grid-template-columns:1fr 1fr}.site-footer-grid{grid-template-columns:1fr}.site-footer-block,.site-footer-contact-block{min-height:0}.site-footer-bottom{grid-template-columns:1fr}.site-footer-partner{justify-self:start}}
+@media(max-width:768px){.nav-links{display:none}.hamburger{display:flex}.stats-bar{grid-template-columns:1fr}.stat-card{min-height:auto}.study-card-header{padding:1.5rem}.study-card-content{padding:0 1.5rem 1.5rem}.ref-list{padding:0 1.5rem 1.5rem}.footer-inner{grid-template-columns:1fr}.footer-bottom{flex-direction:column;gap:1rem;text-align:center}.causes-grid{grid-template-columns:1fr}.site-footer{padding:2rem 1.25rem}.site-footer-brand{flex-direction:column}.site-footer-brand img{height:64px}.site-footer-block,.site-footer-contact-block{grid-template-columns:1fr;gap:1rem}.site-footer-links-panel,.site-footer-contact{padding-left:0;border-left:none}.site-footer-label{justify-content:flex-start}.site-footer-meta{justify-items:start}.site-footer-partner{min-width:0;width:100%;flex-direction:column;text-align:center}}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="hero-layout">
+    <div class="hero-text">
+      <div class="hero-badge"><span class="dot"></span> Recherche clinique</div>
+      <h1>Études <span class="gradient">scientifiques</span> sur Probaclac</h1>
+      <p>Des formules probiotiques éprouvées cliniquement. Découvrez les études à double insu, randomisées et contrôlées qui démontrent l'efficacité de nos produits.</p>
+    </div>
+    <div class="hero-visual">
+      <div class="hero-art" aria-hidden="true">
+        <div class="hero-doc back"></div>
+        <div class="hero-doc mid"></div>
+        <div class="hero-doc front">
+          <div class="hero-chart-card">
+            <svg viewBox="0 0 220 110" xmlns="http://www.w3.org/2000/svg">
+              <line x1="18" y1="12" x2="18" y2="92" stroke="#d8d8de"/>
+              <line x1="18" y1="92" x2="202" y2="92" stroke="#d8d8de"/>
+              <rect x="34" y="60" width="20" height="32" rx="8" fill="#cfcfcf"/>
+              <rect x="62" y="44" width="20" height="48" rx="8" fill="#1c1c1c"/>
+              <rect x="90" y="26" width="20" height="66" rx="8" fill="#e06d34"/>
+              <rect x="118" y="50" width="20" height="42" rx="8" fill="#cfcfcf"/>
+              <rect x="146" y="34" width="20" height="58" rx="8" fill="#1c1c1c"/>
+              <rect x="174" y="18" width="20" height="74" rx="8" fill="#e06d34"/>
+              <polyline points="44,70 72,54 100,36 128,58 156,42 184,26" fill="none" stroke="#1c1c1c" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+              <circle cx="44" cy="70" r="4" fill="#1c1c1c"/>
+              <circle cx="72" cy="54" r="4" fill="#1c1c1c"/>
+              <circle cx="100" cy="36" r="4" fill="#1c1c1c"/>
+              <circle cx="128" cy="58" r="4" fill="#1c1c1c"/>
+              <circle cx="156" cy="42" r="4" fill="#1c1c1c"/>
+              <circle cx="184" cy="26" r="4" fill="#1c1c1c"/>
+            </svg>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<div class="stats-bar reveal">
+  <article class="stat-card">
+    <div class="stat-topline">Clostridium<br>difficile</div>
+    <div class="stat-metric"><span class="stat-num" data-target="61" data-prefix="-" data-suffix="%">0</span></div>
+    <h3 class="stat-title">Réduction de la DACD<br>en milieu hospitalier</h3>
+  </article>
+  <article class="stat-card accent-medic">
+    <div class="stat-topline">Diarrhée et antibiotiques</div>
+    <div class="stat-metric"><span class="stat-num" data-target="86" data-prefix="-" data-suffix="%">0</span></div>
+    <h3 class="stat-title">Baisse du risque avec<br>supplémentation</h3>
+  </article>
+  <article class="stat-card accent-vaginal">
+    <div class="stat-topline">Vaginose<br>bactérienne</div>
+    <div class="stat-metric"><span class="stat-num" data-target="84" data-prefix="-" data-suffix="%">0</span></div>
+    <h3 class="stat-title">Réduction de la récurrence<br>de la vaginose bactérienne</h3>
+  </article>
+  <article class="stat-card accent-yeast">
+    <div class="stat-topline">Infection à<br>levure</div>
+    <div class="stat-metric"><span class="stat-num" data-target="91" data-suffix="%">0</span></div>
+    <h3 class="stat-title">Femmes sans rechute<br>après 4 mois</h3>
+  </article>
+  <article class="stat-card accent-ibs">
+    <div class="stat-topline">Syndrome de l'intestin<br>irritable</div>
+    <div class="stat-metric"><span class="stat-num" style="color:#2a7b9b">+33%</span></div>
+    <h3 class="stat-title">Fréquence des selles<br>en constipation</h3>
+  </article>
+  <article class="stat-card accent-ibs">
+    <div class="stat-topline">Syndrome de l'intestin<br>irritable</div>
+    <div class="stat-metric"><span class="stat-num" style="color:#2a7b9b">-21%</span></div>
+    <h3 class="stat-title">Fréquence des selles<br>en diarrhée</h3>
+  </article>
+</div>
+
+<section id="etudes">
+  <div class="study-nav reveal" id="studyTabs">
+    <button class="study-nav-btn" data-tab="cdifficile">C. Difficile</button>
+    <button class="study-nav-btn" data-tab="diarrhee">Diarrhée &amp; Antibiotiques</button>
+    <button class="study-nav-btn" data-tab="vaginose">Vaginose bactérienne</button>
+    <button class="study-nav-btn" data-tab="candidose">Infection à levure</button>
+    <button class="study-nav-btn" data-tab="ibs">Syndrome de l'intestin irritable</button>
+    <button class="study-nav-btn" data-tab="acidite">Résistance à l'acide</button>
+  </div>
+  <div class="study-actions" id="studyActions" aria-hidden="true">
+    <button class="study-fab close" id="studyClose" type="button" aria-label="Fermer l'onglet ouvert">×</button>
+    <button class="study-fab up" id="studyUp" type="button" aria-label="Revenir aux onglets">↑</button>
+  </div>
+
+  <div class="study-section" id="cdifficile">
+    <div class="study-card reveal">
+      <div class="study-card-header" onclick="toggleCard(this)">
+        <h3><span class="sc-icon">01</span> Clostridium difficile - Étude Hôpital Santa Cabrini</h3>
+        <span class="chevron">▼</span>
+      </div>
+      <div class="study-card-body"><div class="study-card-content">
+        <p class="sc-text">La <strong>Clostridium difficile</strong> est une bactérie qui réside normalement sans causer aucun problème dans l'intestin d'environ 5% de la population. Suite à un traitement antibiotique, la colonisation bactérienne dans l'intestin diminue, ce qui favorise la prolifération du C. difficile. Bien installées, les bactéries produisent des toxines qui peuvent endommager l'intestin et causer la diarrhée.</p>
+        <p class="sc-text">La diarrhée associée au Clostridium difficile (DACD) représente la <strong>première cause de diarrhées infectieuses nosocomiales</strong>.</p>
+
+        <figure class="study-fig study-fig-solo"><img src="https://static.wixstatic.com/media/623234_7ef7133fa2a54bfeb58564ab7890e248~mv2.png/v1/fill/w_980,h_518,al_c,q_90,usm_0.66_1.00_0.01,enc_avif,quality_auto/61pctpbl.png" alt="Réduction de 61% du C. difficile"><figcaption>Réduction de 61 % des infections à C. difficile - Hôpital Santa Cabrini</figcaption></figure>
+
+        <p class="sc-text">Généralement, les personnes atteintes guérissent à l'aide du traitement antibiotique, bien que les recherches estiment que <strong>le traitement initial échoue chez plus de 20% des patients</strong>. Les personnes suivant une antibiothérapie sont 7 à 10 fois plus susceptibles de souffrir de l'infection.</p>
+
+        <div class="result-highlight">
+          <div class="rh-num">-61%</div>
+          <div class="rh-text">L'administration de probiotiques Probaclac comme mesure préventive a permis de réduire la DACD de 61% à l'Hôpital Santa Cabrini de Montréal. Étude réalisée sur 8 mois auprès de 5 000 patients, à double insu et indépendamment des Laboratoires Nicar.</div>
+        </div>
+
+        <div class="info-box"><p>Les personnes dans un milieu hospitalier ou dans une maison de repos sont une population à risque. Il est aussi possible de retrouver du sang, du mucus ou du pus dans les selles.</p></div>
+
+        <h4 style="font-size:.95rem;font-weight:700;margin:1.5rem 0 .75rem">Étude concernant Probaclac Adultes :</h4>
+        <a href="https://www.probaclac.ca/_files/ugd/623234_54c1ac82c86a49e888c75701801b14ba.pdf" class="download-link">↓ Important risk reduction in nosocomial C. difficile with institution of probiotic prophylaxis - Télécharger</a>
+      </div></div>
+    </div>
+  </div>
+
+  <div class="study-section" id="diarrhee">
+    <div class="study-card reveal">
+      <div class="study-card-header" onclick="toggleCard(this)">
+        <h3><span class="sc-icon">02</span> Probaclac Medic - S. boulardii</h3>
+        <span class="chevron">▼</span>
+      </div>
+      <div class="study-card-body"><div class="study-card-content">
+        <p class="sc-text">Les antibiotiques à large spectre agissent contre un grand nombre de bactéries sans faire de distinction entre les bactéries pathogènes et les bonnes bactéries résidentes de la flore intestinale. Le déséquilibre bactérien intestinal ainsi causé peut entraîner une <strong>diarrhée associée aux antibiotiques (DAA)</strong>.</p>
+        <p class="sc-text">Plusieurs études ont confirmé l'efficacité de la levure probiotique <strong>Saccharomyces boulardii</strong> dans le traitement préventif. Ce probiotique ne peut être affecté par les antibiotiques et aide à restaurer la flore intestinale.</p>
+
+        <div class="result-highlight medic">
+          <div class="rh-num">-86%</div>
+          <div class="rh-text">Une étude randomisée contrôlée à double insu auprès de 151 patients adultes hospitalisés : le groupe placebo a développé la diarrhée dans un ratio de 9% alors que le groupe avec supplémentation avait un ratio de 1,4% - une diminution de 86%.</div>
+        </div>
+
+        <figure class="study-fig study-fig-solo"><img src="https://static.wixstatic.com/media/623234_b2f2ace0ffdd47ab8595fee2d72f4dba~mv2.png/v1/fill/w_980,h_401,al_c,q_90,usm_0.66_1.00_0.01,enc_avif,quality_auto/86PCT.png" alt="Réduction de 86% de la diarrhée"><figcaption>Réduction de 86 % de la DAA avec S. boulardii - Étude à double insu</figcaption></figure>
+
+        <p class="sc-text">L'effet bénéfique a aussi été reproduit dans un essai randomisé contrôlé à double insu auprès de <strong>269 enfants âgés entre 6 mois et 14 ans</strong>. La formule Probaclac Medic contient 5 milliards de cellules actives par capsule.</p>
+
+        <h4 style="font-size:.95rem;font-weight:700;margin:1.5rem 0 .75rem">Études concernant Probaclac Medic :</h4>
+        <a href="https://www.probaclac.ca/_files/ugd/623234_779d25202386422a88c1fc39b1cece37.pdf" class="download-link">↓ S. boulardii in prevention of antibiotic-associated diarrhoea in children</a>
+        <a href="https://www.probaclac.ca/_files/ugd/623234_6850b59346164519a6fdbe960b99d1fe.pdf" class="download-link">↓ Prophylactic S. boulardii in prevention of antibiotic-associated diarrhea</a>
+      </div></div>
+    </div>
+
+    <div class="study-card reveal">
+      <div class="study-card-header" onclick="toggleCard(this)">
+        <h3><span class="sc-icon">03</span> Probaclac GI - Lactobacillus rhamnosus GG</h3>
+        <span class="chevron">▼</span>
+      </div>
+      <div class="study-card-body"><div class="study-card-content">
+        <p class="sc-text">Recommandés pour prévenir la diarrhée associée aux antibiotiques, <strong>Lactobacillus rhamnosus GG</strong> réduit significativement le risque d'être atteint de diarrhée associée à la prise d'antibiotiques.</p>
+
+        <div class="result-highlight">
+          <div class="rh-num">-88%</div>
+          <div class="rh-text">Lactobacillus rhamnosus GG a démontré cliniquement sa propension à favoriser la croissance de bactéries amicales. La souche GG a la capacité naturelle de survivre à l'acidité gastrique et de servir de barrière aux bactéries pathogènes.</div>
+        </div>
+
+        <div class="study-figures">
+          <figure class="study-fig"><img src="https://static.wixstatic.com/media/623234_a226fb6c54754f15a822a06ebe31fc00~mv2.png/v1/fill/w_980,h_461,al_c,q_90,usm_0.66_1.00_0.01,enc_avif,quality_auto/88pct.png" alt="Réduction de 88% - Lactobacillus GG"><figcaption>Réduction de 88 % avec L. rhamnosus GG</figcaption></figure>
+          <figure class="study-fig"><img src="https://static.wixstatic.com/media/623234_59133920c9904367804dc27d5174dbcf~mv2.jpg/v1/fill/w_980,h_1053,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/GRAPHIQUEGG.jpg" alt="Graphique Lactobacillus GG"><figcaption>Efficacite clinique de la souche GG</figcaption></figure>
+        </div>
+
+        <p class="sc-text">Les diarrhées infectieuses sont des diarrhées aiguës. L'OMS les définit par l'émission d'au moins 3 selles molles à liquides par jour depuis moins de 2 semaines. Les études suggèrent que l'équilibre intestinal pourra être rétabli par la réhydratation et la supplémentation probiotiques.</p>
+        <p class="sc-text">Les données cliniques sur GG ont prouvé sa capacité à <strong>réduire l'incidence et la durée d'épisodes de diarrhée</strong> causée par des infections d'origine virale ou bactérienne.</p>
+
+        <h4 style="font-size:.95rem;font-weight:700;margin:1.5rem 0 .75rem">Études concernant Probaclac GI :</h4>
+        <a href="https://www.probaclac.ca/_files/ugd/623234_4215de22536a4a2fa3e1ef44bd2a996d.pdf" class="download-link">↓ Effect of oral Lactobacillus GG on antibiotic-associated GI side-effects</a>
+        <a href="https://www.probaclac.ca/_files/ugd/623234_90566cd26c2947dc9febf3e9f2f868ea.pdf" class="download-link">↓ Effect of different probiotic preparations on anti-H. pylori therapy</a>
+        <a href="https://www.probaclac.ca/_files/ugd/623234_bf5cf6f31d9b42a986df6c07feac4052.pdf" class="download-link">↓ Effect of Lactobacillus GG supplementation - Pilot study</a>
+      </div></div>
+    </div>
+  </div>
+
+  <div class="study-section" id="vaginose">
+    <div class="study-card reveal">
+      <div class="study-card-header" onclick="toggleCard(this)">
+        <h3><span class="sc-icon">04</span> Probaclac Vaginal - Vaginose bactérienne</h3>
+        <span class="chevron">▼</span>
+      </div>
+      <div class="study-card-body"><div class="study-card-content">
+        <p class="sc-text">La flore vaginale est composée d'un ensemble de micro-organismes dont une très grande quantité de bactéries lactobacilles, appelée la <strong>flore de Döderlein</strong> qui représente environ 95% de l'écosystème vaginal. Les bonnes bactéries forment un biofilm protecteur de la muqueuse vaginale.</p>
+        <p class="sc-text">L'effet protecteur des lactobacilles se décline en différentes actions : elles inhibent la croissance des bactéries pathogènes en sécrétant une variété de substances et elles nuisent à leur adhésion aux cellules épithéliales vaginales.</p>
+
+        <div class="result-highlight" style="background:linear-gradient(135deg,#6e9faf,#5d8b9a)">
+          <div class="rh-num">-84%</div>
+          <div class="rh-text">Une étude auprès de 120 femmes avec un historique de vaginose bactérienne récurrente démontre que l'insertion de probiotiques dans la cavité vaginale réduit la récurrence de la vaginose bactérienne de plus de 84%.</div>
+        </div>
+
+        <div class="study-figures">
+          <figure class="study-fig"><img src="https://static.wixstatic.com/media/623234_24c947ad80f64cf2ba0da13139caec8c~mv2.jpg/v1/crop/x_0,y_5,w_1143,h_402/fill/w_980,h_345,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/84PCT.jpg" alt="Réduction de 84% de la vaginose bactérienne"><figcaption>Réduction de 84 % de la récurrence de la VB</figcaption></figure>
+          <figure class="study-fig"><img src="https://static.wixstatic.com/media/623234_f34e278849df456591e4b7a699a7359e~mv2.png/v1/crop/x_0,y_10,w_2336,h_1184/fill/w_980,h_497,al_c,q_90,usm_0.66_1.00_0.01,enc_avif,quality_auto/etudevaginal.png" alt="Étude Probaclac Vaginal"><figcaption>Résultats cliniques - Probaclac Vaginal</figcaption></figure>
+        </div>
+
+        <p class="sc-text">La formule Probaclac Vaginal contient <strong>8 milliards de bactéries de 3 différentes souches</strong> et aide à réguler la flore de Döderlein en la repeuplant.</p>
+
+        <h4 style="font-size:.9rem;font-weight:700;margin:1.5rem 0 .5rem">Causes pouvant mener à un déséquilibre :</h4>
+        <div class="causes-grid">
+          <div class="cause-item"><span class="ci-dot"></span>Variations hormonales (grossesse)</div>
+          <div class="cause-item"><span class="ci-dot"></span>Antibiothérapie</div>
+          <div class="cause-item"><span class="ci-dot"></span>Hygiène vaginale excessive</div>
+          <div class="cause-item"><span class="ci-dot"></span>Rapports sexuels</div>
+          <div class="cause-item"><span class="ci-dot"></span>Stress</div>
+          <div class="cause-item"><span class="ci-dot"></span>Tabac</div>
+        </div>
+
+        <p class="sc-text" style="margin-top:1.25rem">Une vaginose bactérienne est un déséquilibre pouvant être causé par la prolifération de bactéries comme la <em>Gardnerella vaginalis</em> ou la <em>Prevotella</em>. Ce changement implique une augmentation du pH vaginal normalement acide. Cette infection est asymptomatique chez la moitié des femmes.</p>
+
+        <figure class="study-fig study-fig-wide"><img src="https://static.wixstatic.com/media/623234_da39a55e774b48e1b8fdf38627ef2571~mv2.jpg/v1/crop/x_0,y_2,w_1400,h_914/fill/w_980,h_640,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/VAGINOSEfr.jpg" alt="Schéma vaginose bactérienne"><figcaption>Mécanisme de la vaginose bactérienne et rôle de la flore de Döderlein</figcaption></figure>
+
+        <h4 style="font-size:.95rem;font-weight:700;margin:1.5rem 0 .75rem">Étude concernant Probaclac Vaginal :</h4>
+        <a href="https://www.probaclac.ca/_files/ugd/623234_b79c99ec5a3b4524b22388c3e45be291.pdf" class="download-link">↓ Efficacy of vaginal probiotic capsules for recurrent bacterial vaginosis</a>
+      </div></div>
+    </div>
+  </div>
+
+  <div class="study-section" id="candidose">
+    <div class="study-card reveal">
+      <div class="study-card-header" onclick="toggleCard(this)">
+        <h3><span class="sc-icon">05</span> Candidose vulvo-vaginale récurrente</h3>
+        <span class="chevron">▼</span>
+      </div>
+      <div class="study-card-body"><div class="study-card-content">
+        <p class="sc-text"><strong>L. Plantarum Rosella</strong> est une souche unique isolée d'une flore vaginale saine, bénéficiant de preuves mécanistiques et cliniques complètes. Étudiée chez plus de <strong>800 femmes</strong> dans 6 études cliniques, elle démontre son efficacité pour le maintien d'un équilibre vaginal optimal et la prise en charge de la candidose vulvo-vaginale récurrente (rVVC).</p>
+
+        <div class="result-highlight" style="background:linear-gradient(135deg,#ce3079,#a82563)">
+          <div class="rh-num">91%</div>
+          <div class="rh-text">des femmes n'ont pas eu de rechute après 4 mois de suivi dans l'étude Carriero (2007) portant sur 476 femmes atteintes de candidose vulvo-vaginale.</div>
+        </div>
+
+        <div class="study-overview">
+          <div class="overview-card">
+            <div class="overview-kicker">Souche clinique</div>
+            <div class="overview-big">
+              <strong>800+</strong>
+              <span>femmes étudiées<br>dans 6 essais</span>
+            </div>
+            <p class="overview-note">Cette souche est issue d'une flore vaginale humaine saine. Les données documentent à la fois le maintien de l'équilibre vaginal, la candidose vulvo-vaginale récurrente et l'amélioration des symptômes observés après traitement.</p>
+          </div>
+          <div class="protocol-card">
+            <div class="protocol-flow">
+              <div class="flow-step primary">
+                <span>Origine humaine</span>
+                <small>souche isolée d'une flore vaginale saine</small>
+              </div>
+              <div class="flow-step secondary">
+                <span>Action documentée</span>
+                <small>pH, symptômes, recolonisation et rechutes</small>
+              </div>
+              <div class="flow-step ghost">
+                <span>Usage clinique</span>
+                <small>en adjuvant d'un traitement antifongique</small>
+              </div>
+            </div>
+            <div class="protocol-meta">
+              <h5>Points clés</h5>
+              <ul>
+                <li>6 études cliniques, dont 4 par voie vaginale</li>
+                <li>contribue à la santé vaginale en cas de VVC récurrente</li>
+                <li>normalise le pH et favorise une flore associée à la santé vaginale</li>
+                <li>adhésion et interférence avec <em>Candida albicans</em> observées in vitro</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="info-box" style="border-color:#ce3079"><p>Cette souche démontre une activité inhibitrice <strong>forte</strong> contre <em>E. coli</em> et <em>K. pneumoniae</em>, et <strong>intermédiaire</strong> contre <em>P. mirabilis</em>. Ces bactéries sont impliquées dans plusieurs infections urinaires et vaginales.</p></div>
+
+        <div class="dual-charts">
+          <div class="metric-card">
+            <div class="metric-head">
+              <div>
+                <h5>Nava 2002 - réduction du pH et des symptômes</h5>
+                <p class="metric-sub">Étude sur 30 femmes avec vaginite d'origine bactérienne ou fongique, 6 jours de prise puis 9 jours de suivi.</p>
+              </div>
+              <span class="metric-pill">T7 / T15</span>
+            </div>
+            <svg viewBox="0 0 360 220" style="width:100%;height:auto" xmlns="http://www.w3.org/2000/svg">
+              <line x1="32" y1="26" x2="32" y2="178" stroke="#d8d8de"/>
+              <line x1="32" y1="178" x2="332" y2="178" stroke="#d8d8de"/>
+              <text x="70" y="196" text-anchor="middle" font-size="10" fill="#7f8791">Démangeaison</text>
+              <text x="126" y="196" text-anchor="middle" font-size="10" fill="#7f8791">Brûlure</text>
+              <text x="182" y="196" text-anchor="middle" font-size="10" fill="#7f8791">Œdème</text>
+              <text x="238" y="196" text-anchor="middle" font-size="10" fill="#7f8791">Érythème</text>
+              <text x="294" y="196" text-anchor="middle" font-size="10" fill="#7f8791">Leucorrhée</text>
+              <rect x="54" y="78" width="12" height="100" rx="6" fill="#a8adb4"/>
+              <rect x="68" y="140" width="12" height="38" rx="6" fill="#d95a84"/>
+              <rect x="82" y="148" width="12" height="30" rx="6" fill="#e9a2b8"/>
+              <rect x="110" y="78" width="12" height="100" rx="6" fill="#a8adb4"/>
+              <rect x="124" y="146" width="12" height="32" rx="6" fill="#d95a84"/>
+              <rect x="138" y="162" width="12" height="16" rx="6" fill="#e9a2b8"/>
+              <rect x="166" y="112" width="12" height="66" rx="6" fill="#a8adb4"/>
+              <rect x="180" y="162" width="12" height="16" rx="6" fill="#d95a84"/>
+              <rect x="194" y="162" width="12" height="16" rx="6" fill="#e9a2b8"/>
+              <rect x="222" y="106" width="12" height="72" rx="6" fill="#a8adb4"/>
+              <rect x="236" y="162" width="12" height="16" rx="6" fill="#d95a84"/>
+              <rect x="250" y="162" width="12" height="16" rx="6" fill="#e9a2b8"/>
+              <rect x="278" y="66" width="12" height="112" rx="6" fill="#a8adb4"/>
+              <rect x="292" y="126" width="12" height="52" rx="6" fill="#d95a84"/>
+              <rect x="306" y="136" width="12" height="42" rx="6" fill="#e9a2b8"/>
+              <polyline points="256,66 290,120 320,132" fill="none" stroke="#0f5777" stroke-width="3.5" stroke-linecap="round"/>
+              <circle cx="256" cy="66" r="4.5" fill="#0f5777"/>
+              <circle cx="290" cy="120" r="4.5" fill="#0f5777"/>
+              <circle cx="320" cy="132" r="4.5" fill="#0f5777"/>
+              <text x="258" y="54" font-size="10" fill="#0f5777" font-weight="700">pH 5.3</text>
+              <text x="286" y="108" font-size="10" fill="#0f5777" font-weight="700">5.0</text>
+              <text x="314" y="120" font-size="10" fill="#0f5777" font-weight="700">4.9</text>
+            </svg>
+            <div class="chart-legend">
+              <span class="legend-item"><span class="legend-dot" style="background:#a8adb4"></span>Initial</span>
+              <span class="legend-item"><span class="legend-dot" style="background:#d95a84"></span>Jour 7</span>
+              <span class="legend-item"><span class="legend-dot" style="background:#e9a2b8"></span>Jour 15</span>
+              <span class="legend-item"><span class="legend-dot" style="background:#0f5777"></span>pH</span>
+            </div>
+          </div>
+
+          <div class="metric-card">
+            <div class="metric-head">
+              <div>
+                <h5>Carriero 2007 - maintien sans rechute</h5>
+                <p class="metric-sub">Après pré-traitement au fluconazole oral, trois cycles mensuels en fin de période menstruelle.</p>
+              </div>
+              <span class="metric-pill">4 semaines / 4 mois</span>
+            </div>
+            <svg viewBox="0 0 360 220" style="width:100%;height:auto" xmlns="http://www.w3.org/2000/svg">
+              <line x1="42" y1="22" x2="42" y2="180" stroke="#d8d8de"/>
+              <line x1="42" y1="180" x2="330" y2="180" stroke="#d8d8de"/>
+              <text x="108" y="198" text-anchor="middle" font-size="10" fill="#7f8791">4 semaines</text>
+              <text x="252" y="198" text-anchor="middle" font-size="10" fill="#7f8791">4 mois</text>
+              <rect x="78" y="48" width="28" height="132" rx="10" fill="#ce3079"/>
+              <rect x="112" y="134" width="28" height="46" rx="10" fill="#c8cdd3"/>
+              <rect x="222" y="36" width="28" height="144" rx="10" fill="#ce3079"/>
+              <rect x="256" y="150" width="28" height="30" rx="10" fill="#c8cdd3"/>
+              <text x="92" y="42" text-anchor="middle" font-size="11" font-weight="700" fill="#ce3079">83%</text>
+              <text x="126" y="128" text-anchor="middle" font-size="11" font-weight="700" fill="#7f8791">17%</text>
+              <text x="236" y="30" text-anchor="middle" font-size="11" font-weight="700" fill="#ce3079">91%</text>
+              <text x="270" y="144" text-anchor="middle" font-size="11" font-weight="700" fill="#7f8791">9%</text>
+            </svg>
+            <div class="chart-legend">
+              <span class="legend-item"><span class="legend-dot" style="background:#ce3079"></span>Sans rechute</span>
+              <span class="legend-item"><span class="legend-dot" style="background:#c8cdd3"></span>Rechute</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="insight-grid">
+          <div class="insight-card">
+            <strong>90%</strong>
+            <span>amélioration perçue des symptômes</span>
+            <p>Observée dans l'étude De Seta 2014, contre 68% dans le groupe comparateur.</p>
+          </div>
+          <div class="insight-card">
+            <strong>80%</strong>
+            <span>niveaux élevés de lactobacilles</span>
+            <p>Après 90 jours, contre 40% dans le groupe comparateur.</p>
+          </div>
+          <div class="insight-card">
+            <strong>83.3%</strong>
+            <span>résolution clinique déclarée</span>
+            <p>Dans l'étude Cianci 2016, versus 47.8% dans le groupe témoin.</p>
+          </div>
+        </div>
+
+        <h4 style="font-size:.95rem;font-weight:700;margin:1.5rem 0 .75rem">Synthèse des études vaginales</h4>
+        <div class="matrix-card">
+          <h5>Tableau clinique</h5>
+          <div class="evidence-matrix" style="grid-template-columns:1fr 1.05fr .75fr 1.5fr .9fr .9fr .9fr;">
+            <div class="matrix-head topic">Année / auteur</div>
+            <div class="matrix-head">Condition</div>
+            <div class="matrix-head">N</div>
+            <div class="matrix-head">Regime</div>
+            <div class="matrix-head">pH</div>
+            <div class="matrix-head">Symptômes</div>
+            <div class="matrix-head">Persistance</div>
+
+            <div class="matrix-cell topic">Cianci 2016</div>
+            <div class="matrix-cell">VB et/ou AV</div>
+            <div class="matrix-cell">94</div>
+            <div class="matrix-cell">6 jours consécutifs puis 1 capsule la semaine suivante</div>
+            <div class="matrix-cell na">Non testé</div>
+            <div class="matrix-cell good">✓</div>
+            <div class="matrix-cell na">Non testé</div>
+
+            <div class="matrix-cell topic">De Seta 2014</div>
+            <div class="matrix-cell">VVC</div>
+            <div class="matrix-cell">80</div>
+            <div class="matrix-cell">6 jours consécutifs puis 1 capsule par semaine durant 4 semaines</div>
+            <div class="matrix-cell good">✓</div>
+            <div class="matrix-cell good">✓</div>
+            <div class="matrix-cell na">Non testé</div>
+
+            <div class="matrix-cell topic">Carriero 2007</div>
+            <div class="matrix-cell">VVC</div>
+            <div class="matrix-cell">476</div>
+            <div class="matrix-cell">3 mois : 6 jours de prise en fin de cycle menstruel</div>
+            <div class="matrix-cell good">✓</div>
+            <div class="matrix-cell good">✓</div>
+            <div class="matrix-cell good">✓</div>
+
+            <div class="matrix-cell topic">Nava 2002</div>
+            <div class="matrix-cell">VVC ou VB</div>
+            <div class="matrix-cell">30</div>
+            <div class="matrix-cell">6 jours de prise / 9 jours de suivi</div>
+            <div class="matrix-cell good">✓</div>
+            <div class="matrix-cell good">✓</div>
+            <div class="matrix-cell good">✓</div>
+
+            <div class="matrix-cell topic">Nava 2002</div>
+            <div class="matrix-cell">VVC</div>
+            <div class="matrix-cell">30</div>
+            <div class="matrix-cell">6 jours par mois + 3 mois de suivi</div>
+            <div class="matrix-cell good">✓</div>
+            <div class="matrix-cell good">✓</div>
+            <div class="matrix-cell good">✓</div>
+          </div>
+          <div class="mobile-matrix">
+            <div class="mobile-study-list">
+              <div class="mobile-study-card">
+                <div class="mobile-study-head"><strong>Cianci 2016</strong><span>94 participantes</span></div>
+                <div class="mobile-study-grid">
+                  <div class="mobile-field"><span class="mobile-field-label">Condition</span><span class="mobile-field-value">VB et/ou AV</span></div>
+                  <div class="mobile-field"><span class="mobile-field-label">Régime</span><span class="mobile-field-value">6 jours consécutifs puis 1 capsule la semaine suivante</span></div>
+                </div>
+                <div class="mobile-checks"><span class="mobile-check na">pH Non testé</span><span class="mobile-check">Symptômes ✓</span><span class="mobile-check na">Persistance Non testé</span></div>
+              </div>
+              <div class="mobile-study-card">
+                <div class="mobile-study-head"><strong>De Seta 2014</strong><span>80 participantes</span></div>
+                <div class="mobile-study-grid">
+                  <div class="mobile-field"><span class="mobile-field-label">Condition</span><span class="mobile-field-value">VVC</span></div>
+                  <div class="mobile-field"><span class="mobile-field-label">Régime</span><span class="mobile-field-value">6 jours consécutifs puis 1 capsule par semaine durant 4 semaines</span></div>
+                </div>
+                <div class="mobile-checks"><span class="mobile-check">pH ✓</span><span class="mobile-check">Symptômes ✓</span><span class="mobile-check na">Persistance Non testé</span></div>
+              </div>
+              <div class="mobile-study-card">
+                <div class="mobile-study-head"><strong>Carriero 2007</strong><span>476 participantes</span></div>
+                <div class="mobile-study-grid">
+                  <div class="mobile-field"><span class="mobile-field-label">Condition</span><span class="mobile-field-value">VVC</span></div>
+                  <div class="mobile-field"><span class="mobile-field-label">Régime</span><span class="mobile-field-value">3 mois : 6 jours de prise en fin de cycle menstruel</span></div>
+                </div>
+                <div class="mobile-checks"><span class="mobile-check">pH ✓</span><span class="mobile-check">Symptômes ✓</span><span class="mobile-check">Persistance ✓</span></div>
+              </div>
+              <div class="mobile-study-card">
+                <div class="mobile-study-head"><strong>Nava 2002</strong><span>30 participantes</span></div>
+                <div class="mobile-study-grid">
+                  <div class="mobile-field"><span class="mobile-field-label">Condition</span><span class="mobile-field-value">VVC ou VB</span></div>
+                  <div class="mobile-field"><span class="mobile-field-label">Régime</span><span class="mobile-field-value">6 jours de prise / 9 jours de suivi</span></div>
+                </div>
+                <div class="mobile-checks"><span class="mobile-check">pH ✓</span><span class="mobile-check">Symptômes ✓</span><span class="mobile-check">Persistance ✓</span></div>
+              </div>
+              <div class="mobile-study-card">
+                <div class="mobile-study-head"><strong>Nava 2002</strong><span>30 participantes</span></div>
+                <div class="mobile-study-grid">
+                  <div class="mobile-field"><span class="mobile-field-label">Condition</span><span class="mobile-field-value">VVC</span></div>
+                  <div class="mobile-field"><span class="mobile-field-label">Régime</span><span class="mobile-field-value">6 jours par mois + 3 mois de suivi</span></div>
+                </div>
+                <div class="mobile-checks"><span class="mobile-check">pH ✓</span><span class="mobile-check">Symptômes ✓</span><span class="mobile-check">Persistance ✓</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <p class="sc-text"><strong>Allégations santé au Canada :</strong> Réduit les signes de candidose vulvo-vaginale (CVV). Aide à traiter la candidose vulvo-vaginale récurrente (CVVr)*<br>*En combinaison avec un traitement antifongique</p>
+      </div></div>
+    </div>
+  </div>
+
+  <div class="study-section" id="ibs">
+    <div class="study-card reveal">
+      <div class="study-card-header" onclick="toggleCard(this)">
+        <h3><span class="sc-icon">06</span> L. paracasei HA-196 - Syndrome de l'intestin irritable</h3>
+        <span class="chevron">▼</span>
+      </div>
+      <div class="study-card-body"><div class="study-card-content">
+        <p class="sc-text"><strong>Lacticaseibacillus paracasei HA-196</strong> est une bactérie bénéfique que l'on retrouve naturellement dans la bouche et les intestins. Elle produit de l'acide lactique, contribuant à <strong>abaisser le pH digestif</strong> et à freiner la croissance des bactéries nuisibles. Sa capacité d'adhésion aux cellules épithéliales du côlon lui confère un avantage compétitif contre les pathogènes.</p>
+
+        <div class="result-highlight" style="background:linear-gradient(135deg,#2a7b9b,#1a5a73)">
+          <div class="rh-num">-21%</div>
+          <div class="rh-text">de fréquence des selles chez les personnes atteintes du SII-D (diarrhée) après 8 semaines de prise de <em>L. paracasei</em> HA-196 (10 milliards CFU/jour) - contribuant à des habitudes intestinales plus régulières. (p&lt;0.05 vs placebo, n=23)</div>
+        </div>
+
+        <h4 style="font-size:.95rem;font-weight:700;margin:1.5rem 0 .75rem">Architecture de l'étude IBS</h4>
+        <p class="sc-text">Cette section reprend l'esprit des planches de synthèse fournies, mais avec des graphiques, cartes et compositions intégralement redessinés pour l'univers Probaclac.</p>
+
+        <div class="study-overview">
+          <div class="overview-card" style="border-color:rgba(42,123,155,.16);background:linear-gradient(180deg,#fff,#f4f9fc)">
+            <div class="overview-kicker" style="color:#2a7b9b">Lecture rapide</div>
+            <div class="overview-big">
+              <strong style="color:#2a7b9b">251</strong>
+              <span>adultes évalués<br>sur 8 semaines</span>
+            </div>
+            <p class="overview-note">Participants présentant des sous-types IBS-C, IBS-D ou IBS-M. L'étude randomisée, à double insu et contrôlée par placebo suivait les variations de symptômes digestifs et de qualité de vie.</p>
+          </div>
+          <div class="protocol-card" style="border-color:rgba(42,123,155,.16);background:linear-gradient(180deg,#fff,#f4f9fc)">
+            <div class="protocol-flow">
+              <div class="flow-step primary" style="background:linear-gradient(135deg,#2a7b9b,#1a5a73)">
+                <span>L. paracasei HA-196</span>
+                <small>10 milliards CFU par jour pendant 8 semaines</small>
+              </div>
+              <div class="flow-step secondary">
+                <span>B. longum Rosell-175</span>
+                <small>bras comparatif actif à dose équivalente</small>
+              </div>
+              <div class="flow-step ghost">
+                <span>Placebo</span>
+                <small>suivi parallèle et lecture à la semaine 8</small>
+              </div>
+            </div>
+            <div class="protocol-meta" style="background:#e9f2f7">
+              <h5>6 questionnaires validés</h5>
+              <ul>
+                <li>IBS-SSS et échelle de Bristol</li>
+                <li>IBS-QOL, HADS, SF-36</li>
+                <li>journal quotidien des symptômes</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="dual-charts">
+          <div class="metric-card">
+            <div class="metric-head">
+              <div>
+                <h5>Qualité de vie - SF-36</h5>
+                <p class="metric-sub">Deux dimensions se distinguent à la semaine 8 : bien-être émotionnel et fonctionnement social.</p>
+              </div>
+              <span class="metric-pill" style="background:#edf6fa;color:#2a7b9b">SF-36</span>
+            </div>
+            <svg viewBox="0 0 360 220" style="width:100%;height:auto" xmlns="http://www.w3.org/2000/svg">
+              <line x1="42" y1="24" x2="42" y2="178" stroke="#d8d8de"/>
+              <line x1="42" y1="178" x2="332" y2="178" stroke="#d8d8de"/>
+              <line x1="42" y1="132" x2="332" y2="132" stroke="#eef1f4"/>
+              <line x1="42" y1="86" x2="332" y2="86" stroke="#eef1f4"/>
+              <text x="96" y="198" text-anchor="middle" font-size="10" fill="#7f8791">Bien-être</text>
+              <text x="238" y="198" text-anchor="middle" font-size="10" fill="#7f8791">Social</text>
+              <rect x="72" y="95" width="28" height="83" rx="10" fill="#2a7b9b"/>
+              <rect x="106" y="68" width="28" height="110" rx="10" fill="#f0a54a"/>
+              <rect x="140" y="118" width="28" height="60" rx="10" fill="#c9ced5"/>
+              <rect x="214" y="58" width="28" height="120" rx="10" fill="#2a7b9b"/>
+              <rect x="248" y="78" width="28" height="100" rx="10" fill="#f0a54a"/>
+              <rect x="282" y="126" width="28" height="52" rx="10" fill="#c9ced5"/>
+              <text x="86" y="88" text-anchor="middle" font-size="11" font-weight="700" fill="#2a7b9b">*</text>
+              <text x="120" y="61" text-anchor="middle" font-size="11" font-weight="700" fill="#f0a54a">*</text>
+              <text x="228" y="51" text-anchor="middle" font-size="11" font-weight="700" fill="#2a7b9b">**</text>
+              <text x="262" y="71" text-anchor="middle" font-size="11" font-weight="700" fill="#f0a54a">*</text>
+            </svg>
+            <div class="chart-legend">
+              <span class="legend-item"><span class="legend-dot" style="background:#2a7b9b"></span>HA-196</span>
+              <span class="legend-item"><span class="legend-dot" style="background:#f0a54a"></span>B. longum</span>
+              <span class="legend-item"><span class="legend-dot" style="background:#c9ced5"></span>Placebo</span>
+            </div>
+          </div>
+
+          <div class="metric-card">
+            <div class="metric-head">
+              <div>
+                <h5>Fréquence des selles selon le sous-type IBS</h5>
+                <p class="metric-sub">Lecture simplifiee des sous-groupes IBS-D et IBS-C entre le depart, la semaine 4 et la semaine 8.</p>
+              </div>
+              <span class="metric-pill" style="background:#edf6fa;color:#2a7b9b">Bristol</span>
+            </div>
+            <svg viewBox="0 0 360 220" style="width:100%;height:auto" xmlns="http://www.w3.org/2000/svg">
+              <line x1="30" y1="28" x2="30" y2="188" stroke="#d8d8de"/>
+              <line x1="30" y1="188" x2="338" y2="188" stroke="#d8d8de"/>
+              <text x="88" y="204" text-anchor="middle" font-size="10" fill="#7f8791">Depart</text>
+              <text x="166" y="204" text-anchor="middle" font-size="10" fill="#7f8791">Sem. 4</text>
+              <text x="244" y="204" text-anchor="middle" font-size="10" fill="#7f8791">Sem. 8</text>
+              <polyline points="64,96 166,106 268,132" fill="none" stroke="#2a7b9b" stroke-width="4" stroke-linecap="round"/>
+              <polyline points="64,74 166,66 268,70" fill="none" stroke="#9aa3ad" stroke-width="3" stroke-dasharray="7 6" stroke-linecap="round"/>
+              <circle cx="64" cy="96" r="5" fill="#2a7b9b"/><circle cx="166" cy="106" r="5" fill="#2a7b9b"/><circle cx="268" cy="132" r="5" fill="#2a7b9b"/>
+              <circle cx="64" cy="74" r="4.5" fill="#9aa3ad"/><circle cx="166" cy="66" r="4.5" fill="#9aa3ad"/><circle cx="268" cy="70" r="4.5" fill="#9aa3ad"/>
+              <polyline points="64,146 166,132 268,120" fill="none" stroke="#f0a54a" stroke-width="4" stroke-linecap="round"/>
+              <text x="274" y="126" font-size="11" font-weight="700" fill="#2a7b9b">-21%</text>
+              <text x="274" y="114" font-size="11" font-weight="700" fill="#f0a54a">+33%</text>
+              <text x="292" y="58" font-size="10" fill="#7f8791">IBS-D vs placebo</text>
+              <text x="292" y="154" font-size="10" fill="#7f8791">IBS-C</text>
+            </svg>
+            <div class="chart-legend">
+              <span class="legend-item"><span class="legend-dot" style="background:#2a7b9b"></span>HA-196</span>
+              <span class="legend-item"><span class="legend-dot" style="background:#f0a54a"></span>gain IBS-C</span>
+              <span class="legend-item"><span class="legend-dot" style="background:#9aa3ad"></span>placebo</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="insight-grid">
+          <div class="insight-card" style="border-color:rgba(42,123,155,.16);background:linear-gradient(180deg,#fff,#f4f9fc)">
+            <strong style="color:#2a7b9b">-21%</strong>
+            <span>fréquence des selles en IBS-D</span>
+            <p>Une baisse significative apres 8 semaines versus placebo.</p>
+          </div>
+          <div class="insight-card" style="border-color:rgba(42,123,155,.16);background:linear-gradient(180deg,#fff,#f4f9fc)">
+            <strong style="color:#2a7b9b">+33%</strong>
+            <span>fréquence des selles en IBS-C</span>
+            <p>Accompagnée d'une réduction du besoin en laxatif.</p>
+          </div>
+          <div class="insight-card" style="border-color:rgba(42,123,155,.16);background:linear-gradient(180deg,#fff,#f4f9fc)">
+            <strong style="color:#2a7b9b">2</strong>
+            <span>dimensions SF-36 marquees</span>
+            <p>Bien-être émotionnel et fonctionnement social ressortent nettement.</p>
+          </div>
+        </div>
+
+        <div class="matrix-card" style="border-color:rgba(42,123,155,.16);background:linear-gradient(180deg,#fff,#f4f9fc)">
+          <h5>Synthese clinique HA-196</h5>
+          <div class="evidence-matrix">
+            <div class="matrix-head topic" style="background:#e7f2f7;color:#1a5a73">Axe</div>
+            <div class="matrix-head" style="background:#e7f2f7;color:#1a5a73">Observation</div>
+            <div class="matrix-head" style="background:#eef8fb;color:#1a5a73">Sous-groupe</div>
+            <div class="matrix-head" style="background:#eef8fb;color:#1a5a73">Impact</div>
+
+            <div class="matrix-cell topic">Transit</div>
+            <div class="matrix-cell good" style="background:#f1f9fc;color:#1a5a73;border-color:rgba(42,123,155,.18)">-21% en IBS-D</div>
+            <div class="matrix-cell mid" style="background:#fffaf2">IBS-D</div>
+            <div class="matrix-cell">Habitudes intestinales plus régulières.</div>
+
+            <div class="matrix-cell topic">Constipation</div>
+            <div class="matrix-cell good" style="background:#f1f9fc;color:#1a5a73;border-color:rgba(42,123,155,.18)">+33% en IBS-C</div>
+            <div class="matrix-cell mid" style="background:#fffaf2">IBS-C</div>
+            <div class="matrix-cell">Fréquence accrue et moindre recours aux laxatifs.</div>
+
+            <div class="matrix-cell topic">Qualité de vie</div>
+            <div class="matrix-cell good" style="background:#f1f9fc;color:#1a5a73;border-color:rgba(42,123,155,.18)">amelioration SF-36</div>
+            <div class="matrix-cell mid" style="background:#fffaf2">cohorte globale</div>
+            <div class="matrix-cell">Meilleur ressenti émotionnel et social.</div>
+
+            <div class="matrix-cell topic">Methodologie</div>
+            <div class="matrix-cell good" style="background:#f1f9fc;color:#1a5a73;border-color:rgba(42,123,155,.18)">6 outils valides</div>
+            <div class="matrix-cell mid" style="background:#fffaf2">8 semaines</div>
+            <div class="matrix-cell">Lecture clinique robuste et multi-dimensionnelle.</div>
+          </div>
+          <div class="mobile-matrix">
+            <div class="mobile-summary-list">
+              <div class="mobile-summary-card">
+                <div class="mobile-summary-head"><strong>Transit</strong><span>IBS-D</span></div>
+                <div class="mobile-summary-grid">
+                  <div class="mobile-field"><span class="mobile-field-label">Observation</span><span class="mobile-field-value">-21% en IBS-D</span></div>
+                  <div class="mobile-field"><span class="mobile-field-label">Impact</span><span class="mobile-field-value">Habitudes intestinales plus régulières.</span></div>
+                </div>
+              </div>
+              <div class="mobile-summary-card">
+                <div class="mobile-summary-head"><strong>Constipation</strong><span>IBS-C</span></div>
+                <div class="mobile-summary-grid">
+                  <div class="mobile-field"><span class="mobile-field-label">Observation</span><span class="mobile-field-value">+33% en IBS-C</span></div>
+                  <div class="mobile-field"><span class="mobile-field-label">Impact</span><span class="mobile-field-value">Fréquence accrue et moindre recours aux laxatifs.</span></div>
+                </div>
+              </div>
+              <div class="mobile-summary-card">
+                <div class="mobile-summary-head"><strong>Qualité de vie</strong><span>Cohorte globale</span></div>
+                <div class="mobile-summary-grid">
+                  <div class="mobile-field"><span class="mobile-field-label">Observation</span><span class="mobile-field-value">Amélioration SF-36</span></div>
+                  <div class="mobile-field"><span class="mobile-field-label">Impact</span><span class="mobile-field-value">Meilleur ressenti émotionnel et social.</span></div>
+                </div>
+              </div>
+              <div class="mobile-summary-card">
+                <div class="mobile-summary-head"><strong>Méthodologie</strong><span>8 semaines</span></div>
+                <div class="mobile-summary-grid">
+                  <div class="mobile-field"><span class="mobile-field-label">Observation</span><span class="mobile-field-value">6 outils validés</span></div>
+                  <div class="mobile-field"><span class="mobile-field-label">Impact</span><span class="mobile-field-value">Lecture clinique robuste et multi-dimensionnelle.</span></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="info-box" style="border-color:#2a7b9b"><p><strong>Activité antimicrobienne démontrée in vitro</strong> contre <em>E. coli</em>, <em>Salmonella typhimurium</em>, <em>Listeria monocytogenes</em>, <em>Clostridium difficile</em>, <em>Staphylococcus aureus</em> SARM et <em>Klebsiella pneumoniae</em>. HA-196 produit également du peroxyde d'hydrogène, inhibant la croissance des pathogènes.</p></div>
+
+        <p class="sc-text"><strong>Données marché :</strong> 25 % des consommateurs canadiens souffrent du syndrome de l'intestin irritable au moins occasionnellement. Seuls 42 % se déclarent satisfaits de leur santé digestive en 2024, contre 61 % en 2022. 45 % trouveraient attrayant un complément portant l'allégation « soulage les symptômes du SII ».</p>
+
+        <p class="sc-text"><strong>Allégation santé au Canada :</strong> Cliniquement éprouvé pour réduire l'inconfort lié au syndrome de l'intestin irritable. Pour la diarrhée (IBS-D) : réduit la fréquence des selles de 21 %. Pour la constipation (IBS-C) : augmente la fréquence des selles de 33 %. 1 capsule par jour, 10 milliards CFU.</p>
+      </div></div>
+    </div>
+  </div>
+
+  <div class="study-section" id="acidite">
+    <div class="study-card reveal">
+      <div class="study-card-header" onclick="toggleCard(this)">
+        <h3><span class="sc-icon">07</span> Résistance à l'acide gastrique</h3>
+        <span class="chevron">▼</span>
+      </div>
+      <div class="study-card-body"><div class="study-card-content">
+        <p class="sc-text"><strong>Les souches probiotiques Probaclac survivent sans enrobage entéro-soluble dans un pH de 3.</strong></p>
+        <p class="sc-text">Une fois consommés, les probiotiques suivent le trajet naturel du tube digestif. En traversant la bouche puis l'œsophage, les probiotiques se rendent à l'estomac, un milieu très acide lorsqu'il est vide. Son taux d'acidité varie : à jeun, l'estomac a un pH d'environ 1 et un pH de plus ou moins 6 lorsqu'il est plein.</p>
+
+        <div class="info-box"><p>L'alcalinisation de l'estomac lorsqu'il contient des nutriments est la raison pour laquelle il est préférable de consommer des probiotiques en mangeant. Le nombre de bactéries actives peut être affecté dans un milieu trop acide.</p></div>
+
+        <p class="sc-text">Afin de garantir l'efficacité des produits, les fabricants doivent démontrer que leurs souches probiotiques peuvent résister à un pH de 3. <strong>Toutes les souches Probaclac sont capables de faire face à cette acidité</strong> - la viabilité des bactéries est assurée jusqu'aux intestins. Nul besoin d'un enrobage entérique.</p>
+        <p class="sc-text">Les souches Lactobacilles se trouvent naturellement dans l'estomac - le trajet parcouru presente donc une opportunite pour repeupler cette flore.</p>
+
+        <figure class="study-fig study-fig-solo"><img src="https://static.wixstatic.com/media/623234_e593602eae0f4101bb57b21fb1c9a175~mv2.png/v1/fill/w_980,h_653,al_c,q_90,usm_0.66_1.00_0.01,enc_avif,quality_auto/ChatGPT%20Image%2016%20oct_%202025%2C%2009_43_43.png" alt="Résistance à l'acide gastrique - trajet digestif"><figcaption>Trajet digestif des probiotiques - Résistance à pH 3 sans enrobage</figcaption></figure>
+
+        <div class="result-highlight" style="background:linear-gradient(135deg,#1a1a2e,#2d2d44)">
+          <div class="rh-num">pH 3</div>
+          <div class="rh-text">Toutes les souches Probaclac résistent à un pH de 3 sans aucun enrobage entéro-soluble. Les bactéries arrivent vivantes et actives aux intestins.</div>
+        </div>
+      </div></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="cta-section reveal">
+    <h2>Des probiotiques prouves scientifiquement</h2>
+    <p>Probaclac - des formules testées cliniquement, certifiées NPN et recommandées par les professionnels de la santé.</p>
+    <a href="http://www.monprobiotique.ca" class="btn-white">Commander en ligne →</a>
+  </div>
+</section>
+
+<footer class="site-footer" id="studiesFooter">
+  <div class="site-footer-inner">
+    <div class="site-footer-brand">
+      <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAACUgAAAKICAYAAACo14JfAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAylpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDEwLjAtYzAwMCA3OS5kMDRjYzE2OTgsIDIwMjUvMDcvMDItMTI6MTg6MTMgICAgICAgICI+IDxyZGY6UkRGIHhtbG5zOnJkZj0iaHR0cDovL3d3dy53My5vcmcvMTk5OS8wMi8yMi1yZGYtc3ludGF4LW5zIyI+IDxyZGY6RGVzY3JpcHRpb24gcmRmOmFib3V0PSIiIHhtbG5zOnhtcD0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wLyIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bXA6Q3JlYXRvclRvb2w9IkFkb2JlIFBob3Rvc2hvcCAyNy4zIChNYWNpbnRvc2gpIiB4bXBNTTpJbnN0YW5jZUlEPSJ4bXAuaWlkOkM2NkFEMUVFMTY5MTExRjE4NzE0QTY5REJGMUE2RUM0IiB4bXBNTTpEb2N1bWVudElEPSJ4bXAuZGlkOkM2NkFEMUVGMTY5MTExRjE4NzE0QTY5REJGMUE2RUM0Ij4gPHhtcE1NOkRlcml2ZWRGcm9tIHN0UmVmOmluc3RhbmNlSUQ9InhtcC5paWQ6OTQ5OEU1ODkxNjdDMTFGMTg3MTRBNjlEQkYxQTZFQzQiIHN0UmVmOmRvY3VtZW50SUQ9InhtcC5kaWQ6OTQ5OEU1OEExNjdDMTFGMTg3MTRBNjlEQkYxQTZFQzQiLz4gPC9yZGY6RGVzY3JpcHRpb24+IDwvcmRmOlJERj4gPC94OnhtcG1ldGE+IDw/eHBhY2tldCBlbmQ9InIiPz68DEI2AABAKElEQVR4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AACQcBQAQMJRwlEAAAlIAQAAAJBwFABAwlEAACQgBQAAAEDCUQAACUcBAJCAFAAAAEDCUQAAJBwFAEACUgAAAAAJRwEAkHAUAAAJSAEAAAAkHAUAQMJRAAAkIAUAAACQcBQAQMJRAAAkIAUAAADA1xOOAgAYn3AUAAACUgAAAAAAACyWcBQAAAJSAAAAAAAAAABAAlIAAAAAAAAAAAAJSAEAAAAAAAAAACQgBQAAAAAAAAAAkIAUAAAAAAAAAABAAlIAAAAAAAAAAAAJSAEAAAAAAAAAAAlIAQAAAAAAAAAAJCAFAAAAAAAAAACQgBQAAAAAAAAAAEACUgAAAAAAAAAAAAlIAQAAAAAAAAAAJCAFAAAAAAAAAAAkIAUAAAAAAAAAAJCAFAAAAAAAAAAAQAJSAAAAAAAAAAAACUgBAAAAAAAAAAAkIAUAAAAAAAAAAJCAFAAAAAAAAAAAkIAUAAAAAAAAAABAAlIAAAAAAAAAAAAJSAEAAAAAAAAAACQgBQAAAAAAAAAAkIAUAAAAAAAAAABAAlIAAAAAAAAAAEACUgAAAAAAAAAAAAlIAQAAAAAAAAAAJCAFAAAAAAAAAACQgBQAAAAAAAAAAEACUgAAAAAAAAAAAAlIAQAAAAAAAAAACUgBAAAAAAAAAAAkIAUAAAAAAAAAAJCAFAAAAAAAAAAAQAJSAAAAAAAAAAAACUgBAAAAAAAAAAAkIAUAAAAAAAAAACQgBQAAAAAAAAAAkIAUAAAAAAAAAABAAlIAAAAAAAAAAAAJSAEAAAAAAAAAACQgBQAAAAAAAAAAkIAUAAAAAAAAAACAgBQAAAAAAAAAAJCAFAAAAAAAAAAAQAJSAAAAAAAAAAAACUgBAAAAAAAAAAAkIAUAAAAAAAAAAJCAFAAAAAAAAAAAQAJSAAAAAAAAAABAAlIAAAAAAAAAAAAJSAEAAAAAAAAAACQgBQAAAAAAAAAAkIAUAAAAAAAAAABAAlIAAAAAAAAAAAAJSAEAAAAAAAAAAAlIAQAAAAAAAAAAJCAFAAAAAAAAAACQgBQAAAAAAAAAAEACUgAAAAAAAAAAAAlIAQAAAAAAAAAAJCAFAAAAAAAAAAAkIAUAAAAAAAAAAJCAFAAAAAAAAAAAQAJSAAAAAAAAAAAACUgBAAAAAAAAAAAkIAUAAAAAAAAAAJCAFAAAAAAAAAAAkIAU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" alt="Probaclac">
+      <div class="quebec-badge">
+        <img src="data:image/avif;base64,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" alt="Probaclac numéro 1 au Québec">
+      </div>
+    </div>
+
+    <div class="site-footer-grid">
+      <div class="site-footer-block">
+        <div class="site-footer-label">Nos produits</div>
+        <div class="site-footer-links-panel">
+          <ul>
+            <li><a href="https://www.probaclac.ca/probiotique-adulte">Adultes</a></li>
+            <li><a href="https://www.probaclac.ca/probiotique-50-et-plus">50 ans et +</a></li>
+            <li><a href="https://www.probaclac.ca/probiotique-voyage">Voyageurs</a></li>
+            <li><a href="https://www.probaclac.ca/probiotique-sci">Côlon irritable</a></li>
+            <li><a href="https://www.probaclac.ca/probiotique-enfant">Enfants</a></li>
+            <li><a href="https://www.probaclac.ca/probiotique-croquable">Croquable</a></li>
+            <li><a href="https://www.probaclac.ca/probiotique-extra-fort">Extra-fort</a></li>
+            <li><a href="https://www.probaclac.ca/probiotique-medic">Medic</a></li>
+            <li><a href="https://www.probaclac.ca/probiotique-gi">Gastro intestinal</a></li>
+            <li><a href="https://www.probaclac.ca/probiotique-vaginal">Vaginose bactérienne</a></li>
+            <li><a href="https://www.probaclac.ca/probiotique-rosella">Infection à levure</a></li>
+            <li><a href="https://www.probaclac.ca/probiotique-canneberges">Infection urinaire</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="site-footer-contact-block">
+        <div class="site-footer-label">Nous joindre</div>
+        <div class="site-footer-contact">
+          <p>Tel. <a href="tel:18005679683">1.800.567.9683</a></p>
+          <p>31 Rue Gaston-Dumoulin suite 103,<br>Blainville, QC J7C 6B4<br>Canada</p>
+          <div class="site-footer-social">
+            <a href="https://www.instagram.com/probaclac/" aria-label="Instagram">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5Zm0 2.2A2.8 2.8 0 0 0 4.2 7v10A2.8 2.8 0 0 0 7 19.8h10a2.8 2.8 0 0 0 2.8-2.8V7A2.8 2.8 0 0 0 17 4.2H7Zm10.35 1.65a1.15 1.15 0 1 1 0 2.3 1.15 1.15 0 0 1 0-2.3ZM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10Zm0 2.2A2.8 2.8 0 1 0 12 14.8 2.8 2.8 0 0 0 12 9.2Z"/></svg>
+            </a>
+            <a href="https://www.facebook.com/Probaclac/" aria-label="Facebook">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13.5 22v-8h2.7l.4-3.1h-3.1V8.9c0-.9.2-1.5 1.5-1.5H17V4.6c-.4-.1-1.5-.1-2.8-.1-2.8 0-4.7 1.7-4.7 4.9v1.5H7v3.1h2.5v8h4Z"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="site-footer-bottom">
+      <div class="site-footer-meta">
+        <p>© 2025 Laboratoires Nicar.</p>
+        <a href="https://www.probaclac.ca/politique-de-confidentialite">Politique de confidentialité.</a>
+        <a href="https://www.vpourdesign.com/">Site web: V pour Design</a>
+      </div>
+      <a class="site-footer-partner" href="https://allergies-alimentaires.org/" aria-label="Allergies Québec">
+        <span>Fier partenaire de</span>
+        <img src="data:image/avif;base64,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" alt="Allergies Québec">
+      </a>
+    </div>
+  </div>
+</footer>
+
+<div class="embed-bottom-mask" aria-hidden="true"></div>
+
+<script>
+const reveals=document.querySelectorAll('.reveal');
+const obs=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting)x.target.classList.add('visible')})},{threshold:.1,rootMargin:'0px 0px -40px 0px'});
+reveals.forEach(el=>obs.observe(el));
+
+function animateCounter(el){
+  const target=+el.dataset.target;
+  const prefix=el.dataset.prefix ?? '';
+  const suffix=el.dataset.suffix ?? '%';
+  const duration=1500;
+  const start=performance.now();
+  el.classList.add('counted');
+  function update(now){
+    const p=Math.min((now-start)/duration,1);
+    const ease=1-Math.pow(1-p,3);
+    el.textContent=prefix+Math.round(ease*target).toLocaleString()+suffix;
+    if(p<1)requestAnimationFrame(update);
+    else el.textContent=prefix+target.toLocaleString()+suffix;
+  }
+  requestAnimationFrame(update);
+}
+const counters=document.querySelectorAll('.stat-num[data-target]');
+const cObs=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting){animateCounter(x.target);cObs.unobserve(x.target)}})},{threshold:.5});
+counters.forEach(c=>cObs.observe(c));
+
+document.documentElement.classList.toggle('is-embed',window.parent!==window);
+
+const studyButtons=[...document.querySelectorAll('.study-nav-btn')];
+const studySections=[...document.querySelectorAll('.study-section')];
+const studyActions=document.getElementById('studyActions');
+const studyClose=document.getElementById('studyClose');
+const studyUp=document.getElementById('studyUp');
+const studyTabs=document.getElementById('studyTabs');
+
+function closeAllStudyCards(){
+  document.querySelectorAll('.study-card.open').forEach(card=>card.classList.remove('open'));
+}
+function openStudyCardsInSection(section){
+  if(!section)return;
+  section.querySelectorAll('.study-card').forEach(card=>card.classList.add('open'));
+}
+function setStudyActionsVisible(isVisible){
+  if(!studyActions)return;
+  studyActions.classList.toggle('visible',isVisible);
+  studyActions.setAttribute('aria-hidden',String(!isVisible));
+}
+function closeActiveStudySection(scrollToTabs=false){
+  studyButtons.forEach(b=>b.classList.remove('active'));
+  studySections.forEach(s=>s.classList.remove('active'));
+  closeAllStudyCards();
+  setStudyActionsVisible(false);
+  if(scrollToTabs&&studyTabs){
+    studyTabs.scrollIntoView({block:'start',behavior:'smooth'});
+  }
+}
+studyButtons.forEach(btn=>{
+  btn.addEventListener('click',()=>{
+    const target=document.getElementById(btn.dataset.tab);
+    const alreadyActive=btn.classList.contains('active');
+    if(alreadyActive){
+      closeActiveStudySection(false);
+      return;
+    }
+    studyButtons.forEach(b=>b.classList.remove('active'));
+    studySections.forEach(s=>s.classList.remove('active'));
+    closeAllStudyCards();
+    btn.classList.add('active');
+    if(target)target.classList.add('active');
+    openStudyCardsInSection(target);
+    setStudyActionsVisible(true);
+  });
+});
+
+function toggleCard(header){
+  header.closest('.study-card').classList.toggle('open');
+}
+if(studyClose){
+  studyClose.addEventListener('click',()=>closeActiveStudySection(true));
+}
+if(studyUp){
+  studyUp.addEventListener('click',()=>{
+    if(studyTabs)studyTabs.scrollIntoView({block:'start',behavior:'smooth'});
+  });
+}
+</script>
+</body>
+</html>
