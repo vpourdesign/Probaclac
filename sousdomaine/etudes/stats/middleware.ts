@@ -8,7 +8,7 @@ export function middleware(req: NextRequest) {
   const { pathname } = req.nextUrl
 
   // Allow the login page and its POST action
-  if (pathname === '/login') return NextResponse.next()
+  if (pathname === '/login' || pathname === '/api/auth/login') return NextResponse.next()
 
   // Check auth cookie
   if (req.cookies.get(COOKIE)?.value === PASSWORD) return NextResponse.next()
