@@ -1556,8 +1556,7 @@ function openTabFromHash(scroll){
   if(!btn.classList.contains('active'))btn.click();
   if(scroll){
     setTimeout(()=>{
-      const target=document.getElementById(key);
-      if(target)target.scrollIntoView({block:'start',behavior:'smooth'});
+      if(studyTabs)studyTabs.scrollIntoView({block:'start',behavior:'smooth'});
     },200);
   }
 }
