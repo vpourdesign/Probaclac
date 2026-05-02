@@ -87,6 +87,18 @@
   .hero-stars-text { font-size:.78rem; color:var(--text-muted); }
 
   /* Primary button — branded Probaclac */
+  .btn-primary {
+    display:inline-flex; align-items:center; gap:.5rem;
+    background:var(--pink); color:#fff; text-decoration:none;
+    font-weight:700; font-size:.95rem; padding:1rem 1.75rem;
+    border-radius:50px; border:none; cursor:pointer;
+    transition:background .2s, transform .2s, box-shadow .2s;
+    box-shadow:0 4px 16px rgba(198,51,127,.18);
+  }
+  .btn-primary:hover { background:var(--pink-dark); transform:translateY(-2px); box-shadow:0 8px 28px rgba(198,51,127,.3); }
+  .btn-primary:active { transform:translateY(0); }
+  .btn-primary:focus-visible { outline:3px solid var(--pink); outline-offset:3px; }
+  .btn-primary svg { width:18px; height:18px; flex-shrink:0; stroke:currentColor; fill:none; stroke-width:1.75; stroke-linecap:round; stroke-linejoin:round; }
 
   .hero-ctas { display:flex; align-items:center; gap:1rem; flex-wrap:wrap; }
   .btn-secondary {
@@ -339,7 +351,7 @@
     <div class="hero-price-block">
       <div>
         <div class="hero-price-label">Price</div>
-        <div class="hero-price"><sup>$</sup>29<sup>,99</sup></div>
+        <div class="hero-price"><sup>$</sup>27<sup>,19</sup></div>
         <div class="hero-price-note">12 vaginal capsules · with applicator</div>
       </div>
       <div style="width:1px;background:#f0d0e4;align-self:stretch;"></div>
@@ -363,6 +375,8 @@
       </a>
       <a href="#pourquoi" class="btn-secondary">How it works →</a>
     </div>
+
+    <div class="hero-stats">
       <div>
         <div class="hero-stat-num">6 days</div>
         <div class="hero-stat-label">complete<br>treatment</div>
