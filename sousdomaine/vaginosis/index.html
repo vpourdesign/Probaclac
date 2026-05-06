@@ -50,6 +50,11 @@ nav{
 }
 .nav-cta:hover{background:var(--pink-dark)!important;transform:translateY(-1px)}
 .nav-cta:focus-visible{outline:2px solid var(--pink);outline-offset:3px}
+.lang-switcher{display:inline-flex;align-items:center;gap:.35rem;font-size:.78rem;font-weight:600;color:var(--text-muted);margin-right:.25rem}
+.lang-switcher a{text-decoration:none;color:var(--text-muted);padding:.2rem .45rem;border-radius:6px;transition:color .2s,background .2s}
+.lang-switcher a.active{color:var(--pink);background:var(--pink-pale)}
+.lang-switcher a:hover{color:var(--pink)}
+.lang-switcher .lang-sep{opacity:.4}
 
 /* HERO */
 .hero{
@@ -464,6 +469,7 @@ footer img{height:22px;opacity:.45}
     <li><a href="#why">Why It Works</a></li>
     <li><a href="#testimonials">Testimonials</a></li>
     <li><a href="#faq">FAQ</a></li>
+    <li><span class="lang-switcher"><a href="index.html" class="active">EN</a><span class="lang-sep">/</span><a href="indexfr.html">FR</a></span></li>
     <li><a href="https://www.amazon.ca" target="_blank" rel="noopener" class="nav-cta">Order — Amazon.ca</a></li>
   </ul>
 </nav>
@@ -476,7 +482,7 @@ footer img{height:22px;opacity:.45}
       Vaginal probiotic · Clinically studied
     </div>
     <div class="hero-eyebrow">Bacterial Vaginosis</div>
-    <h1 class="hero-title">Break free from<br><em>BV that keeps<br>coming back.</em></h1>
+    <h1 class="hero-title">For recurrence of<br><em>bacterial vaginosis</em></h1>
     <p class="hero-subtitle">Probaclac targets the source — rebuilding your protective vaginal flora so BV doesn't return. 84% of women saw no recurrence after treatment.</p>
 
     <div class="hero-price-block">
