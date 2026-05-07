@@ -188,16 +188,15 @@ nav{
   padding:.4rem .9rem;border-radius:50px;z-index:2;
 }
 
-/* TICKER */
-.ticker{background:var(--blue);overflow:hidden;padding:.75rem 0;display:flex}
-.ticker-track{display:flex;animation:tickerScroll 28s linear infinite;white-space:nowrap}
+/* TRUST BAND (static) */
+.ticker{background:var(--blue);padding:.85rem 6%;display:flex;justify-content:center;align-items:center;flex-wrap:wrap;gap:1.25rem 2.5rem}
 .ticker-item{
-  color:white;font-size:.78rem;font-weight:600;padding:0 2rem;
+  color:white;font-size:.78rem;font-weight:600;
   text-transform:uppercase;letter-spacing:.06em;
-  display:flex;align-items:center;gap:1.5rem;
+  display:flex;align-items:center;gap:1.5rem;white-space:nowrap;
 }
 .ticker-sep{width:4px;height:4px;border-radius:50%;background:rgba(255,255,255,.45);flex-shrink:0}
-@keyframes tickerScroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+@media (max-width:640px){.ticker{gap:.6rem 1.25rem;padding:.75rem 5%}.ticker-item{font-size:.7rem;gap:.6rem}}
 
 /* SECTIONS */
 section{padding:5rem 8%}
@@ -548,32 +547,19 @@ footer img{height:22px;opacity:.45}
 
 <!-- TICKER -->
 <div class="ticker">
-  <div class="ticker-track">
-    <div class="ticker-item">Clinically studied <span class="ticker-sep"></span></div>
-    <div class="ticker-item">Made in Québec <span class="ticker-sep"></span></div>
-    <div class="ticker-item">No refrigeration needed <span class="ticker-sep"></span></div>
-    <div class="ticker-item">84% less BV recurrence <span class="ticker-sep"></span></div>
-    <div class="ticker-item">Vaginal probiotic <span class="ticker-sep"></span></div>
-    <div class="ticker-item">NPN 80041302 <span class="ticker-sep"></span></div>
-    <div class="ticker-item">Free Prime shipping <span class="ticker-sep"></span></div>
-    <div class="ticker-item">Discreet packaging <span class="ticker-sep"></span></div>
-    <!-- duplicate for seamless loop -->
-    <div class="ticker-item">Clinically studied <span class="ticker-sep"></span></div>
-    <div class="ticker-item">Made in Québec <span class="ticker-sep"></span></div>
-    <div class="ticker-item">No refrigeration needed <span class="ticker-sep"></span></div>
-    <div class="ticker-item">84% less BV recurrence <span class="ticker-sep"></span></div>
-    <div class="ticker-item">Vaginal probiotic <span class="ticker-sep"></span></div>
-    <div class="ticker-item">NPN 80041302 <span class="ticker-sep"></span></div>
-    <div class="ticker-item">Free Prime shipping <span class="ticker-sep"></span></div>
-    <div class="ticker-item">Discreet packaging <span class="ticker-sep"></span></div>
-  </div>
+    <div class="ticker-item">Clinically studied</div>
+    <div class="ticker-item">Made in Quebec</div>
+    <div class="ticker-item">No refrigeration needed</div>
+    <div class="ticker-item">84% less BV recurrence</div>
+    <div class="ticker-item">NPN 80041302</div>
+    <div class="ticker-item">Discreet packaging</div>
 </div>
 
 <!-- PRODUCT DETAIL -->
 <section class="product-section" id="product">
   <div class="section-tag">The Product</div>
   <div class="section-title">Probaclac <em>Bacterial Vaginosis</em></div>
-  <div class="section-lead">The only intravaginal probiotic specifically designed to restore your Döderlein flora and prevent BV from recurring.</div>
+  <div class="section-lead">The only intravaginal probiotic specifically designed to restore the Döderlein flora and prevent the recurrence of bacterial vaginosis.</div>
 
   <div class="product-grid">
     <div class="product-image-col reveal">
@@ -587,7 +573,7 @@ footer img{height:22px;opacity:.45}
       <div class="product-spec">Vaginal probiotic · 14 capsules with applicator</div>
       <h3 class="product-name">Relief in 14 Nights</h3>
       <p class="product-tagline">8 billion bacteria from 3 clinically selected strains</p>
-      <p class="product-desc">Insert one capsule each night at bedtime. <em>Lactobacilli</em> colonize the vaginal lining, producing lactic acid to lower pH and form the protective biofilm that keeps harmful bacteria like <em>Gardnerella vaginalis</em> in check.</p>
+      <p class="product-desc">Insert one capsule intravaginally at bedtime for 14 consecutive days or as directed by a healthcare practitioner. Probiotics will colonize the vaginal flora, producing lactic acid to lower pH and form the protective biofilm that keeps the vaginal environment healthy against harmful bacteria like <em>Gardnerella vaginalis</em>.</p>
 
       <div class="product-spec">Helps with</div>
       <div class="symptoms-grid">
@@ -688,7 +674,7 @@ footer img{height:22px;opacity:.45}
       <div class="benefit-icon benefit-icon--pink"><svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg></div>
       <div>
         <div class="benefit-title">No allergens · No refrigeration</div>
-        <div class="benefit-text">Gluten-free, dairy-free, soy-free. No cold chain required.</div>
+        <div class="benefit-text">All major allergens are avoided throughout the manufacturing process.</div>
       </div>
     </div>
   </div>
@@ -709,7 +695,7 @@ footer img{height:22px;opacity:.45}
       <div class="testimonial-stars">★★★★★</div>
       <p class="testimonial-quote">"My doctor recommended probiotics after my third round of antibiotics. Probaclac was the only one specifically designed for vaginal use. Night and day difference."</p>
       <div class="testimonial-author">Jessica R.</div>
-      <div class="testimonial-meta">28 · Québec City · Verified buyer</div>
+      <div class="testimonial-meta">28 · Quebec City · Verified buyer</div>
     </div>
     <div class="testimonial-card reveal reveal-d2">
       <div class="testimonial-stars">★★★★★</div>
@@ -756,7 +742,7 @@ footer img{height:22px;opacity:.45}
         <div class="science-fact-icon science-fact-icon--pink">🧫</div>
         <div>
           <div class="sf-title">3 Targeted Strains</div>
-          <div class="sf-text"><em>L. rhamnosus</em>, <em>L. acidophilus</em>, and <em>L. plantarum</em> — clinically selected probiotic strains that naturally colonize the vaginal mucosa and produce protective lactic acid.</div>
+          <div class="sf-text"><em>L. rhamnosus</em>, <em>L. acidophilus</em>, and <em>S. thermophilus</em> — clinically selected probiotic strains that naturally colonize the vaginal mucosa and produce protective lactic acid.</div>
         </div>
       </div>
       <div class="science-fact reveal">
@@ -782,7 +768,7 @@ footer img{height:22px;opacity:.45}
   <div class="faq-layout">
     <div class="faq-left">
       <div class="section-tag">FAQ</div>
-      <div class="section-title">Your questions,<br><em>answered.</em></div>
+      <div class="section-title">Our <em>answers</em></div>
       <p class="section-lead">Everything you need to know before starting your treatment.</p>
       <div class="faq-image reveal">
         <img src="vaginose.png" alt="Probaclac Vaginal">
@@ -794,14 +780,14 @@ footer img{height:22px;opacity:.45}
           <span>How is this different from oral probiotics?</span>
           <span class="faq-toggle">+</span>
         </button>
-        <div class="faq-a"><div class="faq-a-inner">Probaclac Vaginal is inserted directly into the vaginal cavity, delivering 8 billion bacteria exactly where they're needed. Oral probiotics must survive stomach acid and travel through the digestive system, losing potency along the way. Direct vaginal application ensures maximum colonization.</div></div>
+        <div class="faq-a"><div class="faq-a-inner">Probaclac Vaginal is inserted directly into the vaginal cavity, delivering 8 billion bacteria exactly where they're needed. Oral probiotics must survive stomach acid and pass through the digestive system, losing their effectiveness in the process. Direct vaginal application ensures maximum colonization.</div></div>
       </div>
       <div class="faq-item reveal">
         <button class="faq-q" onclick="this.parentElement.classList.toggle('open')">
           <span>Can I use this with antibiotics?</span>
           <span class="faq-toggle">+</span>
         </button>
-        <div class="faq-a"><div class="faq-a-inner">Yes. Probaclac Vaginal is designed to complement antibiotic treatment. Antibiotics eliminate harmful bacteria but also destroy your protective flora. Using Probaclac after or alongside antibiotics rebuilds your natural defense against BV recurrence.</div></div>
+        <div class="faq-a"><div class="faq-a-inner">Yes. Probaclac Vaginal is designed to complement antibiotic treatment. Antibiotics eliminate harmful bacteria but also destroy your protective flora. Using Probaclac after or during antibiotic treatment rebuilds your natural defense against BV recurrence.</div></div>
       </div>
       <div class="faq-item reveal">
         <button class="faq-q" onclick="this.parentElement.classList.toggle('open')">
@@ -835,19 +821,6 @@ footer img{height:22px;opacity:.45}
   </div>
 </section>
 
-<!-- ALLERGEN BAR -->
-<div class="allergen-bar">
-  <div class="allergen-title">Allergen-Free Probiotic</div>
-  <div class="allergen-sub">All major allergens are avoided throughout the manufacturing process.</div>
-  <div class="allergen-pills">
-    <span class="allergen-pill"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg> Gluten-free</span>
-    <span class="allergen-pill"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg> Dairy-free</span>
-    <span class="allergen-pill"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg> Soy-free</span>
-    <span class="allergen-pill"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg> No refrigeration</span>
-    <span class="allergen-pill"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg> NPN 80041302</span>
-  </div>
-</div>
-
 <!-- FINAL CTA -->
 <section class="cta-final">
   <img src="vaginose.png" alt="Probaclac Vaginal" class="cta-final-product reveal">
@@ -859,7 +832,7 @@ footer img{height:22px;opacity:.45}
   </a>
   <div class="cta-final-trust reveal">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-    Health Canada Approved · NPN 80041302 · Made in Québec · Free Prime Shipping
+    Health Canada Approved · NPN 80041302 · Made in Quebec · Free Prime Shipping
   </div>
 </section>
 
