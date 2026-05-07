@@ -198,8 +198,11 @@ header{background-color:#f8f7f4!important}
 /* ============================================ */
 
 /* Superscript refs */
-.ref-sup{font-size:.6em;vertical-align:super;line-height:0;color:var(--o1);text-decoration:none;font-weight:600;margin-left:1px}
-.ref-sup:hover{text-decoration:underline}
+.ref-sup{font-size:.6em;vertical-align:super;line-height:0;color:var(--o1);font-weight:600;margin-left:1px}
+.ref-sup a{color:inherit;text-decoration:none;padding:0 1px;border-radius:3px;transition:background .2s,color .2s}
+.ref-sup a:hover{text-decoration:underline}
+.ref-item{scroll-margin-top:50vh;transition:background-color .4s}
+.ref-item.ref-flash{background-color:rgba(var(--o1-rgb,255,138,0),.15)}
 
 /* References accordion */
 .references-section{max-width:1080px;margin:0 auto;padding:0 2rem 3rem}
@@ -499,7 +502,8 @@ section{padding:0;flex-shrink:0;flex-grow:0;height:auto!important}
 
 <!-- SECTION 2: POURQUOI PROBACLAC -->
 <section id="pourquoi" style="position:relative;overflow:hidden">
-  <div style="position:absolute;inset:0;background:url('bacterie.jpg') center/cover no-repeat;filter:grayscale(1);opacity:.25;z-index:0"></div>
+  <div style="position:absolute;inset:0;background:url('bacterie.jpg') center/cover no-repeat;filter:grayscale(.6);opacity:.35;z-index:0;mix-blend-mode:multiply"></div>
+  <div style="position:absolute;inset:0;background:radial-gradient(ellipse at 20% 0%,rgba(222,109,56,.35) 0%,rgba(232,137,79,.18) 35%,transparent 70%),linear-gradient(135deg,rgba(254,243,235,.55) 0%,rgba(253,224,204,.4) 45%,rgba(222,109,56,.25) 100%);z-index:0"></div>
   <div class="page-section" style="position:relative;z-index:1">
     <div class="section-header reveal">
       <h2 style="font-weight:700;color:var(--text)">Pourquoi Probaclac ?</h2>
@@ -592,6 +596,7 @@ section{padding:0;flex-shrink:0;flex-grow:0;height:auto!important}
           <li>Infections urinaires</li>
           <li>Vaginose bactérienne</li>
           <li>Otites</li>
+          <li>Vaccination chez les aînés</li>
         </ul>
       </div>
       <div class="bento-card reveal reveal-d3">
@@ -608,6 +613,7 @@ section{padding:0;flex-shrink:0;flex-grow:0;height:auto!important}
           <li>Rides</li>
           <li>Sécheresse de la peau</li>
           <li>Problèmes du cuir chevelu</li>
+          <li>Photosensibilité</li>
         </ul>
       </div>
       <div class="bento-card reveal reveal-d5">
@@ -798,6 +804,7 @@ section{padding:0;flex-shrink:0;flex-grow:0;height:auto!important}
       <div style="flex:1">
         <p>Les yogourts probiotiques réfrigérés posent plusieurs défis en termes de fiabilité. La chaîne de température, la durée de conservation et les conditions de fabrication rendent difficile la garantie d'un nombre suffisant de bactéries vivantes au moment de la consommation.</p>
         <p>De plus, la date de fabrication des yogourts probiotiques ne garantit pas la viabilité des souches jusqu'à la date de péremption. Les conditions de stockage et de transport peuvent compromettre l'efficacité des probiotiques contenus dans ces produits.</p>
+        <p>Plusieurs yogourts probiotiques contiennent aussi du sucre ajouté, ce qui peut réduire l'efficacité des probiotiques. Une teneur en sucre trop élevée peut nuire à la viabilité et à l'efficacité des souches.</p>
         <div class="yogurt-callout">
           <h4>Choisir un probiotique qui ne nécessite pas de réfrigération</h4>
           <p>Les probiotiques Probaclac sont formulés pour rester stables à température ambiante, ce qui garantit leur efficacité du moment de la fabrication jusqu'à la date de péremption, sans dépendre d'une chaîne de froid fragile.</p>
@@ -963,6 +970,37 @@ section{padding:0;flex-shrink:0;flex-grow:0;height:auto!important}
 </footer>
 
 <script>
+// Reference superscripts: split comma-separated numbers into individual links,
+// open the accordion on click, and center/flash the target reference.
+(function () {
+  const refList = document.querySelector('.ref-list');
+  if (refList) {
+    refList.querySelectorAll('.ref-item').forEach(item => {
+      const m = item.textContent.match(/^\s*(\d+)\./);
+      if (m) item.id = 'ref-' + m[1];
+    });
+  }
+  const refToggle = document.querySelector('.ref-toggle');
+  document.querySelectorAll('.ref-sup').forEach(sup => {
+    const nums = sup.textContent.split(',').map(n => n.trim()).filter(Boolean);
+    sup.innerHTML = nums.map(n => `<a href="#ref-${n}">${n}</a>`).join(',');
+    sup.querySelectorAll('a').forEach(a => {
+      a.addEventListener('click', e => {
+        e.preventDefault();
+        const target = document.getElementById(a.getAttribute('href').slice(1));
+        if (refToggle && !refToggle.classList.contains('open')) refToggle.classList.add('open');
+        const doScroll = () => {
+          if (!target) return;
+          target.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          target.classList.add('ref-flash');
+          setTimeout(() => target.classList.remove('ref-flash'), 1600);
+        };
+        setTimeout(doScroll, 60);
+      });
+    });
+  });
+})();
+
 // Scroll reveal
 const reveals = document.querySelectorAll('.reveal');
 const obs = new IntersectionObserver(e => {
