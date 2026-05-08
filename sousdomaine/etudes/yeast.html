@@ -1,0 +1,1000 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Probaclac – Yeast Infection | Vaginal Probiotic</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --pink: #c6337f;
+    --pink-dark: #a0226a;
+    --pink-light: #e8609b;
+    --pink-pale: #fdf0f7;
+    --pink-soft: #f7d9ec;
+    --white: #ffffff;
+    --off-white: #fef8fc;
+    --text: #2a1520;
+    --text-muted: #8a5070;
+    --radius: 16px;
+    --radius-sm: 8px;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'DM Sans', sans-serif; color: var(--text); background: var(--white); overflow-x: hidden; }
+
+  /* Line icon system */
+  .ico { display:inline-block; width:20px; height:20px; flex-shrink:0; }
+  .ico svg { width:100%; height:100%; }
+  svg.lv { fill:none; stroke:currentColor; stroke-width:1.75; stroke-linecap:round; stroke-linejoin:round; }
+
+  /* NAV */
+  nav {
+    position:fixed; top:0; left:0; right:0; z-index:100;
+    background:rgba(255,255,255,0.92); backdrop-filter:blur(12px);
+    border-bottom:1px solid #f0d0e4;
+    padding:0 5%; height:68px;
+    display:flex; align-items:center; justify-content:space-between;
+  }
+  .nav-logo { display:flex; align-items:center; }
+  .nav-logo img { height:32px; width:auto; display:block; }
+  .nav-links { display:flex; gap:2rem; list-style:none; }
+  .nav-links a { text-decoration:none; color:var(--text-muted); font-size:.875rem; font-weight:500; transition:color .2s; }
+  .nav-links a:hover { color:var(--pink); }
+  .nav-cta { background:var(--pink); color:white!important; padding:.5rem 1.25rem; border-radius:50px; font-weight:600!important; transition:background .2s,transform .2s!important; }
+  .nav-cta:hover { background:var(--pink-dark)!important; transform:translateY(-1px); }
+  .lang-switcher { display:inline-flex; align-items:center; gap:.35rem; font-size:.78rem; font-weight:600; color:var(--text-muted); margin-right:.25rem; }
+  .lang-switcher a { text-decoration:none; color:var(--text-muted); padding:.2rem .45rem; border-radius:6px; transition:color .2s, background .2s; }
+  .lang-switcher a.active { color:var(--pink); background:var(--pink-pale); }
+  .lang-switcher a:hover { color:var(--pink); }
+  .lang-switcher .lang-sep { opacity:.4; }
+
+  /* HERO */
+  .hero {
+    padding-top:68px; min-height:100vh;
+    display:grid; grid-template-columns:1fr 1fr;
+    background:linear-gradient(135deg,var(--pink-pale) 0%,#fff0f8 60%,#fff 100%);
+    position:relative; overflow:hidden;
+  }
+  .hero::before {
+    content:''; position:absolute; top:-100px; right:-100px;
+    width:600px; height:600px; border-radius:50%;
+    background:radial-gradient(circle,rgba(198,51,127,.08) 0%,transparent 70%);
+    pointer-events:none;
+  }
+  .hero-left { display:flex; flex-direction:column; justify-content:center; padding:5% 6% 5% 8%; }
+  .hero-badge {
+    display:inline-flex; align-items:center; gap:.6rem;
+    background:var(--pink-soft); color:var(--pink);
+    font-size:.8rem; font-weight:600; text-transform:uppercase; letter-spacing:.08em;
+    padding:.4rem 1rem; border-radius:50px; margin-bottom:1.5rem; width:fit-content;
+  }
+  .hero-badge-dot { width:7px; height:7px; border-radius:50%; background:var(--pink); animation:pulse 2s infinite; flex-shrink:0; }
+  @keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:.5;transform:scale(1.3)} }
+  .hero-eyebrow { font-size:.9rem; font-weight:500; color:var(--text-muted); text-transform:uppercase; letter-spacing:.1em; margin-bottom:.75rem; }
+  .hero-title { font-family:'Playfair Display',serif; font-size:clamp(2.2rem,3.5vw,3.4rem); font-weight:900; line-height:1.12; color:var(--text); margin-bottom:.5rem; }
+  .hero-title em { font-style:italic; color:var(--pink); }
+  .hero-subtitle { font-size:1.05rem; color:var(--text-muted); line-height:1.65; margin-bottom:2rem; max-width:480px; }
+  .hero-price-block {
+    background:white; border:2px solid var(--pink-soft); border-radius:var(--radius);
+    padding:1.25rem 1.5rem; display:flex; align-items:center; gap:1.5rem;
+    margin-bottom:1.5rem; width:fit-content;
+    box-shadow:0 4px 24px rgba(198,51,127,.08);
+  }
+  .hero-price-label { font-size:.8rem; color:var(--text-muted); font-weight:500; text-transform:uppercase; letter-spacing:.06em; }
+  .hero-price { font-family:'Playfair Display',serif; font-size:2rem; font-weight:700; color:var(--pink); }
+  .hero-price sup { font-size:1rem; }
+  .hero-price-note { font-size:.75rem; color:var(--text-muted); }
+  .hero-stars { display:flex; align-items:center; gap:.35rem; }
+  .hero-stars svg { width:14px; height:14px; fill:var(--pink); }
+  .hero-stars-text { font-size:.78rem; color:var(--text-muted); }
+
+  /* Primary button — branded Probaclac */
+  .btn-primary {
+    display:inline-flex; align-items:center; gap:.5rem;
+    background:var(--pink); color:#fff; text-decoration:none;
+    font-weight:700; font-size:.95rem; padding:1rem 1.75rem;
+    border-radius:50px; border:none; cursor:pointer;
+    transition:background .2s, transform .2s, box-shadow .2s;
+    box-shadow:0 4px 16px rgba(198,51,127,.18);
+  }
+  .btn-primary:hover { background:var(--pink-dark); transform:translateY(-2px); box-shadow:0 8px 28px rgba(198,51,127,.3); }
+  .btn-primary:active { transform:translateY(0); }
+  .btn-primary:focus-visible { outline:3px solid var(--pink); outline-offset:3px; }
+  .btn-primary svg { width:18px; height:18px; flex-shrink:0; stroke:currentColor; fill:none; stroke-width:1.75; stroke-linecap:round; stroke-linejoin:round; }
+
+  .hero-ctas { display:flex; align-items:center; gap:1rem; flex-wrap:wrap; }
+  .btn-secondary {
+    display:inline-flex; align-items:center; gap:.5rem;
+    background:transparent; color:var(--pink); text-decoration:none;
+    font-weight:600; font-size:.95rem; padding:1rem 1.5rem;
+    border-radius:50px; border:2px solid var(--pink-soft); transition:all .2s;
+  }
+  .btn-secondary:hover { border-color:var(--pink); background:var(--pink-pale); }
+
+  .hero-stats { display:flex; gap:2rem; margin-top:2.5rem; padding-top:2rem; border-top:1px solid var(--pink-soft); }
+  .hero-stat-num { font-family:'Playfair Display',serif; font-size:1.8rem; font-weight:700; color:var(--pink); }
+  .hero-stat-label { font-size:.8rem; color:var(--text-muted); font-weight:500; line-height:1.3; }
+
+  .hero-right { position:relative; display:flex; align-items:center; justify-content:center; padding:5% 8% 5% 3%; }
+  .hero-video-wrap {
+    position:relative; width:100%; max-width:440px; border-radius:24px; overflow:hidden;
+    box-shadow:0 32px 80px rgba(198,51,127,.2); aspect-ratio:9/16;
+    background:linear-gradient(145deg,var(--pink-soft),var(--pink-pale));
+    display:flex; align-items:center; justify-content:center;
+  }
+  .hero-video-wrap video { width:100%; height:100%; object-fit:cover; display:block; }
+  .video-placeholder-overlay {
+    position:absolute; inset:0;
+    background:linear-gradient(145deg,rgba(198,51,127,.12),rgba(198,51,127,.04));
+    display:flex; flex-direction:column; align-items:center; justify-content:center; gap:1rem;
+  }
+  .play-btn {
+    width:72px; height:72px; background:white; border-radius:50%;
+    display:flex; align-items:center; justify-content:center;
+    box-shadow:0 8px 32px rgba(198,51,127,.3); cursor:pointer; transition:transform .2s;
+  }
+  .play-btn:hover { transform:scale(1.08); }
+  .video-placeholder-text { color:var(--pink-dark); font-weight:600; font-size:.9rem; text-align:center; padding:0 1rem; }
+  .hero-video-badge {
+    position:absolute; bottom:20px; left:-20px;
+    background:white; border-radius:12px; padding:.75rem 1.1rem;
+    box-shadow:0 8px 24px rgba(198,51,127,.15);
+    display:flex; align-items:center; gap:.75rem;
+  }
+  .hero-video-badge-icon { width:36px; height:36px; background:var(--pink-soft); border-radius:8px; display:flex; align-items:center; justify-content:center; }
+  .hero-video-badge-icon svg { width:18px; height:18px; }
+  .hero-video-badge-text { font-size:.78rem; color:var(--text-muted); line-height:1.3; }
+  .hero-video-badge-num { font-weight:700; color:var(--text); font-size:.9rem; }
+
+  /* TRUST BAND (static) */
+  .ticker { background:var(--pink); padding:.85rem 6%; display:flex; justify-content:center; align-items:center; flex-wrap:wrap; gap:1.25rem 2.5rem; }
+  .ticker-item { color:white; font-size:.82rem; font-weight:600; text-transform:uppercase; letter-spacing:.06em; display:flex; align-items:center; gap:1.5rem; white-space:nowrap; }
+  .ticker-sep { display:none; }
+  @media (max-width:640px){ .ticker{ gap:.6rem 1.25rem; padding:.75rem 5%; } .ticker-item{ font-size:.72rem; gap:.6rem; } }
+
+  /* SECTIONS */
+  section { padding:6rem 8%; }
+  .section-tag { font-size:.8rem; font-weight:600; text-transform:uppercase; letter-spacing:.1em; color:var(--pink); margin-bottom:.75rem; }
+  .section-title { font-family:'Playfair Display',serif; font-size:clamp(2rem,3vw,2.8rem); font-weight:700; line-height:1.2; color:var(--text); margin-bottom:1rem; }
+  .section-title em { font-style:italic; color:var(--pink); }
+  .section-lead { font-size:1rem; line-height:1.7; color:var(--text-muted); max-width:560px; }
+
+  /* PRODUCT */
+  .product-section { background:var(--off-white); position:relative; overflow:hidden; }
+  .product-section::after { content:''; position:absolute; top:-200px; right:-200px; width:500px; height:500px; border-radius:50%; background:radial-gradient(circle,rgba(198,51,127,.05) 0%,transparent 70%); pointer-events:none; }
+  .product-grid { display:grid; grid-template-columns:1fr 1.1fr; gap:4rem; align-items:center; margin-top:3rem; }
+  .product-image-col { display:flex; justify-content:center; }
+  .product-img-wrap { position:relative; width:459px; }
+  .product-img-wrap img { width:100%; filter:drop-shadow(0 24px 48px rgba(198,51,127,.25)); transition:transform .4s; border-radius:16px; }
+  .product-img-wrap:hover img { transform:scale(1.03) rotate(-1deg); }
+  .product-img-glow { position:absolute; bottom:-30px; left:50%; transform:translateX(-50%); width:260px; height:60px; background:radial-gradient(ellipse,rgba(198,51,127,.25) 0%,transparent 70%); filter:blur(20px); }
+  .product-badge-top { position:absolute; top:20px; right:-20px; background:var(--pink); color:white; font-size:.78rem; font-weight:700; text-transform:uppercase; letter-spacing:.05em; padding:.5rem 1rem; border-radius:50px; box-shadow:0 4px 16px rgba(198,51,127,.3); }
+  .product-name { font-family:'Playfair Display',serif; font-size:2rem; font-weight:700; margin-bottom:.25rem; }
+  .product-tagline { color:var(--pink); font-weight:600; font-size:1rem; margin-bottom:1.25rem; }
+  .product-desc { font-size:.95rem; line-height:1.7; color:var(--text-muted); margin-bottom:1.75rem; }
+  .symptoms-grid { display:grid; grid-template-columns:1fr 1fr; gap:.75rem; margin-bottom:2rem; }
+  .symptom-card {
+    background:white; border:1.5px solid var(--pink-soft); border-radius:var(--radius-sm);
+    padding:.75rem 1rem; display:flex; align-items:center; gap:.75rem;
+    font-size:.85rem; font-weight:500; transition:border-color .2s,box-shadow .2s;
+  }
+  .symptom-card:hover { border-color:var(--pink); box-shadow:0 4px 16px rgba(198,51,127,.1); }
+  .symptom-icon { width:34px; height:34px; background:var(--pink-pale); border-radius:8px; display:flex; align-items:center; justify-content:center; flex-shrink:0; }
+  .symptom-icon svg { width:17px; height:17px; fill:none; stroke:var(--pink); stroke-width:1.8; stroke-linecap:round; stroke-linejoin:round; }
+  .product-buy-row { display:flex; align-items:flex-start; flex-direction:column; gap:.75rem; flex-wrap:wrap; }
+  .product-price-pill { background:var(--pink-soft); color:var(--pink-dark); font-family:'Playfair Display',serif; font-size:1.6rem; font-weight:700; padding:.4rem 1.25rem; border-radius:50px; }
+
+  /* STATS BAR */
+  .stats-bar { background:var(--pink); padding:3.5rem 8%; }
+  .stats-inner { display:grid; grid-template-columns:repeat(3,1fr); gap:2rem; text-align:center; }
+  .stat-number { font-family:'Playfair Display',serif; font-size:3rem; font-weight:900; color:white; line-height:1; margin-bottom:.5rem; }
+  .stat-label { color:rgba(255,255,255,.8); font-size:.9rem; font-weight:400; line-height:1.4; }
+  .stat-icon-wrap { width:44px; height:44px; background:rgba(255,255,255,.15); border-radius:10px; display:flex; align-items:center; justify-content:center; margin:0 auto .75rem; }
+  .stat-icon-wrap svg { width:22px; height:22px; fill:none; stroke:white; stroke-width:1.75; stroke-linecap:round; stroke-linejoin:round; }
+
+  /* WHY */
+  .why-section { background:white; }
+  .why-header { display:grid; grid-template-columns:1fr 1fr; gap:4rem; align-items:center; margin-bottom:3.5rem; }
+  .why-image { border-radius:24px; overflow:hidden; aspect-ratio:4/3; background:linear-gradient(145deg,var(--pink-soft),var(--pink-pale)); display:flex; align-items:center; justify-content:center; }
+  .why-image svg { width:80px; height:80px; fill:none; stroke:var(--pink); stroke-width:1.2; stroke-linecap:round; stroke-linejoin:round; opacity:.5; }
+
+  /* Science block — dual charts + insight cards (mirrors etudes/studies.html "Yeast" tab) */
+  .science-block { margin:0 0 3.5rem; }
+  .dual-charts { display:grid; grid-template-columns:1fr 1fr; gap:1rem; margin:0 0 1rem; }
+  .metric-card { background:#fff; border:1px solid rgba(0,0,0,.06); border-radius:22px; padding:1.5rem; box-shadow:0 8px 24px rgba(198,51,127,.06); }
+  .metric-head { display:flex; align-items:flex-start; justify-content:space-between; gap:1rem; margin-bottom:.9rem; }
+  .metric-head h5 { font-family:'Playfair Display',serif; font-size:1rem; line-height:1.25; color:var(--text); font-weight:600; margin:0; }
+  .metric-pill { font-family:'DM Sans',sans-serif; padding:.35rem .7rem; border-radius:999px; background:var(--pink-pale); color:var(--pink); font-size:.68rem; font-weight:700; letter-spacing:.08em; text-transform:uppercase; white-space:nowrap; }
+  .metric-sub { font-size:.78rem; color:var(--text-muted); margin:.3rem 0 0; line-height:1.55; }
+  .chart-legend { display:flex; gap:1rem; justify-content:center; margin-top:.75rem; flex-wrap:wrap; }
+  .legend-item { display:flex; align-items:center; gap:.4rem; font-size:.7rem; color:var(--text-muted); }
+  .legend-dot { width:10px; height:10px; border-radius:3px; flex-shrink:0; }
+  .insight-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:1rem; }
+  .insight-card { background:linear-gradient(180deg,#fff,#fff7f9); border:1px solid rgba(198,51,127,.14); border-radius:18px; padding:1.25rem 1.15rem; box-shadow:0 4px 12px rgba(198,51,127,.04); }
+  .insight-card strong { display:block; font-family:'Playfair Display',serif; font-size:2rem; line-height:1; color:var(--pink); margin-bottom:.4rem; font-weight:700; }
+  .insight-card span { display:block; font-family:'DM Sans',sans-serif; font-size:.82rem; font-weight:700; color:var(--text); margin-bottom:.3rem; }
+  .insight-card p { font-size:.76rem; color:var(--text-muted); line-height:1.55; margin:0; }
+  @media (max-width:900px){ .dual-charts, .insight-grid { grid-template-columns:1fr; } }
+  .benefits-list { display:flex; flex-direction:column; gap:1rem; }
+  .benefit-item { display:flex; gap:1rem; align-items:flex-start; padding:1rem 1.25rem; border-radius:var(--radius-sm); transition:background .2s; cursor:default; }
+  .benefit-item:hover { background:var(--pink-pale); }
+  .benefit-num { font-family:'Playfair Display',serif; font-size:1.25rem; font-weight:700; color:var(--pink-soft); min-width:28px; }
+  .benefit-icon { display:none; }
+  .benefit-icon svg { width:18px; height:18px; fill:none; stroke:var(--pink); stroke-width:1.8; stroke-linecap:round; stroke-linejoin:round; }
+  .benefit-title { font-weight:600; font-size:.95rem; margin-bottom:.25rem; }
+  .benefit-text { font-size:.85rem; color:var(--text-muted); line-height:1.5; }
+
+  /* VIDEO GALLERY */
+  .video-section { background:var(--pink-pale); }
+  .video-section-header { text-align:center; margin-bottom:3rem; }
+  .video-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:1.5rem; }
+  .video-card { border-radius:var(--radius); overflow:hidden; position:relative; cursor:pointer; aspect-ratio:9/16; background:linear-gradient(145deg,var(--pink-soft),white); box-shadow:0 8px 32px rgba(198,51,127,.1); transition:transform .3s,box-shadow .3s; }
+  .video-card:hover { transform:translateY(-6px); box-shadow:0 20px 56px rgba(198,51,127,.2); }
+  .video-card-bg { position:absolute; inset:0; background:linear-gradient(to bottom,rgba(198,51,127,.04) 0%,rgba(198,51,127,.12) 100%); }
+  .video-card-content { position:absolute; inset:0; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:1rem; padding:1.5rem; }
+  .video-card-icon { width:64px; height:64px; opacity:.12; }
+  .video-card-icon svg { width:100%; height:100%; fill:none; stroke:var(--pink); stroke-width:1.2; stroke-linecap:round; stroke-linejoin:round; }
+  .video-play-btn { width:54px; height:54px; background:white; border-radius:50%; display:flex; align-items:center; justify-content:center; box-shadow:0 4px 20px rgba(198,51,127,.25); transition:transform .2s; }
+  .video-card:hover .video-play-btn { transform:scale(1.1); }
+  .video-play-btn svg { width:18px; height:18px; fill:var(--pink); margin-left:3px; }
+  .video-card-label { text-align:center; font-size:.78rem; font-weight:600; color:var(--pink-dark); text-transform:uppercase; letter-spacing:.05em; }
+  .video-card-bottom { position:absolute; bottom:0; left:0; right:0; padding:1.25rem; background:linear-gradient(to top,rgba(198,51,127,.85) 0%,transparent 100%); color:white; }
+  .video-card-bottom h4 { font-size:.9rem; font-weight:600; margin-bottom:.2rem; line-height:1.3; }
+  .video-card-bottom p { font-size:.75rem; opacity:.85; }
+
+  /* OFFER */
+  .offer-section { background:white; }
+  .offer-grid { display:grid; grid-template-columns:1fr 1fr; gap:2.5rem; margin-top:3rem; }
+  .offer-card-main { background:var(--pink); padding:3rem; border-radius:var(--radius); color:white; }
+  .offer-card-main .offer-tag { display:inline-flex; align-items:center; gap:.5rem; background:rgba(255,255,255,.2); padding:.35rem 1rem; border-radius:50px; font-size:.8rem; font-weight:600; letter-spacing:.05em; text-transform:uppercase; margin-bottom:1.5rem; }
+  .offer-card-main .offer-tag svg { width:14px; height:14px; fill:none; stroke:white; stroke-width:2; stroke-linecap:round; stroke-linejoin:round; }
+  .offer-card-main h3 { font-family:'Playfair Display',serif; font-size:1.8rem; font-weight:700; margin-bottom:1rem; line-height:1.2; }
+  .offer-card-main p { opacity:.85; line-height:1.6; margin-bottom:1.75rem; font-size:.95rem; }
+  .btn-white { display:inline-flex; align-items:center; gap:.5rem; background:white; color:var(--pink); text-decoration:none; font-weight:700; padding:.875rem 1.75rem; border-radius:50px; transition:all .2s; font-size:.95rem; }
+  .btn-white:hover { background:var(--pink-pale); transform:translateY(-1px); }
+  .offer-card-secondary { background:var(--pink-pale); padding:3rem; border:2px solid var(--pink-soft); border-radius:var(--radius); }
+  .offer-card-secondary h3 { font-family:'Playfair Display',serif; font-size:1.6rem; font-weight:700; color:var(--text); margin-bottom:.75rem; line-height:1.2; }
+  .offer-card-secondary p { color:var(--text-muted); line-height:1.6; font-size:.95rem; margin-bottom:1.5rem; }
+  .offer-referal-amt { font-family:'Playfair Display',serif; font-size:3rem; color:var(--pink); font-weight:900; display:block; margin-bottom:.5rem; }
+  .offer-sec-tag { display:inline-flex; align-items:center; gap:.5rem; background:var(--pink-soft); color:var(--pink); padding:.35rem 1rem; border-radius:50px; font-size:.8rem; font-weight:600; letter-spacing:.05em; text-transform:uppercase; margin-bottom:1.5rem; }
+  .offer-sec-tag svg { width:14px; height:14px; fill:none; stroke:var(--pink); stroke-width:2; stroke-linecap:round; stroke-linejoin:round; }
+
+  /* FAQ */
+  .faq-section { background:var(--off-white); }
+  .faq-layout { display:grid; grid-template-columns:1fr 1.4fr; gap:5rem; align-items:start; margin-top:3rem; }
+  .faq-image { border-radius:var(--radius); overflow:hidden; aspect-ratio:3/4; background:linear-gradient(145deg,var(--pink-soft),var(--pink-pale)); display:flex; align-items:center; justify-content:center; margin-top:2rem; }
+  .faq-image svg { width:80px; height:80px; fill:none; stroke:var(--pink); stroke-width:1.2; stroke-linecap:round; stroke-linejoin:round; opacity:.4; }
+  .faq-item { border-bottom:1px solid var(--pink-soft); overflow:hidden; }
+  .faq-question { padding:1.25rem 0; display:flex; justify-content:space-between; align-items:center; cursor:pointer; font-weight:600; font-size:.95rem; color:var(--text); gap:1rem; transition:color .2s; }
+  .faq-question:hover { color:var(--pink); }
+  .faq-toggle { width:28px; height:28px; border-radius:50%; background:var(--pink-pale); display:flex; align-items:center; justify-content:center; flex-shrink:0; transition:background .2s,transform .3s; color:var(--pink); }
+  .faq-toggle svg { width:14px; height:14px; fill:none; stroke:currentColor; stroke-width:2.5; stroke-linecap:round; }
+  .faq-item.open .faq-toggle { background:var(--pink); color:white; transform:rotate(45deg); }
+  .faq-answer { max-height:0; overflow:hidden; transition:max-height .35s ease; font-size:.9rem; color:var(--text-muted); line-height:1.7; }
+  .faq-answer-inner { padding-bottom:1.25rem; }
+  .faq-item.open .faq-answer { max-height:300px; }
+
+  /* BADGES ALLERGEN */
+  .badges-section { background:#1b9cd8; padding:3.5rem 8%; text-align:center; }
+  .badges-section h3 { font-family:'Playfair Display',serif; font-size:1.8rem; color:white; font-weight:700; margin-bottom:.75rem; }
+  .badges-section p { color:rgba(255,255,255,.8); font-size:.95rem; margin-bottom:2.5rem; }
+  .badges-row { display:flex; justify-content:center; gap:1.25rem; flex-wrap:wrap; }
+  .badge-pill { background:rgba(255,255,255,.15); color:white; border:1.5px solid rgba(255,255,255,.3); padding:.6rem 1.25rem; border-radius:50px; font-size:.83rem; font-weight:600; letter-spacing:.04em; display:flex; align-items:center; gap:.55rem; }
+  .badge-pill svg { width:15px; height:15px; fill:none; stroke:white; stroke-width:2.2; stroke-linecap:round; stroke-linejoin:round; }
+
+  /* CTA FINAL */
+  .cta-final { background:linear-gradient(135deg,var(--pink-pale) 0%,#fff0f8 100%); text-align:center; position:relative; overflow:hidden; }
+  .cta-final::before,.cta-final::after { content:''; position:absolute; border-radius:50%; pointer-events:none; }
+  .cta-final::before { width:400px; height:400px; background:radial-gradient(circle,rgba(198,51,127,.1) 0%,transparent 70%); top:-100px; left:-100px; }
+  .cta-final::after { width:300px; height:300px; background:radial-gradient(circle,rgba(198,51,127,.08) 0%,transparent 70%); bottom:-80px; right:-80px; }
+  .cta-final-inner { position:relative; z-index:1; max-width:600px; margin:0 auto; }
+  .cta-final .section-title,.cta-final .section-lead { text-align:center; }
+  .cta-final .section-lead { margin:0 auto 2.5rem; }
+  .cta-final-btns { display:flex; justify-content:center; gap:1rem; flex-wrap:wrap; }
+  .cta-note { margin-top:1.25rem; font-size:.8rem; color:var(--text-muted); }
+
+  /* FOOTER */
+  footer { background:var(--text); color:white; padding:4rem 8% 2rem; }
+  .footer-grid { display:grid; grid-template-columns:2fr 1fr 1fr 1fr; gap:3rem; padding-bottom:3rem; border-bottom:1px solid rgba(255,255,255,.1); margin-bottom:2rem; }
+  .footer-brand .nav-logo img { height:36px; filter:brightness(0) invert(1); }
+  .footer-brand p { color:rgba(255,255,255,.55); font-size:.85rem; line-height:1.7; margin-top:1rem; }
+  .footer-col h4 { font-size:.8rem; font-weight:600; text-transform:uppercase; letter-spacing:.08em; color:rgba(255,255,255,.5); margin-bottom:1rem; }
+  .footer-col ul { list-style:none; }
+  .footer-col ul li { margin-bottom:.6rem; }
+  .footer-col ul a { color:rgba(255,255,255,.7); text-decoration:none; font-size:.88rem; transition:color .2s; }
+  .footer-col ul a:hover { color:var(--pink-light); }
+  .footer-bottom { display:flex; justify-content:space-between; align-items:center; font-size:.8rem; color:rgba(255,255,255,.4); }
+  .footer-fab { display:inline-flex; align-items:center; margin-top:1.5rem; }
+  
+
+  /* ANIMATIONS */
+  .fade-in { opacity:0; transform:translateY(24px); transition:opacity .6s ease,transform .6s ease; }
+  .fade-in.visible { opacity:1; transform:translateY(0); }
+
+  /* RESPONSIVE */
+  @media(max-width:900px){
+    .hero{grid-template-columns:1fr}
+    .hero-right{display:none}
+    .hero-left{padding:3rem 6% 3rem}
+    .product-grid{grid-template-columns:1fr}
+    .why-header{grid-template-columns:1fr}
+    .video-grid{grid-template-columns:repeat(2,1fr)}
+    .offer-grid{grid-template-columns:1fr}
+    .faq-layout{grid-template-columns:1fr}
+    .footer-grid{grid-template-columns:1fr 1fr}
+    .stats-inner{grid-template-columns:1fr}
+    nav .nav-links{display:none}
+    section{padding:4rem 6%}
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo"><img src="logo_probaclac.svg" alt="Probaclac"></div>
+  <ul class="nav-links">
+    <li><a href="#produit">The Product</a></li>
+    <li><a href="#pourquoi">Why It Works</a></li>
+    <li><a href="#temoignages">Testimonials</a></li>
+    <li><a href="#faq">FAQ</a></li>
+    <li><a href="https://amazon.ca" class="nav-cta" data-amazon-cta>Order — $28.99</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-left fade-in">
+    <div class="hero-eyebrow">Clinically studied vaginal probiotic</div>
+    <h1 class="hero-title">No more<br><em>recurring yeast</em><br>infections.</h1>
+    <p class="hero-subtitle">Probaclac targets the problem at the source: itching, burning, discharge and vaginal odor. 90&nbsp;% of women report improvement after the first course of treatment.</p>
+
+    <div class="hero-price-block">
+      <div>
+        <div class="hero-stars">
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg>
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg>
+        </div>
+        <div class="hero-stars-text">4.7 · +2,300 reviews · 12 vaginal capsules with applicator (2 treatments of 6 days)</div>
+      </div>
+    </div>
+
+    <div class="hero-ctas">
+      <!-- Probaclac branded button (compliant: advertiser button, not Amazon button) -->
+      <a href="https://amazon.ca" class="btn-primary" data-amazon-cta>
+        <svg width="18" height="18" viewBox="0 0 24 24" class="lv"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+        Buy now — $28.99
+      </a>
+      <a href="#pourquoi" class="btn-secondary">How it works ↓</a>
+    </div>
+
+    <div class="hero-stats">
+      <div>
+        <div class="hero-stat-num">2 × 6</div>
+        <div class="hero-stat-label">treatments<br>of 6 days</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="hero-right">
+    <div class="hero-video-wrap">
+      <div class="video-placeholder-overlay">
+        <svg style="width:70px;height:70px;opacity:.15;fill:none;stroke:var(--pink);stroke-width:1.2;stroke-linecap:round;stroke-linejoin:round" viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="4"/><polygon points="10 8 16 12 10 16 10 8"/></svg>
+        <div class="play-btn">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="var(--pink)" style="margin-left:3px"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+        </div>
+        <div class="video-placeholder-text">Your UGC video<br><strong>Replace with .mp4</strong></div>
+      </div>
+    </div>
+    <div class="hero-video-badge">
+      <div class="hero-video-badge-icon" style="background:#f5d0e6;">
+        <svg viewBox="0 0 24 24" fill="none" stroke="var(--pink)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+      </div>
+      <div>
+        <div class="hero-video-badge-num">Health Canada</div>
+        <div class="hero-video-badge-text">Approved probiotic</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TRUST BAND -->
+<div class="ticker">
+  <div class="ticker-item">Allergen-free</div>
+  <div class="ticker-item">Clinically studied</div>
+  <div class="ticker-item">Made in Quebec</div>
+  <div class="ticker-item">No refrigeration needed</div>
+  <div class="ticker-item">NPN 80136249</div>
+</div>
+
+<!-- PRODUCT SPOTLIGHT -->
+<section class="product-section" id="produit">
+  <div class="section-tag">The Product</div>
+  <h2 class="section-title">Probaclac <em>Yeast Infection</em></h2>
+  <p class="section-lead">The only intravaginal probiotic specifically designed to treat and prevent recurring yeast infections.</p>
+
+  <div class="product-grid fade-in">
+    <div class="product-image-col">
+      <div class="product-img-wrap">
+        <img src="yeast.png" alt="Probaclac Infection à levure">
+        <div class="product-img-glow"></div>
+        <div class="product-badge-top">New product</div>
+      </div>
+    </div>
+
+    <div class="product-info-col">
+      <div class="product-tagline">Vaginal probiotic · 12 capsules with applicator (2 treatments of 6 days)</div>
+      <h3 class="product-name">Relief in 6&nbsp;days</h3>
+      <p class="product-desc">
+        Probaclac rebalances the vaginal flora and reduces symptoms of vulvovaginal candidiasis (VVC).
+      </p>
+
+      <p style="font-size:.82rem;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--pink);margin-bottom:.75rem;">Relieves symptoms</p>
+      <div class="symptoms-grid">
+        <div class="symptom-card">
+          <div class="symptom-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2.5c1 3 4 4.5 4 8a4 4 0 0 1-8 0c0-2 1-3 1-5 0 0 1 1 3 1-1-2 0-3 0-4z"/><path d="M9.5 17.5a2.5 2.5 0 0 0 5 0c0-1.2-.8-1.7-1.2-2.5-.4 1-1.3 1-2.6 1 .3-1 0-1.7 0-2.2-.5.8-1.2 1.5-1.2 3.7z"/></svg>
+          </div>
+          Itching, burning, redness, and swelling
+        </div>
+        <div class="symptom-card">
+          <div class="symptom-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 21c0-2 2-3 2-5s-2-3-2-5 2-3 2-5"/><path d="M12 21c0-2 2-3 2-5s-2-3-2-5 2-3 2-5"/><path d="M17 21c0-2 2-3 2-5s-2-3-2-5 2-3 2-5"/></svg>
+          </div>
+          Vaginal discharge and odors
+        </div>
+        <div class="symptom-card">
+          <div class="symptom-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M11.5 19.5C8 17 3 13 3 9a4.5 4.5 0 0 1 8.5-2A4.5 4.5 0 0 1 20 9c0 4-5 8-8.5 10.5z"/><path d="M16.5 14.5a2.5 2.5 0 1 1 4 2.5c-.6 1.2-2 2-3.5 3-1.5-1-2.9-1.8-3.5-3a2.5 2.5 0 0 1 3-2.5z"/></svg>
+          </div>
+          Pain during sexual intercourse
+        </div>
+        <div class="symptom-card">
+          <div class="symptom-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 4 14 11 14 9 22 20 10 13 10 13 2"/></svg>
+          </div>
+          Painful urination
+        </div>
+      </div>
+
+      <div class="product-buy-row">
+        <div style="display:flex;align-items:center;gap:.75rem;">
+          <div class="product-price-pill">$28.99</div>
+          <a href="https://amazon.ca" class="btn-primary" data-amazon-cta>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+            Buy now
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STATS BAR -->
+<div class="stats-bar">
+  <div class="stats-inner">
+    <div class="fade-in">
+      <div class="stat-icon-wrap">
+        <svg viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+      </div>
+      <div class="stat-number">91%</div>
+      <div class="stat-label">women without relapse<br>after 4 months</div>
+    </div>
+    <div class="fade-in" style="transition-delay:.1s">
+      <div class="stat-icon-wrap">
+        <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+      </div>
+      <div class="stat-number">800+</div>
+      <div class="stat-label">women studied<br>across 6 clinical trials</div>
+    </div>
+    <div class="fade-in" style="transition-delay:.2s">
+      <div class="stat-icon-wrap">
+        <svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+      </div>
+      <div class="stat-number">6</div>
+      <div class="stat-label">days of treatment<br>for visible results</div>
+    </div>
+  </div>
+</div>
+
+<!-- WHY -->
+<section class="why-section" id="pourquoi">
+  <div class="why-header" style="display:block;text-align:center;max-width:880px;margin-inline:auto;">
+    <div class="fade-in">
+      <div class="section-tag">Why It Works</div>
+      <h2 class="section-title">The science behind <em>Probaclac</em></h2>
+      <p class="section-lead" style="margin:0 auto;max-width:720px;">Yeast infections (vaginitis) are caused by an imbalance in the vaginal flora: good bacteria decline and Candida proliferates. Probaclac targets the problem at the source.</p>
+    </div>
+  </div>
+
+  <!-- Clinical evidence block — dual charts + insight cards -->
+  <div class="science-block fade-in">
+    <div class="dual-charts">
+      <div class="metric-card">
+        <div class="metric-head">
+          <div>
+            <h5>Nava 2002 — pH and Symptom Reduction</h5>
+            <p class="metric-sub">Study of 30 women with bacterial or fungal vaginitis. 6 days of intake followed by 9 days of follow-up.</p>
+          </div>
+        </div>
+        <svg viewBox="0 0 360 220" style="width:100%;height:auto" xmlns="http://www.w3.org/2000/svg">
+          <line x1="32" y1="26" x2="32" y2="178" stroke="#d8d8de"/>
+          <line x1="32" y1="178" x2="332" y2="178" stroke="#d8d8de"/>
+          <text x="70" y="196" text-anchor="middle" font-size="10" fill="#7f8791">Itching</text>
+          <text x="126" y="196" text-anchor="middle" font-size="10" fill="#7f8791">Burning</text>
+          <text x="182" y="196" text-anchor="middle" font-size="10" fill="#7f8791">Edema</text>
+          <text x="238" y="196" text-anchor="middle" font-size="10" fill="#7f8791">Erythema</text>
+          <text x="294" y="196" text-anchor="middle" font-size="10" fill="#7f8791">Leucorrhea</text>
+          <rect x="54" y="78" width="12" height="100" rx="6" fill="#a8adb4"/>
+          <rect x="68" y="140" width="12" height="38" rx="6" fill="#d95a84"/>
+          <rect x="82" y="148" width="12" height="30" rx="6" fill="#e9a2b8"/>
+          <rect x="110" y="78" width="12" height="100" rx="6" fill="#a8adb4"/>
+          <rect x="124" y="146" width="12" height="32" rx="6" fill="#d95a84"/>
+          <rect x="138" y="162" width="12" height="16" rx="6" fill="#e9a2b8"/>
+          <rect x="166" y="112" width="12" height="66" rx="6" fill="#a8adb4"/>
+          <rect x="180" y="162" width="12" height="16" rx="6" fill="#d95a84"/>
+          <rect x="194" y="162" width="12" height="16" rx="6" fill="#e9a2b8"/>
+          <rect x="222" y="106" width="12" height="72" rx="6" fill="#a8adb4"/>
+          <rect x="236" y="162" width="12" height="16" rx="6" fill="#d95a84"/>
+          <rect x="250" y="162" width="12" height="16" rx="6" fill="#e9a2b8"/>
+          <rect x="278" y="66" width="12" height="112" rx="6" fill="#a8adb4"/>
+          <rect x="292" y="126" width="12" height="52" rx="6" fill="#d95a84"/>
+          <rect x="306" y="136" width="12" height="42" rx="6" fill="#e9a2b8"/>
+          <polyline points="256,66 290,120 320,132" fill="none" stroke="#0f5777" stroke-width="3.5" stroke-linecap="round"/>
+          <circle cx="256" cy="66" r="4.5" fill="#0f5777"/>
+          <circle cx="290" cy="120" r="4.5" fill="#0f5777"/>
+          <circle cx="320" cy="132" r="4.5" fill="#0f5777"/>
+          <text x="258" y="54" font-size="10" fill="#0f5777" font-weight="700">pH 5.3</text>
+          <text x="286" y="108" font-size="10" fill="#0f5777" font-weight="700">5.0</text>
+          <text x="314" y="120" font-size="10" fill="#0f5777" font-weight="700">4.9</text>
+        </svg>
+        <div class="chart-legend">
+          <span class="legend-item"><span class="legend-dot" style="background:#a8adb4"></span>Baseline</span>
+          <span class="legend-item"><span class="legend-dot" style="background:#d95a84"></span>Day 7</span>
+          <span class="legend-item"><span class="legend-dot" style="background:#e9a2b8"></span>Day 15</span>
+          <span class="legend-item"><span class="legend-dot" style="background:#0f5777"></span>pH</span>
+        </div>
+      </div>
+
+      <div class="metric-card">
+        <div class="metric-head">
+          <div>
+            <h5>Carriero 2007 — Relapse-Free Maintenance</h5>
+            <p class="metric-sub">After oral fluconazole pre-treatment, three monthly cycles at the end of the menstrual period.</p>
+          </div>
+          <span class="metric-pill">4 wk / 4 mo</span>
+        </div>
+        <svg viewBox="0 0 360 220" style="width:100%;height:auto" xmlns="http://www.w3.org/2000/svg">
+          <line x1="42" y1="22" x2="42" y2="180" stroke="#d8d8de"/>
+          <line x1="42" y1="180" x2="330" y2="180" stroke="#d8d8de"/>
+          <text x="108" y="198" text-anchor="middle" font-size="10" fill="#7f8791">4 Weeks</text>
+          <text x="252" y="198" text-anchor="middle" font-size="10" fill="#7f8791">4 Months</text>
+          <rect x="78" y="48" width="28" height="132" rx="10" fill="#ce3079"/>
+          <rect x="112" y="134" width="28" height="46" rx="10" fill="#c8cdd3"/>
+          <rect x="222" y="36" width="28" height="144" rx="10" fill="#ce3079"/>
+          <rect x="256" y="150" width="28" height="30" rx="10" fill="#c8cdd3"/>
+          <text x="92" y="42" text-anchor="middle" font-size="11" font-weight="700" fill="#ce3079">83%</text>
+          <text x="126" y="128" text-anchor="middle" font-size="11" font-weight="700" fill="#7f8791">17%</text>
+          <text x="236" y="30" text-anchor="middle" font-size="11" font-weight="700" fill="#ce3079">91%</text>
+          <text x="270" y="144" text-anchor="middle" font-size="11" font-weight="700" fill="#7f8791">9%</text>
+        </svg>
+        <div class="chart-legend">
+          <span class="legend-item"><span class="legend-dot" style="background:#ce3079"></span>No Relapse</span>
+          <span class="legend-item"><span class="legend-dot" style="background:#c8cdd3"></span>Relapse</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="insight-grid">
+      <div class="insight-card">
+        <strong>90%</strong>
+        <span>perceived symptom improvement</span>
+        <p>Observed in the De Seta 2014 study, versus 68% in the comparator group.</p>
+      </div>
+      <div class="insight-card">
+        <strong>80%</strong>
+        <span>high levels of probiotics</span>
+        <p>After 90 days, versus 40% in the comparator group.</p>
+      </div>
+      <div class="insight-card">
+        <strong>83.3%</strong>
+        <span>reported clinical resolution</span>
+        <p>In the Cianci 2016 study, versus 47.8% in the control group.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="benefits-list fade-in">
+    <div class="benefit-item">
+      <div class="benefit-num">01</div>
+      <div class="benefit-icon">
+        <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+      </div>
+      <div>
+        <div class="benefit-title">Clinically tested</div>
+        <div class="benefit-text">Probaclac yeast infection is clinically studied to rebalance vaginal pH and reduce Candida overgrowth.</div>
+      </div>
+    </div>
+    <div class="benefit-item">
+      <div class="benefit-num">02</div>
+      <div class="benefit-icon">
+        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+      </div>
+      <div>
+        <div class="benefit-title">Direct action — intravaginal</div>
+        <div class="benefit-text">Unlike oral probiotics, the vaginal capsule delivers good bacteria exactly where they are needed, for maximum and rapid effectiveness.</div>
+      </div>
+    </div>
+    <div class="benefit-item">
+      <div class="benefit-num">03</div>
+      <div class="benefit-icon">
+        <svg viewBox="0 0 24 24"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
+      </div>
+      <div>
+        <div class="benefit-title">Treats AND prevents recurrences</div>
+        <div class="benefit-text">91% women without relapse after 4 months*. Reduces signs of VVC and helps treat recurrent vulvovaginal candidiasis (rVVC).</div>
+      </div>
+    </div>
+  </div>
+  <p class="benefits-footnote" style="font-size:.72rem;color:var(--text-muted);line-height:1.6;margin-top:1.5rem;font-style:italic;">*Carriero D. et al., 2007 — clinical study on 476 women with recurrent vulvovaginal candidiasis.</p>
+</section>
+
+<!-- VIDEO GALLERY -->
+<section class="video-section" id="temoignages">
+  <div class="video-section-header fade-in">
+    <div class="section-tag">Real testimonials</div>
+    <h2 class="section-title" style="text-align:center;">They tried it.<br><em>They loved it.</em></h2>
+    <p class="section-lead" style="margin:0 auto;text-align:center;">Replace these cards with your 4 UGC testimonial videos.</p>
+  </div>
+
+  <div class="video-grid">
+    <div class="video-card fade-in">
+      <div class="video-card-bg"></div>
+      <div class="video-card-content">
+        <div class="video-card-icon">
+          <svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+        </div>
+        <div class="video-card-label">Testimonial 1</div>
+        <div class="video-play-btn">
+          <svg viewBox="0 0 24 24" fill="var(--pink)"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+        </div>
+      </div>
+      <div class="video-card-bottom">
+        <h4>"No more recurrences!"</h4>
+        <p>Marie-Eve, 32 · Montreal</p>
+      </div>
+    </div>
+
+    <div class="video-card fade-in" style="transition-delay:.1s">
+      <div class="video-card-bg"></div>
+      <div class="video-card-content">
+        <div class="video-card-icon">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></svg>
+        </div>
+        <div class="video-card-label">Testimonial 2</div>
+        <div class="video-play-btn">
+          <svg viewBox="0 0 24 24" fill="var(--pink)"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+        </div>
+      </div>
+      <div class="video-card-bottom">
+        <h4>"Results in 3 days"</h4>
+        <p>Stephanie, 28 · Quebec City</p>
+      </div>
+    </div>
+
+    <div class="video-card fade-in" style="transition-delay:.2s">
+      <div class="video-card-bg"></div>
+      <div class="video-card-content">
+        <div class="video-card-icon">
+          <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        </div>
+        <div class="video-card-label">Testimonial 3</div>
+        <div class="video-play-btn">
+          <svg viewBox="0 0 24 24" fill="var(--pink)"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+        </div>
+      </div>
+      <div class="video-card-bottom">
+        <h4>"I recommend it to everyone!"</h4>
+        <p>Andreanne, 35 · Laval</p>
+      </div>
+    </div>
+
+    <div class="video-card fade-in" style="transition-delay:.3s">
+      <div class="video-card-bg"></div>
+      <div class="video-card-content">
+        <div class="video-card-icon">
+          <svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+        </div>
+        <div class="video-card-label">Testimonial 4</div>
+        <div class="video-play-btn">
+          <svg viewBox="0 0 24 24" fill="var(--pink)"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+        </div>
+      </div>
+      <div class="video-card-bottom">
+        <h4>"Finally a real treatment"</h4>
+        <p>Genevieve, 41 · Sherbrooke</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq-section" id="faq">
+  <div class="faq-layout">
+    <div class="faq-left fade-in">
+      <div class="section-tag">FAQ</div>
+      <h2 class="section-title">Your questions,<br><em>our answers</em></h2>
+      <p class="section-lead">Everything you need to know before starting your treatment.</p>
+    </div>
+
+    <div class="faq-right fade-in">
+      <div class="faq-item open">
+        <div class="faq-question" onclick="toggleFaq(this)">
+          Can I use Probaclac during my menstrual cycle?
+          <div class="faq-toggle"><svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div>
+        </div>
+        <div class="faq-answer"><div class="faq-answer-inner">It is best to wait until the end of your cycle before starting treatment. Menstrual flow prevents the probiotics from exerting their beneficial effect — the good bacteria are flushed out and cannot rebalance vaginal pH.</div></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question" onclick="toggleFaq(this)">
+          Can it be used during antibiotic therapy?
+          <div class="faq-toggle"><svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div>
+        </div>
+        <div class="faq-answer"><div class="faq-answer-inner">If you are taking oral antibiotics, you can use Probaclac — just be sure to wait at least 2 to 3 hours before or after. If the antibiotics are administered vaginally, wait until the treatment is complete.</div></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question" onclick="toggleFaq(this)">
+          Is it safe during pregnancy?
+          <div class="faq-toggle"><svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div>
+        </div>
+        <div class="faq-answer"><div class="faq-answer-inner">Probaclac Vaginal contains only probiotic strains and other natural ingredients. However, we always recommend consulting a healthcare professional before use if you are pregnant or breastfeeding.</div></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question" onclick="toggleFaq(this)">
+          Can I have sexual intercourse during probiotic therapy?
+          <div class="faq-toggle"><svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div>
+        </div>
+        <div class="faq-answer"><div class="faq-answer-inner">Yes, absolutely. However, it is recommended to wait until after intercourse to insert the daily capsule to ensure optimal effectiveness.</div></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question" onclick="toggleFaq(this)">
+          Does Probaclac Yeast Infection need to be refrigerated?
+          <div class="faq-toggle"><svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div>
+        </div>
+        <div class="faq-answer"><div class="faq-answer-inner">No. Probaclac Yeast Infection does not require any refrigeration. Simply store it in a cool, dry place.</div></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question" onclick="toggleFaq(this)">
+          What is the recommended dosage?
+          <div class="faq-toggle"><svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div>
+        </div>
+        <div class="faq-answer"><div class="faq-answer-inner"><strong>Dosage:</strong><br><strong>Women (18 years and over):</strong> Following infection or in the presence of signs of infection, use one capsule daily at bedtime for 6 consecutive days. Repeat as needed.</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA FINAL -->
+<section class="cta-final">
+  <div class="cta-final-inner fade-in">
+    <div class="section-tag" style="text-align:center;">Ready to get started?</div>
+    <h2 class="section-title">Restore your<br><em>intimate comfort</em> today.</h2>
+    <p class="section-lead">6 days. One capsule per day. Studied in 800+ women across 6 clinical trials. 91% women without relapse after 4 months.</p>
+    <div class="cta-final-btns">
+      <a href="https://amazon.ca" class="btn-primary" data-amazon-cta style="font-size:1.05rem;padding:1.1rem 2.25rem;">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
+        Buy now on Amazon — $28.99
+      </a>
+    </div>
+    <div class="cta-final-trust" style="font-size:.78rem;color:var(--text-muted);margin-top:1rem;display:flex;align-items:center;gap:.4rem;justify-content:center;">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14" style="opacity:.6;flex-shrink:0;"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+      Health Canada Approved · NPN 80136249 · Made in Quebec · Free Prime Shipping
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <div class="nav-logo"><img src="logo_probaclac.svg" alt="Probaclac"></div>
+      <p>Pharmaceutical-grade probiotics, made in Quebec by Nicar Laboratories. Committed to providing allergen-free, clinically studied supplements.</p>
+      <div class="footer-fab">
+        <img src="yeast.png" alt="Fabriqué au Québec" style="height:44px;width:auto;">
+      </div>
+    </div>
+    <div class="footer-col">
+      <h4>Our Products</h4>
+      <ul>
+        <li><a href="#">Yeast Infection</a></li>
+        <li><a href="#">Bacterial Vaginosis</a></li>
+        <li><a href="#">Adults</a></li>
+        <li><a href="#">50 and Over</a></li>
+        <li><a href="#">Travellers</a></li>
+        <li><a href="#">Extra Strength</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Information</h4>
+      <ul>
+        <li><a href="#">About Probiotics</a></li>
+        <li><a href="#">Clinical Studies</a></li>
+        <li><a href="#">The Microbiome</a></li>
+        <li><a href="#">Why Probaclac?</a></li>
+        <li><a href="#">FAQ</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Contact</h4>
+      <ul>
+        <li><a href="tel:18005679683">1 800 567-9683</a></li>
+        <li><a href="#">31 rue Gaston-Dumoulin<br>Blainville, QC J7C 6B4</a></li>
+        <li><a href="#">Instagram</a></li>
+        <li><a href="#">Facebook</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2025 Nicar Laboratories · All rights reserved</span>
+    <div style="display:flex;gap:1.5rem;">
+      <a href="#" style="color:rgba(255,255,255,.4);text-decoration:none;font-size:.8rem;">Privacy Policy</a>
+      <a href="#" style="color:rgba(255,255,255,.4);text-decoration:none;font-size:.8rem;">Terms of Use</a>
+    </div>
+  </div>
+</footer>
+
+<!-- ─────────────────────────────────────────────────────────────────────
+  Amazon Attribution — UGC influenceuses
+  ──────────────────────────────────────────────────────────────────────
+  Produit : Probaclac (yeast) — ASIN B0GHL1V97F
+  Fonctionnement :
+    1. L'influenceuse partage un lien du type :
+         https://www.probaclac.ca/yeast?ref=hela
+         (accepte aussi ?creator=, ?influencer=, ?utm_source=)
+    2. Au chargement, ce script lit le paramètre, le valide contre la
+       liste AMAZON_ATTRIBUTION, et réécrit TOUS les liens [data-amazon-cta]
+       avec l'URL Amazon Attribution spécifique à cette créatrice.
+    3. Le ref est mémorisé dans sessionStorage + cookie (scope .probaclac.ca)
+       pour tenir si l'utilisateur navigue vers une autre page du domaine
+       avant de cliquer "Buy on Amazon".
+    4. Sans ref valide → URL par défaut (fiche produit Amazon neutre,
+       0 attribution, aucune perte de conversion).
+
+  Pour ajouter une nouvelle créatrice :
+    - Ajouter une clé slug (minuscule, sans accent) dans AMAZON_ATTRIBUTION
+      avec l'Attribution URL fournie par la console Amazon Attribution.
+    - Donner le lien .../yeast?ref=<slug> à la créatrice.
+
+  ⚠️ Ne jamais modifier le paramètre maas=... dans les URLs — c'est le token
+  unique qui permet à Amazon d'attribuer la conversion à la bonne campagne.
+  ────────────────────────────────────────────────────────────────────── -->
+<script>
+  (function () {
+    'use strict';
+
+    // URL Amazon par défaut (sans attribution) — utilisée si aucun ref valide.
+    var DEFAULT_AMAZON_URL = 'https://www.amazon.ca/Probaclac-Probiotic-Infection-Treatment-Applicator/dp/B0GHL1V97F?th=1';
+
+    // Map : slug d'influenceuse → URL Amazon Attribution complète (maas=...)
+    // Ces URLs proviennent des fichiers xlsx Amazon_Attribution_*.xlsx
+    // pour le produit yeast (ASIN B0GHL1V97F) uniquement.
+    var AMAZON_ATTRIBUTION = {
+      hela:    'https://www.amazon.ca/Probaclac-Probiotic-Infection-Treatment-Applicator/dp/B0GHL1V97F?maas=maas_adg_38A85C03C5B950BB4BA75ADBD191B8F5_afap_abs&ref_=aa_maas&tag=maas&th=1',
+      shika:   'https://www.amazon.ca/Probaclac-Probiotic-Infection-Treatment-Applicator/dp/B0GHL1V97F?maas=maas_adg_492C9DDE9FC574D54C7E5B4206DF86CC_afap_abs&ref_=aa_maas&tag=maas&th=1',
+      vincent: 'https://www.amazon.ca/Probaclac-Probiotic-Infection-Treatment-Applicator/dp/B0GHL1V97F?maas=maas_adg_A0AFEF328C423B6A22E002600E708477_afap_abs&ref_=aa_maas&tag=maas&th=1',
+      sophie:  'https://www.amazon.ca/Probaclac-Probiotic-Infection-Treatment-Applicator/dp/B0GHL1V97F?maas=maas_adg_E8DDDB68C0E00225828D68CB8D2967D6_afap_abs&ref_=aa_maas&tag=maas&th=1',
+    };
+
+    // Paramètres d'URL acceptés, par ordre de priorité.
+    var REF_PARAMS = ['ref', 'creator', 'influencer', 'utm_source'];
+
+    // Nom du cookie & clé sessionStorage.
+    var STORAGE_KEY = 'probaclac_ref';
+    var COOKIE_DAYS = 30;
+
+    // ── Helpers cookie ──────────────────────────────────────────────
+    function setCookie(name, value, days) {
+      var d = new Date();
+      d.setTime(d.getTime() + days * 24 * 60 * 60 * 1000);
+      // domain .probaclac.ca pour partager entre www et sous-domaines
+      var domain = location.hostname.indexOf('probaclac.ca') !== -1 ? '; domain=.probaclac.ca' : '';
+      document.cookie = name + '=' + encodeURIComponent(value)
+        + '; expires=' + d.toUTCString()
+        + '; path=/'
+        + domain
+        + '; SameSite=Lax';
+    }
+    function getCookie(name) {
+      var match = document.cookie.match(new RegExp('(?:^|; )' + name + '=([^;]*)'));
+      return match ? decodeURIComponent(match[1]) : null;
+    }
+
+    // ── Résolution du ref ───────────────────────────────────────────
+    function normalize(v) {
+      return String(v || '')
+        .toLowerCase()
+        .normalize('NFD').replace(/[\u0300-\u036f]/g, '')  // enlève accents
+        .replace(/[^a-z0-9_-]/g, '')                       // garde alphanumeric + - _
+        .trim();
+    }
+
+    function resolveRef() {
+      // 1. URL query (priorité max — un nouveau clic écrase l'ancien ref)
+      var params = new URLSearchParams(location.search);
+      for (var i = 0; i < REF_PARAMS.length; i++) {
+        var raw = params.get(REF_PARAMS[i]);
+        if (raw) {
+          var slug = normalize(raw);
+          if (AMAZON_ATTRIBUTION[slug]) {
+            // Persister
+            try { sessionStorage.setItem(STORAGE_KEY, slug); } catch (e) {}
+            setCookie(STORAGE_KEY, slug, COOKIE_DAYS);
+            return slug;
+          }
+        }
+      }
+      // 2. sessionStorage (navigation interne)
+      try {
+        var stored = sessionStorage.getItem(STORAGE_KEY);
+        if (stored && AMAZON_ATTRIBUTION[stored]) return stored;
+      } catch (e) {}
+      // 3. Cookie (retour de visite, ou navigation cross-subdomain)
+      var cookied = getCookie(STORAGE_KEY);
+      if (cookied && AMAZON_ATTRIBUTION[cookied]) return cookied;
+      return null;
+    }
+
+    // ── Application aux CTAs ────────────────────────────────────────
+    function applyAttribution() {
+      var ref = resolveRef();
+      var url = (ref && AMAZON_ATTRIBUTION[ref]) || DEFAULT_AMAZON_URL;
+      var ctas = document.querySelectorAll('[data-amazon-cta]');
+      for (var i = 0; i < ctas.length; i++) {
+        ctas[i].setAttribute('href', url);
+        ctas[i].setAttribute('target', '_blank');
+        ctas[i].setAttribute('rel', 'noopener');
+        if (ref) ctas[i].setAttribute('data-amazon-cta-ref', ref);
+      }
+      // Exposé pour debug console : window.PROBACLAC_REF
+      try { window.PROBACLAC_REF = ref || '(default)'; } catch (e) {}
+      if (window.console && console.info) {
+        console.info('[Probaclac] Attribution Amazon :', ref || 'défaut (pas de ref)',
+                     '| CTAs mis à jour :', ctas.length);
+      }
+    }
+
+    // Exécuter le plus tôt possible (DOM partiellement rendu suffit —
+    // le sélecteur [data-amazon-cta] ne prend que ce qui est déjà parsé).
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', applyAttribution);
+    } else {
+      applyAttribution();
+    }
+  })();
+</script>
+
+<script>
+  function toggleFaq(el) {
+    const item = el.parentElement;
+    const isOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-item.open').forEach(i => i.classList.remove('open'));
+    if (!isOpen) item.classList.add('open');
+  }
+
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+  window.addEventListener('scroll', () => {
+    document.querySelector('nav').style.boxShadow = window.scrollY > 40 ? '0 2px 20px rgba(198,51,127,.08)' : 'none';
+  });
+</script>
+</body>
+</html>
