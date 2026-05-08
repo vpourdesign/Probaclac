@@ -298,7 +298,8 @@ section{padding:5rem 8%}
 }
 .benefit-item:hover{background:var(--blue-pale)}
 .benefit-num{font-family:'Playfair Display',serif;font-size:1.2rem;font-weight:700;color:var(--blue-light);min-width:28px;line-height:1.5}
-.benefit-icon{
+.benefit-icon{display:none}
+.benefit-icon-OFF{
   width:38px;height:38px;background:var(--blue-pale);border-radius:9px;
   display:flex;align-items:center;justify-content:center;flex-shrink:0;
 }
@@ -432,9 +433,10 @@ section{padding:5rem 8%}
 .cta-final-trust svg{width:14px;height:14px;flex-shrink:0;opacity:.6}
 
 /* FOOTER */
-footer{padding:2rem 8%;border-top:1px solid var(--blue-light);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem}
-footer img{height:22px;opacity:.45}
+footer{padding:3rem 8% 2rem;border-top:1px solid var(--blue-light);display:flex;flex-direction:column;align-items:flex-start;gap:1rem}
+footer img{height:28px;opacity:.85}
 .footer-text{font-size:.72rem;color:var(--text-muted)}
+.footer-about{font-size:.85rem;color:var(--text-muted);line-height:1.7;max-width:60ch;margin:0}
 .footer-disclaimer{width:100%;font-size:.65rem;color:var(--text-muted);line-height:1.6;max-width:72ch;margin-top:.5rem}
 
 /* REVEAL */
@@ -475,7 +477,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <!-- NAV -->
 <nav>
-  <a href="#" class="nav-logo"><img src="../../brand_assets/logo_probaclac.png" alt="Probaclac"></a>
+  <a href="#" class="nav-logo"><img src="logo_probaclac.svg" alt="Probaclac"></a>
   <ul class="nav-links">
     <li><a href="#product">The Product</a></li>
     <li><a href="#why">Why It Works</a></li>
@@ -844,9 +846,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <!-- FOOTER -->
 <footer>
-  <a href="#"><img src="../../brand_assets/logo_probaclac.png" alt="Probaclac"></a>
-  <div class="footer-text">&copy; 2026 Probaclac. All rights reserved.</div>
-  <p class="footer-disclaimer">This product is not intended to diagnose, treat, cure, or prevent any disease. Results from the clinical study cited reflect a specific population and individual results may vary. Always consult a healthcare professional before starting any new supplement regimen. NPN 80041302.</p>
+  <a href="#"><img src="logo_probaclac.svg" alt="Probaclac"></a>
+  <p class="footer-about">Pharmaceutical-grade probiotics, made in Quebec by Nicar Laboratories. Committed to providing allergen-free, clinically studied supplements.</p>
+  <div class="footer-text">&copy; 2026 Nicar Laboratories · All rights reserved</div>
 </footer>
 
 <!-- SCRIPTS — Tier 1 only: Intersection Observer -->
