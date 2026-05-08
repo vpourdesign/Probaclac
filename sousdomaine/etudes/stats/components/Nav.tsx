@@ -2,12 +2,13 @@ import Link from 'next/link'
 import clsx from 'clsx'
 
 interface NavProps {
-  current: 'global' | 'sci'
+  current: 'global' | 'sci' | 'ugc'
 }
 
 const tabs = [
   { id: 'global', label: 'Tout le site',  href: '/' },
   { id: 'sci',    label: 'Page /sci',     href: '/sci' },
+  { id: 'ugc',    label: 'UGC',           href: '/ugc' },
 ] as const
 
 export default function Nav({ current }: NavProps) {

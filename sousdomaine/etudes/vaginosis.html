@@ -3,6 +3,13 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-NSW3TFP5');</script>
+<!-- End Google Tag Manager -->
 <title>Probaclac Vaginal – Bacterial Vaginosis | Vaginal Probiotic</title>
 <link rel="icon" href="favicon.png" type="image/png">
 <link rel="apple-touch-icon" href="favicon.png">
@@ -461,6 +468,10 @@ footer img{height:22px;opacity:.45}
 </style>
 </head>
 <body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NSW3TFP5"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
 
 <!-- NAV -->
 <nav>
@@ -992,7 +1003,28 @@ footer img{height:22px;opacity:.45}
         ctas[i].setAttribute('target', '_blank');
         ctas[i].setAttribute('rel', 'noopener');
         if (ref) ctas[i].setAttribute('data-amazon-cta-ref', ref);
+        ctas[i].addEventListener('click', (function (refSlug) {
+          return function () {
+            try {
+              window.dataLayer = window.dataLayer || [];
+              window.dataLayer.push({
+                event: 'cta_click',
+                cta_label: 'Buy on Amazon',
+                ref_slug: refSlug || '(none)',
+                product: 'vaginosis',
+              });
+            } catch (e) {}
+          };
+        })(ref));
       }
+      try {
+        window.dataLayer = window.dataLayer || [];
+        window.dataLayer.push({
+          event: 'ugc_visit',
+          ref_slug: ref || '(none)',
+          product: 'vaginosis',
+        });
+      } catch (e) {}
       try { window.PROBACLAC_REF = ref || '(default)'; } catch (e) {}
       if (window.console && console.info) {
         console.info('[Probaclac] Attribution Amazon :', ref || 'défaut (pas de ref)',

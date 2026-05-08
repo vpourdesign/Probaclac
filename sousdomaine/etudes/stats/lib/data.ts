@@ -1356,3 +1356,178 @@ export async function fetchSciKeywordPositions(queries: string[]): Promise<SciKe
 
   return { periodDays, rows }
 }
+
+// ── Section UGC : tracking influenceuses sur /yeast et /vaginosis ──────
+//
+// Stratégie : on lit `landingPagePlusQueryString` GA4 — c'est la page
+// d'atterrissage de la session AVEC ses query params. Chaque session est
+// donc attribuée à UNE landing page (et donc à UN ref) ; on parse
+// `?ref=<slug>` de chaque ligne. Pas besoin de custom dimension.
+//
+// Pour les clics CTA par influenceuse, on lit la dimension
+// `customEvent:ref_slug` envoyée par le dataLayer GTM (event cta_click).
+
+export interface UGCRefStats {
+  ref:         string         // slug d'influenceuse (ou '(none)' / '(other)')
+  sessions:    number
+  users:       number
+  pageViews:   number
+  ctaClicks:   number
+}
+
+export interface UGCPageStats {
+  product:        'yeast' | 'vaginosis'
+  pagePath:       string
+  totalSessions:  number
+  totalUsers:     number
+  totalPageViews: number
+  totalCtaClicks: number
+  refs:           UGCRefStats[]   // trié desc par sessions
+}
+
+export interface UGCStats {
+  pages: UGCPageStats[]
+  /** Période courante (30 derniers jours). */
+  periodDays: number
+}
+
+/** Liste blanche des slugs valides (pour ranger les inconnus dans "(other)"). */
+const UGC_KNOWN_REFS = new Set([
+  'elisabeth', 'hela', 'hina', 'kelsey', 'lina', 'myriam', 'shika', 'sophia',
+])
+
+const UGC_PAGES: { product: 'yeast' | 'vaginosis'; pagePath: string }[] = [
+  { product: 'yeast',     pagePath: '/yeast' },
+  { product: 'vaginosis', pagePath: '/vaginosis' },
+]
+
+/** Extrait le slug ?ref=... d'une URL (ou '(none)' s'il n'y en a pas). */
+function parseRefFromUrl(url: string): string {
+  if (!url) return '(none)'
+  const q = url.indexOf('?')
+  if (q < 0) return '(none)'
+  const params = new URLSearchParams(url.slice(q + 1))
+  // Mêmes paramètres acceptés que côté client (ref / creator / influencer / utm_source).
+  for (const key of ['ref', 'creator', 'influencer', 'utm_source']) {
+    const raw = params.get(key)
+    if (raw) {
+      const slug = raw.toLowerCase().trim().replace(/[^a-z0-9_-]/g, '')
+      if (slug) return UGC_KNOWN_REFS.has(slug) ? slug : '(other)'
+    }
+  }
+  return '(none)'
+}
+
+export async function fetchUGCStats(): Promise<UGCStats> {
+  const client   = getGA4Client()
+  const property = getGA4Property()
+
+  // Filter : pagePath dans /yeast ou /vaginosis (sessions GA4 scoped via landingPage)
+  const pagePathInList = {
+    filter: {
+      fieldName: 'landingPage',
+      inListFilter: { values: UGC_PAGES.map(p => p.pagePath) },
+    },
+  }
+
+  // 1. Sessions / users / pageviews par landing-page (avec query string).
+  // 2. cta_click par (pagePath, ref_slug) — nécessite la dim custom `ref_slug`
+  //    enregistrée dans GA4 Admin. Si elle n'existe pas, l'appel échoue ;
+  //    on isole donc cet appel pour ne pas casser tout le rapport.
+  const landingPromise = client.runReport({
+    property,
+    dateRanges: [{ startDate: '30daysAgo', endDate: 'today' }],
+    dimensions: [
+      { name: 'landingPage' },                  // path seul
+      { name: 'landingPagePlusQueryString' },   // path + ?ref=...
+    ],
+    metrics: [
+      { name: 'sessions' },
+      { name: 'totalUsers' },
+      { name: 'screenPageViews' },
+    ],
+    dimensionFilter: pagePathInList,
+    limit: 500,
+  })
+
+  const ctaPromise = client.runReport({
+    property,
+    dateRanges: [{ startDate: '30daysAgo', endDate: 'today' }],
+    dimensions: [
+      { name: 'pagePath' },
+      { name: 'customEvent:ref_slug' },
+    ],
+    metrics: [{ name: 'eventCount' }],
+    dimensionFilter: {
+      andGroup: {
+        expressions: [
+          { filter: { fieldName: 'eventName', stringFilter: { matchType: 'EXACT' as const, value: 'cta_click' } } },
+          { filter: { fieldName: 'pagePath',  inListFilter: { values: UGC_PAGES.map(p => p.pagePath) } } },
+        ],
+      },
+    },
+    limit: 200,
+  }).catch((err: any) => {
+    console.warn('[UGC] cta_click par ref_slug indisponible (custom dim non enregistrée ?) :', err?.message ?? err)
+    return null
+  })
+
+  const [[landingRes], ctaResult] = await Promise.all([landingPromise, ctaPromise])
+  const ctaRes = Array.isArray(ctaResult) ? ctaResult[0] : null
+
+  // Index : page → ref → stats
+  type Acc = Map<string, UGCRefStats>
+  const byPage = new Map<string, Acc>()
+  for (const p of UGC_PAGES) byPage.set(p.pagePath, new Map())
+
+  // Sessions / users / pageviews
+  for (const row of landingRes.rows ?? []) {
+    const path = row.dimensionValues?.[0]?.value ?? ''
+    const fullUrl = row.dimensionValues?.[1]?.value ?? ''
+    if (!byPage.has(path)) continue
+    const ref = parseRefFromUrl(fullUrl)
+    const acc = byPage.get(path)!
+    const cur = acc.get(ref) ?? { ref, sessions: 0, users: 0, pageViews: 0, ctaClicks: 0 }
+    cur.sessions  += num(row.metricValues?.[0]?.value)
+    cur.users     += num(row.metricValues?.[1]?.value)
+    cur.pageViews += num(row.metricValues?.[2]?.value)
+    acc.set(ref, cur)
+  }
+
+  // cta_click par ref_slug (event-scoped — peut concerner des sessions
+  // dont la landing était sans ref ; on prend le ref_slug du dataLayer).
+  for (const row of ctaRes?.rows ?? []) {
+    const path = row.dimensionValues?.[0]?.value ?? ''
+    const rawRef = row.dimensionValues?.[1]?.value ?? ''
+    if (!byPage.has(path)) continue
+    let ref = rawRef.toLowerCase().trim()
+    // Normalise les valeurs spéciales et enlève les caractères non alphanumeric.
+    if (!ref || ref === '(not set)') {
+      ref = '(none)'
+    } else {
+      const cleaned = ref.replace(/[^a-z0-9_-]/g, '')
+      ref = cleaned && UGC_KNOWN_REFS.has(cleaned) ? cleaned : '(other)'
+    }
+    const count = num(row.metricValues?.[0]?.value)
+    const acc = byPage.get(path)!
+    const cur = acc.get(ref) ?? { ref, sessions: 0, users: 0, pageViews: 0, ctaClicks: 0 }
+    cur.ctaClicks += count
+    acc.set(ref, cur)
+  }
+
+  const pages: UGCPageStats[] = UGC_PAGES.map(p => {
+    const acc = byPage.get(p.pagePath)!
+    const refs = Array.from(acc.values()).sort((a, b) => b.sessions - a.sessions || b.ctaClicks - a.ctaClicks)
+    return {
+      product:        p.product,
+      pagePath:       p.pagePath,
+      totalSessions:  refs.reduce((s, r) => s + r.sessions, 0),
+      totalUsers:     refs.reduce((s, r) => s + r.users, 0),
+      totalPageViews: refs.reduce((s, r) => s + r.pageViews, 0),
+      totalCtaClicks: refs.reduce((s, r) => s + r.ctaClicks, 0),
+      refs,
+    }
+  })
+
+  return { pages, periodDays: 30 }
+}
