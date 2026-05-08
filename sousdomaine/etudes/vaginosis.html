@@ -4,6 +4,8 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Probaclac Vaginal – Bacterial Vaginosis | Vaginal Probiotic</title>
+<link rel="icon" href="favicon.png" type="image/png">
+<link rel="apple-touch-icon" href="favicon.png">
 <meta name="description" content="Clinically proven vaginal probiotic that reduces BV recurrence by 84%. Restore your natural flora with 8 billion bacteria in 14 easy capsules.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -468,7 +470,7 @@ footer img{height:22px;opacity:.45}
     <li><a href="#why">Why It Works</a></li>
     <li><a href="#testimonials">Testimonials</a></li>
     <li><a href="#faq">FAQ</a></li>
-    <li><a href="https://www.amazon.ca" target="_blank" rel="noopener" class="nav-cta">Order — Amazon.ca</a></li>
+    <li><a href="https://www.amazon.ca" target="_blank" rel="noopener" class="nav-cta" data-amazon-cta>Order — Amazon.ca</a></li>
   </ul>
 </nav>
 
@@ -497,7 +499,7 @@ footer img{height:22px;opacity:.45}
     </div>
 
     <div class="hero-ctas">
-      <a href="https://www.amazon.ca" target="_blank" rel="noopener" class="btn-primary">
+      <a href="https://www.amazon.ca" target="_blank" rel="noopener" class="btn-primary" data-amazon-cta>
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
         Buy now — 28.99 $
       </a>
@@ -590,7 +592,7 @@ footer img{height:22px;opacity:.45}
 
       <div class="product-buy-row">
         <span class="product-price-pill">28.99 $</span>
-        <a href="https://www.amazon.ca" target="_blank" rel="noopener" class="btn-primary">Buy now on Amazon</a>
+        <a href="https://www.amazon.ca" target="_blank" rel="noopener" class="btn-primary" data-amazon-cta>Buy now on Amazon</a>
       </div>
     </div>
   </div>
@@ -819,7 +821,7 @@ footer img{height:22px;opacity:.45}
   <img src="vaginose.png" alt="Probaclac Vaginal" class="cta-final-product reveal">
   <h2 class="cta-final-title reveal">Ready to break<br>the <em>cycle?</em></h2>
   <p class="cta-final-text reveal">14 nights. 8 billion bacteria. One fresh start. Join the women who chose to restore, not just treat.</p>
-  <a href="https://www.amazon.ca" target="_blank" rel="noopener" class="btn-primary reveal">
+  <a href="https://www.amazon.ca" target="_blank" rel="noopener" class="btn-primary reveal" data-amazon-cta>
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
     Buy now on Amazon — 28.99 $
   </a>
@@ -885,6 +887,125 @@ footer img{height:22px;opacity:.45}
   }, { threshold: 0.2 });
   document.querySelectorAll('[data-height]').forEach(el => { el.style.height = '0px'; barObs.observe(el); });
 })();
+</script>
+
+<!-- ──────────────────────────────────────────────────────────────────────
+  Amazon Attribution — UGC influenceuses
+  ──────────────────────────────────────────────────────────────────────
+  Produit : Probaclac Vaginal — ASIN B08W8FYJN4
+  Fonctionnement :
+    1. L'influenceuse partage un lien du type :
+         https://etudes.probaclac.ca/vaginosis?ref=hela
+         (accepte aussi ?creator=, ?influencer=, ?utm_source=)
+    2. Au chargement, ce script lit le paramètre, le valide contre la
+       liste AMAZON_ATTRIBUTION, et réécrit TOUS les liens [data-amazon-cta]
+       avec l'URL Amazon Attribution spécifique à cette créatrice.
+    3. Le ref est mémorisé dans sessionStorage + cookie (scope .probaclac.ca)
+       pour tenir si l'utilisateur navigue vers une autre page du domaine
+       avant de cliquer "Buy on Amazon".
+    4. Sans ref valide → URL par défaut (fiche produit Amazon neutre,
+       0 attribution, aucune perte de conversion).
+
+  Pour ajouter une nouvelle créatrice :
+    - Ajouter une clé slug (minuscule, sans accent) dans AMAZON_ATTRIBUTION
+      avec l'Attribution URL fournie par la console Amazon Attribution.
+    - Donner le lien .../vaginosis?ref=<slug> à la créatrice.
+
+  ⚠️ Ne jamais modifier le paramètre maas=... dans les URLs — c'est le token
+  unique qui permet à Amazon d'attribuer la conversion à la bonne campagne.
+  ────────────────────────────────────────────────────────────────────── -->
+<script>
+  (function () {
+    'use strict';
+
+    // URL Amazon par défaut (sans attribution) — utilisée si aucun ref valide.
+    var DEFAULT_AMAZON_URL = 'https://www.amazon.ca/Probaclac-recurrence-vaginosis-concentration-guaranteed/dp/B08W8FYJN4?th=1';
+
+    // Map : slug d'influenceuse → URL Amazon Attribution complète (maas=...)
+    // ASIN B08W8FYJN4 (Probaclac Vaginal).
+    var AMAZON_ATTRIBUTION = {
+      elisabeth: 'https://www.amazon.ca/Probaclac-recurrence-vaginosis-concentration-guaranteed/dp/B08W8FYJN4?maas=maas_adg_D95ECAF0721DBEC8E64537F5E2D7E7E6_afap_abs&ref_=aa_maas&tag=maas&th=1',
+      hela:      'https://www.amazon.ca/Probaclac-recurrence-vaginosis-concentration-guaranteed/dp/B08W8FYJN4?maas=maas_adg_69B25311B20F1DE6D66285915B311F35_afap_abs&ref_=aa_maas&tag=maas&th=1',
+      hina:      'https://www.amazon.ca/Probaclac-recurrence-vaginosis-concentration-guaranteed/dp/B08W8FYJN4?maas=maas_adg_F134FDA89C04C7982C82E2FA165231F2_afap_abs&ref_=aa_maas&tag=maas&th=1',
+      kelsey:    'https://www.amazon.ca/Probaclac-recurrence-vaginosis-concentration-guaranteed/dp/B08W8FYJN4?maas=maas_adg_28F47CA25DD3780C78B6D62420A8EB74_afap_abs&ref_=aa_maas&tag=maas&th=1',
+      lina:      'https://www.amazon.ca/Probaclac-recurrence-vaginosis-concentration-guaranteed/dp/B08W8FYJN4?maas=maas_adg_AD09D2E84BEAB936C8607C9F279608A6_afap_abs&ref_=aa_maas&tag=maas&th=1',
+      myriam:    'https://www.amazon.ca/Probaclac-recurrence-vaginosis-concentration-guaranteed/dp/B08W8FYJN4?maas=maas_adg_7EEE744A029566A7BD9130D51CF7999F_afap_abs&ref_=aa_maas&tag=maas&th=1',
+      shika:     'https://www.amazon.ca/Probaclac-recurrence-vaginosis-concentration-guaranteed/dp/B08W8FYJN4?maas=maas_adg_7E185371ECB0FF9114A8279B2094A79A_afap_abs&ref_=aa_maas&tag=maas&th=1',
+      sophia:    'https://www.amazon.ca/Probaclac-recurrence-vaginosis-concentration-guaranteed/dp/B08W8FYJN4?maas=maas_adg_11B9EDD218FE9D7E14C0F393102C2C16_afap_abs&ref_=aa_maas&tag=maas&th=1',
+    };
+
+    var REF_PARAMS = ['ref', 'creator', 'influencer', 'utm_source'];
+    var STORAGE_KEY = 'probaclac_ref';
+    var COOKIE_DAYS = 30;
+
+    function setCookie(name, value, days) {
+      var d = new Date();
+      d.setTime(d.getTime() + days * 24 * 60 * 60 * 1000);
+      var domain = location.hostname.indexOf('probaclac.ca') !== -1 ? '; domain=.probaclac.ca' : '';
+      document.cookie = name + '=' + encodeURIComponent(value)
+        + '; expires=' + d.toUTCString()
+        + '; path=/'
+        + domain
+        + '; SameSite=Lax';
+    }
+    function getCookie(name) {
+      var match = document.cookie.match(new RegExp('(?:^|; )' + name + '=([^;]*)'));
+      return match ? decodeURIComponent(match[1]) : null;
+    }
+
+    function normalize(v) {
+      return String(v || '')
+        .toLowerCase()
+        .normalize('NFD').replace(/[̀-ͯ]/g, '')
+        .replace(/[^a-z0-9_-]/g, '')
+        .trim();
+    }
+
+    function resolveRef() {
+      var params = new URLSearchParams(location.search);
+      for (var i = 0; i < REF_PARAMS.length; i++) {
+        var raw = params.get(REF_PARAMS[i]);
+        if (raw) {
+          var slug = normalize(raw);
+          if (AMAZON_ATTRIBUTION[slug]) {
+            try { sessionStorage.setItem(STORAGE_KEY, slug); } catch (e) {}
+            setCookie(STORAGE_KEY, slug, COOKIE_DAYS);
+            return slug;
+          }
+        }
+      }
+      try {
+        var stored = sessionStorage.getItem(STORAGE_KEY);
+        if (stored && AMAZON_ATTRIBUTION[stored]) return stored;
+      } catch (e) {}
+      var cookied = getCookie(STORAGE_KEY);
+      if (cookied && AMAZON_ATTRIBUTION[cookied]) return cookied;
+      return null;
+    }
+
+    function applyAttribution() {
+      var ref = resolveRef();
+      var url = (ref && AMAZON_ATTRIBUTION[ref]) || DEFAULT_AMAZON_URL;
+      var ctas = document.querySelectorAll('[data-amazon-cta]');
+      for (var i = 0; i < ctas.length; i++) {
+        ctas[i].setAttribute('href', url);
+        ctas[i].setAttribute('target', '_blank');
+        ctas[i].setAttribute('rel', 'noopener');
+        if (ref) ctas[i].setAttribute('data-amazon-cta-ref', ref);
+      }
+      try { window.PROBACLAC_REF = ref || '(default)'; } catch (e) {}
+      if (window.console && console.info) {
+        console.info('[Probaclac] Attribution Amazon :', ref || 'défaut (pas de ref)',
+          '— ' + ctas.length + ' CTA(s) mis à jour');
+      }
+    }
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', applyAttribution);
+    } else {
+      applyAttribution();
+    }
+  })();
 </script>
 
 </body>
