@@ -149,12 +149,11 @@
   .hero-video-badge-text { font-size:.78rem; color:var(--text-muted); line-height:1.3; }
   .hero-video-badge-num { font-weight:700; color:var(--text); font-size:.9rem; }
 
-  /* TICKER */
-  .ticker { background:var(--pink); overflow:hidden; padding:.8rem 0; display:flex; }
-  .ticker-track { display:flex; animation:ticker 24s linear infinite; white-space:nowrap; }
-  .ticker-item { color:white; font-size:.82rem; font-weight:600; padding:0 2rem; text-transform:uppercase; letter-spacing:.06em; display:flex; align-items:center; gap:1.5rem; }
-  .ticker-sep { width:4px; height:4px; border-radius:50%; background:rgba(255,255,255,.5); flex-shrink:0; }
-  @keyframes ticker { from{transform:translateX(0)} to{transform:translateX(-50%)} }
+  /* TRUST BAND (static) */
+  .ticker { background:var(--pink); padding:.85rem 6%; display:flex; justify-content:center; align-items:center; flex-wrap:wrap; gap:1.25rem 2.5rem; }
+  .ticker-item { color:white; font-size:.82rem; font-weight:600; text-transform:uppercase; letter-spacing:.06em; display:flex; align-items:center; gap:1.5rem; white-space:nowrap; }
+  .ticker-sep { display:none; }
+  @media (max-width:640px){ .ticker{ gap:.6rem 1.25rem; padding:.75rem 5%; } .ticker-item{ font-size:.72rem; gap:.6rem; } }
 
   /* SECTIONS */
   section { padding:6rem 8%; }
@@ -223,7 +222,7 @@
   .benefit-item { display:flex; gap:1rem; align-items:flex-start; padding:1rem 1.25rem; border-radius:var(--radius-sm); transition:background .2s; cursor:default; }
   .benefit-item:hover { background:var(--pink-pale); }
   .benefit-num { font-family:'Playfair Display',serif; font-size:1.25rem; font-weight:700; color:var(--pink-soft); min-width:28px; }
-  .benefit-icon { width:38px; height:38px; background:var(--pink-pale); border-radius:9px; display:flex; align-items:center; justify-content:center; flex-shrink:0; }
+  .benefit-icon { display:none; }
   .benefit-icon svg { width:18px; height:18px; fill:none; stroke:var(--pink); stroke-width:1.8; stroke-linecap:round; stroke-linejoin:round; }
   .benefit-title { font-weight:600; font-size:.95rem; margin-bottom:.25rem; }
   .benefit-text { font-size:.85rem; color:var(--text-muted); line-height:1.5; }
@@ -356,12 +355,6 @@
 
     <div class="hero-price-block">
       <div>
-        <div class="hero-price-label">Price</div>
-        <div class="hero-price"><sup>$</sup>28<sup>,99</sup></div>
-        <div class="hero-price-note">12 vaginal capsules · with applicator</div>
-      </div>
-      <div style="width:1px;background:#f0d0e4;align-self:stretch;"></div>
-      <div>
         <div class="hero-stars">
           <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg>
           <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg>
@@ -369,7 +362,7 @@
           <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg>
           <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01z"/></svg>
         </div>
-        <div class="hero-stars-text">4.7 · +2,300 reviews</div>
+        <div class="hero-stars-text">4.7 · +2,300 reviews · 12 vaginal capsules with applicator (2 treatments of 6 days)</div>
       </div>
     </div>
 
@@ -379,17 +372,13 @@
         <svg width="18" height="18" viewBox="0 0 24 24" class="lv"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
         Buy now — $28.99
       </a>
-      <a href="#pourquoi" class="btn-secondary">How it works →</a>
+      <a href="#pourquoi" class="btn-secondary">How it works ↓</a>
     </div>
 
     <div class="hero-stats">
       <div>
-        <div class="hero-stat-num">6 days</div>
-        <div class="hero-stat-label">complete<br>treatment</div>
-      </div>
-      <div>
-        <div class="hero-stat-num">100%</div>
-        <div class="hero-stat-label">free of major<br>allergens</div>
+        <div class="hero-stat-num">2 × 6</div>
+        <div class="hero-stat-label">treatments<br>of 6 days</div>
       </div>
     </div>
   </div>
@@ -405,33 +394,24 @@
       </div>
     </div>
     <div class="hero-video-badge">
-      <img src="yeast.png" alt="Fabriqué au Québec" style="height:52px;width:auto;">
+      <div class="hero-video-badge-icon" style="background:#f5d0e6;">
+        <svg viewBox="0 0 24 24" fill="none" stroke="var(--pink)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+      </div>
       <div>
-        <div class="hero-video-badge-num">Nicar Laboratories</div>
-        <div class="hero-video-badge-text">Blainville, Quebec</div>
+        <div class="hero-video-badge-num">Health Canada</div>
+        <div class="hero-video-badge-text">Approved probiotic</div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- TICKER -->
+<!-- TRUST BAND -->
 <div class="ticker">
-  <div class="ticker-track" id="tickerTrack">
-    <div class="ticker-item">Allergen-free<span class="ticker-sep"></span></div>
-    <div class="ticker-item">Clinically studied<span class="ticker-sep"></span></div>
-    <div class="ticker-item">Made in Quebec<span class="ticker-sep"></span></div>
-    <div class="ticker-item">No refrigeration needed<span class="ticker-sep"></span></div>
-    <div class="ticker-item">91% relapse-free at 4 months<span class="ticker-sep"></span></div>
-    <div class="ticker-item">Unique vaginal probiotic<span class="ticker-sep"></span></div>
-    <div class="ticker-item">NPN 80136249<span class="ticker-sep"></span></div>
-    <div class="ticker-item">Allergen-free<span class="ticker-sep"></span></div>
-    <div class="ticker-item">Clinically studied<span class="ticker-sep"></span></div>
-    <div class="ticker-item">Made in Quebec<span class="ticker-sep"></span></div>
-    <div class="ticker-item">No refrigeration needed<span class="ticker-sep"></span></div>
-    <div class="ticker-item">91% relapse-free at 4 months<span class="ticker-sep"></span></div>
-    <div class="ticker-item">Unique vaginal probiotic<span class="ticker-sep"></span></div>
-    <div class="ticker-item">NPN 80136249<span class="ticker-sep"></span></div>
-  </div>
+  <div class="ticker-item">Allergen-free</div>
+  <div class="ticker-item">Clinically studied</div>
+  <div class="ticker-item">Made in Quebec</div>
+  <div class="ticker-item">No refrigeration needed</div>
+  <div class="ticker-item">NPN 80136249</div>
 </div>
 
 <!-- PRODUCT SPOTLIGHT -->
@@ -450,37 +430,37 @@
     </div>
 
     <div class="product-info-col">
-      <div class="product-tagline">Vaginal probiotic · 12 capsules with applicator</div>
+      <div class="product-tagline">Vaginal probiotic · 12 capsules with applicator (2 treatments of 6 days)</div>
       <h3 class="product-name">Relief in 6&nbsp;days</h3>
       <p class="product-desc">
-        Thanks to its exclusive strain <strong>Lactiplantibacillus plantarum</strong>, Probaclac rebalances the vaginal flora and reduces symptoms of vulvovaginal candidiasis (VVC). No refrigeration required.
+        Probaclac rebalances the vaginal flora and reduces symptoms of vulvovaginal candidiasis (VVC).
       </p>
 
       <p style="font-size:.82rem;font-weight:600;text-transform:uppercase;letter-spacing:.08em;color:var(--pink);margin-bottom:.75rem;">Relieves symptoms</p>
       <div class="symptoms-grid">
         <div class="symptom-card">
           <div class="symptom-icon">
-            <svg viewBox="0 0 24 24"><path d="M12 2a7 7 0 0 1 7 7c0 5-7 13-7 13S5 14 5 9a7 7 0 0 1 7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2.5c1 3 4 4.5 4 8a4 4 0 0 1-8 0c0-2 1-3 1-5 0 0 1 1 3 1-1-2 0-3 0-4z"/><path d="M9.5 17.5a2.5 2.5 0 0 0 5 0c0-1.2-.8-1.7-1.2-2.5-.4 1-1.3 1-2.6 1 .3-1 0-1.7 0-2.2-.5.8-1.2 1.5-1.2 3.7z"/></svg>
           </div>
-          Itching &amp; burning
+          Itching, burning, redness, and swelling
         </div>
         <div class="symptom-card">
           <div class="symptom-icon">
-            <svg viewBox="0 0 24 24"><path d="M12 2C6 2 2 12 2 12s4 10 10 10 10-10 10-10S18 2 12 2z"/><path d="M12 8v8M8 12h8"/></svg>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 21c0-2 2-3 2-5s-2-3-2-5 2-3 2-5"/><path d="M12 21c0-2 2-3 2-5s-2-3-2-5 2-3 2-5"/><path d="M17 21c0-2 2-3 2-5s-2-3-2-5 2-3 2-5"/></svg>
           </div>
-          Vaginal discharge &amp; odor
+          Vaginal discharge and odors
         </div>
         <div class="symptom-card">
           <div class="symptom-icon">
-            <svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M11.5 19.5C8 17 3 13 3 9a4.5 4.5 0 0 1 8.5-2A4.5 4.5 0 0 1 20 9c0 4-5 8-8.5 10.5z"/><path d="M16.5 14.5a2.5 2.5 0 1 1 4 2.5c-.6 1.2-2 2-3.5 3-1.5-1-2.9-1.8-3.5-3a2.5 2.5 0 0 1 3-2.5z"/></svg>
           </div>
-          Pain during intercourse
+          Pain during sexual intercourse
         </div>
         <div class="symptom-card">
           <div class="symptom-icon">
-            <svg viewBox="0 0 24 24"><polyline points="13 2 13 9 20 9"/><path d="M21 15a9 9 0 1 1-9-13h7l3 3v10z"/></svg>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 4 14 11 14 9 22 20 10 13 10 13 2"/></svg>
           </div>
-          Pain during urination
+          Painful urination
         </div>
       </div>
 
@@ -505,7 +485,7 @@
         <svg viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
       </div>
       <div class="stat-number">91%</div>
-      <div class="stat-label">of women relapse-free<br>after 4 months</div>
+      <div class="stat-label">women without relapse<br>after 4 months</div>
     </div>
     <div class="fade-in" style="transition-delay:.1s">
       <div class="stat-icon-wrap">
@@ -638,8 +618,8 @@
         <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
       </div>
       <div>
-        <div class="benefit-title">Exclusive Lactiplantibacillus plantarum strain</div>
-        <div class="benefit-text">The P17630 strain (Proge P17630®, licensed from PROGE FARM® Italy) is clinically studied to rebalance vaginal pH and reduce Candida overgrowth.</div>
+        <div class="benefit-title">Clinically tested</div>
+        <div class="benefit-text">Probaclac yeast infection is clinically studied to rebalance vaginal pH and reduce Candida overgrowth.</div>
       </div>
     </div>
     <div class="benefit-item">
@@ -659,20 +639,11 @@
       </div>
       <div>
         <div class="benefit-title">Treats AND prevents recurrences</div>
-        <div class="benefit-text">91% of women remained relapse-free after 4 months (Carriero 2007, 476 women). Reduces signs of VVC and helps treat recurrent vulvovaginal candidiasis (rVVC).</div>
-      </div>
-    </div>
-    <div class="benefit-item">
-      <div class="benefit-num">04</div>
-      <div class="benefit-icon">
-        <svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
-      </div>
-      <div>
-        <div class="benefit-title">Allergen-free · No refrigeration needed</div>
-        <div class="benefit-text">Gluten-free, dairy protein-free, soy-free. No cold chain required.</div>
+        <div class="benefit-text">91% women without relapse after 4 months*. Reduces signs of VVC and helps treat recurrent vulvovaginal candidiasis (rVVC).</div>
       </div>
     </div>
   </div>
+  <p class="benefits-footnote" style="font-size:.72rem;color:var(--text-muted);line-height:1.6;margin-top:1.5rem;font-style:italic;">*Carriero D. et al., 2007 — clinical study on 476 women with recurrent vulvovaginal candidiasis.</p>
 </section>
 
 <!-- VIDEO GALLERY -->
@@ -780,10 +751,10 @@
       </div>
       <div class="faq-item">
         <div class="faq-question" onclick="toggleFaq(this)">
-          Can pregnant women use it?
+          Is it safe during pregnancy?
           <div class="faq-toggle"><svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div>
         </div>
-        <div class="faq-answer"><div class="faq-answer-inner">The safety of probiotics has been established. However, it is recommended to consult a healthcare professional before use if you are pregnant or breastfeeding.</div></div>
+        <div class="faq-answer"><div class="faq-answer-inner">Probaclac Vaginal contains only probiotic strains and other natural ingredients. However, we always recommend consulting a healthcare professional before use if you are pregnant or breastfeeding.</div></div>
       </div>
       <div class="faq-item">
         <div class="faq-question" onclick="toggleFaq(this)">
@@ -797,60 +768,35 @@
           Does Probaclac Yeast Infection need to be refrigerated?
           <div class="faq-toggle"><svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div>
         </div>
-        <div class="faq-answer"><div class="faq-answer-inner">No. Probaclac Yeast Infection does not require any refrigeration. Simply store it in a cool, dry place. Convenient for travel and everyday use.</div></div>
+        <div class="faq-answer"><div class="faq-answer-inner">No. Probaclac Yeast Infection does not require any refrigeration. Simply store it in a cool, dry place.</div></div>
       </div>
       <div class="faq-item">
         <div class="faq-question" onclick="toggleFaq(this)">
           What is the recommended dosage?
           <div class="faq-toggle"><svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div>
         </div>
-        <div class="faq-answer"><div class="faq-answer-inner">For adult women (18 years and older): use one capsule per day for 6 consecutive days. Take at least 2 to 3 hours before or after antibiotics. Repeat as needed. See complete instructions on the box.</div></div>
+        <div class="faq-answer"><div class="faq-answer-inner"><strong>Dosage:</strong><br><strong>Women (18 years and over):</strong> Following infection or in the presence of signs of infection, use one capsule daily at bedtime for 6 consecutive days. Repeat as needed.</div></div>
       </div>
     </div>
   </div>
 </section>
-
-<!-- BADGES ALLERGEN -->
-<div class="badges-section">
-  <h3>Allergen-free probiotics</h3>
-  <p>Throughout production, priority food allergens are avoided.</p>
-  <div class="badges-row">
-    <div class="badge-pill">
-      <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
-      Gluten-free
-    </div>
-    <div class="badge-pill">
-      <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
-      Dairy protein-free
-    </div>
-    <div class="badge-pill">
-      <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
-      Soy-free
-    </div>
-    <div class="badge-pill">
-      <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
-      No refrigeration needed
-    </div>
-    <div class="badge-pill">
-      <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
-      NPN 80136249
-    </div>
-  </div>
-</div>
 
 <!-- CTA FINAL -->
 <section class="cta-final">
   <div class="cta-final-inner fade-in">
     <div class="section-tag" style="text-align:center;">Ready to get started?</div>
     <h2 class="section-title">Restore your<br><em>intimate comfort</em> today.</h2>
-    <p class="section-lead">6 days. One capsule per day. Studied in 800+ women across 6 clinical trials. 91% relapse-free after 4 months.</p>
+    <p class="section-lead">6 days. One capsule per day. Studied in 800+ women across 6 clinical trials. 91% women without relapse after 4 months.</p>
     <div class="cta-final-btns">
       <a href="https://amazon.ca" class="btn-primary" data-amazon-cta style="font-size:1.05rem;padding:1.1rem 2.25rem;">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
-        Buy now — $28.99
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
+        Buy now on Amazon — $28.99
       </a>
     </div>
-    <p class="cta-note">Available in pharmacies and on Amazon.ca · Made in Quebec</p>
+    <div class="cta-final-trust" style="font-size:.78rem;color:var(--text-muted);margin-top:1rem;display:flex;align-items:center;gap:.4rem;justify-content:center;">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14" style="opacity:.6;flex-shrink:0;"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+      Health Canada Approved · NPN 80136249 · Made in Quebec · Free Prime Shipping
+    </div>
   </div>
 </section>
 
