@@ -86,6 +86,12 @@
   to     = "/sousdomaine/etudes/lebonprobiotique.html"
   status = 200
 
+# Accès aux assets /images/* (produits, etc.) depuis le sous-domaine etudes
+[[redirects]]
+  from   = "https://etudes.probaclac.ca/images/*"
+  to     = "/images/:splat"
+  status = 200
+
 # Racine du sous-domaine → index etudes
 [[redirects]]
   from   = "https://etudes.probaclac.ca/"
