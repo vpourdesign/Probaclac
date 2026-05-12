@@ -23,6 +23,11 @@
   [headers.values]
     Cache-Control = "public, max-age=31536000, immutable"
 
+[[headers]]
+  for = "/sousdomaine/etudes/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
 # ─── Redirections par sous-domaine ───────────────────────────────────────────
 # PATTERN : ajouter 2 lignes par nouveau sous-domaine (from + to + status 200)
 # status 200 = rewrite silencieux (l'URL dans la barre reste propre)
@@ -55,6 +60,42 @@
 [[redirects]]
   from   = "https://yeast.probaclac.ca/*"
   to     = "/landings/yeast/index.html"
+  status = 200
+
+# ── ETUDES (sous-domaine etudes.probaclac.ca) ───────────────────────────────
+# robots.txt et sitemap.xml à la racine du sous-domaine
+[[redirects]]
+  from   = "https://etudes.probaclac.ca/robots.txt"
+  to     = "/sousdomaine/etudes/robots.txt"
+  status = 200
+
+[[redirects]]
+  from   = "https://etudes.probaclac.ca/sitemap.xml"
+  to     = "/sousdomaine/etudes/sitemap.xml"
+  status = 200
+
+# URL propre : /sci → sci.html (correspond au canonical)
+[[redirects]]
+  from   = "https://etudes.probaclac.ca/sci"
+  to     = "/sousdomaine/etudes/sci.html"
+  status = 200
+
+# URL propre : /lebonprobiotique → lebonprobiotique.html
+[[redirects]]
+  from   = "https://etudes.probaclac.ca/lebonprobiotique"
+  to     = "/sousdomaine/etudes/lebonprobiotique.html"
+  status = 200
+
+# Racine du sous-domaine → index etudes
+[[redirects]]
+  from   = "https://etudes.probaclac.ca/"
+  to     = "/sousdomaine/etudes/index.html"
+  status = 200
+
+# Reste du sous-domaine (studies.html, images, produits/, etc.)
+[[redirects]]
+  from   = "https://etudes.probaclac.ca/*"
+  to     = "/sousdomaine/etudes/:splat"
   status = 200
 
 # ── AJOUTER ICI pour chaque nouveau sous-domaine ──────────────────────────
