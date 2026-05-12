@@ -1,0 +1,1353 @@
+<!DOCTYPE html>
+<html lang="fr-CA">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Le bon probiotique pour vous — Probaclac</title>
+<meta name="description" content="Guide interactif Probaclac : trouvez le bon probiotique selon votre âge ou votre besoin spécifique en quelques clics.">
+<link rel="icon" href="favicon.png" type="image/png">
+<link rel="apple-touch-icon" href="favicon.png">
+
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-NSW3TFP5');</script>
+<!-- End Google Tag Manager -->
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<!-- Lucide icons -->
+<script defer src="https://unpkg.com/lucide@0.460.0/dist/umd/lucide.min.js"></script>
+
+<style>
+:root{
+  --bg:#f8f7f4;
+  --o1:#de6d38;
+  --o1-dark:#c45a2a;
+  --o2:#e8894f;
+  --o3:#fde0cc;
+  --o4:#fef3eb;
+  --text:#1a1a2e;
+  --text-light:#5a5a72;
+  --white:#ffffff;
+  --pink:#d8318c;
+  --blue:#6ca5c5;
+  --green:#3b7341;
+  --shadow-sm:0 2px 8px rgba(26,26,46,.04);
+  --shadow-md:0 12px 36px rgba(222,109,56,.10),0 4px 12px rgba(26,26,46,.06);
+  --shadow-lg:0 24px 80px rgba(222,109,56,.18),0 8px 24px rgba(26,26,46,.08);
+  --radius:18px;
+  --radius-lg:28px;
+  --radius-xl:36px;
+  --ease:cubic-bezier(.16,1,.3,1);
+}
+
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  font-family:'DM Sans',sans-serif;
+  color:var(--text);
+  background:var(--bg);
+  line-height:1.6;
+  min-height:100vh;
+  overflow-x:hidden;
+  position:relative;
+}
+
+/* Warm ambient background */
+body::before{
+  content:'';position:fixed;inset:0;z-index:-1;pointer-events:none;
+  background:
+    radial-gradient(ellipse 60% 50% at 15% 10%,rgba(253,224,204,.55) 0%,transparent 60%),
+    radial-gradient(ellipse 50% 40% at 90% 90%,rgba(232,137,79,.18) 0%,transparent 60%),
+    radial-gradient(ellipse 40% 30% at 50% 50%,rgba(254,243,235,.4) 0%,transparent 70%),
+    var(--bg);
+}
+body::after{
+  content:'';position:fixed;inset:0;z-index:-1;pointer-events:none;opacity:.5;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .04 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* ── Probaclac NAV (depuis etudes/index.html) ───────────────────────────── */
+.pbc-nav-header{position:sticky;top:0;left:0;right:0;z-index:1000;background:var(--white);box-shadow:0 2px 8px rgba(0,0,0,.04);transition:all .3s}
+.pbc-nav-container{max-width:1400px;margin:0 auto;padding:0 2rem;display:flex;align-items:center;justify-content:space-between;height:80px}
+.pbc-nav-left{display:flex;align-items:center;gap:2rem}
+.pbc-logo-link{display:flex;align-items:center;gap:.8rem;text-decoration:none}
+.pbc-logo-link img{height:50px;width:auto;display:block}
+.pbc-quebec-badge img{height:60px;width:auto;display:block}
+.pbc-nav-center{display:flex;align-items:center;gap:3rem;flex:1;justify-content:center}
+.pbc-nav-menu{list-style:none;display:flex;align-items:center;gap:2.5rem;margin:0;padding:0}
+.pbc-nav-item{position:static}
+.pbc-nav-item.has-dropdown{position:relative}
+.pbc-nav-link{text-decoration:none;color:var(--text);font-weight:500;font-size:.95rem;transition:color .3s;display:flex;align-items:center;gap:.3rem}
+.pbc-nav-link:hover{color:var(--o1)}
+.pbc-nav-link.active-link{color:var(--o1)}
+.pbc-nav-item.has-mega:hover .pbc-mega-menu,.pbc-nav-item.has-dropdown:hover .pbc-dropdown-menu{opacity:1;visibility:visible;transform:translateY(0)}
+.pbc-mega-menu{position:fixed;top:80px;left:0;right:0;width:100vw;background:var(--white);box-shadow:0 12px 32px rgba(0,0,0,.12);padding:2.5rem 0;opacity:0;visibility:hidden;transform:translateY(-10px);transition:all .3s;z-index:1001}
+.pbc-mega-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:1.5rem;max-width:1200px;margin:0 auto;padding:0 2rem}
+.pbc-mega-product{text-decoration:none;border-radius:8px;overflow:hidden;transition:transform .3s,box-shadow .3s;display:flex;flex-direction:column}
+.pbc-mega-product:hover{transform:translateY(-4px);box-shadow:var(--shadow-md)}
+.pbc-mega-product img{width:100%;height:auto;aspect-ratio:405/533;object-fit:cover;display:block}
+.pbc-mega-product-name{padding:.75rem .5rem;background:var(--white);text-align:center;font-size:.82rem;font-weight:600;color:var(--text)}
+.pbc-mega-product:hover .pbc-mega-product-name{background:var(--o4);color:var(--o1)}
+.pbc-dropdown-menu{position:absolute;top:100%;left:0;background:var(--white);border-radius:12px;box-shadow:0 12px 32px rgba(0,0,0,.12);min-width:280px;opacity:0;visibility:hidden;transform:translateY(-10px);transition:all .3s;margin-top:.5rem;z-index:1001}
+.pbc-dropdown-menu a{display:block;padding:1rem 1.5rem;text-decoration:none;color:var(--text);font-size:.95rem;transition:all .3s;border-bottom:1px solid rgba(0,0,0,.05)}
+.pbc-dropdown-menu a:last-child{border-bottom:none}
+.pbc-dropdown-menu a:hover{background:var(--o4);color:var(--o1);padding-left:2rem}
+.pbc-nav-right{display:flex;align-items:center;gap:.5rem}
+.pbc-lang-toggle{background:none;border:none;color:var(--text);font-weight:500;font-size:.9rem;cursor:pointer;padding:.4rem .6rem;border-radius:4px;transition:all .3s;text-decoration:none}
+.pbc-lang-toggle:hover{color:var(--o1)}
+.pbc-lang-toggle.active-lang{color:var(--o1);font-weight:700}
+.pbc-lang-separator{color:#ccc;font-size:.9rem;user-select:none}
+@media(max-width:1024px){
+  .pbc-mega-grid{grid-template-columns:repeat(4,1fr);gap:1rem}
+  .pbc-nav-menu{gap:1.5rem}
+  .pbc-nav-link{font-size:.9rem}
+}
+.pbc-hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:.5rem;z-index:1002}
+.pbc-hamburger span{width:24px;height:2px;background:var(--text);border-radius:2px;transition:all .3s}
+.pbc-hamburger.open span:nth-child(1){transform:rotate(45deg) translate(5px,5px)}
+.pbc-hamburger.open span:nth-child(2){opacity:0}
+.pbc-hamburger.open span:nth-child(3){transform:rotate(-45deg) translate(5px,-5px)}
+.pbc-mobile-menu{position:fixed;top:70px;left:0;right:0;bottom:0;background:var(--white);z-index:999;padding:1.5rem;overflow-y:auto;transform:translateX(100%);transition:transform .35s cubic-bezier(0.16,1,0.3,1)}
+.pbc-mobile-menu.open{transform:translateX(0)}
+.pbc-mobile-menu ul{list-style:none;display:flex;flex-direction:column;gap:0;margin:0;padding:0}
+.pbc-mobile-menu li{border-bottom:1px solid rgba(0,0,0,.06)}
+.pbc-mobile-menu a{display:block;padding:1rem 0;text-decoration:none;color:var(--text);font-weight:500;font-size:1rem;transition:color .3s}
+.pbc-mobile-menu a:hover,.pbc-mobile-menu a.active-link{color:var(--o1)}
+.pbc-mobile-menu .mobile-sub{padding-left:1rem}
+.pbc-mobile-menu .mobile-sub a{font-size:.9rem;font-weight:400;padding:.6rem 0;color:var(--text-light)}
+.pbc-mobile-menu .mobile-sub a:hover{color:var(--o1)}
+.pbc-mobile-menu .mobile-lang{display:flex;gap:.5rem;padding:1.5rem 0;justify-content:center}
+.pbc-mobile-menu .mobile-lang a{padding:.4rem .8rem;border-radius:4px;font-size:.9rem;font-weight:500}
+.pbc-mobile-menu .mobile-lang a.active-lang{color:var(--o1);font-weight:700}
+@media(max-width:768px){
+  .pbc-nav-container{height:70px;padding:0 1rem}
+  .pbc-nav-left{gap:1rem}
+  .pbc-logo-link img{height:40px}
+  .pbc-quebec-badge img{height:50px}
+  .pbc-nav-center{display:none}
+  .pbc-nav-right{display:none}
+  .pbc-hamburger{display:flex}
+  .pbc-mega-menu,.pbc-dropdown-menu{display:none}
+}
+
+/* ── Probaclac FOOTER (depuis etudes/index.html) ────────────────────────── */
+.pbc-footer{background:rgb(239,106,0);color:#fff;padding:1rem 0 0;margin-top:4rem}
+.pbc-footer-container{margin:0 auto;padding:0 40px}
+.pbc-footer-logo-section{display:flex;align-items:center;justify-content:center;gap:1.2rem;padding:1.8rem 0 1.5rem}
+.pbc-footer-logo-section img:first-child{height:48px;width:auto;display:block}
+.pbc-footer-logo-section img:last-child{height:62px;width:auto;display:block}
+.pbc-footer-content{display:grid;grid-template-columns:0.25fr 0.234fr 0.2375fr 0.278fr;gap:0;padding:0 0 1.5rem;align-items:stretch}
+.pbc-footer-column{padding:1rem 1.5rem}
+.pbc-footer-column h4{font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;font-size:25px;font-weight:normal;letter-spacing:0;text-transform:none;margin-bottom:0;color:#fff;white-space:nowrap;line-height:1.4}
+.pbc-footer-column.col-label{display:flex;align-items:center;justify-content:flex-start;border-right:1px solid rgba(255,255,255,.72);padding-right:1.5rem}
+.pbc-footer-column.col-label-right{display:flex;align-items:center;justify-content:flex-start;border-left:1px solid rgba(255,255,255,.72);padding-left:1.5rem}
+.pbc-footer-links{list-style:none;display:grid;gap:.1rem;margin:0;padding:0}
+.pbc-footer-links a{text-decoration:none;color:#fff;font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;font-size:16px;line-height:1.6;transition:color .3s}
+.pbc-footer-links a:hover{text-decoration:underline}
+.pbc-footer-contact{display:grid;gap:.25rem}
+.pbc-footer-contact p{font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;font-size:16px;line-height:1.6;color:#fff;margin:0}
+.pbc-footer-contact a{color:#fff;text-decoration:underline;transition:color .3s}
+.pbc-footer-tel-label{color:#fff;font-size:16px}
+.pbc-social-icons{display:flex;gap:16px;margin-top:.75rem}
+.pbc-social-icons a{width:35px;height:35px;display:flex;align-items:center;justify-content:center;text-decoration:none;transition:opacity .3s}
+.pbc-social-icons a:hover{opacity:.8}
+.pbc-social-icons img{width:35px;height:35px;display:block;object-fit:contain}
+.pbc-footer-bottom{padding:1rem 1.5rem 1.5rem;display:grid;grid-template-columns:1fr 1fr;gap:1rem;align-items:center}
+.pbc-footer-meta{font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;font-size:16px;line-height:1.6;color:#fff;text-align:center}
+.pbc-footer-meta p{margin:0}
+.pbc-footer-meta a{color:#fff;text-decoration:underline;transition:color .3s}
+.pbc-footer-partner{background:#fff;border-radius:15px;padding:1rem 1.5rem;display:flex;align-items:center;justify-content:center;gap:1.2rem;text-decoration:none;transition:all .3s;white-space:nowrap;max-width:50%;margin-left:auto}
+.pbc-footer-partner:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(0,0,0,.15)}
+.pbc-footer-partner-text{font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;font-size:18px;font-weight:400;color:#2f2d44;text-align:right}
+.pbc-footer-partner img{height:55px;width:auto;display:block}
+@media(max-width:768px){
+  .pbc-footer-content{grid-template-columns:1fr;gap:0}
+  .pbc-footer-column.col-label,.pbc-footer-column.col-label-right{display:none}
+  .pbc-footer-column{border:none!important;padding:1rem}
+  .pbc-footer-bottom{grid-template-columns:1fr;text-align:center}
+  .pbc-footer-partner{justify-content:center;white-space:normal;max-width:80%;margin:0 auto}
+}
+
+/* ── Step controls (back + progress) — au-dessus du contenu ─────────────── */
+.step-controls{
+  max-width:1180px;margin:0 auto;
+  padding:1.5rem clamp(1rem,3vw,2rem) 0;
+  display:flex;align-items:center;justify-content:space-between;gap:1rem;
+  min-height:48px;
+}
+.progress-dots{display:flex;gap:.5rem;align-items:center}
+.progress-dot{
+  width:8px;height:8px;border-radius:50%;
+  background:rgba(222,109,56,.18);
+  transition:all .4s var(--ease);
+}
+.progress-dot.is-done{background:var(--o3)}
+.progress-dot.is-current{
+  background:var(--o1);width:24px;border-radius:4px;
+}
+.back-link{
+  display:inline-flex;align-items:center;gap:.4rem;
+  color:var(--text-light);text-decoration:none;
+  font-size:.85rem;font-weight:500;
+  padding:.5rem .85rem;border-radius:50px;
+  border:1px solid rgba(26,26,46,.08);
+  background:var(--white);
+  transition:all .25s var(--ease);
+}
+.back-link:hover{color:var(--o1);border-color:var(--o3)}
+.back-link svg,.back-link [data-lucide]{width:14px;height:14px}
+
+/* ── Layout ─────────────────────────────────────────────────────────────── */
+main{
+  max-width:1180px;margin:0 auto;
+  padding:clamp(1.25rem,3vw,2rem) clamp(1rem,3vw,2rem) 4rem;
+  position:relative;
+}
+
+.step{
+  display:none;
+  animation:none;
+}
+.step.is-active{
+  display:block;
+  animation:stepIn .7s var(--ease) both;
+}
+@keyframes stepIn{
+  from{opacity:0;transform:translateY(24px)}
+  to{opacity:1;transform:translateY(0)}
+}
+
+.step-eyebrow{
+  display:inline-block;
+  font-size:.72rem;font-weight:700;
+  text-transform:uppercase;letter-spacing:.14em;
+  color:var(--o1);
+  padding:.4rem .9rem;border-radius:50px;
+  background:var(--o4);border:1px solid var(--o3);
+  margin-bottom:1.25rem;
+}
+.step-title{
+  font-family:'Playfair Display',serif;
+  font-size:clamp(2rem,4.5vw,3.4rem);
+  font-weight:700;line-height:1.05;letter-spacing:-.02em;
+  margin-bottom:1rem;color:var(--text);
+}
+.step-title em{font-style:italic;color:var(--o1)}
+.step-sub{
+  font-size:clamp(1rem,1.4vw,1.15rem);
+  color:var(--text-light);
+  max-width:62ch;line-height:1.65;
+  margin-bottom:clamp(2rem,4vw,3rem);
+}
+
+/* ── Cards : choix de chemin (intro) ──────────────────────────────────── */
+.path-grid{
+  display:grid;grid-template-columns:repeat(2,1fr);
+  gap:clamp(1rem,2vw,1.75rem);
+  max-width:920px;
+}
+.path-card{
+  background:var(--white);
+  border-radius:var(--radius-lg);
+  padding:clamp(1.75rem,3vw,2.5rem);
+  border:1px solid rgba(26,26,46,.05);
+  box-shadow:var(--shadow-sm);
+  cursor:pointer;
+  transition:transform .5s var(--ease),box-shadow .5s var(--ease),border-color .25s var(--ease);
+  position:relative;overflow:hidden;
+  text-align:left;font:inherit;color:inherit;
+}
+.path-card::before{
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(135deg,var(--o4) 0%,transparent 60%);
+  opacity:0;transition:opacity .5s var(--ease);
+  pointer-events:none;
+}
+.path-card:hover{
+  transform:translateY(-6px);
+  box-shadow:var(--shadow-lg);
+  border-color:var(--o3);
+}
+.path-card:hover::before{opacity:1}
+.path-card:focus-visible{outline:3px solid var(--o1);outline-offset:4px}
+.path-icon{
+  width:48px;height:48px;border-radius:12px;
+  background:var(--o4);
+  display:flex;align-items:center;justify-content:center;
+  margin-bottom:1.5rem;
+  position:relative;z-index:1;
+  transition:transform .5s var(--ease),background .35s var(--ease);
+}
+.path-icon svg,.path-icon [data-lucide]{width:22px;height:22px;stroke:var(--o1);fill:none;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+.path-card:hover .path-icon{background:var(--o3)}
+.path-title{
+  font-family:'Playfair Display',serif;
+  font-size:clamp(1.4rem,2.4vw,1.85rem);
+  font-weight:700;line-height:1.2;
+  margin-bottom:.65rem;position:relative;z-index:1;
+}
+.path-desc{
+  color:var(--text-light);font-size:.95rem;
+  position:relative;z-index:1;
+}
+.path-arrow{
+  margin-top:1.5rem;display:inline-flex;align-items:center;gap:.5rem;
+  color:var(--o1);font-weight:600;font-size:.9rem;
+  position:relative;z-index:1;
+  transition:gap .35s var(--ease);
+}
+.path-card:hover .path-arrow{gap:.9rem}
+.path-arrow svg,.path-arrow [data-lucide]{width:16px;height:16px}
+
+/* ── Age cards ─────────────────────────────────────────────────────────── */
+.option-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:clamp(.85rem,1.6vw,1.25rem);
+}
+.option-card{
+  background:var(--white);
+  border-radius:var(--radius);
+  padding:clamp(1.5rem,2.5vw,2rem);
+  border:2px solid transparent;
+  box-shadow:var(--shadow-sm);
+  cursor:pointer;text-align:left;
+  font:inherit;color:inherit;
+  transition:transform .4s var(--ease),box-shadow .4s var(--ease),border-color .2s var(--ease),background .25s var(--ease);
+  position:relative;
+  display:flex;flex-direction:column;gap:.5rem;
+  min-height:160px;
+}
+.option-card:hover{
+  transform:translateY(-4px);
+  box-shadow:var(--shadow-md);
+  border-color:var(--o3);
+}
+.option-card:focus-visible{outline:3px solid var(--o1);outline-offset:4px}
+.option-card.is-selected{
+  border-color:var(--o1);
+  background:linear-gradient(135deg,var(--o4) 0%,var(--white) 70%);
+  box-shadow:var(--shadow-md);
+}
+.option-card .check{
+  position:absolute;top:14px;right:14px;
+  width:26px;height:26px;border-radius:50%;
+  border:2px solid rgba(26,26,46,.12);
+  background:var(--white);
+  display:flex;align-items:center;justify-content:center;
+  transition:all .35s var(--ease);transform:scale(.6);opacity:0;
+}
+.option-card.is-selected .check{
+  border-color:var(--o1);background:var(--o1);
+  transform:scale(1);opacity:1;
+}
+.option-card .check svg,.option-card .check [data-lucide]{width:14px;height:14px;stroke:var(--white);stroke-width:3;fill:none;stroke-linecap:round;stroke-linejoin:round}
+.option-icon{
+  width:40px;height:40px;border-radius:10px;
+  background:var(--o4);
+  display:flex;align-items:center;justify-content:center;
+  margin-bottom:.4rem;
+  transition:background .25s var(--ease);
+}
+.option-icon svg,.option-icon [data-lucide]{width:20px;height:20px;stroke:var(--o1);fill:none;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+.option-card.is-selected .option-icon{background:var(--white)}
+.option-title{
+  font-family:'Playfair Display',serif;
+  font-size:1.3rem;font-weight:700;letter-spacing:-.01em;
+}
+.option-meta{font-size:.85rem;color:var(--text-light)}
+
+/* Sub-options (vaginal yeast vs vaginosis) */
+.sub-options{
+  margin-top:1.25rem;padding:1.25rem 1.5rem;
+  border-radius:var(--radius);
+  background:linear-gradient(135deg,rgba(216,49,140,.04),rgba(222,109,56,.04));
+  border:1px solid rgba(216,49,140,.15);
+  animation:stepIn .4s var(--ease) both;
+}
+.sub-options-label{
+  font-size:.78rem;font-weight:600;
+  text-transform:uppercase;letter-spacing:.08em;
+  color:var(--pink);margin-bottom:.85rem;
+}
+.sub-options-grid{
+  display:grid;grid-template-columns:1fr 1fr;gap:.6rem;
+}
+.sub-opt{
+  background:var(--white);border:2px solid transparent;
+  border-radius:12px;padding:.95rem 1.1rem;
+  font-size:.92rem;font-weight:600;text-align:left;
+  cursor:pointer;transition:all .2s var(--ease);
+  display:flex;align-items:center;gap:.65rem;
+  font-family:inherit;color:var(--text);
+  box-shadow:var(--shadow-sm);
+}
+.sub-opt svg,.sub-opt [data-lucide]{width:16px;height:16px;stroke:currentColor;fill:none;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round;opacity:.6;flex-shrink:0}
+.sub-opt:hover{border-color:var(--pink);transform:translateY(-1px)}
+.sub-opt:focus-visible{outline:3px solid var(--pink);outline-offset:3px}
+.sub-opt.is-selected{
+  border-color:var(--pink);background:rgba(216,49,140,.06);
+  color:var(--pink);
+}
+.sub-opt.is-selected svg,.sub-opt.is-selected [data-lucide]{opacity:1}
+@media(max-width:480px){
+  .sub-options-grid{grid-template-columns:1fr}
+}
+
+/* ── CTA footer (Voir mes recommandations) ─────────────────────────────── */
+.cta-row{
+  margin-top:clamp(1.5rem,3vw,2.5rem);
+  display:flex;align-items:center;justify-content:space-between;
+  flex-wrap:wrap;gap:1rem;
+}
+.cta-count{font-size:.9rem;color:var(--text-light)}
+.cta-count strong{color:var(--text);font-weight:700}
+.btn-primary{
+  display:inline-flex;align-items:center;gap:.6rem;
+  background:var(--o1);color:var(--white);
+  border:none;cursor:pointer;font:inherit;
+  font-weight:600;font-size:1rem;
+  padding:1rem 1.85rem;border-radius:50px;
+  box-shadow:0 8px 24px rgba(222,109,56,.28);
+  transition:transform .25s var(--ease),box-shadow .25s var(--ease),background .25s var(--ease);
+  text-decoration:none;
+}
+.btn-primary:hover{
+  background:var(--o1-dark);
+  transform:translateY(-2px);
+  box-shadow:0 12px 32px rgba(222,109,56,.38);
+}
+.btn-primary:disabled{
+  opacity:.4;cursor:not-allowed;
+  transform:none;box-shadow:0 4px 12px rgba(222,109,56,.15);
+}
+.btn-primary svg,.btn-primary [data-lucide]{width:18px;height:18px}
+.btn-secondary{
+  display:inline-flex;align-items:center;gap:.5rem;
+  background:transparent;color:var(--text-light);
+  border:none;padding:.5rem 0;
+  font:inherit;font-weight:500;font-size:.85rem;
+  cursor:pointer;text-decoration:none;
+  letter-spacing:.005em;
+  transition:color .25s var(--ease);
+  position:relative;
+}
+.btn-secondary::after{
+  content:'';position:absolute;left:0;right:0;bottom:0;
+  height:1px;background:currentColor;opacity:.18;
+  transition:opacity .25s var(--ease);
+}
+.btn-secondary:hover{color:var(--o1)}
+.btn-secondary:hover::after{opacity:.5}
+.btn-secondary svg{width:13px;height:13px;opacity:.7}
+
+/* ── Results step ──────────────────────────────────────────────────────── */
+.results-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:clamp(1rem,2vw,1.5rem);
+  margin-top:clamp(1.5rem,3vw,2rem);
+}
+.results-grid.is-single{
+  grid-template-columns:1fr;
+  max-width:760px;
+}
+.product-card{
+  background:var(--white);border-radius:var(--radius-lg);
+  padding:1.5rem;
+  box-shadow:var(--shadow-sm);
+  border:1px solid rgba(26,26,46,.05);
+  display:flex;flex-direction:column;
+  text-decoration:none;color:inherit;
+  transition:transform .4s var(--ease),box-shadow .4s var(--ease),border-color .25s var(--ease);
+  position:relative;overflow:hidden;
+  animation:cardIn .6s var(--ease) both;
+}
+/* Horizontal layout for single result */
+.results-grid.is-single .product-card{
+  flex-direction:row;align-items:center;gap:1.75rem;
+  padding:1.5rem 2rem 1.5rem 1.5rem;
+}
+.results-grid.is-single .product-card-img-wrap{
+  flex-shrink:0;
+  width:200px;height:240px;max-height:none;
+  aspect-ratio:auto;margin-bottom:0;
+}
+.results-grid.is-single .product-card-body{flex:1;min-width:0}
+.results-grid.is-single .product-card-img-wrap img{max-width:90%;max-height:90%}
+@media(max-width:600px){
+  .results-grid.is-single .product-card{flex-direction:column;padding:1.5rem}
+  .results-grid.is-single .product-card-img-wrap{width:100%;height:auto;aspect-ratio:1/1;margin-bottom:1.25rem}
+}
+.product-card:nth-child(1){animation-delay:.05s}
+.product-card:nth-child(2){animation-delay:.12s}
+.product-card:nth-child(3){animation-delay:.19s}
+.product-card:nth-child(4){animation-delay:.26s}
+.product-card:nth-child(5){animation-delay:.33s}
+.product-card:nth-child(6){animation-delay:.4s}
+@keyframes cardIn{
+  from{opacity:0;transform:translateY(28px) scale(.97)}
+  to{opacity:1;transform:translateY(0) scale(1)}
+}
+.product-card:hover{
+  transform:translateY(-6px);
+  box-shadow:var(--shadow-lg);
+  border-color:var(--o3);
+}
+.product-card-img-wrap{
+  aspect-ratio:1/1;
+  max-height:200px;
+  background:linear-gradient(165deg,var(--o4) 0%,#fff 80%);
+  border-radius:14px;display:flex;align-items:center;justify-content:center;
+  padding:1.25rem;margin-bottom:1.25rem;
+  overflow:hidden;
+}
+.product-card-img-wrap img{
+  max-width:75%;max-height:100%;
+  object-fit:contain;
+  filter:drop-shadow(0 8px 18px rgba(26,26,46,.10));
+  transition:transform .5s var(--ease);
+}
+.product-card:hover .product-card-img-wrap img{transform:scale(1.04) rotate(-1deg)}
+.product-tag{
+  font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;
+  color:var(--o1);margin-bottom:.4rem;
+}
+.product-name{
+  font-family:'Playfair Display',serif;
+  font-size:1.35rem;font-weight:700;line-height:1.2;letter-spacing:-.01em;
+  margin-bottom:.5rem;
+}
+.product-desc{
+  color:var(--text-light);font-size:.9rem;line-height:1.55;
+  margin-bottom:1rem;flex-grow:1;
+}
+.product-link{
+  display:inline-flex;align-items:center;gap:.45rem;
+  color:var(--o1);font-weight:600;font-size:.9rem;
+  transition:gap .35s var(--ease);
+}
+.product-card:hover .product-link{gap:.8rem}
+.product-link svg,.product-link [data-lucide]{width:14px;height:14px}
+
+/* Combo callout (when 2+ products recommended together) */
+.combo-note{
+  margin-top:clamp(1.5rem,2.5vw,2rem);
+  padding:1.25rem 1.5rem;
+  background:linear-gradient(135deg,var(--o4),#fff);
+  border:1px solid var(--o3);
+  border-radius:var(--radius);
+  display:flex;gap:1rem;align-items:flex-start;
+  font-size:.92rem;color:var(--text);line-height:1.6;
+}
+.combo-note-icon{
+  flex-shrink:0;width:36px;height:36px;border-radius:10px;
+  background:var(--white);display:flex;align-items:center;justify-content:center;
+}
+.combo-note-icon svg,.combo-note-icon [data-lucide]{width:18px;height:18px;stroke:var(--o1);fill:none;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+.combo-note strong{color:var(--o1-dark)}
+
+.result-actions{
+  margin-top:clamp(2rem,3.5vw,2.75rem);
+  padding-top:clamp(1.5rem,2vw,2rem);
+  border-top:1px solid rgba(26,26,46,.06);
+  display:flex;gap:2rem;flex-wrap:wrap;
+}
+
+/* Empty state if no selection somehow */
+.empty-state{
+  background:var(--white);border-radius:var(--radius-lg);
+  padding:3rem 2rem;text-align:center;color:var(--text-light);
+  box-shadow:var(--shadow-sm);
+}
+
+/* ── Footer ─────────────────────────────────────────────────────────────── */
+footer{
+  padding:2rem clamp(1rem,3vw,2rem) 3rem;
+  text-align:center;font-size:.78rem;
+  color:var(--text-light);
+}
+footer a{color:var(--o1);text-decoration:none}
+footer a:hover{text-decoration:underline}
+
+/* ── Responsive ─────────────────────────────────────────────────────────── */
+@media(max-width:720px){
+  .path-grid{grid-template-columns:1fr}
+  .option-grid{grid-template-columns:1fr 1fr}
+  .sub-options{grid-template-columns:1fr}
+  .cta-row{flex-direction:column;align-items:stretch}
+  .cta-row .btn-primary{justify-content:center}
+}
+@media(max-width:480px){
+  .option-grid{grid-template-columns:1fr}
+  .header-inner{flex-wrap:wrap;gap:.6rem}
+  .progress-dots{order:3;width:100%;justify-content:center;margin-top:.4rem}
+}
+
+/* Reduced motion */
+@media(prefers-reduced-motion:reduce){
+  *{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
+}
+</style>
+</head>
+<body>
+
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NSW3TFP5"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+<header class="pbc-nav-header">
+  <div class="pbc-nav-container">
+    <div class="pbc-nav-left">
+      <a href="https://www.probaclac.ca/" class="pbc-logo-link">
+        <img src="https://static.wixstatic.com/media/623234_5fd0bbcbc6d24e6ebf93c0a53e260b95~mv2.png/v1/fill/w_694,h_189,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/623234_5fd0bbcbc6d24e6ebf93c0a53e260b95~mv2.png" alt="Probaclac Logo">
+        <span class="pbc-quebec-badge"><img src="https://static.wixstatic.com/media/623234_5cef3d9c748c43cbb7f17e67e10affa9~mv2.png/v1/fill/w_162,h_203,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/LOGO_FABRIQUE_au_QUEBEC_FabriqueQc_Complet_PMS.png" alt="Fabriqué au Québec"></span>
+      </a>
+    </div>
+
+    <nav class="pbc-nav-center">
+      <ul class="pbc-nav-menu">
+        <li class="pbc-nav-item has-mega">
+          <a href="https://www.probaclac.ca/" class="pbc-nav-link">Nos produits</a>
+          <div class="pbc-mega-menu">
+            <div class="pbc-mega-grid">
+              <a href="https://www.probaclac.ca/probiotique-adulte" class="pbc-mega-product">
+                <img src="produits/adultes.jpg" alt="Adultes">
+                <span class="pbc-mega-product-name">Adultes</span>
+              </a>
+              <a href="https://www.probaclac.ca/probiotique-50-et-plus" class="pbc-mega-product">
+                <img src="produits/50plus.jpg" alt="50 ans et +">
+                <span class="pbc-mega-product-name">50 ans et +</span>
+              </a>
+              <a href="https://www.probaclac.ca/probiotique-voyage" class="pbc-mega-product">
+                <img src="produits/voyage.jpg" alt="Voyageurs">
+                <span class="pbc-mega-product-name">Voyageurs</span>
+              </a>
+              <a href="https://www.probaclac.ca/probiotique-colon-irritable" class="pbc-mega-product">
+                <img src="produits/sci.jpg" alt="Côlon Irritable">
+                <span class="pbc-mega-product-name">Côlon Irritable</span>
+              </a>
+              <a href="https://www.probaclac.ca/probiotique-enfant" class="pbc-mega-product">
+                <img src="produits/croquable.jpg" alt="Croquable">
+                <span class="pbc-mega-product-name">Croquable</span>
+              </a>
+              <a href="https://www.probaclac.ca/probiotique-bebes" class="pbc-mega-product">
+                <img src="produits/enfants.jpg" alt="Enfants">
+                <span class="pbc-mega-product-name">Enfants</span>
+              </a>
+              <a href="https://www.probaclac.ca/probiotique-antibiotique" class="pbc-mega-product">
+                <img src="produits/medic.jpg" alt="Medic">
+                <span class="pbc-mega-product-name">Medic</span>
+              </a>
+              <a href="https://www.probaclac.ca/probiotique-gastro-intestinal" class="pbc-mega-product">
+                <img src="produits/gi.jpg" alt="Gastro-Intestinal">
+                <span class="pbc-mega-product-name">Gastro-Intestinal</span>
+              </a>
+              <a href="https://www.probaclac.ca/probiotique-extra-fort" class="pbc-mega-product">
+                <img src="produits/extra.jpg" alt="Extra-fort">
+                <span class="pbc-mega-product-name">Extra-fort</span>
+              </a>
+              <a href="https://www.probaclac.ca/probiotique-vaginal" class="pbc-mega-product">
+                <img src="produits/vaginal.jpg" alt="Vaginose bactérienne">
+                <span class="pbc-mega-product-name">Vaginose bactérienne</span>
+              </a>
+              <a href="https://www.probaclac.ca/probiotique-infection-a-levure" class="pbc-mega-product">
+                <img src="produits/rosella.jpg" alt="Infection à levure">
+                <span class="pbc-mega-product-name">Infection à levure</span>
+              </a>
+              <a href="https://www.probaclac.ca/probiotique-infection-urinaire" class="pbc-mega-product">
+                <img src="produits/canneberge.jpg" alt="Infection urinaire">
+                <span class="pbc-mega-product-name">Infection urinaire</span>
+              </a>
+            </div>
+          </div>
+        </li>
+
+        <li class="pbc-nav-item has-dropdown">
+          <a href="https://www.probaclac.ca/" class="pbc-nav-link">À propos des probiotiques</a>
+          <div class="pbc-dropdown-menu">
+            <a href="https://www.probaclac.ca/avantages">Pourquoi Probaclac?</a>
+            <a href="https://www.probaclac.ca/meilleur-probiotique-pour-vous" class="active-link">Choisir le bon probiotique</a>
+            <a href="https://www.probaclac.ca/microbiote-probiotiques">Le microbiote humain</a>
+            <a href="https://www.probaclac.ca/diarrhee-du-voyageur">Diarrhée du voyageur</a>
+          </div>
+        </li>
+
+        <li class="pbc-nav-item">
+          <a href="index.html" class="pbc-nav-link">Études</a>
+        </li>
+
+        <li class="pbc-nav-item">
+          <a href="https://www.probaclac.ca/foire-aux-questions" class="pbc-nav-link">FAQ</a>
+        </li>
+      </ul>
+    </nav>
+
+    <div class="pbc-nav-right">
+      <a href="lebonprobiotique.html" class="pbc-lang-toggle active-lang">FR</a>
+      <span class="pbc-lang-separator">|</span>
+      <a href="lebonprobiotique.html" class="pbc-lang-toggle">EN</a>
+    </div>
+    <button class="pbc-hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<div class="pbc-mobile-menu">
+  <ul>
+    <li><a href="https://www.probaclac.ca/">Nos produits</a></li>
+    <li>
+      <a href="https://www.probaclac.ca/">À propos des probiotiques</a>
+      <div class="mobile-sub">
+        <a href="https://www.probaclac.ca/avantages">Pourquoi Probaclac?</a>
+        <a href="https://www.probaclac.ca/meilleur-probiotique-pour-vous" class="active-link">Choisir le bon probiotique</a>
+        <a href="https://www.probaclac.ca/microbiote-probiotiques">Le microbiote humain</a>
+        <a href="https://www.probaclac.ca/diarrhee-du-voyageur">Diarrhée du voyageur</a>
+      </div>
+    </li>
+    <li><a href="index.html">Études</a></li>
+    <li><a href="https://www.probaclac.ca/foire-aux-questions">FAQ</a></li>
+  </ul>
+  <div class="mobile-lang">
+    <a href="lebonprobiotique.html" class="active-lang">FR</a>
+    <a href="lebonprobiotique.html">EN</a>
+  </div>
+</div>
+
+<!-- Bar de contrôle du guide (retour + progression) -->
+<div class="step-controls">
+  <a href="#intro" class="back-link" id="backBtn" style="visibility:hidden">
+    <i data-lucide="chevron-left"></i>
+    Retour
+  </a>
+  <div class="progress-dots" aria-hidden="true">
+    <span class="progress-dot" data-dot="0"></span>
+    <span class="progress-dot" data-dot="1"></span>
+    <span class="progress-dot" data-dot="2"></span>
+  </div>
+</div>
+
+<main>
+
+  <!-- ═══ STEP 0 : INTRO ═══════════════════════════════════════════════ -->
+  <section class="step" id="step-intro" data-step="intro">
+    <div class="step-eyebrow">Guide interactif</div>
+    <h1 class="step-title">Trouvez votre<br><em>Probaclac idéal</em></h1>
+    <p class="step-sub">Quelques questions, et on vous guide vers le bon produit. Choisissez par âge si vous cherchez un probiotique général, ou par besoin si vous avez une situation particulière.</p>
+
+    <div class="path-grid">
+      <button class="path-card" data-go="age" type="button">
+        <div class="path-icon"><i data-lucide="hourglass"></i></div>
+        <div class="path-title">Selon mon âge</div>
+        <div class="path-desc">Pour un usage général, quotidien. On vous recommande le bon dosage selon votre tranche d'âge.</div>
+        <div class="path-arrow">Commencer
+          <i data-lucide="arrow-right"></i>
+        </div>
+      </button>
+      <button class="path-card" data-go="need" type="button">
+        <div class="path-icon"><i data-lucide="target"></i></div>
+        <div class="path-title">Selon mon besoin</div>
+        <div class="path-desc">Voyage, antibiotique, infection vaginale ou urinaire… Cochez une ou plusieurs situations.</div>
+        <div class="path-arrow">Commencer
+          <i data-lucide="arrow-right"></i>
+        </div>
+      </button>
+    </div>
+  </section>
+
+  <!-- ═══ STEP A : AGE ═════════════════════════════════════════════════ -->
+  <section class="step" id="step-age" data-step="age">
+    <div class="step-eyebrow">Étape 2 · Par âge</div>
+    <h2 class="step-title">Pour <em>qui</em> ?</h2>
+    <p class="step-sub">Sélectionnez la tranche d'âge concernée.</p>
+
+    <div class="option-grid" id="ageGrid">
+      <button class="option-card" data-age="kids" type="button">
+        <span class="check"><i data-lucide="check"></i></span>
+        <span class="option-icon"><i data-lucide="baby"></i></span>
+        <span class="option-title">Enfants</span>
+        <span class="option-meta">0 à 11 ans</span>
+      </button>
+      <button class="option-card" data-age="adults" type="button">
+        <span class="check"><i data-lucide="check"></i></span>
+        <span class="option-icon"><i data-lucide="user-round"></i></span>
+        <span class="option-title">Adultes</span>
+        <span class="option-meta">12 à 49 ans</span>
+      </button>
+      <button class="option-card" data-age="50plus" type="button">
+        <span class="check"><i data-lucide="check"></i></span>
+        <span class="option-icon"><i data-lucide="users-round"></i></span>
+        <span class="option-title">50 ans et plus</span>
+        <span class="option-meta">Formule adaptée</span>
+      </button>
+    </div>
+
+    <div class="cta-row">
+      <span class="cta-count" id="ageCount">Choisissez une option pour continuer</span>
+      <button class="btn-primary" id="ageNext" type="button" disabled>
+        Voir ma recommandation
+        <i data-lucide="arrow-right"></i>
+      </button>
+    </div>
+  </section>
+
+  <!-- ═══ STEP B : BESOIN ═══════════════════════════════════════════════ -->
+  <section class="step" id="step-need" data-step="need">
+    <div class="step-eyebrow">Étape 2 · Par besoin</div>
+    <h2 class="step-title">Quelle est<br>votre <em>situation</em> ?</h2>
+    <p class="step-sub">Cochez tout ce qui s'applique. On vous recommandera le ou les produits les mieux adaptés.</p>
+
+    <div class="option-grid" id="needGrid">
+      <button class="option-card" data-need="travel" type="button">
+        <span class="check"><i data-lucide="check"></i></span>
+        <span class="option-icon"><i data-lucide="plane"></i></span>
+        <span class="option-title">Je voyage</span>
+        <span class="option-meta">Prévention de la diarrhée du voyageur</span>
+      </button>
+
+      <button class="option-card" data-need="antibio" type="button">
+        <span class="check"><i data-lucide="check"></i></span>
+        <span class="option-icon"><i data-lucide="pill"></i></span>
+        <span class="option-title">Je prends un antibiotique</span>
+        <span class="option-meta">Pendant ou après le traitement</span>
+      </button>
+
+      <button class="option-card" data-need="acute" type="button">
+        <span class="check"><i data-lucide="check"></i></span>
+        <span class="option-icon"><i data-lucide="zap"></i></span>
+        <span class="option-title">Problème aigu ou récurrent</span>
+        <span class="option-meta">Besoin d'une formule extra-forte</span>
+      </button>
+
+      <button class="option-card" data-need="vaginal" type="button" id="needVaginal">
+        <span class="check"><i data-lucide="check"></i></span>
+        <span class="option-icon"><i data-lucide="flower-2"></i></span>
+        <span class="option-title">Infection vaginale</span>
+        <span class="option-meta">Levure ou vaginose bactérienne</span>
+      </button>
+
+      <button class="option-card" data-need="urinary" type="button">
+        <span class="check"><i data-lucide="check"></i></span>
+        <span class="option-icon"><i data-lucide="droplet"></i></span>
+        <span class="option-title">Infection urinaire</span>
+        <span class="option-meta">Soutien avec canneberge</span>
+      </button>
+    </div>
+
+    <!-- Sub-options vaginal : hors de option-card pour éviter button-in-button -->
+    <div class="sub-options" id="vaginalSub" style="display:none">
+      <div class="sub-options-label">Précisez le type d'infection&nbsp;:</div>
+      <div class="sub-options-grid">
+        <button class="sub-opt" data-vaginal="yeast" type="button">
+          <i data-lucide="microscope"></i>
+          Infection à levure
+        </button>
+        <button class="sub-opt" data-vaginal="bv" type="button">
+          <i data-lucide="bug"></i>
+          Vaginose bactérienne
+        </button>
+      </div>
+    </div>
+
+    <div class="cta-row">
+      <span class="cta-count" id="needCount">Cochez au moins une situation</span>
+      <button class="btn-primary" id="needNext" type="button" disabled>
+        Voir mes recommandations
+        <i data-lucide="arrow-right"></i>
+      </button>
+    </div>
+  </section>
+
+  <!-- ═══ STEP : RESULTS ═══════════════════════════════════════════════ -->
+  <section class="step" id="step-result" data-step="result">
+    <div class="step-eyebrow">Recommandation</div>
+    <h2 class="step-title">Voici notre<br><em>recommandation</em></h2>
+    <p class="step-sub" id="resultLead">Selon vos réponses, voici le ou les produits qui correspondent à votre situation.</p>
+
+    <div class="results-grid" id="resultsGrid"></div>
+
+    <div id="comboNote"></div>
+
+    <div class="result-actions">
+      <button class="btn-secondary" type="button" data-action="modify">
+        <i data-lucide="arrow-left"></i>
+        Modifier mes réponses
+      </button>
+      <button class="btn-secondary" type="button" data-action="restart">
+        <i data-lucide="rotate-ccw"></i>
+        Refaire le quiz
+      </button>
+    </div>
+  </section>
+
+</main>
+
+<footer class="pbc-footer">
+  <div class="pbc-footer-container">
+    <div class="pbc-footer-logo-section">
+      <img src="https://static.wixstatic.com/media/623234_a3521dd372024a989e6338baef2ad53d~mv2.png/v1/fill/w_818,h_222,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/logo_probaclac-transparent-blanc.png" alt="Logo Probaclac blanc">
+      <img src="https://static.wixstatic.com/media/623234_5cef3d9c748c43cbb7f17e67e10affa9~mv2.png/v1/fill/w_162,h_203,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/LOGO_FABRIQUE_au_QUEBEC_FabriqueQc_Complet_PMS.png" alt="Fabriqué au Québec">
+    </div>
+    <div class="pbc-footer-content">
+      <div class="pbc-footer-column col-label">
+        <h4>NOS PRODUITS</h4>
+      </div>
+      <div class="pbc-footer-column">
+        <ul class="pbc-footer-links">
+          <li><a href="https://www.probaclac.ca/probiotique-adulte">Adultes</a></li>
+          <li><a href="https://www.probaclac.ca/probiotique-50-et-plus">50 ans et +</a></li>
+          <li><a href="https://www.probaclac.ca/probiotique-voyage">Voyageurs</a></li>
+          <li><a href="https://www.probaclac.ca/probiotique-colon-irritable">Côlon irritable</a></li>
+          <li><a href="https://www.probaclac.ca/probiotique-bebes">Enfants</a></li>
+          <li><a href="https://www.probaclac.ca/probiotique-enfant">Croquable</a></li>
+          <li><a href="https://www.probaclac.ca/probiotique-extra-fort">Extra-fort</a></li>
+          <li><a href="https://www.probaclac.ca/probiotique-antibiotique">Medic</a></li>
+          <li><a href="https://www.probaclac.ca/probiotique-gastro-intestinal">Gastro intestinal</a></li>
+          <li><a href="https://www.probaclac.ca/probiotique-vaginal">Vaginose bactérienne</a></li>
+          <li><a href="https://www.probaclac.ca/probiotique-infection-a-levure">Infection à levure</a></li>
+          <li><a href="https://www.probaclac.ca/probiotique-infection-urinaire">Infection urinaire</a></li>
+        </ul>
+      </div>
+      <div class="pbc-footer-column col-label-right">
+        <h4>NOUS JOINDRE</h4>
+      </div>
+      <div class="pbc-footer-column">
+        <div class="pbc-footer-contact">
+          <p><span class="pbc-footer-tel-label">Tel. </span><a href="tel:18005679683" style="text-decoration:underline">1.800.567.9683</a><br><br>31 Rue Gaston-Dumoulin suite 103,<br>Blainville, QC J7C 6B4<br>Canada</p>
+          <div class="pbc-social-icons">
+            <a href="https://www.instagram.com/probaclac.ca" title="Instagram">
+              <img src="https://static.wixstatic.com/media/11062b_cef3b719166a4815b446d4dcfcb6120d~mv2.png/v1/fill/w_94,h_94,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/11062b_cef3b719166a4815b446d4dcfcb6120d~mv2.png" alt="Instagram">
+            </a>
+            <a href="https://www.facebook.com/Probaclac" title="Facebook">
+              <img src="https://static.wixstatic.com/media/11062b_ef6a6ac194704911951645990055c2ce~mv2.png/v1/fill/w_94,h_94,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/11062b_ef6a6ac194704911951645990055c2ce~mv2.png" alt="Facebook">
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pbc-footer-bottom">
+      <div class="pbc-footer-meta">
+        <p>&copy; 2026 Laboratoires Nicar.</p>
+        <p><a href="https://www.probaclac.ca/privacy-policy">Politique de confidentialité.</a></p>
+        <p>&nbsp;Site web: <a href="http://www.vpourdesign.com">V pour Design</a></p>
+      </div>
+      <a href="https://allergies-alimentaires.org/" class="pbc-footer-partner">
+        <span class="pbc-footer-partner-text">Fier partenaire de</span>
+        <img src="https://static.wixstatic.com/media/623234_db859228ec214ac89250f2a28a7eeb47~mv2.webp/v1/fill/w_365,h_174,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/Logo_Allergies_Quebec_PMS-768x367.webp" alt="Allergies Québec logo">
+      </a>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  'use strict';
+
+  // ── Catalogue produits ─────────────────────────────────────────────────
+  const IMG = '../../images/produits/';
+  const PRODUCTS = {
+    kids: {
+      tag:'Enfants',
+      name:'Probaclac Enfants',
+      desc:"Probiotique adapté aux enfants pour soutenir leur flore intestinale au quotidien.",
+      img:IMG+'PBL-KIDS.png',
+      url:'https://www.probaclac.ca/probiotique-enfant',
+    },
+    chew:{
+      tag:'Enfants · Croquables',
+      name:'Probaclac Croquables',
+      desc:"Format croquable agréable, idéal pour les enfants qui n'aiment pas avaler des capsules.",
+      img:IMG+'PBL-CHEW-75.png',
+      url:'https://www.probaclac.ca/probiotique-enfant',
+    },
+    adults:{
+      tag:'Adultes',
+      name:'Probaclac Adultes',
+      desc:"Probiotique quotidien pour soutenir la flore intestinale et le système immunitaire des adultes.",
+      img:IMG+'PBL-ADULTS-60.png',
+      url:'https://www.probaclac.ca/probiotique-adulte',
+    },
+    fifty:{
+      tag:'50 ans et plus',
+      name:'Probaclac 50 ans et +',
+      desc:"Formule adaptée aux adultes de 50 ans et plus, pour soutenir l'équilibre digestif et immunitaire.",
+      img:IMG+'PBL-50-60.png',
+      url:'https://www.probaclac.ca/probiotique-50-et-plus',
+    },
+    travel:{
+      tag:'Voyage',
+      name:'Probaclac Voyage',
+      desc:"Pour prévenir la diarrhée du voyageur et protéger votre flore intestinale en déplacement.",
+      img:IMG+'PBL-Travel%20-%2060.png',
+      url:'https://www.probaclac.ca/probiotique-voyage',
+    },
+    medic:{
+      tag:'Antibiothérapie',
+      name:'Probaclac Medic',
+      desc:"À prendre pendant l'antibiothérapie pour protéger votre flore intestinale.",
+      img:IMG+'PBL%20-%20MEDIC%2020.png',
+      url:'https://www.probaclac.ca/probiotique-antibiotique',
+    },
+    gi:{
+      tag:'Restauration',
+      name:'Probaclac GI',
+      desc:"Pour restaurer la flore intestinale après une antibiothérapie ou un déséquilibre digestif.",
+      img:IMG+'PBL%20GI.png',
+      url:'https://www.probaclac.ca/probiotique-gastro-intestinal',
+    },
+    xtra:{
+      tag:'Extra fort',
+      name:'Probaclac Extra Fort',
+      desc:"Concentration élevée pour les problèmes aigus ou récurrents qui demandent une action rapide.",
+      img:IMG+'PBL%20XTRA.png',
+      url:'https://www.probaclac.ca/probiotique-extra-fort',
+    },
+    yeast:{
+      tag:'Infection à levure',
+      name:'Probaclac Infection à levure',
+      desc:"Probiotique intravaginal spécifiquement formulé pour traiter et prévenir les infections à levure (candidose).",
+      img:IMG+'Infection-levure.png',
+      url:'https://www.probaclac.ca/probiotique-infection-a-levure',
+    },
+    bv:{
+      tag:'Vaginose bactérienne',
+      name:'Probaclac Vaginal',
+      desc:"Probiotique intravaginal pour restaurer la flore Döderlein et prévenir la récurrence de la vaginose bactérienne.",
+      img:IMG+'vaginose.png',
+      url:'https://www.probaclac.ca/probiotique-vaginal',
+    },
+    urinary:{
+      tag:'Infection urinaire',
+      name:'Probaclac Urinaire',
+      desc:"Combinaison probiotiques + canneberge pour soutenir la santé des voies urinaires.",
+      img:IMG+'urinaire.png',
+      url:'https://www.probaclac.ca/probiotique-infection-urinaire',
+    },
+  };
+
+  // ── Combos / notes contextuelles ───────────────────────────────────────
+  function getComboNote(selected){
+    const has = (k)=>selected.includes(k);
+    if(has('medic') && has('gi')){
+      return "<strong>Pendant et après l'antibiothérapie :</strong> Prenez <strong>Medic</strong> pendant le traitement antibiotique pour protéger votre flore, puis <strong>GI</strong> ensuite pour la restaurer pleinement.";
+    }
+    if(selected.length > 2){
+      return "Plusieurs produits sont recommandés pour votre situation. Vous pouvez les utiliser ensemble — chacun cible un aspect différent de votre besoin.";
+    }
+    return null;
+  }
+
+  // ── State & routing ────────────────────────────────────────────────────
+  const state = {
+    step:'intro',
+    age:null,           // 'kids' | 'adults' | '50plus'
+    needs:new Set(),    // Set of need keys
+    vaginal:null,       // 'yeast' | 'bv' | null
+  };
+
+  const steps = ['intro','age','need','result'];
+  function stepIndex(s){return steps.indexOf(s)}
+
+  function showStep(s){
+    state.step = s;
+    document.querySelectorAll('.step').forEach(el=>el.classList.remove('is-active'));
+    const el = document.getElementById('step-'+s);
+    if(el) el.classList.add('is-active');
+    updateChrome();
+    // GA4 / GTM event
+    try{
+      window.dataLayer = window.dataLayer || [];
+      window.dataLayer.push({event:'guide_step', step:s});
+    }catch(e){}
+    // Smooth scroll to top of step
+    window.scrollTo({top:0, behavior:'smooth'});
+  }
+
+  function updateChrome(){
+    // progress dots
+    const idx = stepIndex(state.step);
+    document.querySelectorAll('.progress-dot').forEach((d,i)=>{
+      d.classList.toggle('is-done', i < Math.max(0, idx-1));
+      d.classList.toggle('is-current', i === Math.max(0, idx-1));
+    });
+    // Back button
+    const back = document.getElementById('backBtn');
+    back.style.visibility = (state.step === 'intro') ? 'hidden' : 'visible';
+    back.setAttribute('href', backTarget());
+  }
+
+  function backTarget(){
+    if(state.step === 'result'){
+      return state.age ? '#age' : '#need';
+    }
+    if(state.step === 'age' || state.step === 'need') return '#intro';
+    return '#intro';
+  }
+
+  function routeFromHash(){
+    const h = (location.hash || '#intro').replace('#','');
+    const target = steps.includes(h) ? h : 'intro';
+    showStep(target);
+  }
+
+  // ── Path cards (intro) ─────────────────────────────────────────────────
+  document.querySelectorAll('[data-go]').forEach(btn=>{
+    btn.addEventListener('click', ()=>{
+      const target = btn.dataset.go;
+      // Reset l'autre chemin
+      if(target === 'age'){ state.needs.clear(); state.vaginal=null; refreshNeedUI(); }
+      else if(target === 'need'){ state.age = null; refreshAgeUI(); }
+      location.hash = target;
+    });
+  });
+
+  // Mobile menu toggle (hamburger)
+  const hamburger = document.querySelector('.pbc-hamburger');
+  const mobileMenu = document.querySelector('.pbc-mobile-menu');
+  if(hamburger && mobileMenu){
+    hamburger.addEventListener('click', ()=>{
+      hamburger.classList.toggle('open');
+      mobileMenu.classList.toggle('open');
+      document.body.style.overflow = mobileMenu.classList.contains('open') ? 'hidden' : '';
+    });
+    mobileMenu.querySelectorAll('a').forEach(a=>a.addEventListener('click', ()=>{
+      hamburger.classList.remove('open');
+      mobileMenu.classList.remove('open');
+      document.body.style.overflow = '';
+    }));
+  }
+
+  // ── AGE step ───────────────────────────────────────────────────────────
+  const ageGrid = document.getElementById('ageGrid');
+  const ageNext = document.getElementById('ageNext');
+  const ageCount = document.getElementById('ageCount');
+
+  ageGrid.addEventListener('click', (e)=>{
+    const card = e.target.closest('[data-age]');
+    if(!card) return;
+    state.age = card.dataset.age;
+    refreshAgeUI();
+  });
+
+  function refreshAgeUI(){
+    ageGrid.querySelectorAll('[data-age]').forEach(c=>{
+      c.classList.toggle('is-selected', c.dataset.age === state.age);
+    });
+    ageNext.disabled = !state.age;
+    ageCount.textContent = state.age
+      ? 'Prêt à voir votre recommandation.'
+      : 'Choisissez une option pour continuer';
+  }
+
+  ageNext.addEventListener('click', ()=>{ if(state.age) location.hash = 'result'; });
+
+  // ── NEED step ──────────────────────────────────────────────────────────
+  const needGrid = document.getElementById('needGrid');
+  const needNext = document.getElementById('needNext');
+  const needCount = document.getElementById('needCount');
+  const vaginalSub = document.getElementById('vaginalSub');
+
+  needGrid.addEventListener('click', (e)=>{
+    const card = e.target.closest('[data-need]');
+    if(!card) return;
+    const k = card.dataset.need;
+    if(state.needs.has(k)){
+      state.needs.delete(k);
+      if(k === 'vaginal') state.vaginal = null;
+    } else {
+      state.needs.add(k);
+    }
+    refreshNeedUI();
+  });
+
+  // Sub-options vaginal : listener séparé (hors needGrid)
+  vaginalSub.addEventListener('click', (e)=>{
+    const subOpt = e.target.closest('[data-vaginal]');
+    if(!subOpt) return;
+    state.vaginal = (state.vaginal === subOpt.dataset.vaginal) ? null : subOpt.dataset.vaginal;
+    if(state.vaginal) state.needs.add('vaginal');
+    refreshNeedUI();
+  });
+
+  function refreshNeedUI(){
+    needGrid.querySelectorAll('[data-need]').forEach(c=>{
+      c.classList.toggle('is-selected', state.needs.has(c.dataset.need));
+    });
+    // Show / hide vaginal sub-options
+    const vaginalSelected = state.needs.has('vaginal');
+    vaginalSub.style.display = vaginalSelected ? 'block' : 'none';
+    vaginalSub.querySelectorAll('[data-vaginal]').forEach(o=>{
+      o.classList.toggle('is-selected', state.vaginal === o.dataset.vaginal);
+    });
+
+    const count = state.needs.size;
+    let valid = count > 0;
+    // Si "vaginal" coché mais pas de sub, on ne bloque pas (on suggère les 2)
+    needNext.disabled = !valid;
+    needCount.textContent = count === 0
+      ? 'Cochez au moins une situation'
+      : count === 1
+        ? '1 situation sélectionnée'
+        : count + ' situations sélectionnées';
+  }
+
+  needNext.addEventListener('click', ()=>{
+    if(state.needs.size > 0) location.hash = 'result';
+  });
+
+  // ── RESULT step ────────────────────────────────────────────────────────
+  function computeRecommendations(){
+    const recs = new Set();
+    if(state.age === 'kids'){ recs.add('kids'); recs.add('chew'); }
+    else if(state.age === 'adults') recs.add('adults');
+    else if(state.age === '50plus') recs.add('fifty');
+
+    if(state.needs.has('travel'))  recs.add('travel');
+    if(state.needs.has('antibio')){ recs.add('medic'); recs.add('gi'); }
+    if(state.needs.has('acute'))   recs.add('xtra');
+    if(state.needs.has('urinary')) recs.add('urinary');
+    if(state.needs.has('vaginal')){
+      if(state.vaginal === 'yeast') recs.add('yeast');
+      else if(state.vaginal === 'bv') recs.add('bv');
+      else { recs.add('yeast'); recs.add('bv'); } // pas de sub choisi → on montre les 2
+    }
+    return Array.from(recs);
+  }
+
+  function renderResults(){
+    const grid = document.getElementById('resultsGrid');
+    const lead = document.getElementById('resultLead');
+    const comboBox = document.getElementById('comboNote');
+
+    const recs = computeRecommendations();
+    grid.innerHTML = '';
+    comboBox.innerHTML = '';
+    grid.classList.toggle('is-single', recs.length === 1);
+
+    if(recs.length === 0){
+      grid.innerHTML = '<div class="empty-state">Aucune sélection — recommencez le quiz pour voir une recommandation.</div>';
+      lead.textContent = "On dirait qu'aucune option n'a été sélectionnée.";
+      return;
+    }
+
+    lead.textContent = recs.length === 1
+      ? "Selon votre réponse, voici le produit qui correspond à votre situation."
+      : "Selon vos réponses, voici les " + recs.length + " produits qui correspondent à votre situation.";
+
+    grid.innerHTML = recs.map(key=>{
+      const p = PRODUCTS[key];
+      if(!p) return '';
+      return `
+        <a class="product-card" href="${p.url}" target="_blank" rel="noopener" data-product="${key}">
+          <div class="product-card-img-wrap">
+            <img src="${p.img}" alt="${p.name}" loading="lazy">
+          </div>
+          <div class="product-card-body">
+            <div class="product-tag">${p.tag}</div>
+            <div class="product-name">${p.name}</div>
+            <div class="product-desc">${p.desc}</div>
+            <span class="product-link">
+              En savoir plus
+              <i data-lucide="arrow-right"></i>
+            </span>
+          </div>
+        </a>
+      `;
+    }).join('');
+
+    const note = getComboNote(recs);
+    if(note){
+      comboBox.innerHTML = `
+        <div class="combo-note">
+          <div class="combo-note-icon">
+            <i data-lucide="lightbulb"></i>
+          </div>
+          <div>${note}</div>
+        </div>`;
+    }
+
+    // GA4 event
+    try{
+      window.dataLayer = window.dataLayer || [];
+      window.dataLayer.push({
+        event:'guide_result',
+        path: state.age ? 'age' : 'need',
+        age: state.age,
+        needs: Array.from(state.needs),
+        vaginal: state.vaginal,
+        recommendations: recs,
+      });
+    }catch(e){}
+
+    // Track product card clicks
+    grid.querySelectorAll('[data-product]').forEach(card=>{
+      card.addEventListener('click', ()=>{
+        try{
+          window.dataLayer = window.dataLayer || [];
+          window.dataLayer.push({
+            event:'guide_product_click',
+            product: card.dataset.product,
+          });
+        }catch(e){}
+      });
+    });
+  }
+
+  // ── Result actions ─────────────────────────────────────────────────────
+  document.querySelectorAll('[data-action]').forEach(btn=>{
+    btn.addEventListener('click', ()=>{
+      const action = btn.dataset.action;
+      if(action === 'modify'){
+        location.hash = state.age ? 'age' : 'need';
+      } else if(action === 'restart'){
+        resetAll();
+        location.hash = 'intro';
+      }
+    });
+  });
+
+  function resetAll(){
+    state.age = null;
+    state.needs.clear();
+    state.vaginal = null;
+    refreshAgeUI();
+    refreshNeedUI();
+  }
+
+  // ── Hash routing ───────────────────────────────────────────────────────
+  window.addEventListener('hashchange', ()=>{
+    routeFromHash();
+    if(state.step === 'result') renderResults();
+  });
+
+  // ── Lucide helper : (re)render icons après injection dynamique ─────────
+  function renderIcons(){
+    if(window.lucide && typeof window.lucide.createIcons === 'function'){
+      window.lucide.createIcons();
+    }
+  }
+  // Patch renderResults pour appeler renderIcons après injection HTML
+  const _origRender = renderResults;
+  renderResults = function(){ _origRender(); renderIcons(); };
+
+  // ── Init ───────────────────────────────────────────────────────────────
+  refreshAgeUI();
+  refreshNeedUI();
+  routeFromHash();
+  if(state.step === 'result') renderResults();
+
+  // Lucide est chargé en `defer` → on attend qu'il soit prêt
+  if(document.readyState === 'complete'){
+    renderIcons();
+  } else {
+    window.addEventListener('load', renderIcons);
+  }
+})();
+</script>
+</body>
+</html>
