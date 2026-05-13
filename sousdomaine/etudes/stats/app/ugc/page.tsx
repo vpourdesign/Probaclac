@@ -14,6 +14,9 @@ const REF_DISPLAY: Record<string, string> = {
   myriam:    'Myriam Guimond',
   shika:     'Shika',
   sophia:    'Sophia Clavet',
+  christina: 'Christina Ross',
+  linakarda: 'Lina Karda',
+  ashley:    'Ashley Laraby',
   '(none)':  'Trafic direct (sans ref)',
   '(other)': 'Autre / inconnu',
 }

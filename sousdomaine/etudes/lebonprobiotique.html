@@ -173,23 +173,32 @@ body::after{
   .pbc-footer-partner{justify-content:center;white-space:normal;max-width:80%;margin:0 auto}
 }
 
-/* ── Step controls (back + progress) — au-dessus du contenu ─────────────── */
+/* ── Progress bar (full-width, fine) ─────────────────────────────────────── */
+.progress-bar{
+  position:sticky;top:80px;z-index:40;
+  width:100%;height:3px;
+  background:rgba(222,109,56,.10);
+  overflow:hidden;
+}
+.progress-bar-fill{
+  height:100%;width:0;
+  background:linear-gradient(90deg,var(--o2),var(--o1));
+  transition:width .6s var(--ease);
+}
+
+/* ── Step controls bar : retour + counter ──────────────────────────────── */
 .step-controls{
   max-width:1180px;margin:0 auto;
   padding:1.5rem clamp(1rem,3vw,2rem) 0;
   display:flex;align-items:center;justify-content:space-between;gap:1rem;
   min-height:48px;
 }
-.progress-dots{display:flex;gap:.5rem;align-items:center}
-.progress-dot{
-  width:8px;height:8px;border-radius:50%;
-  background:rgba(222,109,56,.18);
-  transition:all .4s var(--ease);
+.question-counter{
+  font-size:.78rem;font-weight:600;
+  text-transform:uppercase;letter-spacing:.14em;
+  color:var(--text-light);
 }
-.progress-dot.is-done{background:var(--o3)}
-.progress-dot.is-current{
-  background:var(--o1);width:24px;border-radius:4px;
-}
+.question-counter strong{color:var(--o1);font-weight:700}
 .back-link{
   display:inline-flex;align-items:center;gap:.4rem;
   color:var(--text-light);text-decoration:none;
@@ -222,191 +231,182 @@ main{
   to{opacity:1;transform:translateY(0)}
 }
 
-.step-eyebrow{
-  display:inline-block;
+/* ═══ TYPEFORM-STYLE — une question à la fois ═══════════════════════════ */
+.question-eyebrow{
+  display:inline-flex;align-items:center;gap:.6rem;
   font-size:.72rem;font-weight:700;
-  text-transform:uppercase;letter-spacing:.14em;
-  color:var(--o1);
-  padding:.4rem .9rem;border-radius:50px;
-  background:var(--o4);border:1px solid var(--o3);
-  margin-bottom:1.25rem;
+  text-transform:uppercase;letter-spacing:.16em;
+  color:var(--o1);margin-bottom:1.25rem;
 }
-.step-title{
+.question-eyebrow::before{
+  content:'';width:24px;height:1px;background:var(--o1);
+}
+.question-title{
   font-family:'Playfair Display',serif;
-  font-size:clamp(2rem,4.5vw,3.4rem);
-  font-weight:700;line-height:1.05;letter-spacing:-.02em;
-  margin-bottom:1rem;color:var(--text);
+  font-size:clamp(2.2rem,5vw,4rem);
+  font-weight:700;line-height:1.02;letter-spacing:-.025em;
+  margin-bottom:1.25rem;color:var(--text);
+  max-width:18ch;
 }
-.step-title em{font-style:italic;color:var(--o1)}
-.step-sub{
+.question-title em{
+  font-style:italic;color:var(--o1);font-weight:700;
+}
+.question-sub{
   font-size:clamp(1rem,1.4vw,1.15rem);
   color:var(--text-light);
-  max-width:62ch;line-height:1.65;
+  max-width:55ch;line-height:1.6;
   margin-bottom:clamp(2rem,4vw,3rem);
 }
 
-/* ── Cards : choix de chemin (intro) ──────────────────────────────────── */
-.path-grid{
-  display:grid;grid-template-columns:repeat(2,1fr);
-  gap:clamp(1rem,2vw,1.75rem);
-  max-width:920px;
+/* ── Options-list (chips empilés) ──────────────────────────────────────── */
+.options-list{
+  display:flex;flex-direction:column;gap:.85rem;
+  max-width:720px;
 }
-.path-card{
+.option-row{
+  display:flex;align-items:center;gap:1.25rem;
+  padding:1.25rem 1.5rem;
+  border-radius:16px;
   background:var(--white);
-  border-radius:var(--radius-lg);
-  padding:clamp(1.75rem,3vw,2.5rem);
-  border:1px solid rgba(26,26,46,.05);
-  box-shadow:var(--shadow-sm);
-  cursor:pointer;
-  transition:transform .5s var(--ease),box-shadow .5s var(--ease),border-color .25s var(--ease);
-  position:relative;overflow:hidden;
-  text-align:left;font:inherit;color:inherit;
+  border:1.5px solid rgba(26,26,46,.07);
+  cursor:pointer;font:inherit;color:inherit;text-align:left;
+  transition:transform .3s var(--ease),border-color .25s var(--ease),box-shadow .3s var(--ease),background .25s var(--ease);
+  position:relative;
 }
-.path-card::before{
-  content:'';position:absolute;inset:0;
-  background:linear-gradient(135deg,var(--o4) 0%,transparent 60%);
-  opacity:0;transition:opacity .5s var(--ease);
+.option-row::before{
+  content:'';position:absolute;inset:0;border-radius:inherit;
+  background:linear-gradient(135deg,var(--o4) 0%,transparent 70%);
+  opacity:0;transition:opacity .35s var(--ease);
   pointer-events:none;
 }
-.path-card:hover{
-  transform:translateY(-6px);
-  box-shadow:var(--shadow-lg);
+.option-row > *{position:relative;z-index:1}
+.option-row:hover{
   border-color:var(--o3);
+  box-shadow:0 8px 28px rgba(222,109,56,.10);
+  transform:translateX(4px);
 }
-.path-card:hover::before{opacity:1}
-.path-card:focus-visible{outline:3px solid var(--o1);outline-offset:4px}
-.path-icon{
-  width:48px;height:48px;border-radius:12px;
-  background:var(--o4);
-  display:flex;align-items:center;justify-content:center;
-  margin-bottom:1.5rem;
-  position:relative;z-index:1;
-  transition:transform .5s var(--ease),background .35s var(--ease);
-}
-.path-icon svg,.path-icon [data-lucide]{width:22px;height:22px;stroke:var(--o1);fill:none;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
-.path-card:hover .path-icon{background:var(--o3)}
-.path-title{
-  font-family:'Playfair Display',serif;
-  font-size:clamp(1.4rem,2.4vw,1.85rem);
-  font-weight:700;line-height:1.2;
-  margin-bottom:.65rem;position:relative;z-index:1;
-}
-.path-desc{
-  color:var(--text-light);font-size:.95rem;
-  position:relative;z-index:1;
-}
-.path-arrow{
-  margin-top:1.5rem;display:inline-flex;align-items:center;gap:.5rem;
-  color:var(--o1);font-weight:600;font-size:.9rem;
-  position:relative;z-index:1;
-  transition:gap .35s var(--ease);
-}
-.path-card:hover .path-arrow{gap:.9rem}
-.path-arrow svg,.path-arrow [data-lucide]{width:16px;height:16px}
-
-/* ── Age cards ─────────────────────────────────────────────────────────── */
-.option-grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-  gap:clamp(.85rem,1.6vw,1.25rem);
-}
-.option-card{
-  background:var(--white);
-  border-radius:var(--radius);
-  padding:clamp(1.5rem,2.5vw,2rem);
-  border:2px solid transparent;
-  box-shadow:var(--shadow-sm);
-  cursor:pointer;text-align:left;
-  font:inherit;color:inherit;
-  transition:transform .4s var(--ease),box-shadow .4s var(--ease),border-color .2s var(--ease),background .25s var(--ease);
-  position:relative;
-  display:flex;flex-direction:column;gap:.5rem;
-  min-height:160px;
-}
-.option-card:hover{
-  transform:translateY(-4px);
-  box-shadow:var(--shadow-md);
-  border-color:var(--o3);
-}
-.option-card:focus-visible{outline:3px solid var(--o1);outline-offset:4px}
-.option-card.is-selected{
+.option-row:hover::before{opacity:1}
+.option-row:focus-visible{outline:3px solid var(--o1);outline-offset:3px}
+.option-row.is-selected{
   border-color:var(--o1);
   background:linear-gradient(135deg,var(--o4) 0%,var(--white) 70%);
-  box-shadow:var(--shadow-md);
+  box-shadow:0 12px 32px rgba(222,109,56,.16);
 }
-.option-card .check{
-  position:absolute;top:14px;right:14px;
-  width:26px;height:26px;border-radius:50%;
-  border:2px solid rgba(26,26,46,.12);
-  background:var(--white);
-  display:flex;align-items:center;justify-content:center;
-  transition:all .35s var(--ease);transform:scale(.6);opacity:0;
-}
-.option-card.is-selected .check{
-  border-color:var(--o1);background:var(--o1);
-  transform:scale(1);opacity:1;
-}
-.option-card .check svg,.option-card .check [data-lucide]{width:14px;height:14px;stroke:var(--white);stroke-width:3;fill:none;stroke-linecap:round;stroke-linejoin:round}
-.option-icon{
-  width:40px;height:40px;border-radius:10px;
-  background:var(--o4);
-  display:flex;align-items:center;justify-content:center;
-  margin-bottom:.4rem;
-  transition:background .25s var(--ease);
-}
-.option-icon svg,.option-icon [data-lucide]{width:20px;height:20px;stroke:var(--o1);fill:none;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
-.option-card.is-selected .option-icon{background:var(--white)}
-.option-title{
-  font-family:'Playfair Display',serif;
-  font-size:1.3rem;font-weight:700;letter-spacing:-.01em;
-}
-.option-meta{font-size:.85rem;color:var(--text-light)}
 
-/* Sub-options (vaginal yeast vs vaginosis) */
+/* Letter prefix (A, B, C…) en italique Playfair */
+.option-letter{
+  flex-shrink:0;
+  width:42px;height:42px;border-radius:11px;
+  background:rgba(222,109,56,.10);
+  display:flex;align-items:center;justify-content:center;
+  font-family:'Playfair Display',serif;
+  font-style:italic;font-weight:700;
+  color:var(--o1);font-size:1.15rem;
+  transition:all .3s var(--ease);
+  position:relative;overflow:hidden;
+}
+.option-row:hover .option-letter{
+  background:var(--o1);color:var(--white);
+  transform:rotate(-4deg);
+}
+.option-row.is-selected .option-letter{
+  background:var(--o1);color:var(--white);
+  transform:rotate(0);
+}
+/* Selected: hide letter, show check via overlay */
+.option-row.is-selected .option-letter::after{
+  content:'';position:absolute;inset:0;border-radius:inherit;
+  background:var(--o1);
+  display:flex;align-items:center;justify-content:center;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg' fill='none' stroke='white' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='20 6 9 17 4 12'/%3E%3C/svg%3E");
+  background-repeat:no-repeat;background-position:center;background-size:18px 18px;
+}
+
+.option-content{flex:1;min-width:0}
+.option-label{
+  font-size:1.1rem;font-weight:600;color:var(--text);
+  line-height:1.3;margin-bottom:.15rem;
+  font-family:'Playfair Display',serif;
+}
+.option-meta{
+  font-size:.88rem;color:var(--text-light);
+  line-height:1.45;
+}
+.option-arrow{
+  flex-shrink:0;width:28px;
+  color:var(--o1);opacity:0;
+  transition:opacity .3s var(--ease),transform .3s var(--ease);
+  display:flex;align-items:center;justify-content:center;
+}
+.option-arrow svg,.option-arrow [data-lucide]{width:18px;height:18px;stroke-width:2}
+.option-row:hover .option-arrow{opacity:1;transform:translateX(4px)}
+
+/* ── Sub-options (vaginal yeast vs vaginosis) — inline sous parent ─────── */
 .sub-options{
-  margin-top:1.25rem;padding:1.25rem 1.5rem;
-  border-radius:var(--radius);
-  background:linear-gradient(135deg,rgba(216,49,140,.04),rgba(222,109,56,.04));
-  border:1px solid rgba(216,49,140,.15);
-  animation:stepIn .4s var(--ease) both;
+  margin-top:.6rem;margin-left:54px;
+  padding:1rem 1.25rem;
+  border-radius:14px;
+  background:linear-gradient(135deg,rgba(216,49,140,.045),rgba(222,109,56,.04));
+  border:1px solid rgba(216,49,140,.18);
+  animation:slideDown .35s var(--ease) both;
+  max-width:720px;
+}
+@keyframes slideDown{
+  from{opacity:0;transform:translateY(-8px)}
+  to{opacity:1;transform:translateY(0)}
 }
 .sub-options-label{
-  font-size:.78rem;font-weight:600;
-  text-transform:uppercase;letter-spacing:.08em;
-  color:var(--pink);margin-bottom:.85rem;
+  font-size:.72rem;font-weight:700;
+  text-transform:uppercase;letter-spacing:.12em;
+  color:var(--pink);margin-bottom:.75rem;
 }
 .sub-options-grid{
-  display:grid;grid-template-columns:1fr 1fr;gap:.6rem;
+  display:grid;grid-template-columns:1fr 1fr;gap:.5rem;
 }
 .sub-opt{
-  background:var(--white);border:2px solid transparent;
-  border-radius:12px;padding:.95rem 1.1rem;
+  background:var(--white);border:1.5px solid rgba(26,26,46,.08);
+  border-radius:10px;padding:.85rem 1.1rem;
   font-size:.92rem;font-weight:600;text-align:left;
   cursor:pointer;transition:all .2s var(--ease);
   display:flex;align-items:center;gap:.65rem;
   font-family:inherit;color:var(--text);
-  box-shadow:var(--shadow-sm);
 }
-.sub-opt svg,.sub-opt [data-lucide]{width:16px;height:16px;stroke:currentColor;fill:none;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round;opacity:.6;flex-shrink:0}
-.sub-opt:hover{border-color:var(--pink);transform:translateY(-1px)}
-.sub-opt:focus-visible{outline:3px solid var(--pink);outline-offset:3px}
+.sub-opt svg,.sub-opt [data-lucide]{width:16px;height:16px;stroke:currentColor;fill:none;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round;opacity:.55;flex-shrink:0}
+.sub-opt:hover{border-color:var(--pink);transform:translateX(2px)}
+.sub-opt:focus-visible{outline:3px solid var(--pink);outline-offset:2px}
 .sub-opt.is-selected{
   border-color:var(--pink);background:rgba(216,49,140,.06);
   color:var(--pink);
 }
 .sub-opt.is-selected svg,.sub-opt.is-selected [data-lucide]{opacity:1}
-@media(max-width:480px){
+@media(max-width:600px){
+  .sub-options{margin-left:0}
   .sub-options-grid{grid-template-columns:1fr}
 }
 
-/* ── CTA footer (Voir mes recommandations) ─────────────────────────────── */
+/* ── CTA bar bas de step ───────────────────────────────────────────────── */
 .cta-row{
-  margin-top:clamp(1.5rem,3vw,2.5rem);
+  margin-top:clamp(2.5rem,5vw,3.5rem);
+  padding-top:clamp(1.5rem,2.5vw,2rem);
+  border-top:1px solid rgba(26,26,46,.06);
   display:flex;align-items:center;justify-content:space-between;
   flex-wrap:wrap;gap:1rem;
+  max-width:720px;
 }
-.cta-count{font-size:.9rem;color:var(--text-light)}
-.cta-count strong{color:var(--text);font-weight:700}
+.cta-count{font-size:.85rem;color:var(--text-light)}
+.cta-count strong{color:var(--o1);font-weight:700}
+.cta-hint{
+  font-size:.78rem;color:var(--text-light);
+  display:inline-flex;align-items:center;gap:.4rem;
+}
+.cta-hint kbd{
+  font-family:'DM Sans',sans-serif;
+  display:inline-flex;align-items:center;justify-content:center;
+  min-width:22px;height:22px;padding:0 .35rem;
+  background:var(--white);border:1px solid rgba(26,26,46,.12);
+  border-radius:5px;font-size:.7rem;font-weight:700;color:var(--text);
+  box-shadow:0 1px 0 rgba(26,26,46,.06);
+}
 .btn-primary{
   display:inline-flex;align-items:center;gap:.6rem;
   background:var(--o1);color:var(--white);
@@ -719,71 +719,78 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   </div>
 </div>
 
-<!-- Bar de contrôle du guide (retour + progression) -->
+<!-- Progress bar (sticky sous le nav) -->
+<div class="progress-bar" aria-hidden="true">
+  <div class="progress-bar-fill" id="progressFill"></div>
+</div>
+
+<!-- Bar de contrôle : retour + compteur de question -->
 <div class="step-controls">
   <a href="#intro" class="back-link" id="backBtn" style="visibility:hidden">
     <i data-lucide="chevron-left"></i>
     Retour
   </a>
-  <div class="progress-dots" aria-hidden="true">
-    <span class="progress-dot" data-dot="0"></span>
-    <span class="progress-dot" data-dot="1"></span>
-    <span class="progress-dot" data-dot="2"></span>
-  </div>
+  <div class="question-counter" id="questionCounter">Question <strong>01</strong> sur 2</div>
 </div>
 
 <main>
 
-  <!-- ═══ STEP 0 : INTRO ═══════════════════════════════════════════════ -->
+  <!-- ═══ Q1 : INTRO — par âge ou par besoin ═══════════════════════════ -->
   <section class="step" id="step-intro" data-step="intro">
-    <div class="step-eyebrow">Guide interactif</div>
-    <h1 class="step-title">Trouvez votre<br><em>Probaclac idéal</em></h1>
-    <p class="step-sub">Quelques questions, et on vous guide vers le bon produit. Choisissez par âge si vous cherchez un probiotique général, ou par besoin si vous avez une situation particulière.</p>
+    <div class="question-eyebrow">Question&nbsp;01</div>
+    <h1 class="question-title">Comment voulez-vous<br><em>commencer</em>&nbsp;?</h1>
+    <p class="question-sub">Trouvez le bon Probaclac en 2 questions. Choisissez le point de départ qui vous convient.</p>
 
-    <div class="path-grid">
-      <button class="path-card" data-go="age" type="button">
-        <div class="path-icon"><i data-lucide="hourglass"></i></div>
-        <div class="path-title">Selon mon âge</div>
-        <div class="path-desc">Pour un usage général, quotidien. On vous recommande le bon dosage selon votre tranche d'âge.</div>
-        <div class="path-arrow">Commencer
-          <i data-lucide="arrow-right"></i>
-        </div>
+    <div class="options-list">
+      <button class="option-row" data-go="age" type="button">
+        <span class="option-letter">A</span>
+        <span class="option-content">
+          <span class="option-label">Selon mon âge</span>
+          <span class="option-meta">Pour un usage général, quotidien</span>
+        </span>
+        <span class="option-arrow"><i data-lucide="arrow-right"></i></span>
       </button>
-      <button class="path-card" data-go="need" type="button">
-        <div class="path-icon"><i data-lucide="target"></i></div>
-        <div class="path-title">Selon mon besoin</div>
-        <div class="path-desc">Voyage, antibiotique, infection vaginale ou urinaire… Cochez une ou plusieurs situations.</div>
-        <div class="path-arrow">Commencer
-          <i data-lucide="arrow-right"></i>
-        </div>
+      <button class="option-row" data-go="need" type="button">
+        <span class="option-letter">B</span>
+        <span class="option-content">
+          <span class="option-label">Selon mon besoin</span>
+          <span class="option-meta">Voyage, antibiotique, infection vaginale ou urinaire</span>
+        </span>
+        <span class="option-arrow"><i data-lucide="arrow-right"></i></span>
       </button>
     </div>
   </section>
 
-  <!-- ═══ STEP A : AGE ═════════════════════════════════════════════════ -->
+  <!-- ═══ Q2-A : ÂGE ═══════════════════════════════════════════════════ -->
   <section class="step" id="step-age" data-step="age">
-    <div class="step-eyebrow">Étape 2 · Par âge</div>
-    <h2 class="step-title">Pour <em>qui</em> ?</h2>
-    <p class="step-sub">Sélectionnez la tranche d'âge concernée.</p>
+    <div class="question-eyebrow">Question&nbsp;02</div>
+    <h2 class="question-title">Pour <em>qui</em>&nbsp;?</h2>
+    <p class="question-sub">Sélectionnez la tranche d'âge concernée.</p>
 
-    <div class="option-grid" id="ageGrid">
-      <button class="option-card" data-age="kids" type="button">
-        <span class="check"><i data-lucide="check"></i></span>
-        <span class="option-icon"><i data-lucide="baby"></i></span>
-        <span class="option-title">Enfants</span>
-        <span class="option-meta">0 à 11 ans</span>
+    <div class="options-list" id="ageGrid">
+      <button class="option-row" data-age="kids" type="button">
+        <span class="option-letter">A</span>
+        <span class="option-content">
+          <span class="option-label">Enfants</span>
+          <span class="option-meta">0 à 11 ans</span>
+        </span>
+        <span class="option-arrow"><i data-lucide="arrow-right"></i></span>
       </button>
-      <button class="option-card" data-age="adults" type="button">
-        <span class="check"><i data-lucide="check"></i></span>
-        <span class="option-icon"><i data-lucide="user-round"></i></span>
-        <span class="option-title">Adultes</span>
-        <span class="option-meta">12 à 49 ans</span>
+      <button class="option-row" data-age="adults" type="button">
+        <span class="option-letter">B</span>
+        <span class="option-content">
+          <span class="option-label">Adultes</span>
+          <span class="option-meta">12 à 49 ans</span>
+        </span>
+        <span class="option-arrow"><i data-lucide="arrow-right"></i></span>
       </button>
-      <button class="option-card" data-age="50plus" type="button">
-        <span class="check"><i data-lucide="check"></i></span>
-        <span class="option-icon"><i data-lucide="users-round"></i></span>
-        <span class="option-title">50 ans et plus</span>
-        <span class="option-meta">Formule adaptée</span>
+      <button class="option-row" data-age="50plus" type="button">
+        <span class="option-letter">C</span>
+        <span class="option-content">
+          <span class="option-label">50 ans et plus</span>
+          <span class="option-meta">Formule adaptée</span>
+        </span>
+        <span class="option-arrow"><i data-lucide="arrow-right"></i></span>
       </button>
     </div>
 
@@ -796,62 +803,72 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </div>
   </section>
 
-  <!-- ═══ STEP B : BESOIN ═══════════════════════════════════════════════ -->
+  <!-- ═══ Q2-B : BESOIN ═══════════════════════════════════════════════ -->
   <section class="step" id="step-need" data-step="need">
-    <div class="step-eyebrow">Étape 2 · Par besoin</div>
-    <h2 class="step-title">Quelle est<br>votre <em>situation</em> ?</h2>
-    <p class="step-sub">Cochez tout ce qui s'applique. On vous recommandera le ou les produits les mieux adaptés.</p>
+    <div class="question-eyebrow">Question&nbsp;02</div>
+    <h2 class="question-title">Quelle est votre<br><em>situation</em>&nbsp;?</h2>
+    <p class="question-sub">Cochez tout ce qui s'applique. On vous recommandera le ou les produits les mieux adaptés.</p>
 
-    <div class="option-grid" id="needGrid">
-      <button class="option-card" data-need="travel" type="button">
-        <span class="check"><i data-lucide="check"></i></span>
-        <span class="option-icon"><i data-lucide="plane"></i></span>
-        <span class="option-title">Je voyage</span>
-        <span class="option-meta">Prévention de la diarrhée du voyageur</span>
+    <div class="options-list" id="needGrid">
+      <button class="option-row" data-need="travel" type="button">
+        <span class="option-letter">A</span>
+        <span class="option-content">
+          <span class="option-label">Je voyage</span>
+          <span class="option-meta">Prévention de la diarrhée du voyageur</span>
+        </span>
+        <span class="option-arrow"><i data-lucide="arrow-right"></i></span>
       </button>
 
-      <button class="option-card" data-need="antibio" type="button">
-        <span class="check"><i data-lucide="check"></i></span>
-        <span class="option-icon"><i data-lucide="pill"></i></span>
-        <span class="option-title">Je prends un antibiotique</span>
-        <span class="option-meta">Pendant ou après le traitement</span>
+      <button class="option-row" data-need="antibio" type="button">
+        <span class="option-letter">B</span>
+        <span class="option-content">
+          <span class="option-label">Je prends un antibiotique</span>
+          <span class="option-meta">Pendant ou après le traitement</span>
+        </span>
+        <span class="option-arrow"><i data-lucide="arrow-right"></i></span>
       </button>
 
-      <button class="option-card" data-need="acute" type="button">
-        <span class="check"><i data-lucide="check"></i></span>
-        <span class="option-icon"><i data-lucide="zap"></i></span>
-        <span class="option-title">Problème aigu ou récurrent</span>
-        <span class="option-meta">Besoin d'une formule extra-forte</span>
+      <button class="option-row" data-need="acute" type="button">
+        <span class="option-letter">C</span>
+        <span class="option-content">
+          <span class="option-label">Problème aigu ou récurrent</span>
+          <span class="option-meta">Besoin d'une formule extra-forte</span>
+        </span>
+        <span class="option-arrow"><i data-lucide="arrow-right"></i></span>
       </button>
 
-      <button class="option-card" data-need="vaginal" type="button" id="needVaginal">
-        <span class="check"><i data-lucide="check"></i></span>
-        <span class="option-icon"><i data-lucide="flower-2"></i></span>
-        <span class="option-title">Infection vaginale</span>
-        <span class="option-meta">Levure ou vaginose bactérienne</span>
+      <button class="option-row" data-need="vaginal" type="button" id="needVaginal">
+        <span class="option-letter">D</span>
+        <span class="option-content">
+          <span class="option-label">Infection vaginale</span>
+          <span class="option-meta">Levure ou vaginose bactérienne</span>
+        </span>
+        <span class="option-arrow"><i data-lucide="arrow-right"></i></span>
       </button>
 
-      <button class="option-card" data-need="urinary" type="button">
-        <span class="check"><i data-lucide="check"></i></span>
-        <span class="option-icon"><i data-lucide="droplet"></i></span>
-        <span class="option-title">Infection urinaire</span>
-        <span class="option-meta">Soutien avec canneberge</span>
-      </button>
-    </div>
-
-    <!-- Sub-options vaginal : hors de option-card pour éviter button-in-button -->
-    <div class="sub-options" id="vaginalSub" style="display:none">
-      <div class="sub-options-label">Précisez le type d'infection&nbsp;:</div>
-      <div class="sub-options-grid">
-        <button class="sub-opt" data-vaginal="yeast" type="button">
-          <i data-lucide="microscope"></i>
-          Infection à levure
-        </button>
-        <button class="sub-opt" data-vaginal="bv" type="button">
-          <i data-lucide="bug"></i>
-          Vaginose bactérienne
-        </button>
+      <!-- Sub-options vaginal : hors de option-row (button-in-button interdit) -->
+      <div class="sub-options" id="vaginalSub" style="display:none">
+        <div class="sub-options-label">Précisez le type d'infection&nbsp;:</div>
+        <div class="sub-options-grid">
+          <button class="sub-opt" data-vaginal="yeast" type="button">
+            <i data-lucide="microscope"></i>
+            Infection à levure
+          </button>
+          <button class="sub-opt" data-vaginal="bv" type="button">
+            <i data-lucide="bug"></i>
+            Vaginose bactérienne
+          </button>
+        </div>
       </div>
+
+      <button class="option-row" data-need="urinary" type="button">
+        <span class="option-letter">E</span>
+        <span class="option-content">
+          <span class="option-label">Infection urinaire</span>
+          <span class="option-meta">Soutien avec canneberge</span>
+        </span>
+        <span class="option-arrow"><i data-lucide="arrow-right"></i></span>
+      </button>
     </div>
 
     <div class="cta-row">
@@ -865,9 +882,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
   <!-- ═══ STEP : RESULTS ═══════════════════════════════════════════════ -->
   <section class="step" id="step-result" data-step="result">
-    <div class="step-eyebrow">Recommandation</div>
-    <h2 class="step-title">Voici notre<br><em>recommandation</em></h2>
-    <p class="step-sub" id="resultLead">Selon vos réponses, voici le ou les produits qui correspondent à votre situation.</p>
+    <div class="question-eyebrow">Recommandation</div>
+    <h2 class="question-title">Voici notre<br><em>recommandation</em></h2>
+    <p class="question-sub" id="resultLead">Selon vos réponses, voici le ou les produits qui correspondent à votre situation.</p>
 
     <div class="results-grid" id="resultsGrid"></div>
 
@@ -1069,12 +1086,23 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   }
 
   function updateChrome(){
-    // progress dots
-    const idx = stepIndex(state.step);
-    document.querySelectorAll('.progress-dot').forEach((d,i)=>{
-      d.classList.toggle('is-done', i < Math.max(0, idx-1));
-      d.classList.toggle('is-current', i === Math.max(0, idx-1));
-    });
+    // Progress bar fill
+    const idx = stepIndex(state.step);           // 0=intro, 1=age|need, 2=result
+    const totalSteps = 3;                        // 3 jalons : intro, Q2, résultat
+    const pct = Math.min(100, (idx / (totalSteps - 1)) * 100);
+    const fill = document.getElementById('progressFill');
+    if(fill) fill.style.width = pct + '%';
+    // Counter
+    const counter = document.getElementById('questionCounter');
+    if(counter){
+      if(state.step === 'intro'){
+        counter.innerHTML = 'Question <strong>01</strong> sur 2';
+      } else if(state.step === 'age' || state.step === 'need'){
+        counter.innerHTML = 'Question <strong>02</strong> sur 2';
+      } else if(state.step === 'result'){
+        counter.innerHTML = '<strong>Recommandation</strong>';
+      }
+    }
     // Back button
     const back = document.getElementById('backBtn');
     back.style.visibility = (state.step === 'intro') ? 'hidden' : 'visible';
