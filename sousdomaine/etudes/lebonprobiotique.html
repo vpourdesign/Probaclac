@@ -224,11 +224,148 @@ main{
 }
 .step.is-active{
   display:block;
-  animation:stepIn .7s var(--ease) both;
+  animation:slideInFromBottom .9s var(--ease) both;
 }
-@keyframes stepIn{
-  from{opacity:0;transform:translateY(24px)}
-  to{opacity:1;transform:translateY(0)}
+.step.is-leaving{
+  display:block;
+  animation:slideOutToTop .55s var(--ease) forwards;
+  pointer-events:none;
+}
+@keyframes slideInFromBottom{
+  from{opacity:0;transform:translateY(80px) scale(.985)}
+  to{opacity:1;transform:translateY(0) scale(1)}
+}
+@keyframes slideOutToTop{
+  from{opacity:1;transform:translateY(0) scale(1)}
+  to{opacity:0;transform:translateY(-80px) scale(.985)}
+}
+
+/* ── INTRO : 2 colonnes graphiques ─────────────────────────────────────── */
+.intro-header{
+  text-align:center;
+  max-width:780px;margin:0 auto clamp(1rem,2vw,1.75rem);
+}
+.intro-header .question-title{
+  max-width:none;margin-left:auto;margin-right:auto;
+}
+.intro-header .question-sub{
+  max-width:54ch;margin-left:auto;margin-right:auto;
+}
+
+/* Flèches Lucide (1 par colonne, alignées avec les centres) */
+.branch-arrows{
+  display:grid;grid-template-columns:1fr 1fr;
+  gap:clamp(1.25rem,3vw,2.5rem);
+  max-width:1080px;margin:0 auto clamp(.75rem,1.5vw,1.25rem);
+  pointer-events:none;
+}
+.branch-arrow{
+  display:flex;align-items:center;justify-content:center;
+  color:var(--o1);
+  animation:branchBounce 2.4s ease-in-out infinite;
+}
+.branch-arrow svg,.branch-arrow [data-lucide]{
+  width:clamp(36px,3.5vw,46px);
+  height:clamp(36px,3.5vw,46px);
+  stroke:currentColor;stroke-width:1.6;
+}
+.branch-arrow + .branch-arrow{animation-delay:.4s}
+@keyframes branchBounce{
+  0%,100%{transform:translateY(0);opacity:.7}
+  50%{transform:translateY(8px);opacity:1}
+}
+
+/* Les 2 colonnes */
+.intro-cols{
+  display:grid;grid-template-columns:1fr 1fr;
+  gap:clamp(1.25rem,3vw,2.5rem);
+  max-width:1080px;margin:0 auto;
+}
+.intro-col{
+  position:relative;
+  background:var(--white);
+  border:1px solid rgba(26,26,46,.06);
+  border-radius:24px;
+  padding:clamp(1.5rem,2.5vw,2rem) clamp(1.25rem,2vw,1.5rem);
+  box-shadow:0 12px 36px rgba(222,109,56,.06),0 4px 12px rgba(26,26,46,.04);
+  transition:box-shadow .4s var(--ease),transform .4s var(--ease);
+}
+.intro-col:hover{
+  box-shadow:0 20px 60px rgba(222,109,56,.10),0 8px 20px rgba(26,26,46,.06);
+}
+.intro-col-header{
+  display:flex;align-items:baseline;gap:.65rem;
+  margin-bottom:.4rem;
+}
+.intro-col-num{
+  font-family:'Playfair Display',serif;font-style:italic;
+  font-size:1rem;font-weight:700;
+  color:var(--o1);letter-spacing:.04em;
+}
+.intro-col-title{
+  font-family:'Playfair Display',serif;
+  font-size:clamp(1.35rem,2.2vw,1.7rem);
+  font-weight:700;letter-spacing:-.015em;line-height:1.15;
+  color:var(--text);
+}
+.intro-col-sub{
+  font-size:.88rem;color:var(--text-light);
+  margin-bottom:1.25rem;line-height:1.5;
+}
+
+/* Liste d'options dans une colonne — chips compacts */
+.intro-options{
+  display:flex;flex-direction:column;gap:.55rem;
+}
+.intro-options .option-row{
+  padding:1rem 1.15rem;border-radius:13px;
+  gap:.95rem;
+}
+.intro-options .option-row .option-letter{
+  width:34px;height:34px;font-size:1rem;border-radius:9px;
+}
+.intro-options .option-row .option-label{font-size:1rem}
+.intro-options .option-row .option-meta{font-size:.82rem}
+
+/* CTA bottom of col-2 (multi-select Voir recommandations) */
+.intro-col-cta{
+  margin-top:1.1rem;padding-top:1rem;
+  border-top:1px solid rgba(26,26,46,.06);
+  display:flex;align-items:center;justify-content:space-between;
+  gap:.75rem;flex-wrap:wrap;
+}
+.intro-col-cta .cta-count{
+  font-size:.8rem;color:var(--text-light);
+}
+.intro-col-cta .cta-count strong{color:var(--o1);font-weight:700}
+.intro-col-cta .btn-primary{
+  padding:.7rem 1.2rem;font-size:.88rem;
+  box-shadow:0 6px 18px rgba(222,109,56,.22);
+}
+.intro-col-cta .btn-primary svg,.intro-col-cta .btn-primary [data-lucide]{width:14px;height:14px}
+
+/* Séparateur OU entre colonnes (desktop) */
+.intro-divider{
+  position:absolute;top:50%;left:50%;
+  transform:translate(-50%,-50%);
+  pointer-events:none;z-index:2;
+}
+.intro-divider span{
+  display:inline-flex;align-items:center;justify-content:center;
+  width:42px;height:42px;border-radius:50%;
+  background:var(--bg);border:1px solid rgba(222,109,56,.18);
+  font-family:'Playfair Display',serif;font-style:italic;
+  font-weight:700;color:var(--o1);font-size:.85rem;
+  letter-spacing:.05em;
+}
+
+@media(max-width:820px){
+  .intro-cols{grid-template-columns:1fr;gap:1.25rem}
+  .branch-arrows{display:none}
+  .intro-divider{
+    position:static;transform:none;
+    margin:.5rem auto;display:flex;justify-content:center;
+  }
 }
 
 /* ═══ TYPEFORM-STYLE — une question à la fois ═══════════════════════════ */
@@ -283,7 +420,6 @@ main{
 .option-row:hover{
   border-color:var(--o3);
   box-shadow:0 8px 28px rgba(222,109,56,.10);
-  transform:translateX(4px);
 }
 .option-row:hover::before{opacity:1}
 .option-row:focus-visible{outline:3px solid var(--o1);outline-offset:3px}
@@ -307,11 +443,9 @@ main{
 }
 .option-row:hover .option-letter{
   background:var(--o1);color:var(--white);
-  transform:rotate(-4deg);
 }
 .option-row.is-selected .option-letter{
   background:var(--o1);color:var(--white);
-  transform:rotate(0);
 }
 /* Selected: hide letter, show check via overlay */
 .option-row.is-selected .option-letter::after{
@@ -372,7 +506,7 @@ main{
   font-family:inherit;color:var(--text);
 }
 .sub-opt svg,.sub-opt [data-lucide]{width:16px;height:16px;stroke:currentColor;fill:none;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round;opacity:.55;flex-shrink:0}
-.sub-opt:hover{border-color:var(--pink);transform:translateX(2px)}
+.sub-opt:hover{border-color:var(--pink)}
 .sub-opt:focus-visible{outline:3px solid var(--pink);outline-offset:2px}
 .sub-opt.is-selected{
   border-color:var(--pink);background:rgba(216,49,140,.06);
@@ -735,148 +869,145 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <main>
 
-  <!-- ═══ Q1 : INTRO — par âge ou par besoin ═══════════════════════════ -->
+  <!-- ═══ INTRO : titre + 2 colonnes (âge / condition) ════════════════════ -->
   <section class="step" id="step-intro" data-step="intro">
-    <div class="question-eyebrow">Question&nbsp;01</div>
-    <h1 class="question-title">Comment voulez-vous<br><em>commencer</em>&nbsp;?</h1>
-    <p class="question-sub">Trouvez le bon Probaclac en 2 questions. Choisissez le point de départ qui vous convient.</p>
-
-    <div class="options-list">
-      <button class="option-row" data-go="age" type="button">
-        <span class="option-letter">A</span>
-        <span class="option-content">
-          <span class="option-label">Selon mon âge</span>
-          <span class="option-meta">Pour un usage général, quotidien</span>
-        </span>
-        <span class="option-arrow"><i data-lucide="arrow-right"></i></span>
-      </button>
-      <button class="option-row" data-go="need" type="button">
-        <span class="option-letter">B</span>
-        <span class="option-content">
-          <span class="option-label">Selon mon besoin</span>
-          <span class="option-meta">Voyage, antibiotique, infection vaginale ou urinaire</span>
-        </span>
-        <span class="option-arrow"><i data-lucide="arrow-right"></i></span>
-      </button>
-    </div>
-  </section>
-
-  <!-- ═══ Q2-A : ÂGE ═══════════════════════════════════════════════════ -->
-  <section class="step" id="step-age" data-step="age">
-    <div class="question-eyebrow">Question&nbsp;02</div>
-    <h2 class="question-title">Pour <em>qui</em>&nbsp;?</h2>
-    <p class="question-sub">Sélectionnez la tranche d'âge concernée.</p>
-
-    <div class="options-list" id="ageGrid">
-      <button class="option-row" data-age="kids" type="button">
-        <span class="option-letter">A</span>
-        <span class="option-content">
-          <span class="option-label">Enfants</span>
-          <span class="option-meta">0 à 11 ans</span>
-        </span>
-        <span class="option-arrow"><i data-lucide="arrow-right"></i></span>
-      </button>
-      <button class="option-row" data-age="adults" type="button">
-        <span class="option-letter">B</span>
-        <span class="option-content">
-          <span class="option-label">Adultes</span>
-          <span class="option-meta">12 à 49 ans</span>
-        </span>
-        <span class="option-arrow"><i data-lucide="arrow-right"></i></span>
-      </button>
-      <button class="option-row" data-age="50plus" type="button">
-        <span class="option-letter">C</span>
-        <span class="option-content">
-          <span class="option-label">50 ans et plus</span>
-          <span class="option-meta">Formule adaptée</span>
-        </span>
-        <span class="option-arrow"><i data-lucide="arrow-right"></i></span>
-      </button>
+    <div class="intro-header">
+      <div class="question-eyebrow">Guide interactif</div>
+      <h1 class="question-title">Trouvez le bon<br><em>probiotique</em> pour vous.</h1>
+      <p class="question-sub">Choisissez selon votre âge — ou cochez une ou plusieurs situations qui vous concernent. On vous recommande aussitôt le bon produit.</p>
     </div>
 
-    <div class="cta-row">
-      <span class="cta-count" id="ageCount">Choisissez une option pour continuer</span>
-      <button class="btn-primary" id="ageNext" type="button" disabled>
-        Voir ma recommandation
-        <i data-lucide="arrow-right"></i>
-      </button>
+    <!-- Flèches Lucide pointant vers chaque colonne -->
+    <div class="branch-arrows" aria-hidden="true">
+      <span class="branch-arrow"><i data-lucide="arrow-down"></i></span>
+      <span class="branch-arrow"><i data-lucide="arrow-down"></i></span>
     </div>
-  </section>
 
-  <!-- ═══ Q2-B : BESOIN ═══════════════════════════════════════════════ -->
-  <section class="step" id="step-need" data-step="need">
-    <div class="question-eyebrow">Question&nbsp;02</div>
-    <h2 class="question-title">Quelle est votre<br><em>situation</em>&nbsp;?</h2>
-    <p class="question-sub">Cochez tout ce qui s'applique. On vous recommandera le ou les produits les mieux adaptés.</p>
+    <div class="intro-cols">
+      <!-- Colonne 1 : ÂGE -->
+      <div class="intro-col">
+        <div class="intro-col-header">
+          <span class="intro-col-num">01</span>
+          <h2 class="intro-col-title">Selon votre âge</h2>
+        </div>
+        <p class="intro-col-sub">Cliquez sur une tranche d'âge — la recommandation s'affiche directement.</p>
 
-    <div class="options-list" id="needGrid">
-      <button class="option-row" data-need="travel" type="button">
-        <span class="option-letter">A</span>
-        <span class="option-content">
-          <span class="option-label">Je voyage</span>
-          <span class="option-meta">Prévention de la diarrhée du voyageur</span>
-        </span>
-        <span class="option-arrow"><i data-lucide="arrow-right"></i></span>
-      </button>
-
-      <button class="option-row" data-need="antibio" type="button">
-        <span class="option-letter">B</span>
-        <span class="option-content">
-          <span class="option-label">Je prends un antibiotique</span>
-          <span class="option-meta">Pendant ou après le traitement</span>
-        </span>
-        <span class="option-arrow"><i data-lucide="arrow-right"></i></span>
-      </button>
-
-      <button class="option-row" data-need="acute" type="button">
-        <span class="option-letter">C</span>
-        <span class="option-content">
-          <span class="option-label">Problème aigu ou récurrent</span>
-          <span class="option-meta">Besoin d'une formule extra-forte</span>
-        </span>
-        <span class="option-arrow"><i data-lucide="arrow-right"></i></span>
-      </button>
-
-      <button class="option-row" data-need="vaginal" type="button" id="needVaginal">
-        <span class="option-letter">D</span>
-        <span class="option-content">
-          <span class="option-label">Infection vaginale</span>
-          <span class="option-meta">Levure ou vaginose bactérienne</span>
-        </span>
-        <span class="option-arrow"><i data-lucide="arrow-right"></i></span>
-      </button>
-
-      <!-- Sub-options vaginal : hors de option-row (button-in-button interdit) -->
-      <div class="sub-options" id="vaginalSub" style="display:none">
-        <div class="sub-options-label">Précisez le type d'infection&nbsp;:</div>
-        <div class="sub-options-grid">
-          <button class="sub-opt" data-vaginal="yeast" type="button">
-            <i data-lucide="microscope"></i>
-            Infection à levure
+        <div class="intro-options" id="ageGrid">
+          <button class="option-row" data-age="babies" type="button">
+            <span class="option-letter">A</span>
+            <span class="option-content">
+              <span class="option-label">Bébés</span>
+              <span class="option-meta">0 à 3 ans · Toddlers Enfant</span>
+            </span>
+            <span class="option-arrow"><i data-lucide="arrow-right"></i></span>
           </button>
-          <button class="sub-opt" data-vaginal="bv" type="button">
-            <i data-lucide="bug"></i>
-            Vaginose bactérienne
+          <button class="option-row" data-age="kids" type="button">
+            <span class="option-letter">B</span>
+            <span class="option-content">
+              <span class="option-label">Enfants</span>
+              <span class="option-meta">3 à 11 ans · Croquable</span>
+            </span>
+            <span class="option-arrow"><i data-lucide="arrow-right"></i></span>
+          </button>
+          <button class="option-row" data-age="adults" type="button">
+            <span class="option-letter">C</span>
+            <span class="option-content">
+              <span class="option-label">Adultes</span>
+              <span class="option-meta">12 à 49 ans</span>
+            </span>
+            <span class="option-arrow"><i data-lucide="arrow-right"></i></span>
+          </button>
+          <button class="option-row" data-age="50plus" type="button">
+            <span class="option-letter">D</span>
+            <span class="option-content">
+              <span class="option-label">50 ans et plus</span>
+              <span class="option-meta">Formule adaptée</span>
+            </span>
+            <span class="option-arrow"><i data-lucide="arrow-right"></i></span>
           </button>
         </div>
       </div>
 
-      <button class="option-row" data-need="urinary" type="button">
-        <span class="option-letter">E</span>
-        <span class="option-content">
-          <span class="option-label">Infection urinaire</span>
-          <span class="option-meta">Soutien avec canneberge</span>
-        </span>
-        <span class="option-arrow"><i data-lucide="arrow-right"></i></span>
-      </button>
-    </div>
+      <!-- Séparateur OU -->
+      <div class="intro-divider" aria-hidden="true"><span>OU</span></div>
 
-    <div class="cta-row">
-      <span class="cta-count" id="needCount">Cochez au moins une situation</span>
-      <button class="btn-primary" id="needNext" type="button" disabled>
-        Voir mes recommandations
-        <i data-lucide="arrow-right"></i>
-      </button>
+      <!-- Colonne 2 : CONDITION -->
+      <div class="intro-col">
+        <div class="intro-col-header">
+          <span class="intro-col-num">02</span>
+          <h2 class="intro-col-title">Selon votre condition</h2>
+        </div>
+        <p class="intro-col-sub">Cochez tout ce qui s'applique. Plusieurs choix possibles.</p>
+
+        <div class="intro-options" id="needGrid">
+          <button class="option-row" data-need="travel" type="button">
+            <span class="option-letter">A</span>
+            <span class="option-content">
+              <span class="option-label">Je voyage</span>
+              <span class="option-meta">Prévention diarrhée du voyageur</span>
+            </span>
+            <span class="option-arrow"><i data-lucide="arrow-right"></i></span>
+          </button>
+
+          <button class="option-row" data-need="antibio" type="button">
+            <span class="option-letter">B</span>
+            <span class="option-content">
+              <span class="option-label">Je prends un antibiotique</span>
+              <span class="option-meta">Pendant ou après le traitement</span>
+            </span>
+            <span class="option-arrow"><i data-lucide="arrow-right"></i></span>
+          </button>
+
+          <button class="option-row" data-need="acute" type="button">
+            <span class="option-letter">C</span>
+            <span class="option-content">
+              <span class="option-label">Problème aigu ou récurrent</span>
+              <span class="option-meta">Formule extra-forte</span>
+            </span>
+            <span class="option-arrow"><i data-lucide="arrow-right"></i></span>
+          </button>
+
+          <button class="option-row" data-need="vaginal" type="button" id="needVaginal">
+            <span class="option-letter">D</span>
+            <span class="option-content">
+              <span class="option-label">Infection vaginale</span>
+              <span class="option-meta">Levure ou vaginose bactérienne</span>
+            </span>
+            <span class="option-arrow"><i data-lucide="arrow-right"></i></span>
+          </button>
+
+          <div class="sub-options" id="vaginalSub" style="display:none">
+            <div class="sub-options-label">Précisez le type d'infection&nbsp;:</div>
+            <div class="sub-options-grid">
+              <button class="sub-opt" data-vaginal="yeast" type="button">
+                <i data-lucide="microscope"></i>
+                Infection à levure
+              </button>
+              <button class="sub-opt" data-vaginal="bv" type="button">
+                <i data-lucide="bug"></i>
+                Vaginose bactérienne
+              </button>
+            </div>
+          </div>
+
+          <button class="option-row" data-need="urinary" type="button">
+            <span class="option-letter">E</span>
+            <span class="option-content">
+              <span class="option-label">Infection urinaire</span>
+              <span class="option-meta">Soutien avec canneberge</span>
+            </span>
+            <span class="option-arrow"><i data-lucide="arrow-right"></i></span>
+          </button>
+        </div>
+
+        <div class="intro-col-cta">
+          <span class="cta-count" id="needCount">Cochez au moins une situation</span>
+          <button class="btn-primary" id="needNext" type="button" disabled>
+            Voir mes recommandations
+            <i data-lucide="arrow-right"></i>
+          </button>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -968,16 +1099,16 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   // ── Catalogue produits ─────────────────────────────────────────────────
   const IMG = '../../images/produits/';
   const PRODUCTS = {
-    kids: {
-      tag:'Enfants',
-      name:'Probaclac Enfants',
-      desc:"Probiotique adapté aux enfants pour soutenir leur flore intestinale au quotidien.",
+    babies: {
+      tag:'Bébés · 0 à 3 ans',
+      name:'Probaclac Toddlers Enfant',
+      desc:"Probiotique adapté aux bébés et tout-petits pour soutenir leur flore intestinale en développement.",
       img:IMG+'PBL-KIDS.png',
-      url:'https://www.probaclac.ca/probiotique-enfant',
+      url:'https://www.probaclac.ca/probiotique-bebes',
     },
-    chew:{
-      tag:'Enfants · Croquables',
-      name:'Probaclac Croquables',
+    kids: {
+      tag:'Enfants · 3 à 11 ans',
+      name:'Probaclac Croquable',
       desc:"Format croquable agréable, idéal pour les enfants qui n'aiment pas avaler des capsules.",
       img:IMG+'PBL-CHEW-75.png',
       url:'https://www.probaclac.ca/probiotique-enfant',
@@ -1067,54 +1198,50 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     vaginal:null,       // 'yeast' | 'bv' | null
   };
 
-  const steps = ['intro','age','need','result'];
+  const steps = ['intro','result'];
   function stepIndex(s){return steps.indexOf(s)}
 
   function showStep(s){
+    const fromStep = state.step;
     state.step = s;
-    document.querySelectorAll('.step').forEach(el=>el.classList.remove('is-active'));
-    const el = document.getElementById('step-'+s);
-    if(el) el.classList.add('is-active');
+    const newEl = document.getElementById('step-'+s);
+    const oldEl = document.querySelector('.step.is-active');
+
+    if(oldEl && oldEl !== newEl){
+      // Slide out l'étape courante, puis slide in la nouvelle
+      oldEl.classList.add('is-leaving');
+      oldEl.classList.remove('is-active');
+      setTimeout(()=>{
+        oldEl.classList.remove('is-leaving');
+        if(newEl) newEl.classList.add('is-active');
+        window.scrollTo({top:0, behavior:'smooth'});
+      }, 420);
+    } else {
+      // Premier affichage (pas de step précédente) — direct
+      document.querySelectorAll('.step').forEach(el=>el.classList.remove('is-active','is-leaving'));
+      if(newEl) newEl.classList.add('is-active');
+      window.scrollTo({top:0, behavior:'instant'});
+    }
     updateChrome();
-    // GA4 / GTM event
     try{
       window.dataLayer = window.dataLayer || [];
       window.dataLayer.push({event:'guide_step', step:s});
     }catch(e){}
-    // Smooth scroll to top of step
-    window.scrollTo({top:0, behavior:'smooth'});
   }
 
   function updateChrome(){
-    // Progress bar fill
-    const idx = stepIndex(state.step);           // 0=intro, 1=age|need, 2=result
-    const totalSteps = 3;                        // 3 jalons : intro, Q2, résultat
-    const pct = Math.min(100, (idx / (totalSteps - 1)) * 100);
+    const idx = stepIndex(state.step); // 0=intro, 1=result
     const fill = document.getElementById('progressFill');
-    if(fill) fill.style.width = pct + '%';
-    // Counter
+    if(fill) fill.style.width = (idx === 0 ? 0 : 100) + '%';
     const counter = document.getElementById('questionCounter');
     if(counter){
-      if(state.step === 'intro'){
-        counter.innerHTML = 'Question <strong>01</strong> sur 2';
-      } else if(state.step === 'age' || state.step === 'need'){
-        counter.innerHTML = 'Question <strong>02</strong> sur 2';
-      } else if(state.step === 'result'){
-        counter.innerHTML = '<strong>Recommandation</strong>';
-      }
+      counter.innerHTML = state.step === 'intro'
+        ? 'Vos <strong>choix</strong>'
+        : '<strong>Recommandation</strong>';
     }
-    // Back button
     const back = document.getElementById('backBtn');
     back.style.visibility = (state.step === 'intro') ? 'hidden' : 'visible';
-    back.setAttribute('href', backTarget());
-  }
-
-  function backTarget(){
-    if(state.step === 'result'){
-      return state.age ? '#age' : '#need';
-    }
-    if(state.step === 'age' || state.step === 'need') return '#intro';
-    return '#intro';
+    back.setAttribute('href', '#intro');
   }
 
   function routeFromHash(){
@@ -1122,17 +1249,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     const target = steps.includes(h) ? h : 'intro';
     showStep(target);
   }
-
-  // ── Path cards (intro) ─────────────────────────────────────────────────
-  document.querySelectorAll('[data-go]').forEach(btn=>{
-    btn.addEventListener('click', ()=>{
-      const target = btn.dataset.go;
-      // Reset l'autre chemin
-      if(target === 'age'){ state.needs.clear(); state.vaginal=null; refreshNeedUI(); }
-      else if(target === 'need'){ state.age = null; refreshAgeUI(); }
-      location.hash = target;
-    });
-  });
 
   // Mobile menu toggle (hamburger)
   const hamburger = document.querySelector('.pbc-hamburger');
@@ -1150,29 +1266,27 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     }));
   }
 
-  // ── AGE step ───────────────────────────────────────────────────────────
+  // ── AGE column (auto-advance vers result au clic) ──────────────────────
   const ageGrid = document.getElementById('ageGrid');
-  const ageNext = document.getElementById('ageNext');
-  const ageCount = document.getElementById('ageCount');
 
   ageGrid.addEventListener('click', (e)=>{
     const card = e.target.closest('[data-age]');
     if(!card) return;
     state.age = card.dataset.age;
+    // Reset l'autre chemin (single-select cross-column : âge écrase needs)
+    state.needs.clear();
+    state.vaginal = null;
     refreshAgeUI();
+    refreshNeedUI();
+    // Auto-advance vers result avec un petit delay pour voir la sélection
+    setTimeout(()=>{ location.hash = 'result'; }, 280);
   });
 
   function refreshAgeUI(){
     ageGrid.querySelectorAll('[data-age]').forEach(c=>{
       c.classList.toggle('is-selected', c.dataset.age === state.age);
     });
-    ageNext.disabled = !state.age;
-    ageCount.textContent = state.age
-      ? 'Prêt à voir votre recommandation.'
-      : 'Choisissez une option pour continuer';
   }
-
-  ageNext.addEventListener('click', ()=>{ if(state.age) location.hash = 'result'; });
 
   // ── NEED step ──────────────────────────────────────────────────────────
   const needGrid = document.getElementById('needGrid');
@@ -1183,6 +1297,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   needGrid.addEventListener('click', (e)=>{
     const card = e.target.closest('[data-need]');
     if(!card) return;
+    // Cliquer une condition = abandonner le chemin "âge" en cours
+    if(state.age){
+      state.age = null;
+      refreshAgeUI();
+    }
     const k = card.dataset.need;
     if(state.needs.has(k)){
       state.needs.delete(k);
@@ -1231,7 +1350,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   // ── RESULT step ────────────────────────────────────────────────────────
   function computeRecommendations(){
     const recs = new Set();
-    if(state.age === 'kids'){ recs.add('kids'); recs.add('chew'); }
+    if(state.age === 'babies') recs.add('babies');
+    else if(state.age === 'kids') recs.add('kids');
     else if(state.age === 'adults') recs.add('adults');
     else if(state.age === '50plus') recs.add('fifty');
 
@@ -1331,7 +1451,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     btn.addEventListener('click', ()=>{
       const action = btn.dataset.action;
       if(action === 'modify'){
-        location.hash = state.age ? 'age' : 'need';
+        // Garde les choix, retourne à l'intro
+        location.hash = 'intro';
       } else if(action === 'restart'){
         resetAll();
         location.hash = 'intro';
