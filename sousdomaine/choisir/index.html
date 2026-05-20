@@ -309,6 +309,7 @@ header{background-color:#f8f7f4!important}
 .allergen-badge{background:var(--white);border-radius:20px;padding:1.25rem;text-align:center;border:1px solid rgba(0,0,0,.04);box-shadow:var(--shadow-sm);transition:all .3s}
 .allergen-badge:hover{transform:translateY(-3px);box-shadow:var(--shadow-md)}
 .allergen-badge-icon{width:44px;height:44px;background:var(--o4);border-radius:12px;display:flex;align-items:center;justify-content:center;margin:0 auto .75rem;font-size:1.2rem}
+.allergen-badge-icon img{width:24px;height:24px;object-fit:contain;display:block}
 .allergen-badge span{font-family:var(--font-secondary);font-size:.82rem;font-weight:700;color:var(--text)}
 .allergen-footnote{font-size:.75rem;color:var(--text-light);line-height:1.6;font-style:italic;margin-top:.75rem}
 @media(max-width:768px){.allergen-badges{grid-template-columns:repeat(2,1fr)}.allergen-highlight{padding:1.75rem}}
@@ -829,19 +830,19 @@ section{padding:0;flex-shrink:0;flex-grow:0;height:auto!important}
     </div>
     <div class="allergen-badges reveal">
       <div class="allergen-badge">
-        <div class="allergen-badge-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--o1)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="4.93" y1="4.93" x2="19.07" y2="19.07"/></svg></div>
+        <div class="allergen-badge-icon"><img src="../../images/sansgluten.jpg" alt="Sans gluten" loading="lazy"></div>
         <span>Sans gluten</span>
       </div>
       <div class="allergen-badge">
-        <div class="allergen-badge-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--o1)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6L6 18M6 6l12 12"/></svg></div>
+        <div class="allergen-badge-icon"><img src="../../images/sansoya.jpg" alt="Sans soya" loading="lazy"></div>
         <span>Sans soya</span>
       </div>
       <div class="allergen-badge">
-        <div class="allergen-badge-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--o1)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 2h8l4 10H4L8 2z"/><path d="M12 12v10"/><path d="M8 22h8"/></svg></div>
+        <div class="allergen-badge-icon"><img src="../../images/sanslactose.jpg" alt="Sans lactose" loading="lazy"></div>
         <span>Sans lactose</span>
       </div>
       <div class="allergen-badge">
-        <div class="allergen-badge-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--o1)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3h12l2 6H4l2-6z"/><path d="M12 9v13"/><circle cx="12" cy="17" r="4"/></svg></div>
+        <div class="allergen-badge-icon"><img src="../../images/vegetale.jpg" alt="Capsules végétales" loading="lazy"></div>
         <span>Capsules végétales</span>
       </div>
     </div>
