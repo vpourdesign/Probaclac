@@ -1394,7 +1394,7 @@ export interface UGCStats {
 /** Liste blanche des slugs valides (pour ranger les inconnus dans "(other)"). */
 const UGC_KNOWN_REFS = new Set([
   'elisabeth', 'hela', 'hina', 'kelsey', 'lina', 'myriam', 'shika', 'sophia',
-  'christina', 'linakarda', 'ashley', 'cassie', 'shielle',
+  'christina', 'linakarda', 'ashley', 'cassie', 'shielle', 'nicole',
 ])
 
 const UGC_PAGES: { product: 'yeast' | 'vaginosis'; pagePath: string }[] = [
