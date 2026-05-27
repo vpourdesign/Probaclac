@@ -1395,6 +1395,7 @@ export interface UGCStats {
 const UGC_KNOWN_REFS = new Set([
   'elisabeth', 'hela', 'hina', 'kelsey', 'lina', 'myriam', 'shika', 'sophia',
   'christina', 'linakarda', 'ashley', 'cassie', 'shielle', 'nicole',
+  'carrie', 'deanna', 'alamodesophie', 'kim', 'sherry', 'nathalie',
 ])
 
 const UGC_PAGES: { product: 'yeast' | 'vaginosis'; pagePath: string }[] = [
