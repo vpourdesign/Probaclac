@@ -1110,21 +1110,21 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       url:'https://www.probaclac.ca/probiotique-enfant',
     },
     adults:{
-      tag:'Adultes',
+      tag:'',
       name:'Probaclac Adultes',
       desc:"Probiotique quotidien pour soutenir la flore intestinale des adultes.",
       img:IMG+'PBL-ADULTS-60.png',
       url:'https://www.probaclac.ca/probiotique-adulte',
     },
     fifty:{
-      tag:'50 ans et plus',
+      tag:'',
       name:'Probaclac 50 ans et +',
       desc:"Formule adaptée aux adultes de 50 ans et plus, pour soutenir l'équilibre digestif.",
       img:IMG+'PBL-50-60.png',
       url:'https://www.probaclac.ca/probiotique-50-et-plus',
     },
     travel:{
-      tag:'Voyage',
+      tag:'',
       name:'Probaclac Voyage',
       desc:"Pour prévenir la diarrhée du voyageur et protéger votre flore intestinale en déplacement.",
       img:IMG+'PBL-Travel%20-%2060.png',
@@ -1145,14 +1145,14 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       url:'https://www.probaclac.ca/probiotique-gastro-intestinal',
     },
     xtra:{
-      tag:'Extra fort',
+      tag:'',
       name:'Probaclac Extra Fort',
       desc:"Concentration élevée pour les problèmes aigus ou récurrents qui demandent une action rapide.",
       img:IMG+'PBL%20XTRA.png',
       url:'https://www.probaclac.ca/probiotique-extra-fort',
     },
     yeast:{
-      tag:'Infection à levure',
+      tag:'',
       name:'Probaclac Infection à levure',
       desc:"Probiotique intravaginal spécifiquement formulé pour traiter et prévenir les infections à levure (candidose).",
       img:IMG+'Infection-levure.png',
@@ -1166,10 +1166,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       url:'https://www.probaclac.ca/probiotique-vaginal',
     },
     urinary:{
-      tag:'Infection urinaire',
+      tag:'',
       name:'Probaclac Urinaire',
       desc:"Combinaison probiotiques + canneberge pour soutenir la santé des voies urinaires.",
-      img:IMG+'urinaire.png',
+      img:IMG+'canneberge.jpg',
       url:'https://www.probaclac.ca/probiotique-infection-urinaire',
     },
   };
@@ -1380,7 +1380,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <img src="${p.img}" alt="${p.name}" loading="lazy">
           </div>
           <div class="product-card-body">
-            <div class="product-tag">${p.tag}</div>
+            ${p.tag ? `<div class="product-tag">${p.tag}</div>` : ''}
             <div class="product-name">${p.name}</div>
             <div class="product-desc">${p.desc}</div>
             <span class="product-link">
