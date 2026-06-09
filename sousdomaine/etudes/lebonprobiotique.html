@@ -940,7 +940,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <span class="intro-col-num">02</span>
           <h2 class="intro-col-title">Selon votre condition</h2>
         </div>
-        <p class="intro-col-sub">Cochez tout ce qui s'applique. Plusieurs choix possibles.</p>
+        <p class="intro-col-sub">Cliquez sur la situation qui s'applique — la recommandation s'affiche directement.</p>
 
         <div class="intro-options" id="needGrid">
           <button class="option-row" data-need="travel" type="button">
@@ -1003,13 +1003,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           </button>
         </div>
 
-        <div class="intro-col-cta">
-          <span class="cta-count" id="needCount">Cochez au moins une situation</span>
-          <button class="btn-primary" id="needNext" type="button" disabled>
-            Voir mes recommandations
-            <i data-lucide="arrow-right"></i>
-          </button>
-        </div>
       </div>
     </div>
   </section>
@@ -1018,7 +1011,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <section class="step" id="step-result" data-step="result">
     <div class="question-eyebrow">Recommandation</div>
     <h2 class="question-title">Voici notre<br><em>recommandation</em></h2>
-    <p class="question-sub" id="resultLead">Selon vos réponses, voici le ou les produits qui correspondent à votre situation.</p>
+    <p class="question-sub" id="resultLead">Selon votre réponse, voici le produit qui correspond à votre situation.</p>
 
     <div class="results-grid" id="resultsGrid"></div>
 
@@ -1291,37 +1284,39 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     });
   }
 
-  // ── NEED step ──────────────────────────────────────────────────────────
+  // ── NEED column (single-choice, auto-advance like age column) ─────────
   const needGrid = document.getElementById('needGrid');
-  const needNext = document.getElementById('needNext');
-  const needCount = document.getElementById('needCount');
   const vaginalSub = document.getElementById('vaginalSub');
 
   needGrid.addEventListener('click', (e)=>{
     const card = e.target.closest('[data-need]');
     if(!card) return;
     // Cliquer une condition = abandonner le chemin "âge" en cours
-    if(state.age){
-      state.age = null;
-      refreshAgeUI();
-    }
+    if(state.age){ state.age = null; refreshAgeUI(); }
     const k = card.dataset.need;
-    if(state.needs.has(k)){
-      state.needs.delete(k);
-      if(k === 'vaginal') state.vaginal = null;
-    } else {
-      state.needs.add(k);
+    // Single-select: reset other needs and set this one
+    state.needs.clear();
+    state.needs.add(k);
+    // Vaginal needs a sub-choice first (no auto-advance yet)
+    if(k === 'vaginal'){
+      state.vaginal = null;
+      refreshNeedUI();
+      return;
     }
+    state.vaginal = null;
     refreshNeedUI();
+    setTimeout(()=>{ location.hash = 'result'; }, 280);
   });
 
-  // Sub-options vaginal : listener séparé (hors needGrid)
+  // Sub-options vaginal — clicking yeast/bv auto-advances
   vaginalSub.addEventListener('click', (e)=>{
     const subOpt = e.target.closest('[data-vaginal]');
     if(!subOpt) return;
-    state.vaginal = (state.vaginal === subOpt.dataset.vaginal) ? null : subOpt.dataset.vaginal;
-    if(state.vaginal) state.needs.add('vaginal');
+    state.vaginal = subOpt.dataset.vaginal;
+    state.needs.clear();
+    state.needs.add('vaginal');
     refreshNeedUI();
+    setTimeout(()=>{ location.hash = 'result'; }, 280);
   });
 
   function refreshNeedUI(){
@@ -1334,21 +1329,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     vaginalSub.querySelectorAll('[data-vaginal]').forEach(o=>{
       o.classList.toggle('is-selected', state.vaginal === o.dataset.vaginal);
     });
-
-    const count = state.needs.size;
-    let valid = count > 0;
-    // Si "vaginal" coché mais pas de sub, on ne bloque pas (on suggère les 2)
-    needNext.disabled = !valid;
-    needCount.textContent = count === 0
-      ? 'Cochez au moins une situation'
-      : count === 1
-        ? '1 situation sélectionnée'
-        : count + ' situations sélectionnées';
   }
-
-  needNext.addEventListener('click', ()=>{
-    if(state.needs.size > 0) location.hash = 'result';
-  });
 
   // ── RESULT step ────────────────────────────────────────────────────────
   function computeRecommendations(){
