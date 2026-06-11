@@ -1,0 +1,1278 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<title>Probaclac — Probiotiques de grade pharmaceutique</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="12 formules de probiotiques, formulées au Québec, validées par la science.">
+
+<link rel="preconnect" href="https://cdn.shopify.com" crossorigin>
+
+<style>
+/* ─────────────────────────────────────────────────────────────────
+   PROBACLAC — Editorial · B&W · Helvetica
+   Design system v1 — pure restraint, single orange accent
+   ───────────────────────────────────────────────────────────────── */
+
+:root{
+  --ink: #0a0a0a;
+  --paper: #fafaf7;
+  --rule: rgba(10,10,10,.12);
+  --rule-strong: rgba(10,10,10,.22);
+  --mute: rgba(10,10,10,.56);
+  --accent: #ff5b04;
+
+  --margin: clamp(1.25rem, 4vw, 4rem);
+  --gutter: clamp(1rem, 2vw, 2rem);
+
+  --t-micro: .72rem;
+  --t-body: clamp(.95rem, 1vw + .55rem, 1.05rem);
+  --t-lead: clamp(1.05rem, .6vw + .9rem, 1.25rem);
+  --t-h3: clamp(1.25rem, 1vw + 1rem, 1.65rem);
+  --t-h2: clamp(2.25rem, 5vw, 5.5rem);
+  --t-h1: clamp(3rem, 11vw, 11.5rem);
+  --t-display: clamp(4rem, 16vw, 17rem);
+
+  --ease: cubic-bezier(.16,1,.3,1);
+}
+
+*,*::before,*::after{ box-sizing: border-box; }
+html{ -webkit-text-size-adjust:100%; }
+html, body{ margin:0; padding:0; }
+body{
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-weight: 300;
+  font-size: var(--t-body);
+  line-height: 1.5;
+  letter-spacing: -.005em;
+  color: var(--ink);
+  background: var(--paper);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  overflow-x: hidden;
+}
+img,svg{ display:block; max-width:100%; height:auto; }
+a{ color:inherit; text-decoration:none; }
+button{ font:inherit; color:inherit; background:none; border:0; padding:0; cursor:pointer; }
+
+/* Lenis smooth-scroll hooks */
+html.lenis,html.lenis body{ height:auto; }
+.lenis.lenis-smooth{ scroll-behavior:auto !important; }
+.lenis.lenis-smooth [data-lenis-prevent]{ overscroll-behavior:contain; }
+.lenis.lenis-stopped{ overflow:hidden; }
+
+/* Helvetica weight helpers */
+.bold{ font-weight:700; letter-spacing:-.04em; }
+.light{ font-weight:300; }
+.italic{ font-style:italic; } /* for Latin strain names only */
+
+/* Eyebrow / micro */
+.eyebrow{
+  font-size: var(--t-micro);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .22em;
+}
+.eyebrow .dot{
+  display:inline-block;
+  width:.42em; height:.42em;
+  border-radius:50%;
+  background: var(--accent);
+  vertical-align: middle;
+  margin: 0 .58em 0 0;
+  transform: translateY(-1px);
+}
+
+/* Hairline rule */
+.rule{ height:1px; background:var(--rule); border:0; }
+.rule.strong{ background:var(--rule-strong); }
+
+/* Buttons */
+.btn{
+  display:inline-flex; align-items:center; gap:.7em;
+  font-weight:700; letter-spacing:-.01em;
+  font-size: .92rem;
+  padding: 1.05rem 1.6rem;
+  border-radius: 999px;
+  border: 1px solid currentColor;
+  transition: transform .5s var(--ease), background .35s var(--ease), color .35s var(--ease);
+  white-space: nowrap;
+}
+.btn .arr{
+  display:inline-block;
+  transition: transform .5s var(--ease);
+}
+.btn:hover .arr{ transform: translateX(.25em); }
+.btn--solid{ background:var(--ink); color:var(--paper); border-color:var(--ink); }
+.btn--solid:hover{ background: var(--accent); border-color: var(--accent); color: var(--ink); }
+.btn--ghost{ background:transparent; }
+.btn--ghost:hover{ background: var(--ink); color: var(--paper); }
+.on-dark .btn--solid{ background:var(--paper); color:var(--ink); border-color:var(--paper); }
+.on-dark .btn--solid:hover{ background: var(--accent); border-color: var(--accent); color: var(--ink); }
+.on-dark .btn--ghost{ color:var(--paper); border-color: rgba(255,255,255,.4); }
+.on-dark .btn--ghost:hover{ background: var(--paper); color: var(--ink); border-color:var(--paper); }
+
+/* Dark theme block helper */
+.on-dark{ background:var(--ink); color:var(--paper); }
+.on-dark .rule{ background: rgba(255,255,255,.16); }
+.on-dark .rule.strong{ background: rgba(255,255,255,.3); }
+.on-dark .mute{ color: rgba(255,255,255,.55); }
+
+.mute{ color: var(--mute); }
+
+/* Section paddings */
+.section{ padding: clamp(4rem, 9vw, 9rem) var(--margin); position:relative; }
+.section--tight{ padding: clamp(3rem, 5vw, 5rem) var(--margin); }
+.wrap{ max-width: 1480px; margin:0 auto; }
+
+/* Grid utility */
+.g12{ display:grid; grid-template-columns:repeat(12,1fr); gap: var(--gutter); }
+
+/* Reveal default — only hide when JS is ready (animations available) */
+.js-ready .reveal{ opacity:0; transform: translateY(28px); will-change: opacity, transform; }
+.js-ready .reveal.visible{ opacity:1; transform:none; transition: opacity .9s var(--ease), transform .9s var(--ease); }
+
+/* Static mode — used by screenshot script: kill all entrance animations */
+.is-static *,
+.is-static *::before,
+.is-static *::after{
+  animation: none !important;
+  transition: none !important;
+}
+.is-static .reveal,
+.is-static .hero__h1 .line,
+.is-static .manifesto__quote .word > span,
+.is-static .pillar,
+.is-static .index-row{
+  opacity:1 !important;
+  transform:none !important;
+  clip-path: none !important;
+}
+
+/* ─────────────────────────────────────────────────────────────────
+   NAV
+   ───────────────────────────────────────────────────────────────── */
+.nav{
+  position: fixed; top:0; left:0; right:0; z-index:50;
+  display:flex; align-items:center; justify-content:space-between;
+  padding: .9rem var(--margin);
+  background: rgba(250,250,247,.78);
+  backdrop-filter: blur(14px) saturate(1.2);
+  -webkit-backdrop-filter: blur(14px) saturate(1.2);
+  border-bottom: 1px solid transparent;
+  transition: border-color .4s var(--ease), background .4s var(--ease);
+}
+.nav.scrolled{ border-bottom-color: var(--rule); }
+.nav__logo{
+  font-weight:700; letter-spacing:-.04em; font-size: 1.15rem;
+  display:flex; align-items:center; gap:.5rem;
+}
+.nav__logo .ico{
+  width:9px; height:9px; border-radius:50%; background: var(--accent); display:inline-block;
+}
+.nav__links{
+  display:flex; gap: clamp(1.25rem, 2.4vw, 2.4rem);
+  font-size: .88rem; font-weight: 300;
+}
+.nav__links a{
+  position:relative; padding: .5em 0;
+}
+.nav__links a::after{
+  content:""; position:absolute; left:0; right:100%; bottom:.2em;
+  height:1px; background: currentColor;
+  transition: right .45s var(--ease);
+}
+.nav__links a:hover::after{ right:0; }
+.nav__right{
+  display:flex; align-items:center; gap:1.15rem;
+  font-size: .82rem; font-weight: 300;
+}
+.nav__lang{ letter-spacing: .1em; text-transform: uppercase; font-weight: 700; font-size: .72rem; }
+.nav__lang .sep{ margin: 0 .35em; opacity:.45; }
+.nav__icobtn{
+  width:34px; height:34px; border-radius:50%;
+  border:1px solid var(--rule-strong);
+  display:flex; align-items:center; justify-content:center;
+  transition: background .35s var(--ease), color .35s var(--ease), border-color .35s var(--ease);
+}
+.nav__icobtn:hover{ background:var(--ink); color:var(--paper); border-color: var(--ink); }
+.nav__icobtn svg{ width:14px; height:14px; }
+
+@media (max-width: 860px){
+  .nav__links{ display:none; }
+}
+
+/* ─────────────────────────────────────────────────────────────────
+   1 — HERO (light)
+   ───────────────────────────────────────────────────────────────── */
+.hero{
+  min-height: 100svh;
+  padding-top: clamp(7rem, 12vh, 11rem);
+  padding-bottom: clamp(2.5rem, 4vw, 4rem);
+  display:flex; flex-direction:column; justify-content:space-between;
+}
+.hero__eyebrow{
+  display:flex; align-items:center; justify-content:space-between;
+  gap:1.25rem; flex-wrap:wrap;
+}
+.hero__eyebrow .left{ display:flex; align-items:center; gap:.7rem; }
+.hero__eyebrow .right{ display:flex; align-items:center; gap:.75rem; font-size: var(--t-micro); }
+.hero__eyebrow .right .pill{
+  padding: .3em .75em;
+  border: 1px solid var(--rule-strong);
+  border-radius:999px; font-weight: 700;
+  text-transform: uppercase; letter-spacing: .15em;
+}
+.hero__body{
+  margin-top: clamp(3rem, 7vw, 6rem);
+}
+.hero__h1{
+  font-weight:700; letter-spacing:-.045em;
+  font-size: var(--t-h1);
+  line-height: .92;
+  margin: 0;
+}
+.hero__h1 .line{ display:block; }
+.hero__h1 .pulse{
+  display:inline-block; vertical-align:middle;
+  width:.22em; height:.22em; border-radius:50%;
+  background: var(--accent);
+  transform: translateY(.06em) scale(0);
+  animation: dotPop 1.2s var(--ease) 1.3s forwards;
+}
+.hero__h1 .accent{ color: var(--accent); }
+@keyframes dotPop{
+  0%   { transform: translateY(.06em) scale(0); }
+  60%  { transform: translateY(.06em) scale(1.2); }
+  100% { transform: translateY(.06em) scale(1); }
+}
+.hero__sub{
+  margin-top: clamp(1.5rem, 2.5vw, 2.5rem);
+  max-width: 38rem;
+  font-size: var(--t-lead);
+  line-height: 1.45;
+  color: var(--mute);
+  font-weight: 300;
+}
+.hero__ctas{
+  margin-top: clamp(1.75rem, 3vw, 2.5rem);
+  display:flex; gap: .75rem; flex-wrap: wrap;
+}
+.hero__foot{
+  margin-top: clamp(3rem, 6vw, 5rem);
+  display:grid; grid-template-columns: repeat(4, 1fr); gap: 1rem;
+  border-top: 1px solid var(--rule);
+  padding-top: 1.5rem;
+}
+.hero__foot .stat{
+  display:flex; flex-direction:column; gap:.25rem;
+}
+.hero__foot .num{
+  font-weight: 700; letter-spacing: -.03em;
+  font-size: clamp(1.5rem, 2.2vw, 2.1rem);
+  line-height: 1;
+}
+.hero__foot .lbl{
+  font-size: var(--t-micro); text-transform: uppercase; letter-spacing: .2em; color: var(--mute);
+}
+.hero__foot .num .small{ font-size:.5em; vertical-align:super; margin-left:.15em; color: var(--mute); }
+
+@media (max-width: 720px){
+  .hero__foot{ grid-template-columns: 1fr 1fr; row-gap: 1.5rem; }
+}
+
+/* ─────────────────────────────────────────────────────────────────
+   2 — MANIFESTO (dark)
+   ───────────────────────────────────────────────────────────────── */
+.manifesto{ position:relative; overflow:hidden; }
+.manifesto__inner{
+  display:grid; grid-template-columns: minmax(0, 11fr) minmax(0, 1fr);
+  gap: var(--gutter);
+  align-items: end;
+}
+.manifesto__quote{
+  font-weight:700; letter-spacing:-.035em;
+  font-size: var(--t-h2);
+  line-height: 1.04;
+  margin:0; padding:0;
+  max-width: 24ch;
+}
+.manifesto__quote .word{ display: inline-block; overflow:hidden; padding-right: .15em; }
+.manifesto__quote .word > span{ display:inline-block; transform: translateY(110%); }
+.manifesto__quote .accent{ color: var(--accent); font-style: italic; font-weight: 300; }
+.manifesto__index{
+  font-size: var(--t-micro); text-transform: uppercase; letter-spacing: .22em;
+  text-align: right;
+  opacity:.6;
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+}
+.manifesto__pillars{
+  margin-top: clamp(4rem, 7vw, 6rem);
+  display:grid; grid-template-columns: repeat(4, 1fr);
+  gap:0;
+  border-top: 1px solid rgba(255,255,255,.16);
+}
+.pillar{
+  padding: 1.75rem 1.4rem 1.5rem 0;
+  border-right: 1px solid rgba(255,255,255,.16);
+  display:flex; flex-direction:column; gap:.7rem;
+}
+.pillar:last-child{ border-right:0; padding-right:0; }
+.pillar:not(:first-child){ padding-left: 1.4rem; }
+.pillar .pn{
+  font-size: var(--t-micro); letter-spacing: .22em; text-transform: uppercase;
+  color: rgba(255,255,255,.5);
+}
+.pillar h3{
+  font-weight: 700; letter-spacing: -.025em;
+  font-size: var(--t-h3); line-height: 1.15;
+  margin:0;
+}
+.pillar p{ margin:0; color: rgba(255,255,255,.6); font-size: .92rem; line-height: 1.55; }
+
+@media (max-width: 900px){
+  .manifesto__inner{ grid-template-columns: 1fr; }
+  .manifesto__index{ display:none; }
+  .manifesto__pillars{ grid-template-columns: 1fr 1fr; }
+  .pillar:nth-child(2){ border-right:0; }
+  .pillar:nth-child(3), .pillar:nth-child(4){
+    border-top: 1px solid rgba(255,255,255,.16);
+    padding-top: 1.5rem;
+  }
+}
+@media (max-width: 540px){
+  .manifesto__pillars{ grid-template-columns: 1fr; }
+  .pillar{ border-right:0 !important; padding-left:0 !important; padding-right:0 !important; }
+  .pillar:not(:first-child){ border-top: 1px solid rgba(255,255,255,.16); padding-top: 1.5rem; }
+}
+
+/* ─────────────────────────────────────────────────────────────────
+   3 — CATALOGUE (light)
+   ───────────────────────────────────────────────────────────────── */
+.catalogue__head{
+  display:grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
+  gap: var(--gutter);
+  align-items: end;
+  margin-bottom: clamp(2.5rem, 4vw, 4rem);
+}
+.catalogue__title{
+  font-weight: 700; letter-spacing: -.04em;
+  font-size: var(--t-h2); line-height: .98;
+  margin:0;
+}
+.catalogue__title .light{ font-weight: 300; color: var(--mute); }
+.catalogue__filters{
+  display:flex; gap:.5rem; flex-wrap:wrap; justify-content: flex-end;
+}
+.chip{
+  padding:.55em 1.1em;
+  border-radius:999px;
+  border:1px solid var(--rule-strong);
+  font-size: .82rem; font-weight: 700;
+  letter-spacing: -.005em;
+  transition: background .35s var(--ease), color .35s var(--ease), border-color .35s var(--ease);
+}
+.chip.is-active{ background: var(--ink); color: var(--paper); border-color: var(--ink); }
+.chip:not(.is-active):hover{ border-color: var(--ink); }
+
+.index-list{ border-top: 1px solid var(--rule-strong); }
+.index-row{
+  display:grid;
+  grid-template-columns: 4.5rem minmax(0, 4fr) minmax(0, 3fr) minmax(0, 3fr) auto;
+  gap: var(--gutter);
+  align-items: center;
+  padding: 1.4rem 0;
+  border-bottom: 1px solid var(--rule);
+  position: relative;
+  transition: padding .45s var(--ease);
+}
+.index-row::before{
+  content:"";
+  position:absolute; inset: 0;
+  background: var(--ink);
+  transform: scaleY(0);
+  transform-origin: bottom;
+  transition: transform .55s var(--ease);
+  z-index:-1;
+}
+.index-row:hover{ padding-left: .75rem; padding-right: .75rem; color: var(--paper); }
+.index-row:hover::before{ transform: scaleY(1); transform-origin: top; }
+.index-row:hover .num{ color: var(--accent); }
+.index-row:hover .meta{ color: rgba(255,255,255,.6); }
+.index-row:hover .tag{ border-color: rgba(255,255,255,.35); color: rgba(255,255,255,.7); }
+.index-row:hover .arr{ background: var(--accent); color: var(--ink); border-color: var(--accent); }
+
+.index-row .num{
+  font-weight: 700; letter-spacing: -.02em;
+  font-size: 1rem;
+  color: var(--mute);
+  font-variant-numeric: tabular-nums;
+  transition: color .35s var(--ease);
+}
+.index-row .name{
+  font-weight: 700; letter-spacing: -.025em;
+  font-size: clamp(1.15rem, 1.5vw, 1.55rem);
+  line-height: 1.1;
+}
+.index-row .tag{
+  display:inline-flex; align-items:center;
+  padding: .35em .8em;
+  border: 1px solid var(--rule-strong);
+  border-radius:999px;
+  font-size: .72rem; letter-spacing: .15em; text-transform: uppercase; font-weight: 700;
+  color: var(--mute);
+  width:max-content;
+  transition: color .35s var(--ease), border-color .35s var(--ease);
+}
+.index-row .meta{
+  font-size: .92rem; color: var(--mute); font-weight: 300;
+  transition: color .35s var(--ease);
+}
+.index-row .meta em{ font-style: italic; font-weight: 300; }
+.index-row .arr{
+  width: 44px; height: 44px; border-radius:50%;
+  border:1px solid var(--rule-strong);
+  display:flex; align-items:center; justify-content:center;
+  transition: background .35s var(--ease), color .35s var(--ease), border-color .35s var(--ease), transform .5s var(--ease);
+}
+.index-row:hover .arr{ transform: rotate(-45deg); }
+.index-row .arr svg{ width:16px; height:16px; }
+
+@media (max-width: 880px){
+  .index-row{
+    grid-template-columns: 3rem minmax(0, 1fr) auto;
+    grid-template-areas:
+      "num name arr"
+      ".   tag  tag"
+      ".   meta meta";
+    row-gap: .35rem;
+  }
+  .index-row .num{ grid-area: num; align-self: start; padding-top:.2rem; }
+  .index-row .name{ grid-area: name; }
+  .index-row .tag{ grid-area: tag; }
+  .index-row .meta{ grid-area: meta; }
+  .index-row .arr{ grid-area: arr; align-self: start; }
+}
+
+/* ─────────────────────────────────────────────────────────────────
+   4 — MICROBIOTE (dark, horizontal pinned)
+   ───────────────────────────────────────────────────────────────── */
+.micro{
+  position:relative; overflow:hidden;
+  padding: 0; /* pinned area handles its own */
+}
+.micro__pin{ position:relative; height: 100vh; min-height: 640px; display:flex; align-items:center; }
+.micro__track{
+  display:flex; align-items:stretch;
+  height: 100%;
+  padding: 0 var(--margin);
+  gap: clamp(2rem, 5vw, 5rem);
+  will-change: transform;
+}
+.micro__head{
+  flex: 0 0 auto;
+  width: clamp(20rem, 30vw, 32rem);
+  display:flex; flex-direction:column; justify-content:center; gap: 1.5rem;
+  padding-right: clamp(1rem, 3vw, 3rem);
+  border-right: 1px solid rgba(255,255,255,.16);
+}
+.micro__head h2{
+  font-weight:700; letter-spacing:-.04em;
+  font-size: var(--t-h2); line-height: .98; margin:0;
+}
+.micro__head h2 .accent{ color: var(--accent); font-weight: 300; font-style: italic; }
+.micro__head p{ color: rgba(255,255,255,.65); max-width: 32ch; }
+.micro__panel{
+  flex: 0 0 auto;
+  width: clamp(22rem, 35vw, 38rem);
+  display:flex; flex-direction:column; justify-content:space-between;
+  padding: clamp(2rem, 4vw, 4rem) clamp(2rem, 4vw, 4rem);
+  border: 1px solid rgba(255,255,255,.18);
+  border-radius: 28px;
+  background: rgba(255,255,255,.02);
+}
+.micro__panel .pn{
+  font-size: var(--t-micro); text-transform: uppercase; letter-spacing: .22em;
+  color: rgba(255,255,255,.5);
+  font-weight: 700;
+}
+.micro__panel .big{
+  font-weight: 700; letter-spacing: -.05em;
+  font-size: clamp(4rem, 9vw, 9rem);
+  line-height: .9;
+  margin: 1.5rem 0 0;
+}
+.micro__panel .big .unit{ font-weight: 300; font-size: .35em; vertical-align: top; margin-left: .25em; letter-spacing: 0; color: rgba(255,255,255,.7); }
+.micro__panel .lead{
+  margin-top: 1.5rem;
+  font-size: var(--t-lead);
+  line-height: 1.45;
+  color: rgba(255,255,255,.85);
+  max-width: 30ch;
+}
+.micro__panel .ref{
+  font-size: var(--t-micro); text-transform: uppercase; letter-spacing: .2em; color: rgba(255,255,255,.45);
+  margin-top: 1.25rem;
+}
+.micro__panel--accent{ border-color: var(--accent); }
+.micro__panel--accent .big{ color: var(--accent); }
+.micro__progress{
+  position:absolute; left: var(--margin); right: var(--margin); bottom: 1.5rem;
+  height: 1px; background: rgba(255,255,255,.18);
+}
+.micro__progress span{
+  display:block; height:100%; width: 0%;
+  background: var(--accent);
+  transform-origin: left;
+}
+
+@media (max-width: 760px){
+  .micro__pin{ height: auto; min-height: 0; padding: clamp(4rem, 8vw, 6rem) 0; }
+  .micro__track{
+    flex-direction: column;
+    gap: 1.25rem;
+    height: auto;
+    transform: none !important;
+  }
+  .micro__head{ width:auto; border-right:0; border-bottom: 1px solid rgba(255,255,255,.16); padding: 0 0 2rem; }
+  .micro__panel{ width:auto; }
+  .micro__progress{ display:none; }
+}
+
+/* ─────────────────────────────────────────────────────────────────
+   5 — QUÉBEC (light, asymmetric)
+   ───────────────────────────────────────────────────────────────── */
+.qc__grid{
+  display:grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
+  gap: clamp(2rem, 4vw, 4rem);
+  align-items: stretch;
+}
+.qc__mark{
+  position:relative;
+  border: 1px solid var(--rule-strong);
+  border-radius: 36px;
+  padding: clamp(2rem, 4vw, 3rem);
+  aspect-ratio: 5 / 4;
+  display:flex; align-items:center; justify-content:center;
+  overflow:hidden;
+}
+.qc__mark::before{
+  content:""; position:absolute; inset:1.5rem;
+  border:1px solid var(--rule);
+  border-radius: 24px;
+}
+.qc__mark .qc-type{
+  font-weight: 700; letter-spacing: -.08em;
+  font-size: clamp(8rem, 22vw, 22rem); line-height: .8;
+  position: relative;
+}
+.qc__mark .qc-type .dot{
+  display:inline-block; width:.12em; height:.12em; border-radius:50%;
+  background: var(--accent);
+  vertical-align: super;
+  margin-left: -.05em;
+}
+.qc__mark .qc-corner{
+  position:absolute; top:1.25rem; left: 1.25rem;
+  font-size: var(--t-micro); text-transform: uppercase; letter-spacing: .22em;
+}
+.qc__mark .qc-corner.br{ top:auto; left:auto; bottom:1.25rem; right:1.25rem; color: var(--mute); }
+
+.qc__body{
+  display:flex; flex-direction: column; justify-content: space-between;
+  padding: clamp(1rem, 2vw, 1.5rem) 0;
+  gap: 2rem;
+}
+.qc__body h2{
+  font-weight: 700; letter-spacing: -.04em;
+  font-size: var(--t-h2); line-height: .98;
+  margin: 0;
+}
+.qc__body h2 .light{ font-weight: 300; color: var(--mute); }
+.qc__facts{
+  display:grid; gap: 1rem;
+  margin: 0; padding: 0; list-style: none;
+}
+.qc__facts li{
+  display:grid; grid-template-columns: auto 1fr auto; gap: 1rem; align-items: baseline;
+  padding: 1rem 0; border-bottom: 1px solid var(--rule);
+}
+.qc__facts li:first-child{ border-top: 1px solid var(--rule); }
+.qc__facts .k{
+  font-size: var(--t-micro); text-transform: uppercase; letter-spacing: .22em; color: var(--mute);
+  font-weight: 700;
+}
+.qc__facts .v{
+  font-weight: 700; letter-spacing: -.025em;
+  font-size: clamp(1.05rem, 1.2vw, 1.35rem); line-height: 1.2;
+}
+.qc__facts .n{
+  font-size: var(--t-micro); color: var(--mute);
+  font-variant-numeric: tabular-nums; letter-spacing: .15em;
+}
+
+@media (max-width: 880px){
+  .qc__grid{ grid-template-columns: 1fr; }
+  .qc__mark{ aspect-ratio: 4 / 3; }
+}
+
+/* ─────────────────────────────────────────────────────────────────
+   6 — ORANGE BAND (lebonprobiotique CTA)
+   ───────────────────────────────────────────────────────────────── */
+.band{
+  background: var(--accent);
+  color: var(--ink);
+}
+.band__inner{
+  display:grid;
+  grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
+  gap: clamp(2rem, 4vw, 4rem);
+  align-items: center;
+}
+.band h2{
+  font-weight: 700; letter-spacing: -.04em;
+  font-size: clamp(2rem, 5vw, 4.5rem);
+  line-height: .98;
+  margin:0;
+}
+.band h2 .italic{ font-style: italic; font-weight: 300; }
+.band .lead{ margin: 1.25rem 0 0; max-width: 36rem; font-size: var(--t-lead); }
+.band__right{
+  display:flex; flex-direction:column; align-items: flex-end; gap: 1rem; text-align: right;
+}
+.band__right .btn--solid{ background: var(--ink); color: var(--accent); border-color: var(--ink); padding: 1.25rem 1.8rem; }
+.band__right .btn--solid:hover{ background:#1a1a1a; color: #fff; }
+.band__right .step{
+  font-size: var(--t-micro); letter-spacing: .22em; text-transform: uppercase;
+}
+@media (max-width: 880px){
+  .band__inner{ grid-template-columns: 1fr; }
+  .band__right{ align-items: flex-start; text-align: left; }
+}
+
+/* ─────────────────────────────────────────────────────────────────
+   7 — FOOTER (dark)
+   ───────────────────────────────────────────────────────────────── */
+.foot{ padding-top: clamp(4rem, 8vw, 7rem); padding-bottom: 2rem; }
+.foot__mark{ margin: 0; line-height: 0; }
+.foot__mark svg{ width:100%; display:block; }
+.foot__mark .dot{ color: var(--accent); }
+.foot__grid{
+  margin-top: clamp(3rem, 5vw, 5rem);
+  display:grid; grid-template-columns: repeat(12, 1fr); gap: var(--gutter);
+  padding-top: 2rem;
+  border-top: 1px solid rgba(255,255,255,.16);
+}
+.foot__col{ grid-column: span 3; display:flex; flex-direction:column; gap:.6rem; }
+.foot__col.first{ grid-column: span 3; }
+.foot__col h4{
+  font-size: var(--t-micro); text-transform: uppercase; letter-spacing: .22em;
+  font-weight: 700; color: rgba(255,255,255,.5);
+  margin:0 0 .5rem;
+}
+.foot__col a{ font-size: .95rem; opacity:.85; transition: opacity .3s var(--ease), color .3s var(--ease); padding: .15rem 0; }
+.foot__col a:hover{ opacity:1; color: var(--accent); }
+.foot__legal{
+  margin-top: clamp(3rem, 5vw, 4rem);
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba(255,255,255,.16);
+  display:flex; justify-content:space-between; flex-wrap: wrap; gap:1rem;
+  font-size: var(--t-micro); letter-spacing: .15em; text-transform: uppercase; color: rgba(255,255,255,.5);
+}
+@media (max-width: 720px){
+  .foot__col{ grid-column: span 6; }
+}
+
+/* ─────────────────────────────────────────────────────────────────
+   Marquee (continuous strain ribbon)
+   ───────────────────────────────────────────────────────────────── */
+.ribbon{
+  border-top: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+  padding: 1.5rem 0;
+  overflow: hidden;
+  white-space: nowrap;
+  font-weight: 300;
+  font-size: clamp(1.25rem, 2.5vw, 2.25rem);
+  letter-spacing: -.02em;
+}
+.ribbon .track{
+  display:inline-flex; gap: 2.5rem;
+  animation: ribbonScroll 38s linear infinite;
+  padding-left: 2.5rem;
+}
+.ribbon .track .it{ display:inline-flex; align-items:center; gap: 2.5rem; }
+.ribbon .track .it i{
+  font-style: italic;
+  font-weight: 300;
+}
+.ribbon .track .it .sep{
+  display:inline-block;
+  width:6px; height:6px; border-radius:50%; background: var(--accent);
+  vertical-align: middle;
+}
+@keyframes ribbonScroll{
+  from{ transform: translateX(0); }
+  to{ transform: translateX(-50%); }
+}
+.on-dark .ribbon{ border-color: rgba(255,255,255,.16); }
+
+/* ─────────────────────────────────────────────────────────────────
+   Reduce motion
+   ───────────────────────────────────────────────────────────────── */
+@media (prefers-reduced-motion: reduce){
+  *,*::before,*::after{ animation-duration:.01ms !important; animation-iteration-count:1 !important; transition-duration:.01ms !important; }
+  .reveal{ opacity:1; transform:none; }
+}
+</style>
+</head>
+<body>
+
+<!-- ─── NAV ─── -->
+<nav class="nav" id="nav">
+  <a class="nav__logo" href="/">
+    <span class="ico" aria-hidden="true"></span>
+    PROBACLAC
+  </a>
+  <div class="nav__links">
+    <a href="#catalogue">Produits</a>
+    <a href="#micro">Microbiote</a>
+    <a href="https://etudes.probaclac.ca/">Études</a>
+    <a href="#">FAQ</a>
+  </div>
+  <div class="nav__right">
+    <div class="nav__lang">FR<span class="sep">/</span>EN</div>
+    <a href="/account" class="nav__icobtn" aria-label="Compte">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="9" r="4"/><path d="M4 21c1.5-4 4.5-6 8-6s6.5 2 8 6"/></svg>
+    </a>
+    <a href="/cart" class="nav__icobtn" aria-label="Panier">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5 7h14l-1.4 11.2a2 2 0 0 1-2 1.8H8.4a2 2 0 0 1-2-1.8L5 7Z"/><path d="M8 7V5a4 4 0 0 1 8 0v2"/></svg>
+    </a>
+  </div>
+</nav>
+
+<!-- ─── 1. HERO ─── -->
+<header class="section hero">
+  <div class="wrap" style="width:100%;">
+    <div class="hero__eyebrow">
+      <div class="left eyebrow"><span class="dot"></span>Probaclac · Édition 2026</div>
+      <div class="right">
+        <span class="pill">NPN approuvé</span>
+        <span class="pill">Fabriqué au Québec</span>
+        <span class="pill">Grade pharmaceutique</span>
+      </div>
+    </div>
+
+    <div class="hero__body">
+      <h1 class="hero__h1">
+        <span class="line">Probiotiques,</span>
+        <span class="line">formulés au<br><span class="accent" style="font-style:italic; font-weight:300;">milliard</span> près<span class="pulse" aria-hidden="true"></span></span>
+      </h1>
+
+      <p class="hero__sub">
+        Douze formules conçues à Blainville, validées par la science clinique et distribuées en pharmacie. Une souche par besoin&nbsp;— jamais l'inverse.
+      </p>
+
+      <div class="hero__ctas">
+        <a class="btn btn--solid" href="#catalogue">
+          Découvrir les formules
+          <span class="arr">→</span>
+        </a>
+        <a class="btn btn--ghost" href="https://etudes.probaclac.ca/">
+          Voir les études cliniques
+        </a>
+      </div>
+    </div>
+
+    <div class="hero__foot">
+      <div class="stat"><span class="num">12</span><span class="lbl">Formules ciblées</span></div>
+      <div class="stat"><span class="num">9</span><span class="lbl">Souches max · formule</span></div>
+      <div class="stat"><span class="num">10,5<span class="small">Md</span></span><span class="lbl">UFC · capsule (Extra)</span></div>
+      <div class="stat"><span class="num">−86<span class="small">%</span></span><span class="lbl">Diarrhée · Medic (étude)</span></div>
+    </div>
+  </div>
+</header>
+
+<!-- ─── Strain ribbon (subtle marquee) ─── -->
+<div class="ribbon" aria-hidden="true">
+  <div class="track">
+    <span class="it"><i>Lactobacillus rhamnosus</i> <span class="sep"></span></span>
+    <span class="it"><i>Bifidobacterium bifidum</i> <span class="sep"></span></span>
+    <span class="it"><i>Lactobacillus gasseri</i> <span class="sep"></span></span>
+    <span class="it"><i>Lactobacillus plantarum</i> <span class="sep"></span></span>
+    <span class="it"><i>Lactobacillus reuteri</i> <span class="sep"></span></span>
+    <span class="it"><i>Lactobacillus paracasei</i> <span class="sep"></span></span>
+    <span class="it"><i>Bifidobacterium longum</i> <span class="sep"></span></span>
+    <span class="it"><i>Lactobacillus acidophilus</i> <span class="sep"></span></span>
+    <span class="it"><i>Lactobacillus casei</i> <span class="sep"></span></span>
+    <!-- duplicate for seamless loop -->
+    <span class="it"><i>Lactobacillus rhamnosus</i> <span class="sep"></span></span>
+    <span class="it"><i>Bifidobacterium bifidum</i> <span class="sep"></span></span>
+    <span class="it"><i>Lactobacillus gasseri</i> <span class="sep"></span></span>
+    <span class="it"><i>Lactobacillus plantarum</i> <span class="sep"></span></span>
+    <span class="it"><i>Lactobacillus reuteri</i> <span class="sep"></span></span>
+    <span class="it"><i>Lactobacillus paracasei</i> <span class="sep"></span></span>
+    <span class="it"><i>Bifidobacterium longum</i> <span class="sep"></span></span>
+    <span class="it"><i>Lactobacillus acidophilus</i> <span class="sep"></span></span>
+    <span class="it"><i>Lactobacillus casei</i> <span class="sep"></span></span>
+  </div>
+</div>
+
+<!-- ─── 2. MANIFESTO ─── -->
+<section class="section manifesto on-dark">
+  <div class="wrap">
+    <div class="manifesto__inner">
+      <h2 class="manifesto__quote" data-split>
+        Nous ne fabriquons pas des suppléments. Nous formulons des <span class="accent">écosystèmes vivants</span>, souche par souche, pour des conditions précises.
+      </h2>
+      <div class="manifesto__index">02 / Manifeste</div>
+    </div>
+    <div class="manifesto__pillars">
+      <div class="pillar reveal">
+        <div class="pn">01</div>
+        <h3>Grade pharmaceutique</h3>
+        <p>Capsules végétales, viabilité garantie à péremption, encapsulation à froid.</p>
+      </div>
+      <div class="pillar reveal">
+        <div class="pn">02</div>
+        <h3>Études cliniques</h3>
+        <p>Souches sélectionnées sur la base d'études publiées, pas de génériques opportunistes.</p>
+      </div>
+      <div class="pillar reveal">
+        <div class="pn">03</div>
+        <h3>Conçu au Québec</h3>
+        <p>Formulation, production et contrôle qualité à Blainville. Distribué en pharmacie.</p>
+      </div>
+      <div class="pillar reveal">
+        <div class="pn">04</div>
+        <h3>Pour chaque profil</h3>
+        <p>Enfants, adultes, 50+, condition ciblée, santé féminine. Une formule par besoin.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── 3. CATALOGUE ─── -->
+<section class="section" id="catalogue">
+  <div class="wrap">
+    <div class="catalogue__head">
+      <h2 class="catalogue__title">
+        Le catalogue.<br>
+        <span class="light">12 formules, indexées.</span>
+      </h2>
+      <div class="catalogue__filters" role="tablist">
+        <button class="chip is-active" data-filter="all" role="tab" aria-selected="true">Toutes</button>
+        <button class="chip" data-filter="qd" role="tab">Quotidien</button>
+        <button class="chip" data-filter="cd" role="tab">Conditions ciblées</button>
+        <button class="chip" data-filter="fm" role="tab">Santé féminine</button>
+      </div>
+    </div>
+
+    <div class="index-list" id="indexList">
+      <!-- rows injected via JS for clarity & filter support -->
+    </div>
+  </div>
+</section>
+
+<!-- ─── 4. MICROBIOTE (pinned horizontal) ─── -->
+<section class="micro on-dark" id="micro">
+  <div class="micro__pin" id="microPin">
+    <div class="micro__track" id="microTrack">
+      <div class="micro__head">
+        <div class="eyebrow"><span class="dot"></span>04 / Microbiote</div>
+        <h2>Cent mille <span class="accent">milliards</span> de cellules vivantes,<br>réparties en mille espèces.</h2>
+        <p class="mute">Le microbiote intestinal est un organe à part entière. Sa diversité conditionne la digestion, l'immunité et l'équilibre quotidien.</p>
+      </div>
+
+      <article class="micro__panel">
+        <div>
+          <div class="pn">Densité</div>
+          <div class="big">100<span class="unit">Trillions</span></div>
+        </div>
+        <p class="lead">Le nombre de bactéries qui peuplent votre tractus intestinal. Plus que d'étoiles dans la Voie lactée.</p>
+        <div class="ref">Réf. Sender, Fuchs &amp; Milo · 2016</div>
+      </article>
+
+      <article class="micro__panel">
+        <div>
+          <div class="pn">Diversité</div>
+          <div class="big">1 000<span class="unit">Espèces</span></div>
+        </div>
+        <p class="lead">Espèces bactériennes coexistant. Une diversité réduite est associée à de nombreuses pathologies.</p>
+        <div class="ref">Réf. Human Microbiome Project</div>
+      </article>
+
+      <article class="micro__panel micro__panel--accent">
+        <div>
+          <div class="pn">Probaclac Medic</div>
+          <div class="big">−86<span class="unit">%</span></div>
+        </div>
+        <p class="lead">de risque de diarrhée associée aux antibiotiques. Confirmé par méta-analyse clinique.</p>
+        <div class="ref">Réf. Goldenberg et al. · 2017</div>
+      </article>
+
+      <article class="micro__panel">
+        <div>
+          <div class="pn">Symptômes du SCI</div>
+          <div class="big">−50<span class="unit">%</span></div>
+        </div>
+        <p class="lead">Réduction des ballonnements et douleurs abdominales avec Probaclac Côlon Irritable, sur 8 semaines.</p>
+        <div class="ref">Réf. études cliniques · 2021</div>
+      </article>
+    </div>
+    <div class="micro__progress" aria-hidden="true"><span id="microBar"></span></div>
+  </div>
+</section>
+
+<!-- ─── 5. QUÉBEC ─── -->
+<section class="section">
+  <div class="wrap">
+    <div class="qc__grid">
+      <div class="qc__mark reveal">
+        <span class="qc-corner">05 / Origine</span>
+        <span class="qc-type">QC<span class="dot" aria-hidden="true"></span></span>
+        <span class="qc-corner br">Blainville · J7C 0R4</span>
+      </div>
+
+      <div class="qc__body">
+        <h2 class="reveal">
+          Pensé au Québec.<br>
+          <span class="light">Reconnu en pharmacie.</span>
+        </h2>
+        <ul class="qc__facts reveal">
+          <li>
+            <span class="k">01</span>
+            <span class="v">Fabrication à Blainville</span>
+            <span class="n">QC · CA</span>
+          </li>
+          <li>
+            <span class="k">02</span>
+            <span class="v">NPN — Santé Canada</span>
+            <span class="n">80066788</span>
+          </li>
+          <li>
+            <span class="k">03</span>
+            <span class="v">Sans allergènes prioritaires</span>
+            <span class="n">9 / 9</span>
+          </li>
+          <li>
+            <span class="k">04</span>
+            <span class="v">Capsules végétales · vegan</span>
+            <span class="n">100 %</span>
+          </li>
+          <li>
+            <span class="k">05</span>
+            <span class="v">Encapsulation à froid</span>
+            <span class="n">≤ 25 °C</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── 6. ORANGE BAND CTA ─── -->
+<section class="section band">
+  <div class="wrap">
+    <div class="band__inner">
+      <div>
+        <div class="eyebrow" style="color:var(--ink); opacity:.7;">06 / Le bon probiotique</div>
+        <h2 style="margin-top:1rem;">
+          Vous hésitez<br>
+          <span class="italic">entre douze formules ?</span>
+        </h2>
+        <p class="lead">Un parcours guidé de deux questions vous oriente vers la formule la mieux adaptée à votre âge, votre profil ou votre condition.</p>
+      </div>
+      <div class="band__right">
+        <div class="step">Outil interactif · 30 sec</div>
+        <a class="btn btn--solid" href="https://etudes.probaclac.ca/lebonprobiotique.html">
+          Trouver mon probiotique
+          <span class="arr">→</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── 7. FOOTER ─── -->
+<footer class="section foot on-dark">
+  <div class="wrap">
+    <h2 class="foot__mark" aria-label="Probaclac">
+      <svg viewBox="0 0 1240 210" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg">
+        <text x="620" y="175" text-anchor="middle"
+              font-family="Helvetica Neue, Helvetica, Arial, sans-serif"
+              font-weight="700" font-size="210"
+              letter-spacing="-8" fill="currentColor">PROBACLAC<tspan fill="#ff5b04" dx="-12">.</tspan></text>
+      </svg>
+    </h2>
+    <div class="foot__grid">
+      <div class="foot__col first">
+        <h4>Boutique</h4>
+        <a href="/collections/all">Toutes les formules</a>
+        <a href="/collections/all">Quotidien</a>
+        <a href="/collections/all">Conditions ciblées</a>
+        <a href="/collections/all">Santé féminine</a>
+      </div>
+      <div class="foot__col">
+        <h4>Science</h4>
+        <a href="https://etudes.probaclac.ca/">Études cliniques</a>
+        <a href="#">Microbiote</a>
+        <a href="#">Souches probiotiques</a>
+        <a href="#">NPN — Santé Canada</a>
+      </div>
+      <div class="foot__col">
+        <h4>Compagnie</h4>
+        <a href="#">À propos</a>
+        <a href="#">Distribution pharmacie</a>
+        <a href="#">FAQ</a>
+        <a href="#">Contact</a>
+      </div>
+      <div class="foot__col">
+        <h4>Support</h4>
+        <a href="#">Livraison</a>
+        <a href="#">Retours</a>
+        <a href="#">Politique de confidentialité</a>
+        <a href="#">Conditions</a>
+      </div>
+    </div>
+    <div class="foot__legal">
+      <span>© Probaclac · Nicar Canada · Blainville</span>
+      <span>FR · EN · NPN 80066788</span>
+    </div>
+  </div>
+</footer>
+
+<!-- ─── LIBS ─── -->
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
+
+<script>
+/* ─────────────────────────────────────────────────────────────────
+   STATIC mode (?static=1) — for screenshot capture
+   ───────────────────────────────────────────────────────────────── */
+const IS_STATIC = new URLSearchParams(location.search).has("static");
+if(IS_STATIC) document.documentElement.classList.add("is-static");
+
+/* ─────────────────────────────────────────────────────────────────
+   Catalogue data + render
+   ───────────────────────────────────────────────────────────────── */
+const CATALOGUE = [
+  {n:"01", cat:"qd", catLabel:"Quotidien",         name:"Adultes",            meta:"7 souches · 6,5 milliards UFC",       npn:"NPN 80066788", url:"/products/probaclac-adultes"},
+  {n:"02", cat:"qd", catLabel:"Quotidien",         name:"50 ans et +",        meta:"8 souches · renforcé en bifido",       npn:"NPN 80066790", url:"/collections/all"},
+  {n:"03", cat:"qd", catLabel:"Quotidien",         name:"Voyageurs",          meta:"9 souches + vitamine C",               npn:"NPN 80066792", url:"/collections/all"},
+  {n:"04", cat:"qd", catLabel:"Quotidien",         name:"Comprimés croquables", meta:"Enfants 3 à 11 ans",                meta2:"5 milliards UFC", npn:"NPN 80066794", url:"/collections/all"},
+  {n:"05", cat:"qd", catLabel:"Quotidien",         name:"Capsules ouvrables", meta:"Enfants 1 an et plus",                 npn:"NPN 80066796", url:"/collections/all"},
+  {n:"06", cat:"cd", catLabel:"Conditions ciblées",name:"Côlon Irritable",    meta:"10 milliards UFC · SCI",                npn:"NPN 80066798", url:"/collections/all"},
+  {n:"07", cat:"cd", catLabel:"Conditions ciblées",name:"Gastro-Intestinal",  meta:"Soutien digestif élevé",                npn:"NPN 80066800", url:"/collections/all"},
+  {n:"08", cat:"cd", catLabel:"Conditions ciblées",name:"Medic",              meta:"Pendant et après les antibiotiques",    npn:"NPN 80066802", url:"/collections/all"},
+  {n:"09", cat:"cd", catLabel:"Conditions ciblées",name:"Extra-fort",         meta:"10,5 milliards UFC",                    npn:"NPN 80066804", url:"/collections/all"},
+  {n:"10", cat:"fm", catLabel:"Santé féminine",    name:"Vaginal",            meta:"Vaginose bactérienne · capsules vaginales", npn:"NPN 80066806", url:"/collections/all"},
+  {n:"11", cat:"fm", catLabel:"Santé féminine",    name:"Infection à levure", meta:"Candidose vulvo-vaginale",              npn:"NPN 80066808", url:"/collections/all"},
+  {n:"12", cat:"fm", catLabel:"Santé féminine",    name:"Urinaire",           meta:"9 souches + canneberge",                npn:"NPN 80066810", url:"/collections/all"},
+];
+
+function renderCatalogue(filter="all"){
+  const list = document.getElementById("indexList");
+  const rows = CATALOGUE
+    .filter(r => filter==="all" || r.cat===filter)
+    .map(r => `
+      <a class="index-row" href="${r.url}" data-cat="${r.cat}">
+        <span class="num">${r.n}</span>
+        <span class="name">Probaclac <span style="font-weight:300; color:inherit; opacity:.85;">${r.name}</span></span>
+        <span class="tag">${r.catLabel}</span>
+        <span class="meta">${r.meta}${r.meta2 ? " · " + r.meta2 : ""} <span style="opacity:.6;">— ${r.npn}</span></span>
+        <span class="arr" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </span>
+      </a>
+    `).join("");
+  list.innerHTML = rows;
+}
+renderCatalogue();
+
+document.querySelectorAll(".chip").forEach(c => {
+  c.addEventListener("click", () => {
+    document.querySelectorAll(".chip").forEach(x => { x.classList.remove("is-active"); x.setAttribute("aria-selected","false"); });
+    c.classList.add("is-active");
+    c.setAttribute("aria-selected","true");
+    renderCatalogue(c.dataset.filter);
+  });
+});
+
+/* ─────────────────────────────────────────────────────────────────
+   Manifesto — word/char split for reveal
+   ───────────────────────────────────────────────────────────────── */
+(function splitManifesto(){
+  const el = document.querySelector("[data-split]");
+  if(!el) return;
+  // Wrap each word in <span class="word"><span>word</span></span>, preserving inner spans (accent)
+  const walker = document.createTreeWalker(el, NodeFilter.SHOW_TEXT, null);
+  const txts = [];
+  while(walker.nextNode()) txts.push(walker.currentNode);
+  txts.forEach(t => {
+    const words = t.nodeValue.split(/(\s+)/);
+    const frag = document.createDocumentFragment();
+    words.forEach(w => {
+      if(w.trim()===""){ frag.appendChild(document.createTextNode(w)); return; }
+      const wrap = document.createElement("span");
+      wrap.className = "word";
+      const inner = document.createElement("span");
+      inner.textContent = w;
+      wrap.appendChild(inner);
+      frag.appendChild(wrap);
+    });
+    t.parentNode.replaceChild(frag, t);
+  });
+  // The accent span — wrap its text content too
+  el.querySelectorAll(".accent").forEach(acc => {
+    const txt = acc.textContent;
+    acc.innerHTML = "";
+    txt.split(/(\s+)/).forEach(w => {
+      if(w.trim()===""){ acc.appendChild(document.createTextNode(w)); return; }
+      const wrap = document.createElement("span");
+      wrap.className = "word";
+      const inner = document.createElement("span");
+      inner.textContent = w;
+      wrap.appendChild(inner);
+      acc.appendChild(wrap);
+    });
+  });
+})();
+
+/* ─────────────────────────────────────────────────────────────────
+   Lenis smooth scroll + GSAP
+   ───────────────────────────────────────────────────────────────── */
+document.documentElement.classList.add("js-ready");
+
+if(IS_STATIC){
+  // Skip Lenis + all GSAP timelines — just leave the static page as authored
+  console.log("[static] animations disabled");
+} else {
+
+const lenis = new Lenis({ duration: 1.1, easing: t => Math.min(1, 1.001 - Math.pow(2, -10*t)) });
+function raf(time){ lenis.raf(time); requestAnimationFrame(raf); }
+requestAnimationFrame(raf);
+
+gsap.registerPlugin(ScrollTrigger);
+lenis.on("scroll", ScrollTrigger.update);
+gsap.ticker.add(t => lenis.raf(t * 1000));
+gsap.ticker.lagSmoothing(0);
+
+// Nav scrolled state
+const nav = document.getElementById("nav");
+ScrollTrigger.create({
+  start: "top -10",
+  end: "max",
+  onUpdate: self => nav.classList.toggle("scrolled", self.scroll() > 12),
+});
+
+// Hero reveal
+const heroTl = gsap.timeline({ defaults: { ease: "power3.out" } });
+heroTl
+  .from(".hero__eyebrow .left", { y: 18, opacity: 0, duration: .7 }, 0)
+  .from(".hero__eyebrow .right .pill", { y: 18, opacity: 0, duration: .7, stagger: .08 }, .05)
+  .from(".hero__h1 .line", { y: "110%", opacity: 0, duration: 1, stagger: .12, clipPath: "inset(0 0 100% 0)" }, .15)
+  .from(".hero__sub", { y: 24, opacity: 0, duration: .9 }, .55)
+  .from(".hero__ctas .btn", { y: 24, opacity: 0, duration: .8, stagger: .08 }, .7)
+  .from(".hero__foot .stat", { y: 24, opacity: 0, duration: .8, stagger: .08 }, .9);
+
+// Manifesto words reveal
+ScrollTrigger.batch(".manifesto__quote .word > span", {
+  start: "top 80%",
+  onEnter: batch => gsap.to(batch, { y: 0, duration: 1.1, ease: "power4.out", stagger: .02 }),
+  once: true,
+});
+
+// Pillars stagger
+gsap.utils.toArray(".pillar").forEach((p, i) => {
+  gsap.to(p, {
+    opacity: 1, y: 0,
+    duration: 1,
+    ease: "power3.out",
+    delay: i * 0.08,
+    scrollTrigger: { trigger: p, start: "top 85%" },
+  });
+});
+
+// Generic reveal
+gsap.utils.toArray(".reveal").forEach(el => {
+  gsap.to(el, {
+    opacity:1, y:0,
+    duration: 1,
+    ease: "power3.out",
+    scrollTrigger: { trigger: el, start: "top 85%" },
+  });
+});
+
+/* Index rows stagger */
+gsap.utils.toArray("#indexList .index-row").forEach((r, i) => {
+  gsap.from(r, {
+    y: 24, opacity: 0,
+    duration: .9, ease: "power3.out",
+    delay: Math.min(i, 6) * .05,
+    scrollTrigger: { trigger: r, start: "top 90%" },
+  });
+});
+
+/* Microbiote horizontal pin */
+(function setupMicro(){
+  const track = document.getElementById("microTrack");
+  const pin = document.getElementById("microPin");
+  const bar = document.getElementById("microBar");
+  if(!track || !pin) return;
+  // skip on mobile
+  if(window.matchMedia("(max-width: 760px)").matches) return;
+
+  const totalWidth = track.scrollWidth;
+  const viewport = pin.clientWidth;
+  const distance = totalWidth - viewport;
+  if(distance < 50) return;
+
+  gsap.to(track, {
+    x: -distance,
+    ease: "none",
+    scrollTrigger: {
+      trigger: pin,
+      start: "top top",
+      end: () => "+=" + (distance + window.innerHeight * .4),
+      pin: true,
+      scrub: 0.8,
+      anticipatePin: 1,
+      invalidateOnRefresh: true,
+      onUpdate: self => {
+        if(bar) bar.style.width = (self.progress * 100) + "%";
+      },
+    },
+  });
+})();
+
+/* Re-render reveals after catalogue filter change */
+const indexObs = new MutationObserver(() => {
+  gsap.utils.toArray("#indexList .index-row").forEach((r, i) => {
+    gsap.from(r, {
+      y: 18, opacity: 0,
+      duration: .6, ease: "power3.out",
+      delay: i * .03,
+    });
+  });
+});
+indexObs.observe(document.getElementById("indexList"), { childList: true });
+
+/* Pulse dot loop (hero) — a soft heartbeat */
+gsap.to(".hero__h1 .pulse", {
+  scale: 1.35,
+  duration: 1.6,
+  ease: "sine.inOut",
+  yoyo: true,
+  repeat: -1,
+  delay: 2.5,
+});
+
+} // /IS_STATIC else
+</script>
+
+</body>
+</html>
