@@ -500,42 +500,26 @@ html.lenis,html.lenis body{ height:auto; }
 /* ── Hero bottle slider (right column) ── */
 .hero-bottle{
   position: relative; height: 100%;
-  display:flex; align-items:center; justify-content:center;
+  display:flex; flex-direction: column; align-items:center; justify-content:center;
+  gap: 1.25rem;
 }
 .hero-bottle__stage{
   position: relative;
   width: 100%;
-  min-height: clamp(360px, 42vw, 540px);
-  display:flex; align-items:flex-end; justify-content:center;
+  min-height: clamp(320px, 38vw, 480px);
+  display:flex; align-items:center; justify-content:center;
   isolation: isolate;
 }
-.hero-bottle__name{
-  position:absolute; left:50%; top:50%;
-  transform: translate(-50%, -50%);
-  width: 130%;
-  max-width: none;
-  text-align:center;
-  font-weight: 700; letter-spacing: -.045em;
-  font-size: clamp(2rem, 4.6vw, 4.4rem);
-  line-height: .92;
-  color: var(--ink);
-  pointer-events: none;
-  z-index: 0;
-  white-space: normal;
-}
-.hero-bottle__name .light{ font-weight:300; display:block; }
-.hero-bottle__name .accent{ color: var(--accent); }
 .hero-bottle__slide{
   position: absolute; inset: 0;
   display:flex; align-items:center; justify-content:center;
   opacity: 0;
   transition: opacity 1s var(--ease);
-  z-index: 1;
   pointer-events: none;
 }
 .hero-bottle__slide.is-active{ opacity:1; pointer-events: auto; }
 .hero-bottle__slide img{
-  max-height: clamp(320px, 40vw, 520px);
+  max-height: clamp(300px, 38vw, 480px);
   width: auto; height: auto;
   filter:
     drop-shadow(0 30px 50px rgba(10,10,10,.22))
@@ -544,65 +528,78 @@ html.lenis,html.lenis body{ height:auto; }
   transition: transform 1.2s var(--ease);
 }
 .hero-bottle__slide.is-active img{ transform: translateY(0) scale(1); }
-.hero-bottle__meta{
-  position: absolute; right: 0; top: 0;
-  display:flex; flex-direction: column; align-items: flex-end; gap: .3rem;
-  font-size: var(--t-micro); text-transform: uppercase; letter-spacing: .22em;
-  color: var(--mute); font-weight: 700;
+
+.hero-bottle__caption{
+  display: flex; flex-direction: column; align-items: center; gap: .9rem;
+  text-align: center;
 }
-.hero-bottle__meta .num{ color: var(--accent); }
+.hero-bottle__name{
+  font-weight: 700; letter-spacing: -.02em;
+  font-size: clamp(1.05rem, 1.3vw, 1.25rem);
+  line-height: 1.15;
+  color: var(--ink);
+  min-height: 1.4em;
+}
 .hero-bottle__dots{
-  position: absolute; left: 0; bottom: -1.75rem;
-  display:flex; gap: .55rem;
-  z-index: 5;
+  display:flex; gap: .5rem;
 }
 .hero-bottle__dots button{
-  width: 22px; height: 22px; border-radius:50%;
-  border: 1px solid var(--rule-strong);
-  position: relative;
-  transition: border-color .35s var(--ease);
+  width: 9px; height: 9px; border-radius:50%;
+  border: 0;
+  background: var(--rule-strong);
+  padding: 0;
+  transition: background .35s var(--ease), transform .35s var(--ease);
+  cursor: pointer;
 }
-.hero-bottle__dots button::after{
-  content:""; position:absolute; inset:5px; border-radius:50%;
-  background: var(--ink); opacity:0; transform: scale(.4);
-  transition: opacity .35s var(--ease), transform .35s var(--ease);
+.hero-bottle__dots button[aria-selected="true"]{
+  background: var(--ink);
+  transform: scale(1.25);
 }
-.hero-bottle__dots button[aria-selected="true"]::after{ opacity:1; transform: scale(1); }
-.hero-bottle__dots button[aria-selected="true"]{ border-color: var(--ink); }
-.hero-bottle__bar{
-  position: absolute; right: 0; bottom: -1.5rem;
-  width: 60px; height: 2px;
-  background: rgba(10,10,10,.1);
-}
-.hero-bottle__bar span{ display:block; height:100%; width:0; background: var(--accent); }
 
 @media (max-width: 880px){
-  .hero-bottle__name{ font-size: clamp(1.6rem, 8vw, 2.5rem); }
-  .hero__right{ min-height: clamp(280px, 70vw, 400px); margin-top: 1rem; }
-  .hero-bottle__stage{ min-height: clamp(280px, 70vw, 400px); }
-  .hero-bottle__slide img{ max-height: clamp(240px, 60vw, 360px); }
+  .hero__right{ margin-top: 1rem; }
+  .hero-bottle__stage{ min-height: clamp(280px, 60vw, 380px); }
+  .hero-bottle__slide img{ max-height: clamp(260px, 55vw, 360px); }
 }
 .hero__foot{
   margin-top: clamp(3rem, 6vw, 5rem);
-  display:grid; grid-template-columns: repeat(4, 1fr); gap: 1rem;
+  display:grid; grid-template-columns: repeat(3, 1fr); gap: clamp(1rem, 2.5vw, 2rem);
   border-top: 1px solid var(--rule);
-  padding-top: 1.5rem;
+  padding-top: 1.75rem;
 }
-.hero__foot .stat{
-  display:flex; flex-direction:column; gap:.25rem;
+.trust{
+  display:flex; align-items:center; gap: .9rem;
 }
-.hero__foot .num{
+.trust__num{
   font-weight: 700; letter-spacing: -.03em;
-  font-size: clamp(1.5rem, 2.2vw, 2.1rem);
+  font-size: clamp(2rem, 3.2vw, 2.75rem);
   line-height: 1;
+  color: var(--ink);
+  flex: 0 0 auto;
 }
-.hero__foot .lbl{
-  font-size: var(--t-micro); text-transform: uppercase; letter-spacing: .2em; color: var(--mute);
+.trust__img{
+  width: clamp(40px, 4.5vw, 56px); height: auto;
+  flex: 0 0 auto;
 }
-.hero__foot .num .small{ font-size:.5em; vertical-align:super; margin-left:.15em; color: var(--mute); }
+.trust__ico{
+  width: clamp(40px, 4.5vw, 56px); height: clamp(40px, 4.5vw, 56px);
+  border-radius: 50%;
+  border: 1px solid var(--ink);
+  color: var(--ink);
+  display: flex; align-items: center; justify-content: center;
+  flex: 0 0 auto;
+}
+.trust__ico svg{ width: 55%; height: 55%; }
+.trust__lbl{
+  font-weight: 700; letter-spacing: -.005em;
+  font-size: clamp(.85rem, 1vw, 1rem);
+  line-height: 1.2;
+  color: var(--ink);
+}
 
 @media (max-width: 720px){
-  .hero__foot{ grid-template-columns: 1fr 1fr; row-gap: 1.5rem; }
+  .hero__foot{ grid-template-columns: 1fr; row-gap: 1rem; }
+  .trust{ gap: 1rem; }
 }
 
 /* ─────────────────────────────────────────────────────────────────
@@ -1594,15 +1591,6 @@ html.lenis,html.lenis body{ height:auto; }
 <!-- ─── 1. HERO ─── -->
 <header class="section hero">
   <div class="wrap" style="width:100%;">
-    <div class="hero__eyebrow">
-      <div class="left eyebrow"><span class="dot"></span>Probaclac · Édition 2026</div>
-      <div class="right">
-        <span class="pill">NPN approuvé</span>
-        <span class="pill">Fabriqué au Québec</span>
-        <span class="pill">Grade pharmaceutique</span>
-      </div>
-    </div>
-
     <div class="hero__body">
       <div class="hero__left">
         <h1 class="hero__h1">
@@ -1628,41 +1616,44 @@ html.lenis,html.lenis body{ height:auto; }
       <div class="hero__right">
         <div class="hero-bottle" id="heroBottle">
           <div class="hero-bottle__stage">
-            <div class="hero-bottle__meta">
-              <span class="num" id="heroIdx">01 / 03</span>
-              <span id="heroNpn">NPN 80066788</span>
-            </div>
-
-            <div class="hero-bottle__name" id="heroName">
-              Probaclac<span class="light">Adultes</span>
-            </div>
-
-            <div class="hero-bottle__slide is-active" data-name="Probaclac<span class='light'>Adultes</span>" data-npn="NPN 80066788">
+            <div class="hero-bottle__slide is-active" data-name="Probaclac Adultes">
               <img src="assets/bottle-adultes.png" alt="Probaclac Adultes" loading="eager">
             </div>
-            <div class="hero-bottle__slide" data-name="Probaclac<span class='light'>50 ans et +</span>" data-npn="NPN 80066790">
+            <div class="hero-bottle__slide" data-name="Probaclac 50 ans et +">
               <img src="assets/bottle-50plus.png" alt="Probaclac 50 ans et +" loading="lazy">
             </div>
-            <div class="hero-bottle__slide" data-name="Probaclac<span class='light'>Voyageurs</span>" data-npn="NPN 80066792">
+            <div class="hero-bottle__slide" data-name="Probaclac Voyageurs">
               <img src="assets/bottle-voyage.png" alt="Probaclac Voyageurs" loading="lazy">
             </div>
+          </div>
 
+          <div class="hero-bottle__caption">
+            <div class="hero-bottle__name" id="heroName">Probaclac Adultes</div>
             <div class="hero-bottle__dots" id="heroDots" role="tablist">
               <button role="tab" aria-selected="true"  aria-label="Adultes"></button>
               <button role="tab" aria-selected="false" aria-label="50 ans et +"></button>
               <button role="tab" aria-selected="false" aria-label="Voyageurs"></button>
             </div>
-            <div class="hero-bottle__bar"><span id="heroBar"></span></div>
           </div>
         </div>
       </div>
     </div>
 
-    <div class="hero__foot">
-      <div class="stat"><span class="num">12</span><span class="lbl">Formules ciblées</span></div>
-      <div class="stat"><span class="num">9</span><span class="lbl">Souches max · formule</span></div>
-      <div class="stat"><span class="num">10,5<span class="small">Md</span></span><span class="lbl">UFC · capsule (Extra)</span></div>
-      <div class="stat"><span class="num">−86<span class="small">%</span></span><span class="lbl">Diarrhée · Medic (étude)</span></div>
+    <div class="hero__foot hero__foot--trust">
+      <div class="trust">
+        <span class="trust__num">12</span>
+        <span class="trust__lbl">Formules complètes</span>
+      </div>
+      <div class="trust">
+        <img class="trust__img" src="assets/faitqc.png" alt="Fabriqué au Québec">
+        <span class="trust__lbl">Fabriqué au Québec</span>
+      </div>
+      <div class="trust">
+        <span class="trust__ico" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 13l4 4L19 7"/></svg>
+        </span>
+        <span class="trust__lbl">Approuvés Santé Canada</span>
+      </div>
     </div>
   </div>
 </header>
@@ -2210,38 +2201,26 @@ gsap.utils.toArray(".reveal").forEach(el => {
   if(!root) return;
   const slides = root.querySelectorAll(".hero-bottle__slide");
   const dots   = root.querySelectorAll("#heroDots button");
-  const bar    = document.getElementById("heroBar");
   const nameEl = document.getElementById("heroName");
-  const idxEl  = document.getElementById("heroIdx");
-  const npnEl  = document.getElementById("heroNpn");
   if(!slides.length) return;
-  let i = 0, timer, barTw;
+  let i = 0, timer;
   const PERIOD = 5000;
 
   function show(n){
     i = (n + slides.length) % slides.length;
     slides.forEach((s,k) => s.classList.toggle("is-active", k === i));
     dots.forEach((d,k)   => d.setAttribute("aria-selected", k === i ? "true" : "false"));
-    const cur = slides[i];
-    if(nameEl) nameEl.innerHTML = cur.dataset.name;
-    if(npnEl)  npnEl.textContent = cur.dataset.npn;
-    if(idxEl)  idxEl.textContent = String(i+1).padStart(2,"0") + " / 0" + slides.length;
     if(nameEl){
-      gsap.fromTo(nameEl, { opacity:0, y: 10 }, { opacity:1, y:0, duration:.7, ease:"power3.out" });
-    }
-    if(bar){
-      if(barTw) barTw.kill();
-      bar.style.width = "0%";
-      barTw = gsap.to(bar, { width: "100%", duration: PERIOD/1000, ease: "none" });
+      nameEl.textContent = slides[i].dataset.name || "";
+      gsap.fromTo(nameEl, { opacity:0, y: 8 }, { opacity:1, y:0, duration:.5, ease:"power3.out" });
     }
   }
   function play(){ clearInterval(timer); timer = setInterval(() => show(i+1), PERIOD); }
-  function pause(){ clearInterval(timer); if(barTw) barTw.pause(); }
-  function resume(){ if(barTw) barTw.resume(); play(); }
+  function pause(){ clearInterval(timer); }
 
   dots.forEach((d,k) => d.addEventListener("click", () => { show(k); play(); }));
   root.addEventListener("mouseenter", pause);
-  root.addEventListener("mouseleave", resume);
+  root.addEventListener("mouseleave", play);
   document.addEventListener("visibilitychange", () => document.hidden ? pause() : play());
 
   show(0); play();
