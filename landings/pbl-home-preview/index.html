@@ -129,6 +129,72 @@ html.lenis,html.lenis body{ height:auto; }
 /* Grid utility */
 .g12{ display:grid; grid-template-columns:repeat(12,1fr); gap: var(--gutter); }
 
+/* ─────────────────────────────────────────────────────────────────
+   SECTION TRANSITIONS — curtain reveal + scroll progress
+   ───────────────────────────────────────────────────────────────── */
+/* Dark sections: a paper-colored curtain sits on top and slides UP
+   to reveal the dark bg underneath as the section enters viewport. */
+.on-dark{ position: relative; isolation: isolate; }
+.section-curtain{
+  position: absolute; inset: 0;
+  background: var(--paper);
+  z-index: 0;
+  clip-path: inset(0 0 0 0);
+  will-change: clip-path;
+  pointer-events: none;
+}
+.on-dark > *:not(.section-curtain){ position: relative; z-index: 1; }
+.js-static .section-curtain{ display: none !important; }
+
+/* Scroll progress line (top of viewport) */
+.progress{
+  position: fixed; top: 0; left: 0; right: 0;
+  height: 2px;
+  background: rgba(10,10,10,.06);
+  z-index: 60;
+  pointer-events: none;
+}
+.progress__bar{
+  height: 100%; width: 0;
+  background: var(--accent);
+  transform-origin: left;
+}
+
+/* Custom cursor — premium magnetic dot */
+.cursor{
+  position: fixed; top: 0; left: 0;
+  width: 14px; height: 14px; border-radius: 50%;
+  background: var(--accent);
+  pointer-events: none;
+  z-index: 100;
+  mix-blend-mode: difference;
+  transform: translate3d(-50%, -50%, 0);
+  transition: width .35s var(--ease), height .35s var(--ease), background .25s var(--ease);
+  opacity: 0;
+}
+.cursor.is-hover{
+  width: 48px; height: 48px;
+}
+@media (hover: none), (max-width: 760px){
+  .cursor{ display: none; }
+}
+
+/* Editorial chapter mark (top-right) */
+.chap{
+  position: fixed; top: 86px; right: var(--margin);
+  display: flex; flex-direction: column; align-items: flex-end; gap: .35rem;
+  z-index: 45;
+  font-size: var(--t-micro); text-transform: uppercase; letter-spacing: .22em;
+  font-weight: 700;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity .6s var(--ease);
+}
+.chap.is-visible{ opacity: 1; }
+.chap__num{ color: var(--accent); font-variant-numeric: tabular-nums; }
+.chap__title{ color: inherit; opacity: .55; }
+.chap.on-dark__chap .chap__title{ color: var(--paper); }
+
 /* Reveal default — only hide when JS is ready (animations available) */
 .js-ready .reveal{ opacity:0; transform: translateY(28px); will-change: opacity, transform; }
 .js-ready .reveal.visible{ opacity:1; transform:none; transition: opacity .9s var(--ease), transform .9s var(--ease); }
@@ -414,7 +480,7 @@ html.lenis,html.lenis body{ height:auto; }
   transform: translateY(.06em) scale(0);
   animation: dotPop 1.2s var(--ease) 1.3s forwards;
 }
-.hero__h1 .accent{ color: var(--accent); }
+.hero__h1{ color: var(--ink); }
 @keyframes dotPop{
   0%   { transform: translateY(.06em) scale(0); }
   60%  { transform: translateY(.06em) scale(1.2); }
@@ -1457,6 +1523,14 @@ html.lenis,html.lenis body{ height:auto; }
 </head>
 <body>
 
+<!-- ─── Editorial scroll progress + cursor + chapter mark ─── -->
+<div class="progress" aria-hidden="true"><div class="progress__bar" id="progressBar"></div></div>
+<div class="cursor" id="cursor" aria-hidden="true"></div>
+<div class="chap" id="chap" aria-hidden="true">
+  <span class="chap__num" id="chapNum">01</span>
+  <span class="chap__title" id="chapTitle">Hero</span>
+</div>
+
 <!-- ─── NAV ─── -->
 <nav class="nav" id="nav">
   <a class="nav__logo" href="/">
@@ -1533,7 +1607,7 @@ html.lenis,html.lenis body{ height:auto; }
       <div class="hero__left">
         <h1 class="hero__h1">
           <span class="line">Probiotiques,</span>
-          <span class="line">formulés au <span class="accent" style="font-style:italic; font-weight:300;">milliard</span> près<span class="pulse" aria-hidden="true"></span></span>
+          <span class="line">formulés au milliard près.</span>
         </h1>
 
         <p class="hero__sub">
@@ -1600,7 +1674,7 @@ html.lenis,html.lenis body{ height:auto; }
       <div>
         <div class="eyebrow" style="color: var(--accent); margin-bottom: 1.5rem;"><span class="dot"></span>Notre manifeste</div>
         <h2 class="manifesto__quote" data-split>
-          Une science précise dans chaque <span class="accent">capsule.</span>
+          Une science précise dans chaque capsule.
         </h2>
       </div>
       <div class="manifesto__index">Manifeste</div>
@@ -1637,8 +1711,7 @@ html.lenis,html.lenis body{ height:auto; }
       <div class="qc__body">
         <div class="eyebrow" style="color: var(--accent);"><span class="dot"></span>Origine</div>
         <h2 class="reveal" style="font-weight:700; letter-spacing:-.04em; font-size: var(--t-h2); line-height: .98; margin: .5rem 0 0;">
-          Probiotiques entièrement<br>
-          <span style="font-weight:300; opacity:.7;">faits au <span class="accent" style="font-style:italic; font-weight:300; opacity:1;">Québec.</span></span>
+          Probiotiques entièrement faits au Québec.
         </h2>
         <p class="reveal" style="color: rgba(255,255,255,.65); max-width: 44ch;">
           De la <strong style="font-weight:700; color: var(--paper);">recherche scientifique</strong> à la <strong style="font-weight:700; color: var(--paper);">fabrication pharmaceutique</strong>, en passant par la formulation et le contrôle qualité — chaque étape se fait ici, au Québec. Une marque indépendante, ancrée localement et reconnue par les pharmaciens d'ici.
@@ -1694,7 +1767,7 @@ html.lenis,html.lenis body{ height:auto; }
     <div class="formules__head">
       <div>
         <div class="eyebrow"><span class="dot"></span>Nos formules</div>
-        <h2>Trouvez votre <span class="accent">formule.</span></h2>
+        <h2>Trouvez votre formule.</h2>
       </div>
       <p>Une gamme conçue pour chaque profil et chaque besoin — de la prévention quotidienne à l'accompagnement de conditions spécifiques.</p>
     </div>
@@ -1777,7 +1850,7 @@ html.lenis,html.lenis body{ height:auto; }
     <div class="nouv__head">
       <div>
         <div class="eyebrow"><span class="dot"></span>Nouveautés</div>
-        <h2>Deux nouvelles<br><span class="accent">formules.</span></h2>
+        <h2>Deux nouvelles formules.</h2>
       </div>
       <p>Probaclac élargit sa gamme avec deux probiotiques ciblés — pour le syndrome du côlon irritable et pour les infections à levure.</p>
     </div>
@@ -1832,7 +1905,7 @@ html.lenis,html.lenis body{ height:auto; }
     <div class="etudes__head">
       <div>
         <div class="eyebrow"><span class="dot"></span>Études cliniques</div>
-        <h2>La preuve,<br>pas la <span class="accent">promesse.</span></h2>
+        <h2>La preuve, pas la promesse.</h2>
       </div>
       <p>Souches sélectionnées sur la base d'essais cliniques publiés — randomisés, double insu, contrôlés. Chaque chiffre ci-dessous est cité depuis une étude.</p>
     </div>
@@ -1877,8 +1950,7 @@ html.lenis,html.lenis body{ height:auto; }
     <div class="final__inner">
       <div class="eyebrow"><span class="dot"></span>09 / Prêt à commencer ?</div>
       <h2>
-        Soutenez votre santé<br>
-        au <span class="accent">milliard près.</span>
+        Soutenez votre santé au milliard près.
       </h2>
       <p class="sub">
         Trouvez la formule qui répond à votre besoin — usage quotidien, prévention voyage, antibiotiques, santé féminine — et commandez en ligne ou en pharmacie.
@@ -1904,7 +1976,7 @@ html.lenis,html.lenis body{ height:auto; }
         <text x="620" y="175" text-anchor="middle"
               font-family="Helvetica Neue, Helvetica, Arial, sans-serif"
               font-weight="700" font-size="210"
-              letter-spacing="-8" fill="currentColor">PROBACLAC<tspan fill="#ff5b04" dx="-12">.</tspan></text>
+              letter-spacing="-8" fill="currentColor">PROBACLAC.</text>
       </svg>
     </h2>
     <div class="foot__grid">
@@ -1938,7 +2010,7 @@ html.lenis,html.lenis body{ height:auto; }
       </div>
     </div>
     <div class="foot__legal">
-      <span>Probaclac · Probiotiques de grade pharmaceutique · Conçu et fabriqué <em style="font-style: italic; font-weight: 300;">au Québec</em></span>
+      <span>Probaclac · Probiotiques de grade pharmaceutique · Conçu et fabriqué au Québec</span>
       <span>© Nicar Canada · Blainville · NPN 80066788</span>
     </div>
   </div>
@@ -2277,14 +2349,160 @@ indexObs.observe(document.getElementById("indexList"), { childList: true });
   show(0); play();
 })();
 
-/* Pulse dot loop (hero) — a soft heartbeat */
-gsap.to(".hero__h1 .pulse", {
-  scale: 1.35,
-  duration: 1.6,
-  ease: "sine.inOut",
-  yoyo: true,
-  repeat: -1,
-  delay: 2.5,
+/* ─────────────────────────────────────────────────────────────────
+   Awwwards transitions — curtain reveal on dark sections + chapter
+   ───────────────────────────────────────────────────────────────── */
+
+/* Section data — drives the chapter floating mark */
+const CHAPTERS = [
+  { sel: '.hero',        num: '01', title: 'Probiotiques',  dark: false },
+  { sel: '.manifesto',   num: '02', title: 'Manifeste',     dark: true  },
+  { sel: '.qc__grid',    num: '03', title: 'Québec',        dark: true  },
+  { sel: '#formules',    num: '04', title: 'Formules',      dark: false },
+  { sel: '#nouveautes',  num: '05', title: 'Nouveautés',    dark: false },
+  { sel: '#etudes',      num: '06', title: 'Études',        dark: true  },
+  { sel: '#final',       num: '07', title: 'Commencer',     dark: true  },
+];
+
+const chapEl    = document.getElementById('chap');
+const chapNum   = document.getElementById('chapNum');
+const chapTitle = document.getElementById('chapTitle');
+
+function setChapter(c){
+  if(!c) return;
+  chapNum.textContent = c.num;
+  chapTitle.textContent = c.title;
+  chapEl.classList.toggle('on-dark__chap', c.dark);
+}
+
+/* Curtain wipe on dark sections — paper curtain slides up, revealing dark */
+gsap.utils.toArray('.on-dark').forEach(sec => {
+  const curtain = document.createElement('div');
+  curtain.className = 'section-curtain';
+  sec.insertBefore(curtain, sec.firstChild);
+
+  gsap.to(curtain, {
+    clipPath: 'inset(0 0 100% 0)',
+    ease: 'power3.out',
+    scrollTrigger: {
+      trigger: sec,
+      start: 'top 95%',
+      end: 'top 25%',
+      scrub: 0.8,
+    },
+  });
+
+  // chapter detection
+  const ch = CHAPTERS.find(c => sec.matches(c.sel));
+  if(ch){
+    ScrollTrigger.create({
+      trigger: sec,
+      start: 'top 60%',
+      end: 'bottom 40%',
+      onEnter:    () => { setChapter(ch); chapEl.classList.add('is-visible'); },
+      onEnterBack:() => { setChapter(ch); chapEl.classList.add('is-visible'); },
+    });
+  }
+});
+
+/* Light sections also report their chapter */
+CHAPTERS.filter(c => !c.dark).forEach(c => {
+  const sec = document.querySelector(c.sel);
+  if(!sec) return;
+  ScrollTrigger.create({
+    trigger: sec,
+    start: 'top 60%',
+    end: 'bottom 40%',
+    onEnter:    () => { setChapter(c); chapEl.classList.add('is-visible'); },
+    onEnterBack:() => { setChapter(c); chapEl.classList.add('is-visible'); },
+  });
+});
+
+/* Hide chapter at the very top */
+ScrollTrigger.create({
+  start: 'top top',
+  end: '+=180',
+  onUpdate: self => chapEl.classList.toggle('is-visible', self.progress > 0.6 ? true : chapEl.classList.contains('is-visible')),
+  onLeaveBack: () => chapEl.classList.remove('is-visible'),
+});
+
+/* Scroll progress bar */
+const progressBar = document.getElementById('progressBar');
+ScrollTrigger.create({
+  start: 0, end: 'max',
+  onUpdate: self => {
+    if(progressBar) progressBar.style.width = (self.progress * 100) + '%';
+  },
+});
+
+/* Custom cursor — premium magnetic dot */
+(function setupCursor(){
+  const cur = document.getElementById('cursor');
+  if(!cur) return;
+  if(window.matchMedia('(hover: none), (max-width: 760px)').matches) return;
+
+  let mx = window.innerWidth/2, my = window.innerHeight/2;
+  let cx = mx, cy = my;
+  let visible = false;
+
+  window.addEventListener('mousemove', e => {
+    mx = e.clientX; my = e.clientY;
+    if(!visible){ cur.style.opacity = '1'; visible = true; }
+  });
+  window.addEventListener('mouseleave', () => { cur.style.opacity = '0'; visible = false; });
+
+  // hover state on interactive elements
+  document.querySelectorAll('a, button, .btn, .formule-card, .mega__card, .index-row, .nav__icobtn, .vedettes__arrow, .nouv__nav button, .mega__cats button, .chip').forEach(el => {
+    el.addEventListener('mouseenter', () => cur.classList.add('is-hover'));
+    el.addEventListener('mouseleave', () => cur.classList.remove('is-hover'));
+  });
+
+  function tick(){
+    cx += (mx - cx) * 0.18;
+    cy += (my - cy) * 0.18;
+    cur.style.transform = `translate3d(${cx}px, ${cy}px, 0) translate(-50%, -50%)`;
+    requestAnimationFrame(tick);
+  }
+  tick();
+})();
+
+/* Word-by-word entrance for every section h2 */
+gsap.utils.toArray('section h2, .hero__h1').forEach(h => {
+  if(h.dataset.split === '') return; // manifesto handled separately
+  const text = h.innerHTML;
+  // skip if it already contains spans we built
+  if(h.querySelector('.line')) return;
+  const words = h.textContent.trim().split(/\s+/);
+  h.innerHTML = words.map(w => `<span class="w" style="display:inline-block;overflow:hidden;padding:0 .12em 0 0;"><span style="display:inline-block;transform:translateY(110%);">${w}</span></span>`).join(' ');
+});
+
+ScrollTrigger.batch('section h2 .w > span, .hero__h1 .w > span, .hero__h1 .line', {
+  start: 'top 88%',
+  onEnter: batch => gsap.to(batch, {
+    y: 0,
+    duration: 1.1,
+    ease: 'power4.out',
+    stagger: 0.035,
+  }),
+  once: true,
+});
+
+/* Magnetic buttons */
+document.querySelectorAll('.btn').forEach(b => {
+  let mag;
+  b.addEventListener('mouseenter', () => {
+    const r = b.getBoundingClientRect();
+    mag = (e) => {
+      const dx = (e.clientX - (r.left + r.width/2)) * 0.18;
+      const dy = (e.clientY - (r.top + r.height/2)) * 0.18;
+      b.style.transform = `translate(${dx}px, ${dy}px)`;
+    };
+    window.addEventListener('mousemove', mag);
+  });
+  b.addEventListener('mouseleave', () => {
+    window.removeEventListener('mousemove', mag);
+    gsap.to(b, { x:0, y:0, duration:.6, ease:'elastic.out(1, 0.5)', clearProps:'transform' });
+  });
 });
 
 } // /IS_STATIC else
