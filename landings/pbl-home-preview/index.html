@@ -231,11 +231,12 @@ html.lenis,html.lenis body{ height:auto; }
 }
 .nav.scrolled{ border-bottom-color: var(--rule); }
 .nav__logo{
-  font-weight:700; letter-spacing:-.04em; font-size: 1.15rem;
-  display:flex; align-items:center; gap:.5rem;
+  display:flex; align-items:center;
 }
-.nav__logo .ico{
-  width:9px; height:9px; border-radius:50%; background: var(--accent); display:inline-block;
+.nav__logo img{
+  height: clamp(28px, 3vw, 40px);
+  width: auto;
+  display: block;
 }
 .nav__links{
   display:flex; gap: clamp(1.25rem, 2.4vw, 2.4rem);
@@ -369,12 +370,11 @@ html.lenis,html.lenis body{ height:auto; }
 .mega__card-img{
   aspect-ratio: 1/1; width:100%;
   display:flex; align-items:center; justify-content:center;
-  background: #f3f1e9;
   border-radius: 12px;
   margin-bottom: .65rem;
   overflow: hidden;
 }
-.mega__card-img img{ max-width: 80%; max-height: 80%; object-fit: contain; }
+.mega__card-img img{ width: 100%; height: 100%; object-fit: contain; }
 .mega__card-cat{
   font-size: .62rem; text-transform: uppercase; letter-spacing: .2em;
   color: var(--mute); font-weight:700;
@@ -563,26 +563,35 @@ html.lenis,html.lenis body{ height:auto; }
 }
 .hero__foot{
   margin-top: clamp(3rem, 6vw, 5rem);
-  display:grid; grid-template-columns: repeat(3, 1fr); gap: clamp(1rem, 2.5vw, 2rem);
+  display:grid; grid-template-columns: repeat(3, 1fr); gap: 0;
   border-top: 1px solid var(--rule);
-  padding-top: 1.75rem;
+  padding-top: 1.5rem;
 }
 .trust{
-  display:flex; align-items:center; gap: .9rem;
+  display:flex; align-items:center; justify-content:center; gap: .8rem;
+  position: relative;
+  padding: .5rem 1rem;
+}
+/* Vertical hairline separators that don't touch the top border */
+.trust + .trust::before{
+  content: "";
+  position: absolute; left: 0; top: 12%; bottom: 12%;
+  width: 1px;
+  background: var(--rule);
 }
 .trust__num{
   font-weight: 700; letter-spacing: -.03em;
-  font-size: clamp(2rem, 3.2vw, 2.75rem);
+  font-size: clamp(1.5rem, 2vw, 1.85rem);
   line-height: 1;
   color: var(--ink);
   flex: 0 0 auto;
 }
 .trust__img{
-  width: clamp(40px, 4.5vw, 56px); height: auto;
+  width: clamp(30px, 3.2vw, 40px); height: auto;
   flex: 0 0 auto;
 }
 .trust__ico{
-  width: clamp(40px, 4.5vw, 56px); height: clamp(40px, 4.5vw, 56px);
+  width: clamp(30px, 3.2vw, 38px); height: clamp(30px, 3.2vw, 38px);
   border-radius: 50%;
   border: 1px solid var(--ink);
   color: var(--ink);
@@ -592,14 +601,17 @@ html.lenis,html.lenis body{ height:auto; }
 .trust__ico svg{ width: 55%; height: 55%; }
 .trust__lbl{
   font-weight: 700; letter-spacing: -.005em;
-  font-size: clamp(.85rem, 1vw, 1rem);
+  font-size: clamp(.85rem, .95vw, .95rem);
   line-height: 1.2;
   color: var(--ink);
 }
 
 @media (max-width: 720px){
-  .hero__foot{ grid-template-columns: 1fr; row-gap: 1rem; }
-  .trust{ gap: 1rem; }
+  .hero__foot{ grid-template-columns: 1fr; row-gap: 0; }
+  .trust{ padding: 1rem; }
+  .trust + .trust::before{
+    left: 12%; right: 12%; top: 0; bottom: auto; width: auto; height: 1px;
+  }
 }
 
 /* ─────────────────────────────────────────────────────────────────
@@ -1329,12 +1341,11 @@ html.lenis,html.lenis body{ height:auto; }
 .formule-card__img{
   position: relative;
   aspect-ratio: 1/1;
-  background: #f3f1e9;
   display: flex; align-items: center; justify-content: center;
   overflow: hidden;
 }
 .formule-card__img img{
-  width: 78%; height: 78%;
+  width: 100%; height: 100%;
   object-fit: contain;
   transition: transform .8s var(--ease);
 }
@@ -1530,9 +1541,8 @@ html.lenis,html.lenis body{ height:auto; }
 
 <!-- ─── NAV ─── -->
 <nav class="nav" id="nav">
-  <a class="nav__logo" href="/">
-    <span class="ico" aria-hidden="true"></span>
-    PROBACLAC
+  <a class="nav__logo" href="/" aria-label="Probaclac">
+    <img src="assets/logo.png" alt="Probaclac">
   </a>
   <div class="nav__links">
     <button class="nav__btn" id="megaToggle" aria-expanded="false" aria-controls="mega">Produits<span class="chev" aria-hidden="true"></span></button>
@@ -1594,16 +1604,12 @@ html.lenis,html.lenis body{ height:auto; }
     <div class="hero__body">
       <div class="hero__left">
         <h1 class="hero__h1">
-          <span class="line">Probiotiques,</span>
-          <span class="line">formulés au milliard près.</span>
+          <span class="line">Le probiotique le plus</span>
+          <span class="line">complet et efficace.</span>
         </h1>
 
-        <p class="hero__sub">
-          Douze formules conçues à Blainville, validées par la science clinique et distribuées en pharmacie. Une souche par besoin&nbsp;— jamais l'inverse.
-        </p>
-
         <div class="hero__ctas">
-          <a class="btn btn--solid" href="#catalogue">
+          <a class="btn btn--solid" href="#formules">
             Découvrir les formules
             <span class="arr">→</span>
           </a>
