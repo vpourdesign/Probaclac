@@ -2091,33 +2091,7 @@ document.querySelectorAll(".mega__cats button").forEach(b => {
   document.addEventListener("keydown", e => { if(e.key === "Escape" && open) setOpen(false); });
 })();
 
-function renderCatalogue(filter="all"){
-  const list = document.getElementById("indexList");
-  const rows = CATALOGUE
-    .filter(r => filter==="all" || r.cat===filter)
-    .map(r => `
-      <a class="index-row" href="${r.url}" data-cat="${r.cat}">
-        <span class="num">${r.n}</span>
-        <span class="name">Probaclac <span style="font-weight:300; color:inherit; opacity:.85;">${r.name}</span></span>
-        <span class="tag">${r.catLabel}</span>
-        <span class="meta">${r.meta}${r.meta2 ? " · " + r.meta2 : ""} <span style="opacity:.6;">— ${r.npn}</span></span>
-        <span class="arr" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-        </span>
-      </a>
-    `).join("");
-  list.innerHTML = rows;
-}
-renderCatalogue();
-
-document.querySelectorAll(".chip").forEach(c => {
-  c.addEventListener("click", () => {
-    document.querySelectorAll(".chip").forEach(x => { x.classList.remove("is-active"); x.setAttribute("aria-selected","false"); });
-    c.classList.add("is-active");
-    c.setAttribute("aria-selected","true");
-    renderCatalogue(c.dataset.filter);
-  });
-});
+/* (Catalogue index section removed — no-op) */
 
 /* ─────────────────────────────────────────────────────────────────
    Manifesto — word/char split for reveal
@@ -2224,59 +2198,11 @@ gsap.utils.toArray(".reveal").forEach(el => {
   });
 });
 
-/* Index rows stagger */
-gsap.utils.toArray("#indexList .index-row").forEach((r, i) => {
-  gsap.from(r, {
-    y: 24, opacity: 0,
-    duration: .9, ease: "power3.out",
-    delay: Math.min(i, 6) * .05,
-    scrollTrigger: { trigger: r, start: "top 90%" },
-  });
-});
+/* (Catalogue index removed) */
 
-/* Microbiote horizontal pin */
-(function setupMicro(){
-  const track = document.getElementById("microTrack");
-  const pin = document.getElementById("microPin");
-  const bar = document.getElementById("microBar");
-  if(!track || !pin) return;
-  // skip on mobile
-  if(window.matchMedia("(max-width: 760px)").matches) return;
+/* (Microbiote pinned section removed) */
 
-  const totalWidth = track.scrollWidth;
-  const viewport = pin.clientWidth;
-  const distance = totalWidth - viewport;
-  if(distance < 50) return;
-
-  gsap.to(track, {
-    x: -distance,
-    ease: "none",
-    scrollTrigger: {
-      trigger: pin,
-      start: "top top",
-      end: () => "+=" + (distance + window.innerHeight * .4),
-      pin: true,
-      scrub: 0.8,
-      anticipatePin: 1,
-      invalidateOnRefresh: true,
-      onUpdate: self => {
-        if(bar) bar.style.width = (self.progress * 100) + "%";
-      },
-    },
-  });
-})();
-
-/* Re-render reveals after catalogue filter change */
-const indexObs = new MutationObserver(() => {
-  gsap.utils.toArray("#indexList .index-row").forEach((r, i) => {
-    gsap.from(r, {
-      y: 18, opacity: 0,
-      duration: .6, ease: "power3.out",
-      delay: i * .03,
-    });
-  });
-});
-indexObs.observe(document.getElementById("indexList"), { childList: true });
+/* (Catalogue index removed) */
 
 /* Hero bottle slider auto-rotate */
 (function setupHeroBottle(){
