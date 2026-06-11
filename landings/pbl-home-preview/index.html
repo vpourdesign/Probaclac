@@ -1168,55 +1168,36 @@ html.lenis,html.lenis body{ height:auto; }
 .final__inner .ctas{ display:flex; gap: .75rem; flex-wrap: wrap; justify-content: center; margin-top: .5rem; }
 
 /* ─────────────────────────────────────────────────────────────────
-   5 — QUÉBEC (light, asymmetric)
+   5 — QUÉBEC (dark, big badge right)
    ───────────────────────────────────────────────────────────────── */
 .qc__grid{
   display:grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
   gap: clamp(2rem, 4vw, 4rem);
-  align-items: stretch;
+  align-items: center;
 }
-.qc__mark{
-  position:relative;
-  border: 1px solid var(--rule-strong);
-  border-radius: 36px;
-  padding: clamp(2rem, 4vw, 3rem);
-  aspect-ratio: 5 / 4;
-  display:flex; align-items:center; justify-content:center;
-  overflow:hidden;
-}
-.qc__mark::before{
-  content:""; position:absolute; inset:1.5rem;
-  border:1px solid var(--rule);
-  border-radius: 24px;
-}
-.qc__mark .qc-type{
-  font-weight: 700; letter-spacing: -.08em;
-  font-size: clamp(8rem, 22vw, 22rem); line-height: .8;
+.qc__visual{
   position: relative;
+  display: flex; align-items: center; justify-content: center;
+  padding: clamp(2rem, 4vw, 3rem) 0;
 }
-.qc__mark .qc-type .dot{
-  display:inline-block; width:.12em; height:.12em; border-radius:50%;
-  background: var(--accent);
-  vertical-align: super;
-  margin-left: -.05em;
+.qc__visual::before{
+  content:""; position: absolute; inset: 5%;
+  background: radial-gradient(60% 60% at 50% 50%, rgba(255,255,255,.08), transparent 70%);
+  pointer-events: none;
+  z-index: 0;
 }
-.qc__mark .qc-corner{
-  position:absolute; top:1.25rem; left: 1.25rem;
-  font-size: var(--t-micro); text-transform: uppercase; letter-spacing: .22em;
+.qc__badge{
+  position: relative;
+  width: 100%; max-width: clamp(280px, 32vw, 460px);
+  height: auto;
+  z-index: 1;
+  filter: drop-shadow(0 25px 50px rgba(0,0,0,.4));
 }
-.qc__mark .qc-corner.br{ top:auto; left:auto; bottom:1.25rem; right:1.25rem; color: var(--mute); }
-.qc__stamp{
-  position:absolute; top: clamp(1.5rem, 2.5vw, 2.5rem); right: clamp(1.5rem, 2.5vw, 2.5rem);
-  width: clamp(72px, 9vw, 110px); height: auto;
-  opacity: .92;
-  transition: transform .6s var(--ease);
-}
-.qc__mark:hover .qc__stamp{ transform: rotate(-6deg) scale(1.04); }
 
 .qc__body{
-  display:flex; flex-direction: column; justify-content: space-between;
+  display:flex; flex-direction: column;
   padding: clamp(1rem, 2vw, 1.5rem) 0;
-  gap: 2rem;
+  gap: 1.5rem;
 }
 .qc__body h2{
   font-weight: 700; letter-spacing: -.04em;
@@ -1248,7 +1229,120 @@ html.lenis,html.lenis body{ height:auto; }
 
 @media (max-width: 880px){
   .qc__grid{ grid-template-columns: 1fr; }
-  .qc__mark{ aspect-ratio: 4 / 3; }
+  .qc__visual{ order: -1; padding: 1rem 0; }
+}
+
+/* ─────────────────────────────────────────────────────────────────
+   "Trouvez votre formule" — 4 featured product cards
+   ───────────────────────────────────────────────────────────────── */
+.formules__head{
+  display:grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
+  gap: var(--gutter); align-items: end;
+  margin-bottom: clamp(2.5rem, 4vw, 3.5rem);
+}
+.formules__head h2{
+  font-weight: 700; letter-spacing: -.04em;
+  font-size: var(--t-h2); line-height: .98; margin: .5rem 0 0;
+}
+.formules__head h2 .accent{ color: var(--accent); font-style: italic; font-weight: 300; }
+.formules__head p{ color: var(--mute); max-width: 38ch; margin: 0; }
+
+.formules__grid{
+  display:grid; grid-template-columns: repeat(4, 1fr);
+  gap: clamp(1rem, 1.5vw, 1.5rem);
+}
+.formule-card{
+  display: flex; flex-direction: column;
+  border: 1px solid var(--rule);
+  border-radius: 24px;
+  background: #fff;
+  overflow: hidden;
+  transition: border-color .4s var(--ease), transform .5s var(--ease);
+}
+.formule-card:hover{
+  border-color: var(--ink);
+  transform: translateY(-4px);
+}
+.formule-card__img{
+  position: relative;
+  aspect-ratio: 1/1;
+  background: #f3f1e9;
+  display: flex; align-items: center; justify-content: center;
+  overflow: hidden;
+}
+.formule-card__img img{
+  width: 78%; height: 78%;
+  object-fit: contain;
+  transition: transform .8s var(--ease);
+}
+.formule-card:hover .formule-card__img img{
+  transform: scale(1.05);
+}
+.formule-card__tag{
+  position: absolute; top: 1rem; left: 1rem;
+  padding: .35em .8em;
+  background: var(--paper);
+  border: 1px solid var(--rule-strong);
+  border-radius: 999px;
+  font-size: var(--t-micro);
+  text-transform: uppercase;
+  letter-spacing: .22em;
+  font-weight: 700;
+  z-index: 2;
+}
+.formule-card__npn{
+  position: absolute; bottom: 1rem; right: 1rem;
+  font-size: var(--t-micro);
+  text-transform: uppercase;
+  letter-spacing: .22em;
+  color: var(--mute);
+  font-weight: 700;
+  z-index: 2;
+}
+.formule-card__body{
+  padding: 1.5rem;
+  display: flex; flex-direction: column;
+  gap: .85rem;
+  flex: 1;
+}
+.formule-card__title{
+  font-weight: 700; letter-spacing: -.025em;
+  font-size: clamp(1.25rem, 1.7vw, 1.55rem);
+  line-height: 1.1;
+  margin: 0;
+}
+.formule-card__desc{
+  font-size: .92rem;
+  line-height: 1.45;
+  color: var(--mute);
+  margin: 0;
+  flex: 1;
+}
+.formule-card__cta{
+  display: inline-flex; align-items: center; gap: .4em;
+  font-size: .85rem; font-weight: 700;
+  letter-spacing: -.005em;
+  padding-top: .85rem;
+  border-top: 1px solid var(--rule);
+  transition: color .35s var(--ease);
+}
+.formule-card__cta svg{ width: 14px; height: 14px; transition: transform .5s var(--ease); }
+.formule-card:hover .formule-card__cta{ color: var(--accent); }
+.formule-card:hover .formule-card__cta svg{ transform: translateX(.25em); }
+
+.formules__all{
+  margin-top: clamp(2.5rem, 4vw, 3.5rem);
+  display: flex; justify-content: center;
+}
+
+@media (max-width: 1000px){
+  .formules__grid{ grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 900px){
+  .formules__head{ grid-template-columns: 1fr; }
+}
+@media (max-width: 540px){
+  .formules__grid{ grid-template-columns: 1fr; }
 }
 
 /* ─────────────────────────────────────────────────────────────────
@@ -1499,191 +1593,190 @@ html.lenis,html.lenis body{ height:auto; }
   </div>
 </header>
 
-<!-- ─── Strain ribbon (subtle marquee) ─── -->
-<div class="ribbon" aria-hidden="true">
-  <div class="track">
-    <span class="it"><i>Lactobacillus rhamnosus</i> <span class="sep"></span></span>
-    <span class="it"><i>Bifidobacterium bifidum</i> <span class="sep"></span></span>
-    <span class="it"><i>Lactobacillus gasseri</i> <span class="sep"></span></span>
-    <span class="it"><i>Lactobacillus plantarum</i> <span class="sep"></span></span>
-    <span class="it"><i>Lactobacillus reuteri</i> <span class="sep"></span></span>
-    <span class="it"><i>Lactobacillus paracasei</i> <span class="sep"></span></span>
-    <span class="it"><i>Bifidobacterium longum</i> <span class="sep"></span></span>
-    <span class="it"><i>Lactobacillus acidophilus</i> <span class="sep"></span></span>
-    <span class="it"><i>Lactobacillus casei</i> <span class="sep"></span></span>
-    <!-- duplicate for seamless loop -->
-    <span class="it"><i>Lactobacillus rhamnosus</i> <span class="sep"></span></span>
-    <span class="it"><i>Bifidobacterium bifidum</i> <span class="sep"></span></span>
-    <span class="it"><i>Lactobacillus gasseri</i> <span class="sep"></span></span>
-    <span class="it"><i>Lactobacillus plantarum</i> <span class="sep"></span></span>
-    <span class="it"><i>Lactobacillus reuteri</i> <span class="sep"></span></span>
-    <span class="it"><i>Lactobacillus paracasei</i> <span class="sep"></span></span>
-    <span class="it"><i>Bifidobacterium longum</i> <span class="sep"></span></span>
-    <span class="it"><i>Lactobacillus acidophilus</i> <span class="sep"></span></span>
-    <span class="it"><i>Lactobacillus casei</i> <span class="sep"></span></span>
-  </div>
-</div>
-
 <!-- ─── 2. MANIFESTO ─── -->
 <section class="section manifesto on-dark">
   <div class="wrap">
     <div class="manifesto__inner">
       <div>
-        <div class="eyebrow" style="color: var(--accent); margin-bottom: 1.5rem;"><span class="dot"></span>03 / Notre manifeste</div>
+        <div class="eyebrow" style="color: var(--accent); margin-bottom: 1.5rem;"><span class="dot"></span>Notre manifeste</div>
         <h2 class="manifesto__quote" data-split>
-          Nous ne fabriquons pas des suppléments. Nous formulons des <span class="accent">écosystèmes vivants</span>, souche par souche, pour des conditions précises.
+          Une science précise dans chaque <span class="accent">capsule.</span>
         </h2>
       </div>
-      <div class="manifesto__index">03 / Manifeste</div>
+      <div class="manifesto__index">Manifeste</div>
     </div>
     <div class="manifesto__pillars">
       <div class="pillar reveal">
         <div class="pn">01</div>
-        <h3>Grade pharmaceutique</h3>
-        <p>Capsules végétales, viabilité garantie à péremption, encapsulation à froid.</p>
+        <h3>Grade pharmaceutique, sans compromis</h3>
+        <p>Standards de formulation appliqués à la conception, au contrôle qualité et à la stabilité des cellules actives jusqu'à la date de péremption.</p>
       </div>
       <div class="pillar reveal">
         <div class="pn">02</div>
-        <h3>Études cliniques</h3>
-        <p>Souches sélectionnées sur la base d'études publiées, pas de génériques opportunistes.</p>
+        <h3>Formulé selon des études cliniques</h3>
+        <p>Souches sélectionnées sur la base d'essais à double insu, randomisés et contrôlés — pour des résultats prouvés, pas des promesses.</p>
       </div>
       <div class="pillar reveal">
         <div class="pn">03</div>
-        <h3>Conçu au Québec</h3>
-        <p>Formulation, production et contrôle qualité à Blainville. Distribué en pharmacie.</p>
+        <h3>Conçu au Québec, distribué en pharmacie</h3>
+        <p>Une marque québécoise indépendante, recommandée par les pharmaciens, disponible partout au Canada en pharmacie et en ligne.</p>
       </div>
       <div class="pillar reveal">
         <div class="pn">04</div>
-        <h3>Pour chaque profil</h3>
-        <p>Enfants, adultes, 50+, condition ciblée, santé féminine. Une formule par besoin.</p>
+        <h3>Accessible à tous les profils</h3>
+        <p>Sans gluten, sans soya, sans protéines laitières. Capsules végétales. Ne nécessite pas de réfrigération.</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ─── 3. CATALOGUE ─── -->
-<section class="section" id="catalogue">
+<!-- ─── QUÉBEC ─── -->
+<section class="section on-dark">
   <div class="wrap">
-    <div class="catalogue__head">
-      <h2 class="catalogue__title">
-        Le catalogue.<br>
-        <span class="light">12 formules, indexées.</span>
-      </h2>
-      <div class="catalogue__filters" role="tablist">
-        <button class="chip is-active" data-filter="all" role="tab" aria-selected="true">Toutes</button>
-        <button class="chip" data-filter="qd" role="tab">Quotidien</button>
-        <button class="chip" data-filter="cd" role="tab">Conditions ciblées</button>
-        <button class="chip" data-filter="fm" role="tab">Santé féminine</button>
-      </div>
-    </div>
+    <div class="qc__grid">
+      <div class="qc__body">
+        <div class="eyebrow" style="color: var(--accent);"><span class="dot"></span>Origine</div>
+        <h2 class="reveal" style="font-weight:700; letter-spacing:-.04em; font-size: var(--t-h2); line-height: .98; margin: .5rem 0 0;">
+          Probiotiques entièrement<br>
+          <span style="font-weight:300; opacity:.7;">faits au <span class="accent" style="font-style:italic; font-weight:300; opacity:1;">Québec.</span></span>
+        </h2>
+        <p class="reveal" style="color: rgba(255,255,255,.65); max-width: 44ch;">
+          De la <strong style="font-weight:700; color: var(--paper);">recherche scientifique</strong> à la <strong style="font-weight:700; color: var(--paper);">fabrication pharmaceutique</strong>, en passant par la formulation et le contrôle qualité — chaque étape se fait ici, au Québec. Une marque indépendante, ancrée localement et reconnue par les pharmaciens d'ici.
+        </p>
 
-    <div class="index-list" id="indexList">
-      <!-- rows injected via JS for clarity & filter support -->
+        <div class="qc__pills reveal">
+          <div class="qc-pill">
+            <span class="qc-pill__ic"><svg viewBox="0 0 24 24"><path d="M9 11l3 3L22 4M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg></span>
+            <span class="qc-pill__lbl">
+              <span class="qc-pill__title">Recherche &amp; développement</span>
+              <span class="qc-pill__sub">Formulé à Montréal</span>
+            </span>
+          </div>
+          <div class="qc-pill">
+            <span class="qc-pill__ic"><svg viewBox="0 0 24 24"><path d="M3 21h18M5 21V7l7-4 7 4v14M9 9h.01M15 9h.01M9 13h.01M15 13h.01M9 17h.01M15 17h.01"/></svg></span>
+            <span class="qc-pill__lbl">
+              <span class="qc-pill__title">Fabrication locale</span>
+              <span class="qc-pill__sub">Standards pharmaceutiques</span>
+            </span>
+          </div>
+          <div class="qc-pill">
+            <span class="qc-pill__ic"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="5"/><path d="M20 21a8 8 0 0 0-16 0"/></svg></span>
+            <span class="qc-pill__lbl">
+              <span class="qc-pill__title">Recommandé en pharmacie</span>
+              <span class="qc-pill__sub">Par les pharmaciens d'ici</span>
+            </span>
+          </div>
+          <div class="qc-pill">
+            <span class="qc-pill__ic"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15 15 0 0 1 0 20M12 2a15 15 0 0 0 0 20"/></svg></span>
+            <span class="qc-pill__lbl">
+              <span class="qc-pill__title">Distribué partout au Canada</span>
+              <span class="qc-pill__sub">Pharmacies et en ligne</span>
+            </span>
+          </div>
+        </div>
+
+        <a class="btn btn--solid" href="https://etudes.probaclac.ca/" style="background: var(--paper); color: var(--ink); border-color: var(--paper); align-self: flex-start;">
+          Découvrir notre histoire
+          <span class="arr">→</span>
+        </a>
+      </div>
+
+      <div class="qc__visual reveal">
+        <img class="qc__badge" src="assets/faitqc.png" alt="Fabriqué au Québec" loading="lazy">
+      </div>
     </div>
   </div>
 </section>
 
-<!-- ─── 4. MICROBIOTE (pinned horizontal) ─── -->
-<section class="micro on-dark" id="micro">
-  <div class="micro__pin" id="microPin">
-    <div class="micro__track" id="microTrack">
-      <div class="micro__head">
-        <div class="eyebrow"><span class="dot"></span>04 / Microbiote</div>
-        <h2>Cent mille <span class="accent">milliards</span> de cellules vivantes,<br>réparties en mille espèces.</h2>
-        <p class="mute">Le microbiote intestinal est un organe à part entière. Sa diversité conditionne la digestion, l'immunité et l'équilibre quotidien.</p>
-      </div>
-
-      <article class="micro__panel">
-        <div>
-          <div class="pn">Densité</div>
-          <div class="big">100<span class="unit">Trillions</span></div>
-        </div>
-        <p class="lead">Le nombre de bactéries qui peuplent votre tractus intestinal. Plus que d'étoiles dans la Voie lactée.</p>
-        <div class="ref">Réf. Sender, Fuchs &amp; Milo · 2016</div>
-      </article>
-
-      <article class="micro__panel">
-        <div>
-          <div class="pn">Diversité</div>
-          <div class="big">1 000<span class="unit">Espèces</span></div>
-        </div>
-        <p class="lead">Espèces bactériennes coexistant. Une diversité réduite est associée à de nombreuses pathologies.</p>
-        <div class="ref">Réf. Human Microbiome Project</div>
-      </article>
-
-      <article class="micro__panel micro__panel--accent">
-        <div>
-          <div class="pn">Probaclac Medic</div>
-          <div class="big">−86<span class="unit">%</span></div>
-        </div>
-        <p class="lead">de risque de diarrhée associée aux antibiotiques. Confirmé par méta-analyse clinique.</p>
-        <div class="ref">Réf. Goldenberg et al. · 2017</div>
-      </article>
-
-      <article class="micro__panel">
-        <div>
-          <div class="pn">Symptômes du SCI</div>
-          <div class="big">−50<span class="unit">%</span></div>
-        </div>
-        <p class="lead">Réduction des ballonnements et douleurs abdominales avec Probaclac Côlon Irritable, sur 8 semaines.</p>
-        <div class="ref">Réf. études cliniques · 2021</div>
-      </article>
-    </div>
-    <div class="micro__progress" aria-hidden="true"><span id="microBar"></span></div>
-  </div>
-</section>
-
-<!-- ─── 4.5 ÉTUDES CLINIQUES ─── -->
-<section class="section on-dark" id="etudes">
+<!-- ─── TROUVEZ VOTRE FORMULE — 4 product cards ─── -->
+<section class="section" id="formules">
   <div class="wrap">
-    <div class="etudes__head">
+    <div class="formules__head">
       <div>
-        <div class="eyebrow"><span class="dot"></span>05 / Études cliniques</div>
-        <h2>La preuve,<br>pas la <span class="accent">promesse.</span></h2>
+        <div class="eyebrow"><span class="dot"></span>Nos formules</div>
+        <h2>Trouvez votre <span class="accent">formule.</span></h2>
       </div>
-      <p>Souches sélectionnées sur la base d'essais cliniques publiés — randomisés, double insu, contrôlés. Chaque chiffre ci-dessous est cité depuis une étude.</p>
+      <p>Une gamme conçue pour chaque profil et chaque besoin — de la prévention quotidienne à l'accompagnement de conditions spécifiques.</p>
     </div>
-    <div class="etudes__grid">
-      <article class="etudes__stat">
-        <span class="pn">01 / Diarrhée</span>
-        <div class="num"><span class="sym">−</span>86<span class="unit">%</span></div>
-        <div class="cond">Diarrhée · antibiotiques</div>
-        <p class="desc">Réduction des cas de diarrhée associée aux antibiotiques avec Probaclac Medic.</p>
-      </article>
-      <article class="etudes__stat">
-        <span class="pn">02 / Vaginose</span>
-        <div class="num"><span class="sym">−</span>81<span class="unit">%</span></div>
-        <div class="cond">Vaginose bactérienne</div>
-        <p class="desc">Diminution de la récurrence de vaginose bactérienne sur 6 mois.</p>
-      </article>
-      <article class="etudes__stat">
-        <span class="pn">03 / C. difficile</span>
-        <div class="num"><span class="sym">−</span>61<span class="unit">%</span></div>
-        <div class="cond">C. difficile · nosocomial</div>
-        <p class="desc">Réduction des infections nosocomiales à <em>C.&nbsp;difficile</em> en milieu hospitalier.</p>
-      </article>
-      <article class="etudes__stat">
-        <span class="pn">04 / Régularité SCI</span>
-        <div class="num"><span class="sym">+</span>33<span class="unit">%</span></div>
-        <div class="cond">Régularité · SCI</div>
-        <p class="desc">Amélioration de la régularité intestinale chez les patients atteints du syndrome de l'intestin irritable.</p>
-      </article>
+
+    <div class="formules__grid">
+      <a class="formule-card" href="/products/probaclac-adultes">
+        <div class="formule-card__img">
+          <span class="formule-card__tag">Quotidien</span>
+          <img src="assets/thumbs/adultes.webp" alt="Probaclac Adultes" loading="lazy">
+          <span class="formule-card__npn">NPN 80013765</span>
+        </div>
+        <div class="formule-card__body">
+          <h3 class="formule-card__title">Adultes</h3>
+          <p class="formule-card__desc">7 souches, 6,5 milliards UFC. Pour un usage quotidien dès 18 ans — soutien gastro-intestinal et immunitaire.</p>
+          <span class="formule-card__cta">
+            Voir le produit
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </span>
+        </div>
+      </a>
+
+      <a class="formule-card" href="/collections/all">
+        <div class="formule-card__img">
+          <span class="formule-card__tag">Maturité</span>
+          <img src="assets/thumbs/50plus.webp" alt="Probaclac 50 ans et +" loading="lazy">
+        </div>
+        <div class="formule-card__body">
+          <h3 class="formule-card__title">50 ans et +</h3>
+          <p class="formule-card__desc">Formule renforcée en bifidobactéries pour soutenir la flore intestinale qui évolue avec l'âge.</p>
+          <span class="formule-card__cta">
+            Voir le produit
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </span>
+        </div>
+      </a>
+
+      <a class="formule-card" href="/collections/all">
+        <div class="formule-card__img">
+          <span class="formule-card__tag">Mobilité</span>
+          <img src="assets/thumbs/voyage.webp" alt="Probaclac Voyageurs" loading="lazy">
+        </div>
+        <div class="formule-card__body">
+          <h3 class="formule-card__title">Voyageurs</h3>
+          <p class="formule-card__desc">9 souches + vitamine C. Prévention de la diarrhée du voyageur et soutien immunitaire en déplacement.</p>
+          <span class="formule-card__cta">
+            Voir le produit
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </span>
+        </div>
+      </a>
+
+      <a class="formule-card" href="/collections/all">
+        <div class="formule-card__img">
+          <span class="formule-card__tag">Confort digestif</span>
+          <img src="assets/thumbs/sci.webp" alt="Probaclac Côlon Irritable" loading="lazy">
+        </div>
+        <div class="formule-card__body">
+          <h3 class="formule-card__title">Côlon Irritable</h3>
+          <p class="formule-card__desc">10 milliards UFC. Formule ciblée pour soulager gaz, ballonnements et inconforts liés au SCI.</p>
+          <span class="formule-card__cta">
+            Voir le produit
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </span>
+        </div>
+      </a>
     </div>
-    <div class="etudes__cta">
-      <a class="btn btn--solid" href="https://etudes.probaclac.ca/">
-        Consulter toutes les études
+
+    <div class="formules__all">
+      <a class="btn btn--solid" href="/collections/all">
+        Voir toutes les formules
         <span class="arr">→</span>
       </a>
     </div>
   </div>
 </section>
 
-<!-- ─── 4.7 NOUVEAUTÉS ─── -->
+<!-- ─── NOUVEAUTÉS ─── -->
 <section class="section" id="nouveautes">
   <div class="wrap">
     <div class="nouv__head">
       <div>
-        <div class="eyebrow"><span class="dot"></span>06 / Nouveautés</div>
+        <div class="eyebrow"><span class="dot"></span>Nouveautés</div>
         <h2>Deux nouvelles<br><span class="accent">formules.</span></h2>
       </div>
       <p>Probaclac élargit sa gamme avec deux probiotiques ciblés — pour le syndrome du côlon irritable et pour les infections à levure.</p>
@@ -1733,86 +1826,47 @@ html.lenis,html.lenis body{ height:auto; }
   </div>
 </section>
 
-<!-- ─── 5. QUÉBEC ─── -->
-<section class="section">
+<!-- ─── ÉTUDES CLINIQUES ─── -->
+<section class="section on-dark" id="etudes">
   <div class="wrap">
-    <div class="qc__grid">
-      <div class="qc__mark reveal">
-        <span class="qc-corner">07 / Origine</span>
-        <img class="qc__stamp" src="assets/faitqc.png" alt="Fabriqué au Québec" loading="lazy">
-        <span class="qc-type">QC<span class="dot" aria-hidden="true"></span></span>
-        <span class="qc-corner br">Blainville · J7C 0R4</span>
-      </div>
-
-      <div class="qc__body">
-        <div class="eyebrow"><span class="dot"></span>Origine</div>
-        <h2 class="reveal">
-          Probiotiques entièrement<br>
-          <span class="light">faits au <span class="accent" style="font-style:italic; font-weight:300;">Québec.</span></span>
-        </h2>
-        <p class="reveal" style="color:var(--mute); max-width: 44ch;">
-          De la <strong style="font-weight:700; color:var(--ink);">recherche scientifique</strong> à la <strong style="font-weight:700; color:var(--ink);">fabrication pharmaceutique</strong>, en passant par la formulation et le contrôle qualité — chaque étape se fait ici, au Québec. Une marque indépendante, ancrée localement et reconnue par les pharmaciens d'ici.
-        </p>
-
-        <div class="qc__pills reveal">
-          <div class="qc-pill">
-            <span class="qc-pill__ic"><svg viewBox="0 0 24 24"><path d="M9 11l3 3L22 4M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg></span>
-            <span class="qc-pill__lbl">
-              <span class="qc-pill__title">Recherche &amp; développement</span>
-              <span class="qc-pill__sub">Formulé à Montréal</span>
-            </span>
-          </div>
-          <div class="qc-pill">
-            <span class="qc-pill__ic"><svg viewBox="0 0 24 24"><path d="M3 21h18M5 21V7l7-4 7 4v14M9 9h.01M15 9h.01M9 13h.01M15 13h.01M9 17h.01M15 17h.01"/></svg></span>
-            <span class="qc-pill__lbl">
-              <span class="qc-pill__title">Fabrication locale</span>
-              <span class="qc-pill__sub">Standards pharmaceutiques</span>
-            </span>
-          </div>
-          <div class="qc-pill">
-            <span class="qc-pill__ic"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="5"/><path d="M20 21a8 8 0 0 0-16 0"/></svg></span>
-            <span class="qc-pill__lbl">
-              <span class="qc-pill__title">Recommandé en pharmacie</span>
-              <span class="qc-pill__sub">Par les pharmaciens d'ici</span>
-            </span>
-          </div>
-          <div class="qc-pill">
-            <span class="qc-pill__ic"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15 15 0 0 1 0 20M12 2a15 15 0 0 0 0 20"/></svg></span>
-            <span class="qc-pill__lbl">
-              <span class="qc-pill__title">Distribué partout au Canada</span>
-              <span class="qc-pill__sub">Pharmacies et en ligne</span>
-            </span>
-          </div>
-        </div>
-
-        <a class="btn btn--solid" href="https://etudes.probaclac.ca/">
-          Découvrir notre histoire
-          <span class="arr">→</span>
-        </a>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ─── 6. ORANGE BAND CTA ─── -->
-<section class="section band">
-  <div class="wrap">
-    <div class="band__inner">
+    <div class="etudes__head">
       <div>
-        <div class="eyebrow" style="color:var(--ink); opacity:.7;">06 / Le bon probiotique</div>
-        <h2 style="margin-top:1rem;">
-          Vous hésitez<br>
-          <span class="italic">entre douze formules ?</span>
-        </h2>
-        <p class="lead">Un parcours guidé de deux questions vous oriente vers la formule la mieux adaptée à votre âge, votre profil ou votre condition.</p>
+        <div class="eyebrow"><span class="dot"></span>Études cliniques</div>
+        <h2>La preuve,<br>pas la <span class="accent">promesse.</span></h2>
       </div>
-      <div class="band__right">
-        <div class="step">Outil interactif · 30 sec</div>
-        <a class="btn btn--solid" href="https://etudes.probaclac.ca/lebonprobiotique.html">
-          Trouver mon probiotique
-          <span class="arr">→</span>
-        </a>
-      </div>
+      <p>Souches sélectionnées sur la base d'essais cliniques publiés — randomisés, double insu, contrôlés. Chaque chiffre ci-dessous est cité depuis une étude.</p>
+    </div>
+    <div class="etudes__grid">
+      <article class="etudes__stat">
+        <span class="pn">01 / Diarrhée</span>
+        <div class="num"><span class="sym">−</span>86<span class="unit">%</span></div>
+        <div class="cond">Diarrhée · antibiotiques</div>
+        <p class="desc">Réduction des cas de diarrhée associée aux antibiotiques avec Probaclac Medic.</p>
+      </article>
+      <article class="etudes__stat">
+        <span class="pn">02 / Vaginose</span>
+        <div class="num"><span class="sym">−</span>81<span class="unit">%</span></div>
+        <div class="cond">Vaginose bactérienne</div>
+        <p class="desc">Diminution de la récurrence de vaginose bactérienne sur 6 mois.</p>
+      </article>
+      <article class="etudes__stat">
+        <span class="pn">03 / C. difficile</span>
+        <div class="num"><span class="sym">−</span>61<span class="unit">%</span></div>
+        <div class="cond">C. difficile · nosocomial</div>
+        <p class="desc">Réduction des infections nosocomiales à <em>C.&nbsp;difficile</em> en milieu hospitalier.</p>
+      </article>
+      <article class="etudes__stat">
+        <span class="pn">04 / Régularité SCI</span>
+        <div class="num"><span class="sym">+</span>33<span class="unit">%</span></div>
+        <div class="cond">Régularité · SCI</div>
+        <p class="desc">Amélioration de la régularité intestinale chez les patients atteints du syndrome de l'intestin irritable.</p>
+      </article>
+    </div>
+    <div class="etudes__cta">
+      <a class="btn btn--solid" href="https://etudes.probaclac.ca/">
+        Consulter toutes les études
+        <span class="arr">→</span>
+      </a>
     </div>
   </div>
 </section>
@@ -1884,8 +1938,8 @@ html.lenis,html.lenis body{ height:auto; }
       </div>
     </div>
     <div class="foot__legal">
-      <span>© Probaclac · Nicar Canada · Blainville</span>
-      <span>FR · EN · NPN 80066788</span>
+      <span>Probaclac · Probiotiques de grade pharmaceutique · Conçu et fabriqué <em style="font-style: italic; font-weight: 300;">au Québec</em></span>
+      <span>© Nicar Canada · Blainville · NPN 80066788</span>
     </div>
   </div>
 </footer>
