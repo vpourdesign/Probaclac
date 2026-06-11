@@ -41,7 +41,7 @@ html{ -webkit-text-size-adjust:100%; }
 html, body{ margin:0; padding:0; }
 body{
   font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  font-weight: 300;
+  font-weight: 400;
   font-size: var(--t-body);
   line-height: 1.5;
   letter-spacing: -.005em;
@@ -240,7 +240,7 @@ html.lenis,html.lenis body{ height:auto; }
 }
 .nav__links{
   display:flex; gap: clamp(1.25rem, 2.4vw, 2.4rem);
-  font-size: .88rem; font-weight: 300;
+  font-size: .88rem; font-weight: 400;
 }
 .nav__links a{
   position:relative; padding: .5em 0;
@@ -253,7 +253,7 @@ html.lenis,html.lenis body{ height:auto; }
 .nav__links a:hover::after{ right:0; }
 .nav__right{
   display:flex; align-items:center; gap:1.15rem;
-  font-size: .82rem; font-weight: 300;
+  font-size: .82rem; font-weight: 400;
 }
 .nav__lang{ letter-spacing: .1em; text-transform: uppercase; font-weight: 700; font-size: .72rem; }
 .nav__lang .sep{ margin: 0 .35em; opacity:.45; }
@@ -272,7 +272,7 @@ html.lenis,html.lenis body{ height:auto; }
 
 /* ── Megamenu ── */
 .nav__btn{
-  font: inherit; font-size:.88rem; font-weight:300;
+  font: inherit; font-size:.88rem; font-weight:400;
   position:relative; padding: .5em 0; color: inherit;
   display:inline-flex; align-items:center; gap: .35em;
 }
@@ -469,10 +469,10 @@ html.lenis,html.lenis body{ height:auto; }
 .hero__h1{
   font-weight:700; letter-spacing:-.045em;
   font-size: var(--t-h1);
-  line-height: .92;
+  line-height: .95;
   margin: 0;
+  color: var(--ink);
 }
-.hero__h1 .line{ display:block; }
 .hero__h1 .pulse{
   display:inline-block; vertical-align:middle;
   width:.22em; height:.22em; border-radius:50%;
@@ -502,6 +502,9 @@ html.lenis,html.lenis body{ height:auto; }
   position: relative; height: 100%;
   display:flex; flex-direction: column; align-items:center; justify-content:center;
   gap: 1.25rem;
+  border: 1px solid var(--rule-strong);
+  border-radius: 28px;
+  padding: clamp(1.25rem, 2.5vw, 2rem);
 }
 .hero-bottle__stage{
   position: relative;
@@ -1603,10 +1606,7 @@ html.lenis,html.lenis body{ height:auto; }
   <div class="wrap" style="width:100%;">
     <div class="hero__body">
       <div class="hero__left">
-        <h1 class="hero__h1">
-          <span class="line">Le probiotique le plus</span>
-          <span class="line">complet et efficace.</span>
-        </h1>
+        <h1 class="hero__h1">Le probiotique le plus complet et efficace.</h1>
 
         <div class="hero__ctas">
           <a class="btn btn--solid" href="#formules">
@@ -1668,12 +1668,9 @@ html.lenis,html.lenis body{ height:auto; }
 <section class="section manifesto on-dark">
   <div class="wrap">
     <div class="manifesto__inner">
-      <div>
-        <div class="eyebrow" style="color: var(--accent); margin-bottom: 1.5rem;"><span class="dot"></span>Notre manifeste</div>
-        <h2 class="manifesto__quote" data-split>
-          Une science précise dans chaque capsule.
-        </h2>
-      </div>
+      <h2 class="manifesto__quote" data-split>
+        Une science précise dans chaque capsule.
+      </h2>
       <div class="manifesto__index">Manifeste</div>
     </div>
     <div class="manifesto__pillars">
@@ -2162,7 +2159,7 @@ const heroTl = gsap.timeline({ defaults: { ease: "power3.out" } });
 heroTl
   .from(".hero__eyebrow .left", { y: 18, opacity: 0, duration: .7 }, 0)
   .from(".hero__eyebrow .right .pill", { y: 18, opacity: 0, duration: .7, stagger: .08 }, .05)
-  .from(".hero__h1 .line", { y: "110%", opacity: 0, duration: 1, stagger: .12, clipPath: "inset(0 0 100% 0)" }, .15)
+  .from(".hero__h1 .w > span", { y: "110%", opacity: 0, duration: 1, stagger: .07, clipPath: "inset(0 0 100% 0)" }, .15)
   .from(".hero__sub", { y: 24, opacity: 0, duration: .9 }, .55)
   .from(".hero__ctas .btn", { y: 24, opacity: 0, duration: .8, stagger: .08 }, .7)
   .from(".hero__foot .stat", { y: 24, opacity: 0, duration: .8, stagger: .08 }, .9);
@@ -2387,7 +2384,7 @@ gsap.utils.toArray('section h2, .hero__h1').forEach(h => {
   h.innerHTML = words.map(w => `<span class="w" style="display:inline-block;overflow:hidden;padding:0 .12em 0 0;"><span style="display:inline-block;transform:translateY(110%);">${w}</span></span>`).join(' ');
 });
 
-ScrollTrigger.batch('section h2 .w > span, .hero__h1 .w > span, .hero__h1 .line', {
+ScrollTrigger.batch('section h2 .w > span, .hero__h1 .w > span', {
   start: 'top 88%',
   onEnter: batch => gsap.to(batch, {
     y: 0,
