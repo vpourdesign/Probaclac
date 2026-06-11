@@ -30,7 +30,7 @@
   --t-lead: clamp(1.05rem, .6vw + .9rem, 1.25rem);
   --t-h3: clamp(1.25rem, 1vw + 1rem, 1.65rem);
   --t-h2: clamp(2.25rem, 5vw, 5.5rem);
-  --t-h1: clamp(3rem, 11vw, 11.5rem);
+  --t-h1: clamp(2.5rem, 6.5vw, 7rem);
   --t-display: clamp(4rem, 16vw, 17rem);
 
   --ease: cubic-bezier(.16,1,.3,1);
@@ -225,8 +225,17 @@ html.lenis,html.lenis body{ height:auto; }
   text-transform: uppercase; letter-spacing: .15em;
 }
 .hero__body{
-  margin-top: clamp(3rem, 7vw, 6rem);
+  margin-top: clamp(2rem, 4vw, 3.5rem);
+  display:grid;
+  grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
+  gap: clamp(2rem, 4vw, 4rem);
+  align-items: center;
 }
+@media (max-width: 880px){
+  .hero__body{ grid-template-columns: 1fr; gap: 1.5rem; }
+}
+.hero__left{ display:flex; flex-direction: column; gap: clamp(1.25rem, 2vw, 1.75rem); }
+.hero__right{ position: relative; min-height: clamp(360px, 42vw, 540px); }
 .hero__h1{
   font-weight:700; letter-spacing:-.045em;
   font-size: var(--t-h1);
@@ -248,16 +257,100 @@ html.lenis,html.lenis body{ height:auto; }
   100% { transform: translateY(.06em) scale(1); }
 }
 .hero__sub{
-  margin-top: clamp(1.5rem, 2.5vw, 2.5rem);
-  max-width: 38rem;
+  max-width: 34rem;
   font-size: var(--t-lead);
   line-height: 1.45;
   color: var(--mute);
   font-weight: 300;
 }
 .hero__ctas{
-  margin-top: clamp(1.75rem, 3vw, 2.5rem);
   display:flex; gap: .75rem; flex-wrap: wrap;
+}
+
+/* ── Hero bottle slider (right column) ── */
+.hero-bottle{
+  position: relative; height: 100%;
+  display:flex; align-items:center; justify-content:center;
+}
+.hero-bottle__stage{
+  position: relative;
+  width: 100%;
+  min-height: clamp(360px, 42vw, 540px);
+  display:flex; align-items:flex-end; justify-content:center;
+  isolation: isolate;
+}
+.hero-bottle__name{
+  position:absolute; left:50%; top:50%;
+  transform: translate(-50%, -50%);
+  width: 130%;
+  max-width: none;
+  text-align:center;
+  font-weight: 700; letter-spacing: -.045em;
+  font-size: clamp(2rem, 4.6vw, 4.4rem);
+  line-height: .92;
+  color: var(--ink);
+  pointer-events: none;
+  z-index: 0;
+  white-space: normal;
+}
+.hero-bottle__name .light{ font-weight:300; display:block; }
+.hero-bottle__name .accent{ color: var(--accent); }
+.hero-bottle__slide{
+  position: absolute; inset: 0;
+  display:flex; align-items:center; justify-content:center;
+  opacity: 0;
+  transition: opacity 1s var(--ease);
+  z-index: 1;
+  pointer-events: none;
+}
+.hero-bottle__slide.is-active{ opacity:1; pointer-events: auto; }
+.hero-bottle__slide img{
+  max-height: clamp(320px, 40vw, 520px);
+  width: auto; height: auto;
+  filter:
+    drop-shadow(0 30px 50px rgba(10,10,10,.22))
+    drop-shadow(0 10px 20px rgba(10,10,10,.1));
+  transform: translateY(8px) scale(.97);
+  transition: transform 1.2s var(--ease);
+}
+.hero-bottle__slide.is-active img{ transform: translateY(0) scale(1); }
+.hero-bottle__meta{
+  position: absolute; right: 0; top: 0;
+  display:flex; flex-direction: column; align-items: flex-end; gap: .3rem;
+  font-size: var(--t-micro); text-transform: uppercase; letter-spacing: .22em;
+  color: var(--mute); font-weight: 700;
+}
+.hero-bottle__meta .num{ color: var(--accent); }
+.hero-bottle__dots{
+  position: absolute; left: 0; bottom: -1.75rem;
+  display:flex; gap: .55rem;
+  z-index: 5;
+}
+.hero-bottle__dots button{
+  width: 22px; height: 22px; border-radius:50%;
+  border: 1px solid var(--rule-strong);
+  position: relative;
+  transition: border-color .35s var(--ease);
+}
+.hero-bottle__dots button::after{
+  content:""; position:absolute; inset:5px; border-radius:50%;
+  background: var(--ink); opacity:0; transform: scale(.4);
+  transition: opacity .35s var(--ease), transform .35s var(--ease);
+}
+.hero-bottle__dots button[aria-selected="true"]::after{ opacity:1; transform: scale(1); }
+.hero-bottle__dots button[aria-selected="true"]{ border-color: var(--ink); }
+.hero-bottle__bar{
+  position: absolute; right: 0; bottom: -1.5rem;
+  width: 60px; height: 2px;
+  background: rgba(10,10,10,.1);
+}
+.hero-bottle__bar span{ display:block; height:100%; width:0; background: var(--accent); }
+
+@media (max-width: 880px){
+  .hero-bottle__name{ font-size: clamp(1.6rem, 8vw, 2.5rem); }
+  .hero__right{ min-height: clamp(280px, 70vw, 400px); margin-top: 1rem; }
+  .hero-bottle__stage{ min-height: clamp(280px, 70vw, 400px); }
+  .hero-bottle__slide img{ max-height: clamp(240px, 60vw, 360px); }
 }
 .hero__foot{
   margin-top: clamp(3rem, 6vw, 5rem);
@@ -934,23 +1027,57 @@ html.lenis,html.lenis body{ height:auto; }
     </div>
 
     <div class="hero__body">
-      <h1 class="hero__h1">
-        <span class="line">Probiotiques,</span>
-        <span class="line">formulés au<br><span class="accent" style="font-style:italic; font-weight:300;">milliard</span> près<span class="pulse" aria-hidden="true"></span></span>
-      </h1>
+      <div class="hero__left">
+        <h1 class="hero__h1">
+          <span class="line">Probiotiques,</span>
+          <span class="line">formulés au <span class="accent" style="font-style:italic; font-weight:300;">milliard</span> près<span class="pulse" aria-hidden="true"></span></span>
+        </h1>
 
-      <p class="hero__sub">
-        Douze formules conçues à Blainville, validées par la science clinique et distribuées en pharmacie. Une souche par besoin&nbsp;— jamais l'inverse.
-      </p>
+        <p class="hero__sub">
+          Douze formules conçues à Blainville, validées par la science clinique et distribuées en pharmacie. Une souche par besoin&nbsp;— jamais l'inverse.
+        </p>
 
-      <div class="hero__ctas">
-        <a class="btn btn--solid" href="#catalogue">
-          Découvrir les formules
-          <span class="arr">→</span>
-        </a>
-        <a class="btn btn--ghost" href="https://etudes.probaclac.ca/">
-          Voir les études cliniques
-        </a>
+        <div class="hero__ctas">
+          <a class="btn btn--solid" href="#catalogue">
+            Découvrir les formules
+            <span class="arr">→</span>
+          </a>
+          <a class="btn btn--ghost" href="https://etudes.probaclac.ca/">
+            Voir les études cliniques
+          </a>
+        </div>
+      </div>
+
+      <div class="hero__right">
+        <div class="hero-bottle" id="heroBottle">
+          <div class="hero-bottle__stage">
+            <div class="hero-bottle__meta">
+              <span class="num" id="heroIdx">01 / 03</span>
+              <span id="heroNpn">NPN 80066788</span>
+            </div>
+
+            <div class="hero-bottle__name" id="heroName">
+              Probaclac<span class="light">Adultes</span>
+            </div>
+
+            <div class="hero-bottle__slide is-active" data-name="Probaclac<span class='light'>Adultes</span>" data-npn="NPN 80066788">
+              <img src="assets/bottle-adultes.png" alt="Probaclac Adultes" loading="eager">
+            </div>
+            <div class="hero-bottle__slide" data-name="Probaclac<span class='light'>50 ans et +</span>" data-npn="NPN 80066790">
+              <img src="assets/bottle-50plus.png" alt="Probaclac 50 ans et +" loading="lazy">
+            </div>
+            <div class="hero-bottle__slide" data-name="Probaclac<span class='light'>Voyageurs</span>" data-npn="NPN 80066792">
+              <img src="assets/bottle-voyage.png" alt="Probaclac Voyageurs" loading="lazy">
+            </div>
+
+            <div class="hero-bottle__dots" id="heroDots" role="tablist">
+              <button role="tab" aria-selected="true"  aria-label="Adultes"></button>
+              <button role="tab" aria-selected="false" aria-label="50 ans et +"></button>
+              <button role="tab" aria-selected="false" aria-label="Voyageurs"></button>
+            </div>
+            <div class="hero-bottle__bar"><span id="heroBar"></span></div>
+          </div>
+        </div>
       </div>
     </div>
 
@@ -987,102 +1114,6 @@ html.lenis,html.lenis body{ height:auto; }
     <span class="it"><i>Lactobacillus casei</i> <span class="sep"></span></span>
   </div>
 </div>
-
-<!-- ─── 1.5 VEDETTES (auto-rotate slider) ─── -->
-<section class="section vedettes" id="vedettes">
-  <div class="wrap">
-    <div class="vedettes__head">
-      <div>
-        <div class="eyebrow"><span class="dot"></span>02 / Vedettes</div>
-        <h2>Trois formules,<br><span class="light">au quotidien.</span></h2>
-      </div>
-      <div class="vedettes__nav">
-        <button class="vedettes__arrow" id="vedPrev" aria-label="Précédent">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M11 18l-6-6 6-6"/></svg>
-        </button>
-        <div class="vedettes__dots" role="tablist" id="vedDots">
-          <button role="tab" aria-selected="true"  aria-label="Adultes"></button>
-          <button role="tab" aria-selected="false" aria-label="50 ans et +"></button>
-          <button role="tab" aria-selected="false" aria-label="Voyageurs"></button>
-        </div>
-        <button class="vedettes__arrow" id="vedNext" aria-label="Suivant">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-        </button>
-      </div>
-    </div>
-
-    <div class="vedettes__stage" id="vedStage">
-      <div class="vedettes__slides">
-        <article class="vedettes__slide is-active" data-cat="Quotidien">
-          <div class="vedettes__visual">
-            <span class="idx">01 / 03</span>
-            <img src="assets/bottle-adultes.png" alt="Probaclac Adultes" loading="eager">
-            <span class="stamp">NPN 80066788 · 60 caps</span>
-          </div>
-          <div class="vedettes__copy">
-            <div class="eyebrow">Quotidien</div>
-            <h3>Adultes<span class="light">7 souches · 6,5 milliards UFC</span></h3>
-            <p class="meta">La formule socle pour l'équilibre digestif quotidien. Sélection ciblée pour l'adulte en bonne santé.</p>
-            <ul>
-              <li><span><em>Lactobacillus rhamnosus</em>, <em>L. acidophilus</em>, <em>Bifidobacterium longum</em>…</span></li>
-              <li><span>Capsule végétale gastro-résistante</span></li>
-              <li><span>Sans allergènes prioritaires</span></li>
-            </ul>
-            <a class="btn btn--solid cta" href="/products/probaclac-adultes">
-              Découvrir Adultes
-              <span class="arr">→</span>
-            </a>
-          </div>
-        </article>
-
-        <article class="vedettes__slide" data-cat="Quotidien">
-          <div class="vedettes__visual">
-            <span class="idx">02 / 03</span>
-            <img src="assets/bottle-50plus.png" alt="Probaclac 50 ans et +" loading="lazy">
-            <span class="stamp">NPN 80066790 · 60 caps</span>
-          </div>
-          <div class="vedettes__copy">
-            <div class="eyebrow">Quotidien</div>
-            <h3>50 ans et +<span class="light">8 souches · renforcé en bifido</span></h3>
-            <p class="meta">Une formule conçue pour le microbiote qui évolue après cinquante ans, avec une concentration accrue en bifidobactéries.</p>
-            <ul>
-              <li><span>Concentration accrue en <em>Bifidobacterium longum</em></span></li>
-              <li><span>Soutien au confort digestif quotidien</span></li>
-              <li><span>Capsule végétale · vegan</span></li>
-            </ul>
-            <a class="btn btn--solid cta" href="/collections/all">
-              Découvrir 50 ans et +
-              <span class="arr">→</span>
-            </a>
-          </div>
-        </article>
-
-        <article class="vedettes__slide" data-cat="Voyage">
-          <div class="vedettes__visual">
-            <span class="idx">03 / 03</span>
-            <img src="assets/bottle-voyage.png" alt="Probaclac Voyageurs" loading="lazy">
-            <span class="stamp">NPN 80066792 · 30 caps</span>
-          </div>
-          <div class="vedettes__copy">
-            <div class="eyebrow">Voyageurs</div>
-            <h3>Voyageurs<span class="light">9 souches + vitamine C</span></h3>
-            <p class="meta">Une protection ciblée contre la diarrhée du voyageur, formulée avec neuf souches et un apport en vitamine C.</p>
-            <ul>
-              <li><span><em>Saccharomyces boulardii</em> + 8 souches lactiques</span></li>
-              <li><span>Format 30 caps · 1 par jour, 30 jours</span></li>
-              <li><span>Vitamine C · 60 mg</span></li>
-            </ul>
-            <a class="btn btn--solid cta" href="/collections/all">
-              Découvrir Voyageurs
-              <span class="arr">→</span>
-            </a>
-          </div>
-        </article>
-      </div>
-      <div class="vedettes__progress"><span id="vedBar"></span></div>
-    </div>
-  </div>
-</section>
 
 <!-- ─── 2. MANIFESTO ─── -->
 <section class="section manifesto on-dark">
@@ -1526,14 +1557,16 @@ const indexObs = new MutationObserver(() => {
 });
 indexObs.observe(document.getElementById("indexList"), { childList: true });
 
-/* Vedettes auto-rotate */
-(function setupVedettes(){
-  const slides = document.querySelectorAll(".vedettes__slide");
-  const dots   = document.querySelectorAll("#vedDots button");
-  const prev   = document.getElementById("vedPrev");
-  const next   = document.getElementById("vedNext");
-  const bar    = document.getElementById("vedBar");
-  const stage  = document.getElementById("vedStage");
+/* Hero bottle slider auto-rotate */
+(function setupHeroBottle(){
+  const root  = document.getElementById("heroBottle");
+  if(!root) return;
+  const slides = root.querySelectorAll(".hero-bottle__slide");
+  const dots   = root.querySelectorAll("#heroDots button");
+  const bar    = document.getElementById("heroBar");
+  const nameEl = document.getElementById("heroName");
+  const idxEl  = document.getElementById("heroIdx");
+  const npnEl  = document.getElementById("heroNpn");
   if(!slides.length) return;
   let i = 0, timer, barTw;
   const PERIOD = 5000;
@@ -1542,6 +1575,13 @@ indexObs.observe(document.getElementById("indexList"), { childList: true });
     i = (n + slides.length) % slides.length;
     slides.forEach((s,k) => s.classList.toggle("is-active", k === i));
     dots.forEach((d,k)   => d.setAttribute("aria-selected", k === i ? "true" : "false"));
+    const cur = slides[i];
+    if(nameEl) nameEl.innerHTML = cur.dataset.name;
+    if(npnEl)  npnEl.textContent = cur.dataset.npn;
+    if(idxEl)  idxEl.textContent = String(i+1).padStart(2,"0") + " / 0" + slides.length;
+    if(nameEl){
+      gsap.fromTo(nameEl, { opacity:0, y: 10 }, { opacity:1, y:0, duration:.7, ease:"power3.out" });
+    }
     if(bar){
       if(barTw) barTw.kill();
       bar.style.width = "0%";
@@ -1553,10 +1593,8 @@ indexObs.observe(document.getElementById("indexList"), { childList: true });
   function resume(){ if(barTw) barTw.resume(); play(); }
 
   dots.forEach((d,k) => d.addEventListener("click", () => { show(k); play(); }));
-  prev?.addEventListener("click", () => { show(i-1); play(); });
-  next?.addEventListener("click", () => { show(i+1); play(); });
-  stage.addEventListener("mouseenter", pause);
-  stage.addEventListener("mouseleave", resume);
+  root.addEventListener("mouseenter", pause);
+  root.addEventListener("mouseleave", resume);
   document.addEventListener("visibilitychange", () => document.hidden ? pause() : play());
 
   show(0); play();
