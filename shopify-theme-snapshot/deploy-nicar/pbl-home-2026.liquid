@@ -93,16 +93,6 @@
 .pblx .wrap{ max-width: 1480px; margin:0 auto; }
 .pblx .g12{ display:grid; grid-template-columns:repeat(12,1fr); gap: var(--gutter); }
 .pblx .on-dark{ position: relative; isolation: isolate; }
-.pblx .section-curtain{
-  position: absolute; inset: 0;
-  background: var(--paper);
-  z-index: 0;
-  clip-path: inset(0 0 0 0);
-  will-change: clip-path;
-  pointer-events: none;
-}
-.pblx .on-dark > *:not(.section-curtain){ position: relative; z-index: 1; }
-.pblx .js-static .section-curtain{ display: none !important; }
 .pblx .progress{
   position: fixed; top: 0; left: 0; right: 0;
   height: 2px;
@@ -2119,24 +2109,8 @@ function setChapter(c){
   chapEl.classList.toggle('on-dark__chap', c.dark);
 }
 
-/* Curtain wipe on dark sections — paper curtain slides up, revealing dark */
+/* Chapter detection on dark sections (curtain removed for robustness) */
 gsap.utils.toArray('.on-dark').forEach(sec => {
-  const curtain = document.createElement('div');
-  curtain.className = 'section-curtain';
-  sec.insertBefore(curtain, sec.firstChild);
-
-  gsap.to(curtain, {
-    clipPath: 'inset(0 0 100% 0)',
-    ease: 'power3.out',
-    scrollTrigger: {
-      trigger: sec,
-      start: 'top 95%',
-      end: 'top 25%',
-      scrub: 0.8,
-    },
-  });
-
-  // chapter detection
   const ch = CHAPTERS.find(c => sec.matches(c.sel));
   if(ch){
     ScrollTrigger.create({

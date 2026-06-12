@@ -132,19 +132,10 @@ html.lenis,html.lenis body{ height:auto; }
 /* ─────────────────────────────────────────────────────────────────
    SECTION TRANSITIONS — curtain reveal + scroll progress
    ───────────────────────────────────────────────────────────────── */
-/* Dark sections: a paper-colored curtain sits on top and slides UP
-   to reveal the dark bg underneath as the section enters viewport. */
+/* Dark sections keep their dark bg at all times (robust, no JS dependency).
+   A clip-path curtain that depends on scroll JS risks hiding content if the
+   trigger misfires — so the entrance is handled by content reveals instead. */
 .on-dark{ position: relative; isolation: isolate; }
-.section-curtain{
-  position: absolute; inset: 0;
-  background: var(--paper);
-  z-index: 0;
-  clip-path: inset(0 0 0 0);
-  will-change: clip-path;
-  pointer-events: none;
-}
-.on-dark > *:not(.section-curtain){ position: relative; z-index: 1; }
-.js-static .section-curtain{ display: none !important; }
 
 /* Scroll progress line (top of viewport) */
 .progress{
@@ -2294,24 +2285,8 @@ function setChapter(c){
   chapEl.classList.toggle('on-dark__chap', c.dark);
 }
 
-/* Curtain wipe on dark sections — paper curtain slides up, revealing dark */
+/* Chapter detection on dark sections (curtain removed for robustness) */
 gsap.utils.toArray('.on-dark').forEach(sec => {
-  const curtain = document.createElement('div');
-  curtain.className = 'section-curtain';
-  sec.insertBefore(curtain, sec.firstChild);
-
-  gsap.to(curtain, {
-    clipPath: 'inset(0 0 100% 0)',
-    ease: 'power3.out',
-    scrollTrigger: {
-      trigger: sec,
-      start: 'top 95%',
-      end: 'top 25%',
-      scrub: 0.8,
-    },
-  });
-
-  // chapter detection
   const ch = CHAPTERS.find(c => sec.matches(c.sel));
   if(ch){
     ScrollTrigger.create({
