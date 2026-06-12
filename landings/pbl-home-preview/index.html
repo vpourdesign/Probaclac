@@ -113,8 +113,8 @@ html.lenis,html.lenis body{ height:auto; }
 .on-dark .btn--ghost{ color:var(--paper); border-color: rgba(255,255,255,.4); }
 .on-dark .btn--ghost:hover{ background: var(--paper); color: var(--ink); border-color:var(--paper); }
 
-/* Dark theme block helper */
-.on-dark{ background:var(--ink); color:var(--paper); }
+/* Dark theme block helper — !important so it survives host-theme bg resets */
+.on-dark{ background:var(--ink) !important; color:var(--paper); }
 .on-dark .rule{ background: rgba(255,255,255,.16); }
 .on-dark .rule.strong{ background: rgba(255,255,255,.3); }
 .on-dark .mute{ color: rgba(255,255,255,.55); }
@@ -1215,7 +1215,7 @@ html.lenis,html.lenis body{ height:auto; }
 /* ─────────────────────────────────────────────────────────────────
    FINAL CTA (orange band before footer)
    ───────────────────────────────────────────────────────────────── */
-.on-accent{ background: var(--accent); color: var(--ink); }
+.on-accent{ background: var(--accent) !important; color: var(--ink); }
 .on-accent .rule{ background: rgba(10,10,10,.18); }
 .dot--ink{ background: var(--ink) !important; }
 .final__inner{
