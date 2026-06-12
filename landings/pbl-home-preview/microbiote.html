@@ -1,0 +1,689 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<title>Microbiote et probiotiques — Les 5 microflores du corps | Probaclac</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Cinq microflores, du buccal au vaginal, colonisent le tractus digestif. Espèces probiotiques prédominantes et agents pathogènes, zone par zone.">
+
+<style>
+/* ─────────────────────────────────────────────────────────────────
+   PROBACLAC — Editorial · B&W · Helvetica
+   Page Microbiote : silhouette sticky, 5 zones qui s'allument
+   ───────────────────────────────────────────────────────────────── */
+
+:root{
+  --ink: #0a0a0a;
+  --paper: #fafaf7;
+  --rule: rgba(10,10,10,.12);
+  --rule-strong: rgba(10,10,10,.22);
+  --mute: rgba(10,10,10,.56);
+  --accent: #ff5b04;
+
+  --margin: clamp(1.25rem, 4vw, 4rem);
+  --gutter: clamp(1rem, 2vw, 2rem);
+
+  --t-micro: .72rem;
+  --t-body: clamp(.95rem, 1vw + .55rem, 1.05rem);
+  --t-lead: clamp(1.05rem, .6vw + .9rem, 1.25rem);
+  --t-h3: clamp(1.25rem, 1vw + 1rem, 1.65rem);
+  --t-h2: clamp(2.25rem, 5vw, 5.5rem);
+  --t-h1: clamp(2.5rem, 6.5vw, 7rem);
+
+  --ease: cubic-bezier(.16,1,.3,1);
+}
+
+*,*::before,*::after{ box-sizing: border-box; }
+html{ -webkit-text-size-adjust:100%; }
+html, body{ margin:0; padding:0; }
+body{
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-weight: 400;
+  font-size: var(--t-body);
+  line-height: 1.5;
+  letter-spacing: -.005em;
+  color: var(--ink);
+  background: var(--paper);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  overflow-x: hidden;
+}
+img,svg{ display:block; max-width:100%; height:auto; }
+a{ color:inherit; text-decoration:none; }
+button{ font:inherit; color:inherit; background:none; border:0; padding:0; cursor:pointer; }
+
+html.lenis,html.lenis body{ height:auto; }
+.lenis.lenis-smooth{ scroll-behavior:auto !important; }
+.lenis.lenis-stopped{ overflow:hidden; }
+
+.eyebrow{ font-size: var(--t-micro); font-weight: 700; text-transform: uppercase; letter-spacing: .22em; }
+.eyebrow .dot{
+  display:inline-block; width:.42em; height:.42em; border-radius:50%;
+  background: var(--accent); vertical-align: middle; margin: 0 .58em 0 0; transform: translateY(-1px);
+}
+.dot--ink{ background: var(--ink) !important; }
+
+.btn{
+  display:inline-flex; align-items:center; gap:.7em;
+  font-weight:700; letter-spacing:-.01em; font-size: .92rem;
+  padding: 1.05rem 1.6rem; border-radius: 999px; border: 1px solid currentColor;
+  transition: transform .5s var(--ease), background .35s var(--ease), color .35s var(--ease);
+  white-space: nowrap;
+}
+.btn .arr{ display:inline-block; transition: transform .5s var(--ease); }
+.btn:hover .arr{ transform: translateX(.25em); }
+.btn--solid{ background:var(--ink); color:var(--paper); border-color:var(--ink); }
+.btn--solid:hover{ background: var(--accent); border-color: var(--accent); color: var(--ink); }
+.btn--ghost{ background:transparent; }
+.btn--ghost:hover{ background: var(--ink); color: var(--paper); }
+.on-dark .btn--solid{ background:var(--paper); color:var(--ink); border-color:var(--paper); }
+.on-dark .btn--solid:hover{ background: var(--accent); border-color: var(--accent); color: var(--ink); }
+.on-dark .btn--ghost{ color:var(--paper); border-color: rgba(255,255,255,.4); }
+.on-dark .btn--ghost:hover{ background: var(--paper); color: var(--ink); border-color:var(--paper); }
+
+.on-dark{ background:var(--ink); color:var(--paper); position: relative; isolation: isolate; }
+.mute{ color: var(--mute); }
+.rule{ height:1px; background:var(--rule); border:0; }
+
+.section{ padding: clamp(4rem, 9vw, 9rem) var(--margin); position:relative; }
+.wrap{ max-width: 1480px; margin:0 auto; }
+
+/* Section curtain */
+.section-curtain{
+  position: absolute; inset: 0; background: var(--paper);
+  z-index: 0; clip-path: inset(0 0 0 0); will-change: clip-path; pointer-events: none;
+}
+.on-dark > *:not(.section-curtain){ position: relative; z-index: 1; }
+.is-static .section-curtain{ display: none !important; }
+
+/* Progress + cursor */
+.progress{ position: fixed; top: 0; left: 0; right: 0; height: 2px; background: rgba(10,10,10,.06); z-index: 60; pointer-events: none; }
+.progress__bar{ height: 100%; width: 0; background: var(--accent); transform-origin: left; }
+.cursor{
+  position: fixed; top: 0; left: 0; width: 14px; height: 14px; border-radius: 50%;
+  background: var(--accent); pointer-events: none; z-index: 100; mix-blend-mode: difference;
+  transform: translate3d(-50%, -50%, 0); transition: width .35s var(--ease), height .35s var(--ease); opacity: 0;
+}
+.cursor.is-hover{ width: 48px; height: 48px; }
+@media (hover: none), (max-width: 760px){ .cursor{ display: none; } }
+
+.js-ready .reveal{ opacity:0; transform: translateY(28px); will-change: opacity, transform; }
+.is-static *,.is-static *::before,.is-static *::after{ animation:none !important; transition:none !important; }
+.is-static .reveal{ opacity:1 !important; transform:none !important; }
+
+/* ─── NAV ─── */
+.nav{
+  position: fixed; top:0; left:0; right:0; z-index:50;
+  display:flex; align-items:center; justify-content:space-between;
+  padding: .9rem var(--margin);
+  background: rgba(250,250,247,.78);
+  backdrop-filter: blur(14px) saturate(1.2);
+  -webkit-backdrop-filter: blur(14px) saturate(1.2);
+  border-bottom: 1px solid transparent; transition: border-color .4s var(--ease);
+}
+.nav.scrolled{ border-bottom-color: var(--rule); }
+.nav.on-dark-nav{ background: rgba(10,10,10,.6); }
+.nav.on-dark-nav .nav__links a, .nav.on-dark-nav .nav__right, .nav.on-dark-nav .nav__lang{ color: var(--paper); }
+.nav.on-dark-nav .nav__icobtn{ border-color: rgba(255,255,255,.3); }
+.nav.on-dark-nav .nav__logo img{ filter: brightness(0) invert(1); }
+.nav__logo{ display:flex; align-items:center; }
+.nav__logo img{ height: clamp(28px, 3vw, 40px); width: auto; display: block; transition: filter .4s var(--ease); }
+.nav__links{ display:flex; gap: clamp(1.25rem, 2.4vw, 2.4rem); font-size: .88rem; font-weight: 400; }
+.nav__links a{ position:relative; padding: .5em 0; }
+.nav__links a::after{ content:""; position:absolute; left:0; right:100%; bottom:.2em; height:1px; background: currentColor; transition: right .45s var(--ease); }
+.nav__links a:hover::after{ right:0; }
+.nav__right{ display:flex; align-items:center; gap:1.15rem; font-size: .82rem; }
+.nav__lang{ letter-spacing: .1em; text-transform: uppercase; font-weight: 700; font-size: .72rem; }
+.nav__lang .sep{ margin: 0 .35em; opacity:.45; }
+.nav__icobtn{ width:34px; height:34px; border-radius:50%; border:1px solid var(--rule-strong); display:flex; align-items:center; justify-content:center; transition: background .35s var(--ease), color .35s var(--ease), border-color .35s var(--ease); }
+.nav__icobtn:hover{ background:var(--ink); color:var(--paper); border-color: var(--ink); }
+.nav.on-dark-nav .nav__icobtn:hover{ background: var(--paper); color: var(--ink); border-color: var(--paper); }
+.nav__icobtn svg{ width:14px; height:14px; }
+@media (max-width: 860px){ .nav__links{ display:none; } }
+
+/* ─── HERO (white) ─── */
+.hero{
+  min-height: 78svh;
+  padding-top: clamp(7rem, 12vh, 11rem);
+  padding-bottom: clamp(2.5rem, 4vw, 4rem);
+  display:flex; flex-direction:column; justify-content:center;
+}
+.hero__h1{ font-weight:700; letter-spacing:-.045em; font-size: var(--t-h1); line-height: .95; margin: 0; color: var(--ink); max-width: 16ch; }
+.hero__lead{ margin: clamp(1.5rem, 3vw, 2.25rem) 0 0; font-size: var(--t-lead); line-height: 1.5; color: var(--mute); max-width: 52ch; }
+.hero__meta{
+  margin-top: clamp(2.5rem, 5vw, 4rem);
+  border-top: 1px solid var(--rule);
+  padding-top: clamp(1.75rem, 3vw, 2.5rem);
+  display: grid; grid-template-columns: auto 1fr; gap: clamp(2rem, 5vw, 5rem); align-items: center;
+}
+.hero__meta .big{ font-weight: 700; letter-spacing: -.04em; font-size: clamp(3rem, 6vw, 5.5rem); line-height: .9; color: var(--ink); white-space: nowrap; }
+.hero__meta .lbl{ font-size: clamp(1.05rem, 1.4vw, 1.4rem); color: var(--mute); line-height: 1.45; }
+@media (max-width: 720px){ .hero__meta{ grid-template-columns: 1fr; gap: 1rem; } }
+
+/* ─────────────────────────────────────────────────────────────────
+   STICKY FIGURE — the signature effect
+   ───────────────────────────────────────────────────────────────── */
+.atlas{ position: relative; }
+.atlas__inner{
+  display: grid;
+  grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+  gap: clamp(2rem, 5vw, 6rem);
+  align-items: start;
+}
+/* LEFT — sticky figure stack */
+.atlas__figure{
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  display: flex; align-items: center; justify-content: center;
+  z-index: 1;
+}
+.figure-stage{
+  position: relative;
+  height: min(78vh, 760px);
+  aspect-ratio: 338 / 899;
+  display: flex; align-items: center; justify-content: center;
+}
+/* Glow ring behind the figure */
+.figure-stage::before{
+  content:"";
+  position: absolute; inset: -12% -30%;
+  background: radial-gradient(50% 50% at 50% 50%, rgba(255,91,4,.16), transparent 70%);
+  filter: blur(8px);
+  z-index: 0;
+  opacity: .9;
+}
+.figure-layer{
+  position: absolute; inset: 0;
+  display: flex; align-items: center; justify-content: center;
+  opacity: 0;
+  transition: opacity .8s var(--ease);
+  z-index: 1;
+}
+.figure-layer img{
+  height: 100%; width: auto; object-fit: contain;
+  filter: drop-shadow(0 30px 60px rgba(255,255,255,.06));
+}
+.figure-layer.is-active{ opacity: 1; }
+/* Floating zone tag that follows the active section */
+.figure-tag{
+  position: absolute; left: 50%; bottom: 2%;
+  transform: translateX(-50%);
+  display: flex; align-items: center; gap: .6rem;
+  padding: .55rem 1.1rem;
+  border: 1px solid rgba(255,255,255,.25);
+  border-radius: 999px;
+  background: rgba(10,10,10,.5);
+  backdrop-filter: blur(8px);
+  font-size: var(--t-micro); text-transform: uppercase; letter-spacing: .22em; font-weight: 700;
+  white-space: nowrap;
+  z-index: 2;
+}
+.figure-tag .n{ color: var(--accent); }
+.figure-counter{
+  position: absolute; top: 1%; left: 50%; transform: translateX(-50%);
+  font-weight: 700; letter-spacing: -.04em;
+  font-size: clamp(3rem, 6vw, 5rem); line-height: 1;
+  color: rgba(255,255,255,.1);
+  z-index: 0;
+  font-variant-numeric: tabular-nums;
+}
+
+/* RIGHT — scrolling zone blocks */
+.atlas__blocks{ z-index: 2; }
+.zone{
+  min-height: 100vh;
+  display: flex; flex-direction: column; justify-content: center;
+  padding: clamp(3rem, 8vh, 7rem) 0;
+  border-top: 1px solid rgba(255,255,255,.12);
+}
+.zone:first-child{ border-top: 0; }
+.zone__n{
+  font-weight: 700; letter-spacing: -.04em;
+  font-size: clamp(1rem, 1.2vw, 1.25rem);
+  color: var(--accent);
+  font-variant-numeric: tabular-nums;
+  margin-bottom: 1rem;
+}
+.zone__title{
+  font-weight: 700; letter-spacing: -.035em;
+  font-size: clamp(2rem, 4vw, 3.5rem); line-height: 1.02;
+  margin: 0 0 1.5rem;
+}
+.zone__body p{ color: rgba(255,255,255,.7); margin: 0 0 1rem; max-width: 52ch; }
+.zone__body p strong{ color: var(--paper); font-weight: 700; }
+.zone__body em{ font-style: italic; }
+.zone__data{
+  margin-top: 2rem;
+  display: grid; grid-template-columns: 1fr 1fr; gap: 0;
+  border-top: 1px solid rgba(255,255,255,.18);
+}
+.zone__data .cell{
+  padding: 1.5rem 1.5rem 1.5rem 0;
+  border-right: 1px solid rgba(255,255,255,.18);
+}
+.zone__data .cell:last-child{ border-right: 0; padding-right: 0; padding-left: 1.5rem; }
+.zone__data .k{
+  font-size: var(--t-micro); text-transform: uppercase; letter-spacing: .2em;
+  color: rgba(255,255,255,.5); font-weight: 700; margin-bottom: .6rem;
+}
+.zone__data .v{ font-size: .92rem; line-height: 1.5; color: rgba(255,255,255,.82); }
+.zone__data .v em{ font-style: italic; }
+.zone__data .cell--patho .k{ color: var(--accent); }
+@media (max-width: 540px){
+  .zone__data{ grid-template-columns: 1fr; }
+  .zone__data .cell{ border-right: 0; border-bottom: 1px solid rgba(255,255,255,.18); padding: 1.25rem 0; }
+  .zone__data .cell:last-child{ border-bottom: 0; padding-left: 0; }
+}
+
+/* Mobile: figure becomes inline per-zone, no sticky */
+@media (max-width: 860px){
+  .atlas__inner{ grid-template-columns: 1fr; }
+  .atlas__figure{ display: none; }
+  .zone{ min-height: 0; border-top: 0; padding: clamp(2.5rem, 6vw, 4rem) 0; }
+  .zone__inline-fig{
+    display: block;
+    height: 320px; margin-bottom: 2rem;
+    position: relative;
+  }
+  .zone__inline-fig img{ height: 100%; width: auto; margin: 0 auto; }
+}
+.zone__inline-fig{ display: none; }
+
+/* ─── PRODUITS (white) ─── */
+.prods__head{
+  display:grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
+  gap: clamp(2rem, 5vw, 5rem); align-items: center;
+  margin-bottom: clamp(2.5rem, 4vw, 3.5rem);
+}
+.prods__head h2{ font-weight:700; letter-spacing:-.04em; font-size: var(--t-h2); line-height: .98; margin: .5rem 0 0; color: var(--ink); }
+.prods__head p{ color: var(--mute); margin: 0; font-size: clamp(1rem, 1.2vw, 1.2rem); line-height: 1.5; }
+.prods__grid{ display:grid; grid-template-columns: repeat(4, 1fr); gap: clamp(.75rem, 1.2vw, 1.25rem); }
+.prod-card{
+  display: flex; flex-direction: column;
+  border: 1px solid var(--rule); border-radius: 24px; background: #fff; overflow: hidden;
+  transition: border-color .4s var(--ease), transform .5s var(--ease);
+}
+.prod-card:hover{ border-color: var(--ink); transform: translateY(-4px); }
+.prod-card__img{ aspect-ratio: 1/1; display:flex; align-items:center; justify-content:center; overflow: hidden; }
+.prod-card__img img{ width: 100%; height: 100%; object-fit: contain; transition: transform .8s var(--ease); }
+.prod-card:hover .prod-card__img img{ transform: scale(1.05); }
+.prod-card__body{ padding: 1.25rem 1.5rem 1.5rem; }
+.prod-card__zone{ font-size: var(--t-micro); text-transform: uppercase; letter-spacing: .2em; color: var(--mute); font-weight: 700; }
+.prod-card__name{ font-weight: 700; letter-spacing: -.02em; font-size: 1.1rem; margin: .35rem 0 0; }
+@media (max-width: 1000px){ .prods__grid{ grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 900px){ .prods__head{ grid-template-columns: 1fr; } }
+@media (max-width: 520px){ .prods__grid{ grid-template-columns: 1fr; } }
+
+/* ─── FOOTER (dark) ─── */
+.foot{ padding-top: clamp(4rem, 8vw, 7rem); padding-bottom: 2rem; }
+.foot__mark{ margin: 0; line-height: 0; }
+.foot__mark svg{ width:100%; display:block; }
+.foot__grid{ margin-top: clamp(3rem, 5vw, 5rem); display:grid; grid-template-columns: repeat(12, 1fr); gap: var(--gutter); padding-top: 2rem; border-top: 1px solid rgba(255,255,255,.16); }
+.foot__col{ grid-column: span 3; display:flex; flex-direction:column; gap:.6rem; }
+.foot__col h4{ font-size: var(--t-micro); text-transform: uppercase; letter-spacing: .22em; font-weight: 700; color: rgba(255,255,255,.5); margin:0 0 .5rem; }
+.foot__col a{ font-size: .95rem; opacity:.85; transition: opacity .3s var(--ease), color .3s var(--ease); padding: .15rem 0; }
+.foot__col a:hover{ opacity:1; color: var(--accent); }
+.foot__legal{ margin-top: clamp(2.5rem, 4vw, 3.5rem); padding-top: 1.5rem; border-top: 1px solid rgba(255,255,255,.16); display:flex; justify-content:space-between; flex-wrap: wrap; gap:1rem; font-size: var(--t-micro); letter-spacing: .15em; text-transform: uppercase; color: rgba(255,255,255,.5); }
+@media (max-width: 720px){ .foot__col{ grid-column: span 6; } }
+
+@media (prefers-reduced-motion: reduce){
+  *,*::before,*::after{ animation-duration:.01ms !important; transition-duration:.01ms !important; }
+  .reveal{ opacity:1 !important; transform:none !important; }
+  .figure-layer{ opacity: 1 !important; }
+}
+</style>
+</head>
+<body>
+
+<div class="progress" aria-hidden="true"><div class="progress__bar" id="progressBar"></div></div>
+<div class="cursor" id="cursor" aria-hidden="true"></div>
+
+<!-- ─── NAV ─── -->
+<nav class="nav" id="nav">
+  <a class="nav__logo" href="index.html" aria-label="Probaclac"><img src="assets/logo.png" alt="Probaclac"></a>
+  <div class="nav__links">
+    <a href="index.html#formules">Produits</a>
+    <a href="microbiote.html">Microbiote</a>
+    <a href="https://etudes.probaclac.ca/">Études</a>
+    <a href="#">FAQ</a>
+  </div>
+  <div class="nav__right">
+    <div class="nav__lang">FR<span class="sep">/</span>EN</div>
+    <a href="/account" class="nav__icobtn" aria-label="Compte"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="9" r="4"/><path d="M4 21c1.5-4 4.5-6 8-6s6.5 2 8 6"/></svg></a>
+    <a href="/cart" class="nav__icobtn" aria-label="Panier"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M5 7h14l-1.4 11.2a2 2 0 0 1-2 1.8H8.4a2 2 0 0 1-2-1.8L5 7Z"/><path d="M8 7V5a4 4 0 0 1 8 0v2"/></svg></a>
+  </div>
+</nav>
+
+<!-- ─── 1. HERO (white) ─── -->
+<header class="section hero">
+  <div class="wrap" style="width:100%;">
+    <div class="eyebrow"><span class="dot"></span>Le microbiote humain</div>
+    <h1 class="hero__h1">Cinq microflores, un même écosystème.</h1>
+    <p class="hero__lead">
+      Différentes espèces probiotiques colonisent l'ensemble du tractus digestif. Leur présence est essentielle pour maintenir l'équilibre de la microflore naturelle et prévenir le développement de bactéries pathogènes ou putréfactives.
+    </p>
+    <div class="hero__meta reveal">
+      <span class="big">5</span>
+      <span class="lbl">microflores distinctes, où les espèces probiotiques prédominantes varient selon leur emplacement, tout le long du système digestif.</span>
+    </div>
+  </div>
+</header>
+
+<!-- ─── 2. ATLAS — sticky figure + 5 zones (dark) ─── -->
+<section class="section on-dark atlas" id="atlas" style="padding-top: 0; padding-bottom: 0;">
+  <div class="wrap">
+    <div class="atlas__inner">
+
+      <!-- LEFT: sticky figure -->
+      <div class="atlas__figure" aria-hidden="true">
+        <div class="figure-stage" id="figureStage">
+          <div class="figure-counter" id="figureCounter">01</div>
+          <div class="figure-layer is-active" data-zone="0"><img src="assets/micro/01.avif" alt=""></div>
+          <div class="figure-layer" data-zone="1"><img src="assets/micro/02.avif" alt=""></div>
+          <div class="figure-layer" data-zone="2"><img src="assets/micro/03.avif" alt=""></div>
+          <div class="figure-layer" data-zone="3"><img src="assets/micro/04.avif" alt=""></div>
+          <div class="figure-layer" data-zone="4"><img src="assets/micro/05.avif" alt=""></div>
+          <div class="figure-tag"><span class="n" id="figureTagN">01</span><span id="figureTagT">Microbiote buccal</span></div>
+        </div>
+      </div>
+
+      <!-- RIGHT: scrolling zones -->
+      <div class="atlas__blocks">
+
+        <article class="zone" data-zone="0">
+          <div class="zone__inline-fig"><img src="assets/micro/01.avif" alt="Microbiote buccal"></div>
+          <div class="zone__n">01 / 05</div>
+          <h2 class="zone__title">Microbiote buccal</h2>
+          <div class="zone__body">
+            <p>La microflore buccale couvre la bouche, le pharynx et l'entrée du système respiratoire. La cavité buccale est naturellement colonisée par une variété de bactéries probiotiques dont le rôle est de protéger les dents, les gencives et les muqueuses contre les invasions d'agents pathogènes.</p>
+            <p>Gingivite, stomatite, parodontite, ulcères buccaux, caries — l'équilibre de la microflore buccale joue un rôle prépondérant dans la santé de votre bouche et la prévention des maladies orales.</p>
+          </div>
+          <div class="zone__data">
+            <div class="cell">
+              <div class="k">Espèces prédominantes</div>
+              <div class="v"><em>L. acidophilus, L. casei, L. fermentum, L. gasseri, L. paracasei, L. plantarum, L. rhamnosus, L. salivarius</em></div>
+            </div>
+            <div class="cell cell--patho">
+              <div class="k">Agents pathogènes</div>
+              <div class="v"><em>S. mutans, C. albicans, H. pylori, P. gingivalis</em></div>
+            </div>
+          </div>
+        </article>
+
+        <article class="zone" data-zone="1">
+          <div class="zone__inline-fig"><img src="assets/micro/02.avif" alt="Microbiote stomacal"></div>
+          <div class="zone__n">02 / 05</div>
+          <h2 class="zone__title">Microbiote stomacal</h2>
+          <div class="zone__body">
+            <p>La microflore probiotique de l'estomac est essentiellement composée d'espèces de la famille des <strong>lactobacilles</strong>. Leur rôle est de prévenir ou d'agir contre les affections digestives d'origine stomacale.</p>
+            <p>Particulièrement contre <em>Helicobacter pylori</em>, responsable d'inflammations chroniques de l'estomac (gastrites) et d'ulcères gastriques. En équilibre, la microflore stomacale aide aussi à prévenir les épisodes de reflux gastrique ou d'intolérance au lactose.</p>
+          </div>
+          <div class="zone__data">
+            <div class="cell">
+              <div class="k">Espèces prédominantes</div>
+              <div class="v"><em>L. acidophilus, L. fermentum, L. gasseri, L. plantarum, L. reuteri, L. salivarius</em></div>
+            </div>
+            <div class="cell cell--patho">
+              <div class="k">Agents pathogènes</div>
+              <div class="v"><em>H. pylori</em>, Staphylocoques</div>
+            </div>
+          </div>
+        </article>
+
+        <article class="zone" data-zone="2">
+          <div class="zone__inline-fig"><img src="assets/micro/03.avif" alt="Microbiote intestinal — intestin grêle"></div>
+          <div class="zone__n">03 / 05</div>
+          <h2 class="zone__title">Intestin grêle</h2>
+          <div class="zone__body">
+            <p>La microflore probiotique de l'intestin grêle est indispensable à notre santé. Elle sert de <strong>barrière aux bactéries pathogènes</strong>, stoppe leurs attaques et neutralise leurs toxines. Elle est essentiellement composée de lactobacilles qui colonisent les parois de la muqueuse intestinale.</p>
+            <p>De nombreuses espèces de lactobacilles sécrètent des substances bactéricides — des sortes d'antibiotiques naturels — qui inhibent le développement des espèces pathogènes pouvant causer diarrhée ou constipation.</p>
+          </div>
+          <div class="zone__data">
+            <div class="cell">
+              <div class="k">Espèces prédominantes</div>
+              <div class="v"><em>L. acidophilus, L. casei, L. gasseri, L. plantarum, L. paracasei, L. reuteri, L. rhamnosus</em></div>
+            </div>
+            <div class="cell cell--patho">
+              <div class="k">Agents pathogènes</div>
+              <div class="v"><em>E. coli, C. difficile, L. monocytogenes, Salmonella, C. jejuni</em></div>
+            </div>
+          </div>
+        </article>
+
+        <article class="zone" data-zone="3">
+          <div class="zone__inline-fig"><img src="assets/micro/04.avif" alt="Microbiote intestinal — côlon"></div>
+          <div class="zone__n">04 / 05</div>
+          <h2 class="zone__title">Côlon</h2>
+          <div class="zone__body">
+            <p>Le côlon héberge le <strong>plus grand nombre de bactéries</strong> de l'ensemble du système digestif. Les bifidobactéries y sont les microorganismes probiotiques dominants, tant chez l'enfant que chez l'adulte.</p>
+            <p>Leur effet physiologique le plus important : l'amélioration de l'état de l'intestin, l'inhibition des substances pathogènes ou putréfactives et le soulagement de la diarrhée ou de la constipation. Elles jouent aussi un rôle dans la prévention des maladies inflammatoires chroniques de l'intestin (MICI) — syndrome de l'intestin irritable, colite ulcéreuse, maladie de Crohn.</p>
+          </div>
+          <div class="zone__data">
+            <div class="cell">
+              <div class="k">Espèces prédominantes</div>
+              <div class="v"><em>B. bifidum, B. breve, B. infantis, B. longum</em></div>
+            </div>
+            <div class="cell cell--patho">
+              <div class="k">Agents pathogènes</div>
+              <div class="v"><em>E. coli, C. difficile, L. monocytogenes, Salmonella, C. jejuni</em></div>
+            </div>
+          </div>
+        </article>
+
+        <article class="zone" data-zone="4">
+          <div class="zone__inline-fig"><img src="assets/micro/05.avif" alt="Microbiote vaginal"></div>
+          <div class="zone__n">05 / 05</div>
+          <h2 class="zone__title">Microbiote vaginal</h2>
+          <div class="zone__body">
+            <p>La microflore probiotique vaginale — aussi appelée <strong>flore de Döderlein</strong> — est constituée de bactéries acidophiles, essentiellement des lactobacilles, qui ont un effet protecteur contre les infections vaginales.</p>
+            <p>Les lactobacilles inhibent naturellement la croissance des microorganismes pathogènes en créant un environnement acide et en produisant des effets antimicrobiens. Les principaux signes d'un déséquilibre : écoulement anormal, démangeaisons, sensations de brûlure et difficultés à uriner.</p>
+          </div>
+          <div class="zone__data">
+            <div class="cell">
+              <div class="k">Espèces prédominantes</div>
+              <div class="v"><em>L. acidophilus, L. crispatus, L. casei, L. jensenii, L. gasseri, L. plantarum, L. reuteri, L. rhamnosus</em></div>
+            </div>
+            <div class="cell cell--patho">
+              <div class="k">Agents pathogènes</div>
+              <div class="v"><em>Candida albicans, G. vaginalis, Mobiluncus, Mycoplasma</em></div>
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── 3. PRODUITS (white) ─── -->
+<section class="section" id="produits">
+  <div class="wrap">
+    <div class="prods__head">
+      <div>
+        <div class="eyebrow"><span class="dot"></span>Une formule par zone</div>
+        <h2>À chaque microflore, son probiotique.</h2>
+      </div>
+      <p>Probaclac formule des probiotiques de grade pharmaceutique ciblés sur chacune des cinq microflores du corps.</p>
+    </div>
+    <div class="prods__grid">
+      <a class="prod-card" href="/collections/all">
+        <div class="prod-card__img"><img src="assets/thumbs/adultes.webp" alt="Probaclac Adultes" loading="lazy"></div>
+        <div class="prod-card__body"><span class="prod-card__zone">Intestin · côlon</span><div class="prod-card__name">Probaclac Adultes</div></div>
+      </a>
+      <a class="prod-card" href="/collections/all">
+        <div class="prod-card__img"><img src="assets/thumbs/gi.webp" alt="Probaclac Gastro-Intestinal" loading="lazy"></div>
+        <div class="prod-card__body"><span class="prod-card__zone">Estomac · grêle</span><div class="prod-card__name">Probaclac GI</div></div>
+      </a>
+      <a class="prod-card" href="/collections/all">
+        <div class="prod-card__img"><img src="assets/thumbs/sci.webp" alt="Probaclac Côlon Irritable" loading="lazy"></div>
+        <div class="prod-card__body"><span class="prod-card__zone">Côlon</span><div class="prod-card__name">Probaclac Côlon Irritable</div></div>
+      </a>
+      <a class="prod-card" href="/collections/all">
+        <div class="prod-card__img"><img src="assets/thumbs/vaginal.webp" alt="Probaclac Vaginal" loading="lazy"></div>
+        <div class="prod-card__body"><span class="prod-card__zone">Microbiote vaginal</span><div class="prod-card__name">Probaclac Vaginal</div></div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ─── FOOTER (dark) ─── -->
+<footer class="section foot on-dark">
+  <div class="wrap">
+    <h2 class="foot__mark" aria-label="Probaclac">
+      <svg viewBox="0 0 1240 210" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg">
+        <text x="620" y="175" text-anchor="middle" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-weight="700" font-size="210" letter-spacing="-8" fill="currentColor">PROBACLAC.</text>
+      </svg>
+    </h2>
+    <div class="foot__grid">
+      <div class="foot__col"><h4>Boutique</h4><a href="/collections/all">Toutes les formules</a><a href="/collections/all">Quotidien</a><a href="/collections/all">Conditions ciblées</a><a href="/collections/all">Santé féminine</a></div>
+      <div class="foot__col"><h4>Science</h4><a href="https://etudes.probaclac.ca/">Études cliniques</a><a href="microbiote.html">Microbiote</a><a href="#">Souches probiotiques</a><a href="#">NPN — Santé Canada</a></div>
+      <div class="foot__col"><h4>Compagnie</h4><a href="#">À propos</a><a href="#">Distribution pharmacie</a><a href="#">FAQ</a><a href="#">Contact</a></div>
+      <div class="foot__col"><h4>Support</h4><a href="#">Livraison</a><a href="#">Retours</a><a href="#">Politique de confidentialité</a><a href="#">Conditions</a></div>
+    </div>
+    <div class="foot__legal">
+      <span>Probaclac · Probiotiques de grade pharmaceutique · Conçu et fabriqué au Québec</span>
+      <span>© Nicar Canada · Blainville</span>
+    </div>
+  </div>
+</footer>
+
+<!-- ─── LIBS ─── -->
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
+
+<script>
+const IS_STATIC = new URLSearchParams(location.search).has("static");
+if(IS_STATIC) document.documentElement.classList.add("is-static");
+document.documentElement.classList.add("js-ready");
+
+const ZONES = [
+  { n: "01", t: "Microbiote buccal" },
+  { n: "02", t: "Microbiote stomacal" },
+  { n: "03", t: "Intestin grêle" },
+  { n: "04", t: "Côlon" },
+  { n: "05", t: "Microbiote vaginal" },
+];
+
+if(IS_STATIC){
+  console.log("[static] animations disabled");
+} else {
+
+const lenis = new Lenis({ duration: 1.1, easing: t => Math.min(1, 1.001 - Math.pow(2, -10*t)) });
+gsap.registerPlugin(ScrollTrigger);
+lenis.on("scroll", ScrollTrigger.update);
+gsap.ticker.add(t => lenis.raf(t * 1000));
+gsap.ticker.lagSmoothing(0);
+
+/* Nav scrolled + dark-aware */
+const nav = document.getElementById("nav");
+ScrollTrigger.create({ start: "top -10", end: "max", onUpdate: self => nav.classList.toggle("scrolled", self.scroll() > 12) });
+
+const atlas = document.getElementById("atlas");
+ScrollTrigger.create({
+  trigger: atlas,
+  start: "top 64px",
+  end: "bottom 64px",
+  onToggle: self => nav.classList.toggle("on-dark-nav", self.isActive),
+});
+
+/* Curtain wipe on dark sections */
+gsap.utils.toArray('.on-dark').forEach(sec => {
+  const curtain = document.createElement('div');
+  curtain.className = 'section-curtain';
+  sec.insertBefore(curtain, sec.firstChild);
+  gsap.to(curtain, {
+    clipPath: 'inset(0 0 100% 0)',
+    ease: 'power3.out',
+    scrollTrigger: { trigger: sec, start: 'top 95%', end: 'top 35%', scrub: 0.8 },
+  });
+});
+
+/* ── THE SIGNATURE EFFECT ──
+   Same figure position, image swaps as each zone scrolls through the
+   centre — illusion that a different body part lights up. */
+const layers   = gsap.utils.toArray('.figure-layer');
+const counterEl = document.getElementById('figureCounter');
+const tagN      = document.getElementById('figureTagN');
+const tagT      = document.getElementById('figureTagT');
+let activeZone = -1;
+
+function lightZone(z){
+  if(z === activeZone) return;
+  activeZone = z;
+  layers.forEach((l, k) => l.classList.toggle('is-active', k === z));
+  const data = ZONES[z];
+  if(counterEl) counterEl.textContent = data.n;
+  if(tagN) tagN.textContent = data.n;
+  if(tagT) tagT.textContent = data.t;
+  // pulse the glow
+  gsap.fromTo('#figureStage', { '--pulse': 0 }, { duration: .6, ease: 'power2.out' });
+}
+
+gsap.utils.toArray('.zone').forEach((zone, i) => {
+  ScrollTrigger.create({
+    trigger: zone,
+    start: "top 55%",
+    end: "bottom 55%",
+    onToggle: self => { if(self.isActive) lightZone(i); },
+  });
+  // text entrance
+  gsap.from(zone.querySelectorAll('.zone__n, .zone__title, .zone__body, .zone__data'), {
+    y: 30, opacity: 0, duration: .9, ease: 'power3.out', stagger: .08,
+    scrollTrigger: { trigger: zone, start: 'top 70%' },
+  });
+});
+
+/* Generic reveal */
+gsap.utils.toArray(".reveal").forEach(el => {
+  gsap.to(el, { opacity:1, y:0, duration: 1, ease: "power3.out", scrollTrigger: { trigger: el, start: "top 85%" } });
+});
+
+/* Word-by-word h1/h2 */
+gsap.utils.toArray('section h2, header h1, .prods__head h2').forEach(h => {
+  if(h.closest('.foot')) return;
+  const words = h.textContent.trim().split(/\s+/);
+  h.innerHTML = words.map(w => `<span class="w" style="display:inline-block;overflow:hidden;padding:0 .12em 0 0;"><span style="display:inline-block;transform:translateY(110%);">${w}</span></span>`).join(' ');
+});
+ScrollTrigger.batch('section h2 .w > span, header h1 .w > span', {
+  start: 'top 88%',
+  onEnter: batch => gsap.to(batch, { y: 0, duration: 1.1, ease: 'power4.out', stagger: 0.035 }),
+  once: true,
+});
+
+/* Scroll progress */
+const progressBar = document.getElementById('progressBar');
+ScrollTrigger.create({ start: 0, end: 'max', onUpdate: self => { if(progressBar) progressBar.style.width = (self.progress * 100) + '%'; } });
+
+/* Custom cursor */
+(function setupCursor(){
+  const cur = document.getElementById('cursor');
+  if(!cur || window.matchMedia('(hover: none), (max-width: 760px)').matches) return;
+  let mx = innerWidth/2, my = innerHeight/2, cx = mx, cy = my, visible = false;
+  window.addEventListener('mousemove', e => { mx = e.clientX; my = e.clientY; if(!visible){ cur.style.opacity='1'; visible=true; } });
+  window.addEventListener('mouseleave', () => { cur.style.opacity='0'; visible=false; });
+  document.querySelectorAll('a, button, .btn, .prod-card, .nav__icobtn').forEach(el => {
+    el.addEventListener('mouseenter', () => cur.classList.add('is-hover'));
+    el.addEventListener('mouseleave', () => cur.classList.remove('is-hover'));
+  });
+  (function tick(){ cx += (mx-cx)*.18; cy += (my-cy)*.18; cur.style.transform = `translate3d(${cx}px, ${cy}px, 0) translate(-50%, -50%)`; requestAnimationFrame(tick); })();
+})();
+
+/* Magnetic buttons */
+document.querySelectorAll('.btn').forEach(b => {
+  let mag;
+  b.addEventListener('mouseenter', () => {
+    const r = b.getBoundingClientRect();
+    mag = (e) => { b.style.transform = `translate(${(e.clientX-(r.left+r.width/2))*.18}px, ${(e.clientY-(r.top+r.height/2))*.18}px)`; };
+    window.addEventListener('mousemove', mag);
+  });
+  b.addEventListener('mouseleave', () => { window.removeEventListener('mousemove', mag); gsap.to(b, { x:0, y:0, duration:.6, ease:'elastic.out(1, 0.5)', clearProps:'transform' }); });
+});
+
+} // /IS_STATIC
+</script>
+
+</body>
+</html>
