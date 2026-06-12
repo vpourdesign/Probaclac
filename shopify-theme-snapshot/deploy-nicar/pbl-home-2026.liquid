@@ -404,36 +404,32 @@
 .pblx .hero-bottle{
   position: relative; height: 100%;
   display:flex; flex-direction: column; align-items:center; justify-content:center;
-  gap: 1.25rem;
-  border: 1px solid var(--rule-strong);
-  border-radius: 28px;
-  padding: clamp(1.25rem, 2.5vw, 2rem);
+  gap: clamp(1.5rem, 2.5vw, 2.25rem);
 }
-.pblx .hero-bottle__stage{
+.pblx .hero-bottle__stack{
   position: relative;
   width: 100%;
-  min-height: clamp(320px, 38vw, 480px);
-  display:flex; align-items:center; justify-content:center;
-  isolation: isolate;
+  max-width: clamp(300px, 32vw, 440px);
+  
+  aspect-ratio: 1 / 1.22;
 }
-.pblx .hero-bottle__slide{
-  position: absolute; inset: 0;
-  display:flex; align-items:center; justify-content:center;
-  opacity: 0;
-  transition: opacity 1s var(--ease);
-  pointer-events: none;
+.pblx .hcard{
+  position: absolute; left: 0; right: 0; top: 0;
+  aspect-ratio: 1 / 1;
+  border-radius: 26px;
+  overflow: hidden;
+  border: 1px solid var(--rule-strong);
+  background: #f3f1e9;
+  box-shadow:
+    0 2px 6px rgba(10,10,10,.06),
+    0 18px 40px rgba(10,10,10,.14);
+  will-change: transform, opacity;
+  transform-origin: center top;
 }
-.pblx .hero-bottle__slide.is-active{ opacity:1; pointer-events: auto; }
-.pblx .hero-bottle__slide img{
-  max-height: clamp(300px, 38vw, 480px);
-  width: auto; height: auto;
-  filter:
-    drop-shadow(0 30px 50px rgba(10,10,10,.22))
-    drop-shadow(0 10px 20px rgba(10,10,10,.1));
-  transform: translateY(8px) scale(.97);
-  transition: transform 1.2s var(--ease);
-}
-.pblx .hero-bottle__slide.is-active img{ transform: translateY(0) scale(1); }
+.pblx .hcard img{ width: 100%; height: 100%; object-fit: cover; display: block; }
+.pblx .hcard:nth-child(1){ z-index: 30; }
+.pblx .hcard:nth-child(2){ z-index: 20; transform: translateY(38px) scale(.955); opacity: .78; }
+.pblx .hcard:nth-child(3){ z-index: 10; transform: translateY(70px) scale(.91); opacity: .45; }
 .pblx .hero-bottle__caption{
   display: flex; flex-direction: column; align-items: center; gap: .9rem;
   text-align: center;
@@ -462,9 +458,8 @@
 }
 
 
-@media (max-width: 880px){.pblx .hero__right{ margin-top: 1rem; }
-.pblx .hero-bottle__stage{ min-height: clamp(280px, 60vw, 380px); }
-.pblx .hero-bottle__slide img{ max-height: clamp(260px, 55vw, 360px); }}
+@media (max-width: 880px){.pblx .hero__right{ margin-top: 1.5rem; }
+.pblx .hero-bottle__stack{ max-width: clamp(260px, 70vw, 360px); }}
 .pblx .hero__foot{
   margin-top: clamp(3rem, 6vw, 5rem);
   display:grid; grid-template-columns: repeat(3, 1fr); gap: 0;
@@ -1447,15 +1442,15 @@
 
       <div class="hero__right">
         <div class="hero-bottle" id="heroBottle">
-          <div class="hero-bottle__stage">
-            <div class="hero-bottle__slide is-active" data-name="Probaclac Adultes">
-              <img src="https://cdn.shopify.com/s/files/1/0365/8786/4204/files/pblx-bottle-adultes.png" alt="Probaclac Adultes" loading="eager">
+          <div class="hero-bottle__stack" id="heroStack">
+            <div class="hcard" data-name="Probaclac Adultes">
+              <img src="https://cdn.shopify.com/s/files/1/0365/8786/4204/files/pblx-card-adultes.jpg" alt="Probaclac Adultes" loading="eager">
             </div>
-            <div class="hero-bottle__slide" data-name="Probaclac 50 ans et +">
-              <img src="https://cdn.shopify.com/s/files/1/0365/8786/4204/files/pblx-bottle-50plus.png" alt="Probaclac 50 ans et +" loading="lazy">
+            <div class="hcard" data-name="Probaclac 50 ans et +">
+              <img src="https://cdn.shopify.com/s/files/1/0365/8786/4204/files/pblx-card-50plus.jpg" alt="Probaclac 50 ans et +" loading="lazy">
             </div>
-            <div class="hero-bottle__slide" data-name="Probaclac Voyageurs">
-              <img src="https://cdn.shopify.com/s/files/1/0365/8786/4204/files/pblx-bottle-voyage.png" alt="Probaclac Voyageurs" loading="lazy">
+            <div class="hcard" data-name="Probaclac Voyageurs">
+              <img src="https://cdn.shopify.com/s/files/1/0365/8786/4204/files/pblx-card-voyage.jpg" alt="Probaclac Voyageurs" loading="lazy">
             </div>
           </div>
 
@@ -2018,35 +2013,81 @@ gsap.utils.toArray(".reveal").forEach(el => {
 
 /* (Catalogue index removed) */
 
-/* Hero bottle slider auto-rotate */
-(function setupHeroBottle(){
+/* Hero card-shuffle slider — next card rises from underneath, 2 others peek behind */
+(function setupHeroShuffle(){
   const root  = document.getElementById("heroBottle");
   if(!root) return;
-  const slides = root.querySelectorAll(".hero-bottle__slide");
-  const dots   = root.querySelectorAll("#heroDots button");
+  const cards = Array.from(root.querySelectorAll(".hcard"));
+  const dots  = root.querySelectorAll("#heroDots button");
   const nameEl = document.getElementById("heroName");
-  if(!slides.length) return;
-  let i = 0, timer;
+  if(cards.length < 2) return;
   const PERIOD = 5000;
 
-  function show(n){
-    i = (n + slides.length) % slides.length;
-    slides.forEach((s,k) => s.classList.toggle("is-active", k === i));
-    dots.forEach((d,k)   => d.setAttribute("aria-selected", k === i ? "true" : "false"));
-    if(nameEl){
-      nameEl.textContent = slides[i].dataset.name || "";
-      gsap.fromTo(nameEl, { opacity:0, y: 8 }, { opacity:1, y:0, duration:.5, ease:"power3.out" });
+  // Slot transforms: 0 = front, 1/2 = peeking behind + below
+  const SLOTS = [
+    { y: 0,   scale: 1,     opacity: 1,    z: 30, blur: 0 },
+    { y: 38,  scale: 0.955, opacity: 0.78, z: 20, blur: 1 },
+    { y: 70,  scale: 0.91,  opacity: 0.45, z: 10, blur: 2.2 },
+  ];
+
+  // order[k] = index of the card currently in slot k
+  let order = cards.map((_, k) => k);
+  let front = 0;       // index of card in front
+  let timer, animating = false;
+
+  function place(card, slot, animate){
+    const s = SLOTS[slot];
+    const props = {
+      yPercent: 0, y: s.y, scale: s.scale, opacity: s.opacity,
+      filter: `blur(${s.blur}px)`,
+      zIndex: s.z,
+    };
+    if(animate){
+      gsap.to(card, { ...props, duration: 0.75, ease: "power3.out" });
+    } else {
+      gsap.set(card, props);
     }
   }
-  function play(){ clearInterval(timer); timer = setInterval(() => show(i+1), PERIOD); }
+
+  function render(animate){
+    order.forEach((cardIdx, slot) => place(cards[cardIdx], slot, animate));
+    front = order[0];
+    dots.forEach((d, k) => d.setAttribute("aria-selected", k === front ? "true" : "false"));
+    if(nameEl){
+      nameEl.textContent = cards[front].dataset.name || "";
+      gsap.fromTo(nameEl, { opacity: 0, y: 8 }, { opacity: 1, y: 0, duration: .5, ease: "power3.out" });
+    }
+  }
+
+  // advance: the front card drops to the back; everyone shifts up one slot
+  function next(){
+    if(animating) return;
+    animating = true;
+    order = order.slice(1).concat(order[0]); // rotate forward
+    render(true);
+    setTimeout(() => { animating = false; }, 760);
+  }
+
+  // jump to a specific card index (by product), preserving the stack feel
+  function goTo(cardIdx){
+    if(animating || cardIdx === order[0]) return;
+    animating = true;
+    // rotate order until cardIdx is front
+    while(order[0] !== cardIdx) order = order.slice(1).concat(order[0]);
+    render(true);
+    setTimeout(() => { animating = false; }, 760);
+  }
+
+  function play(){ clearInterval(timer); timer = setInterval(next, PERIOD); }
   function pause(){ clearInterval(timer); }
 
-  dots.forEach((d,k) => d.addEventListener("click", () => { show(k); play(); }));
+  dots.forEach((d, k) => d.addEventListener("click", () => { goTo(k); play(); }));
   root.addEventListener("mouseenter", pause);
   root.addEventListener("mouseleave", play);
   document.addEventListener("visibilitychange", () => document.hidden ? pause() : play());
 
-  show(0); play();
+  render(false);
+  play();
 })();
 
 /* Nouveautés slider */
