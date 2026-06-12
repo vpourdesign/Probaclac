@@ -211,21 +211,31 @@ html.lenis,html.lenis body{ height:auto; }
   margin: 0;
 }
 .hero__ctas{ display:flex; gap: .75rem; flex-wrap: wrap; }
+/* Full-width stat band below the hero grid */
 .hero__stat{
-  margin-top: clamp(2rem, 4vw, 3rem);
+  margin-top: clamp(2.5rem, 5vw, 4rem);
   border-top: 1px solid var(--rule);
-  padding-top: 1.5rem;
-  display: flex; align-items: baseline; gap: 1rem;
+  padding-top: clamp(1.75rem, 3vw, 2.75rem);
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: clamp(2rem, 5vw, 5rem);
+  align-items: center;
 }
 .hero__stat .big{
   font-weight: 700; letter-spacing: -.04em;
-  font-size: clamp(2.5rem, 4.5vw, 4rem);
-  line-height: 1;
+  font-size: clamp(3rem, 6vw, 5.5rem);
+  line-height: .9;
   color: var(--ink);
+  white-space: nowrap;
 }
 .hero__stat .lbl{
-  font-size: .95rem; color: var(--mute);
-  max-width: 30ch; line-height: 1.35;
+  font-size: clamp(1.05rem, 1.4vw, 1.4rem);
+  color: var(--mute);
+  line-height: 1.45;
+  max-width: none;
+}
+@media (max-width: 720px){
+  .hero__stat{ grid-template-columns: 1fr; gap: 1rem; }
 }
 .hero__visual{
   position: relative;
@@ -261,9 +271,8 @@ html.lenis,html.lenis body{ height:auto; }
   border-radius: 28px;
   overflow: hidden;
   background: rgba(255,255,255,.03);
-  padding: clamp(1rem, 2.5vw, 2.5rem);
 }
-.map__frame img{ width: 100%; height: auto; }
+.map__frame img{ width: 100%; height: auto; display: block; }
 .map__legend{
   margin-top: clamp(1.5rem, 2.5vw, 2rem);
   display: grid; grid-template-columns: repeat(3, 1fr); gap: 0;
@@ -618,10 +627,6 @@ html.lenis,html.lenis body{ height:auto; }
             Voir les conseils
           </a>
         </div>
-        <div class="hero__stat reveal">
-          <span class="big">60–80&nbsp;%</span>
-          <span class="lbl">des voyageurs dans les régions tropicales, subtropicales et en voie de développement sont touchés par cette gastro-entérite pénible.</span>
-        </div>
       </div>
 
       <div class="hero__right">
@@ -630,6 +635,11 @@ html.lenis,html.lenis body{ height:auto; }
           <div class="cap">Probaclac Voyageurs</div>
         </div>
       </div>
+    </div>
+
+    <div class="hero__stat reveal">
+      <span class="big">60–80&nbsp;%</span>
+      <span class="lbl">des voyageurs dans les régions tropicales, subtropicales et en voie de développement sont touchés par cette gastro-entérite pénible.</span>
     </div>
   </div>
 </header>
