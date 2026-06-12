@@ -258,14 +258,14 @@ html.lenis,html.lenis body{ height:auto; }
 /* ─── MAP (dark) ─── */
 .map__head{
   display:grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
-  gap: var(--gutter); align-items: end;
+  gap: clamp(2rem, 5vw, 5rem); align-items: center;
   margin-bottom: clamp(2.5rem, 4vw, 3.5rem);
 }
 .map__head h2{
   font-weight:700; letter-spacing:-.04em;
   font-size: var(--t-h2); line-height: .98; margin: .5rem 0 0;
 }
-.map__head p{ color: rgba(255,255,255,.6); max-width: 38ch; margin: 0; }
+.map__head p{ color: rgba(255,255,255,.6); margin: 0; font-size: clamp(1rem, 1.2vw, 1.2rem); line-height: 1.5; }
 .map__frame{
   border: 1px solid rgba(255,255,255,.18);
   border-radius: 28px;
@@ -299,7 +299,7 @@ html.lenis,html.lenis body{ height:auto; }
 /* ─── CONSEILS (white, 8-tile grid) ─── */
 .conseils__head{
   display:grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
-  gap: var(--gutter); align-items: end;
+  gap: clamp(2rem, 5vw, 5rem); align-items: center;
   margin-bottom: clamp(2.5rem, 4vw, 3.5rem);
 }
 .conseils__head h2{
@@ -307,7 +307,7 @@ html.lenis,html.lenis body{ height:auto; }
   font-size: var(--t-h2); line-height: .98; margin: .5rem 0 0;
   color: var(--ink);
 }
-.conseils__head p{ color: var(--mute); max-width: 38ch; margin: 0; }
+.conseils__head p{ color: var(--mute); margin: 0; font-size: clamp(1rem, 1.2vw, 1.2rem); line-height: 1.5; }
 .conseils__grid{
   display:grid; grid-template-columns: repeat(4, 1fr);
   gap: clamp(.75rem, 1.2vw, 1.25rem);
@@ -316,16 +316,38 @@ html.lenis,html.lenis body{ height:auto; }
   border: 1px solid var(--rule);
   border-radius: 22px;
   padding: 1.5rem;
-  display: flex; flex-direction: column; gap: 2.5rem;
+  display: flex; flex-direction: column; gap: 2.25rem;
   background: #fff;
+  position: relative;
   transition: border-color .4s var(--ease), transform .5s var(--ease);
 }
 .conseil:hover{ border-color: var(--ink); transform: translateY(-4px); }
 .conseil .n{
+  position: absolute; top: 1.4rem; right: 1.5rem;
   font-size: var(--t-micro); font-weight: 700;
   letter-spacing: .22em;
   color: var(--mute);
   font-variant-numeric: tabular-nums;
+}
+.conseil .ic{
+  width: clamp(48px, 4.5vw, 58px); height: clamp(48px, 4.5vw, 58px);
+  border-radius: 50%;
+  border: 1px solid var(--rule-strong);
+  display: flex; align-items: center; justify-content: center;
+  color: var(--ink);
+  flex: 0 0 auto;
+  transition: background .4s var(--ease), border-color .4s var(--ease), color .4s var(--ease), transform .5s var(--ease);
+}
+.conseil:hover .ic{
+  background: var(--accent);
+  border-color: var(--accent);
+  color: var(--ink);
+  transform: rotate(-6deg) scale(1.06);
+}
+.conseil .ic svg{
+  width: 50%; height: 50%;
+  fill: none; stroke: currentColor;
+  stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round;
 }
 .conseil p{
   margin: 0;
@@ -391,7 +413,7 @@ html.lenis,html.lenis body{ height:auto; }
 /* ─── COMPARATIF (white, editorial table) ─── */
 .comp__head{
   display:grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
-  gap: var(--gutter); align-items: end;
+  gap: clamp(2rem, 5vw, 5rem); align-items: center;
   margin-bottom: clamp(2.5rem, 4vw, 3.5rem);
 }
 .comp__head h2{
@@ -399,7 +421,7 @@ html.lenis,html.lenis body{ height:auto; }
   font-size: var(--t-h2); line-height: .98; margin: .5rem 0 0;
   color: var(--ink);
 }
-.comp__head p{ color: var(--mute); max-width: 38ch; margin: 0; }
+.comp__head p{ color: var(--mute); margin: 0; font-size: clamp(1rem, 1.2vw, 1.2rem); line-height: 1.5; }
 .comp__table{
   border: 1px solid var(--rule-strong);
   border-radius: 28px;
@@ -443,14 +465,14 @@ html.lenis,html.lenis body{ height:auto; }
 /* ─── HYGIÈNE (dark) ─── */
 .hyg__head{
   display:grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
-  gap: var(--gutter); align-items: end;
+  gap: clamp(2rem, 5vw, 5rem); align-items: center;
   margin-bottom: clamp(2.5rem, 4vw, 3.5rem);
 }
 .hyg__head h2{
   font-weight:700; letter-spacing:-.04em;
   font-size: var(--t-h2); line-height: .98; margin: .5rem 0 0;
 }
-.hyg__head p{ color: rgba(255,255,255,.6); max-width: 38ch; margin: 0; }
+.hyg__head p{ color: rgba(255,255,255,.6); margin: 0; font-size: clamp(1rem, 1.2vw, 1.2rem); line-height: 1.5; }
 .hyg__grid{
   display:grid; grid-template-columns: repeat(4, 1fr);
   gap: 0;
@@ -678,34 +700,58 @@ html.lenis,html.lenis body{ height:auto; }
     <div class="conseils__grid">
       <div class="conseil reveal">
         <span class="n">01</span>
+        <span class="ic" aria-hidden="true">
+          <svg viewBox="0 0 24 24"><path d="M6 3h12l-1.5 17a1.5 1.5 0 0 1-1.5 1.4H9A1.5 1.5 0 0 1 7.5 20L6 3Z"/><path d="M6.6 9h10.8"/><path d="M12 13.5v.01"/></svg>
+        </span>
         <p>Méfiez-vous de l'eau du robinet, des glaçons et de tous les frappés glacés</p>
       </div>
       <div class="conseil reveal">
         <span class="n">02</span>
+        <span class="ic" aria-hidden="true">
+          <svg viewBox="0 0 24 24"><path d="M3 11h18"/><path d="M5 11V8.5A2.5 2.5 0 0 1 7.5 6h9A2.5 2.5 0 0 1 19 8.5V11"/><path d="M4 11l1.5 9h13L20 11"/><path d="M9 6V4M15 6V4"/></svg>
+        </span>
         <p>Évitez la nourriture vendue dans la rue</p>
       </div>
       <div class="conseil reveal">
         <span class="n">03</span>
+        <span class="ic" aria-hidden="true">
+          <svg viewBox="0 0 24 24"><path d="M4 13h16v3a4 4 0 0 1-4 4H8a4 4 0 0 1-4-4v-3Z"/><path d="M2 13h20"/><path d="M9 9c0-1.5 1-1.5 1-3M13 9c0-1.5 1-1.5 1-3"/></svg>
+        </span>
         <p>Assurez-vous que les aliments sont bien cuits</p>
       </div>
       <div class="conseil reveal">
         <span class="n">04</span>
+        <span class="ic" aria-hidden="true">
+          <svg viewBox="0 0 24 24"><path d="M3 12c3-5 8-7 13-5l5-3-2 6 2 6-5-3c-5 2-10 0-13-5Z"/><path d="M15.5 11v.01"/></svg>
+        </span>
         <p>Évitez les fruits de mer</p>
       </div>
       <div class="conseil reveal">
         <span class="n">05</span>
+        <span class="ic" aria-hidden="true">
+          <svg viewBox="0 0 24 24"><path d="M5 4c0 9 5 14 13 14h2c0 1.5-3 3-7 3C7 21 3 15 3 8c0-1.5.5-3 2-4Z"/><path d="M5 4c.5 0 2 .2 2 2"/></svg>
+        </span>
         <p>Prenez garde aux fruits et légumes frais — optez pour les aliments qui s'épluchent, comme la banane</p>
       </div>
       <div class="conseil reveal">
         <span class="n">06</span>
+        <span class="ic" aria-hidden="true">
+          <svg viewBox="0 0 24 24"><path d="M9 2h6M9.5 2v4L6 12v8a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2v-8l-3.5-6V2"/><path d="M6 14h12"/></svg>
+        </span>
         <p>Évitez les aliments à base de lait</p>
       </div>
       <div class="conseil reveal">
         <span class="n">07</span>
+        <span class="ic" aria-hidden="true">
+          <svg viewBox="0 0 24 24"><path d="M12 3c3.5 0 6.5 5 6.5 10a6.5 6.5 0 0 1-13 0C5.5 8 8.5 3 12 3Z"/></svg>
+        </span>
         <p>Évitez les œufs</p>
       </div>
       <div class="conseil reveal">
         <span class="n">08</span>
+        <span class="ic" aria-hidden="true">
+          <svg viewBox="0 0 24 24"><path d="M12 3 2.5 20h19L12 3Z"/><path d="M12 9.5V14"/><path d="M12 17v.01"/></svg>
+        </span>
         <p>En cas de doute, ne consommez pas</p>
       </div>
     </div>
