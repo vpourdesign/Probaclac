@@ -423,10 +423,9 @@ button{ font:inherit; color:inherit; background:none; border:0; padding:0; curso
    1 — HERO (light)
    ───────────────────────────────────────────────────────────────── */
 .hero{
-  min-height: 100svh;
-  padding-top: clamp(7rem, 12vh, 11rem);
-  padding-bottom: clamp(2.5rem, 4vw, 4rem);
-  display:flex; flex-direction:column; justify-content:space-between;
+  padding-top: clamp(6.5rem, 11vh, 10rem);
+  padding-bottom: clamp(2rem, 3.5vw, 3.5rem);
+  display:flex; flex-direction:column;
 }
 .hero__eyebrow{
   display:flex; align-items:center; justify-content:space-between;
@@ -441,7 +440,7 @@ button{ font:inherit; color:inherit; background:none; border:0; padding:0; curso
   text-transform: uppercase; letter-spacing: .15em;
 }
 .hero__body{
-  margin-top: clamp(2rem, 4vw, 3.5rem);
+  margin-top: clamp(1.5rem, 3vw, 2.5rem);
   display:grid;
   grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
   gap: clamp(2rem, 4vw, 4rem);
@@ -451,7 +450,7 @@ button{ font:inherit; color:inherit; background:none; border:0; padding:0; curso
   .hero__body{ grid-template-columns: 1fr; gap: 1.5rem; }
 }
 .hero__left{ display:flex; flex-direction: column; gap: clamp(1.25rem, 2vw, 1.75rem); }
-.hero__right{ position: relative; min-height: clamp(360px, 42vw, 540px); }
+.hero__right{ position: relative; display:flex; align-items:center; justify-content:center; }
 .hero__h1{
   font-weight:700; letter-spacing:-.045em;
   font-size: var(--t-h1);
@@ -485,16 +484,17 @@ button{ font:inherit; color:inherit; background:none; border:0; padding:0; curso
 
 /* ── Hero card-shuffle slider (right column) ── */
 .hero-bottle{
-  position: relative; height: 100%;
-  display:flex; flex-direction: column; align-items:center; justify-content:center;
-  gap: clamp(1.5rem, 2.5vw, 2.25rem);
+  position: relative;
+  display:flex; flex-direction: column; align-items:center;
+  gap: .9rem;
+  width: 100%;
 }
 .hero-bottle__stack{
   position: relative;
   width: 100%;
-  max-width: clamp(300px, 32vw, 440px);
+  max-width: clamp(340px, 38vw, 540px);
   /* extra bottom room so the peeking cards show below the front card */
-  aspect-ratio: 1 / 1.22;
+  aspect-ratio: 1 / 1.18;
 }
 .hcard{
   position: absolute; left: 0; right: 0; top: 0;
@@ -547,7 +547,7 @@ button{ font:inherit; color:inherit; background:none; border:0; padding:0; curso
   .hero-bottle__stack{ max-width: clamp(260px, 70vw, 360px); }
 }
 .hero__foot{
-  margin-top: clamp(3rem, 6vw, 5rem);
+  margin-top: clamp(2rem, 4vw, 3.25rem);
   display:grid; grid-template-columns: repeat(3, 1fr); gap: 0;
   border-top: 1px solid var(--rule);
   padding-top: 1.5rem;
