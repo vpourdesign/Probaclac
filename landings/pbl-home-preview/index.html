@@ -56,11 +56,6 @@ img,svg{ display:block; max-width:100%; height:auto; }
 a{ color:inherit; text-decoration:none; }
 button{ font:inherit; color:inherit; background:none; border:0; padding:0; cursor:pointer; }
 
-/* Lenis smooth-scroll hooks */
-html.lenis,html.lenis body{ height:auto; }
-.lenis.lenis-smooth{ scroll-behavior:auto !important; }
-.lenis.lenis-smooth [data-lenis-prevent]{ overscroll-behavior:contain; }
-.lenis.lenis-stopped{ overflow:hidden; }
 
 /* Helvetica weight helpers */
 .bold{ font-weight:700; letter-spacing:-.04em; }
@@ -2015,7 +2010,6 @@ html.lenis,html.lenis body{ height:auto; }
 <!-- ─── LIBS ─── -->
 <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
 
 <script>
 /* ─────────────────────────────────────────────────────────────────
@@ -2139,14 +2133,9 @@ if(IS_STATIC){
   console.log("[static] animations disabled");
 } else {
 
-const lenis = new Lenis({ duration: 1.1, easing: t => Math.min(1, 1.001 - Math.pow(2, -10*t)) });
-function raf(time){ lenis.raf(time); requestAnimationFrame(raf); }
-requestAnimationFrame(raf);
-
+/* Native scroll — Lenis removed: on an embedded Shopify page it fights the
+   theme's sticky header + native scroll and makes scrolling janky. */
 gsap.registerPlugin(ScrollTrigger);
-lenis.on("scroll", ScrollTrigger.update);
-gsap.ticker.add(t => lenis.raf(t * 1000));
-gsap.ticker.lagSmoothing(0);
 
 // Nav scrolled state
 const nav = document.getElementById("nav");
