@@ -1,0 +1,193 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<title>AD — Probaclac Adultes 1:1</title>
+<style>
+  :root{
+    --ink:#0a0a0a; --paper:#fafaf7; --accent:#ff5b04; --qcblue:#1999D4;
+    --ease: cubic-bezier(.16,1,.3,1);
+  }
+  *{ box-sizing:border-box; margin:0; padding:0; }
+  html,body{ background:#000; }
+  body{ font-family:'Helvetica Neue', Helvetica, Arial, sans-serif; -webkit-font-smoothing:antialiased; }
+
+  .ad{
+    position:relative; width:1080px; height:1080px;
+    overflow:hidden; background:var(--paper);
+  }
+
+  /* ── shared title metrics: identical in white & black scenes ── */
+  .title{
+    position:absolute; left:84px; right:84px; top:50%;
+    transform: translateY(-58%);
+    font-weight:700; letter-spacing:-.045em;
+    font-size:108px; line-height:.97;
+    color:var(--ink);
+  }
+  .title .w{ display:inline-block; overflow:hidden; padding-right:.14em; vertical-align:top; }
+  .title .w > span{ display:inline-block; transform:translateY(112%); }
+
+  .eyebrow{
+    position:absolute; left:84px; top:96px;
+    display:flex; align-items:center; gap:14px;
+    font-size:22px; font-weight:700; letter-spacing:.22em; text-transform:uppercase;
+    color:var(--ink);
+    opacity:0;
+  }
+  .eyebrow .dot{ width:12px; height:12px; border-radius:50%; background:var(--accent); }
+
+  .hairline{
+    position:absolute; left:84px; right:84px; top:160px;
+    height:2px; background:rgba(10,10,10,.12);
+  }
+  .hairline .fill{ display:block; height:100%; width:100%; background:var(--accent); transform:scaleX(0); transform-origin:left; }
+
+  /* ── SCENE 2 : black ── */
+  .scene-black{
+    position:absolute; inset:0; background:var(--ink);
+    clip-path: inset(100% 0 0 0);
+  }
+  .scene-black .title{ color:var(--paper); }
+  .scene-black .eyebrow{ color:var(--paper); }
+  .scene-black .hairline{ background:rgba(255,255,255,.16); }
+
+  /* card stage */
+  .stage{
+    position:absolute; left:50%; top:50%;
+    width:620px; height:620px;
+    transform:translate(-50%,-46%);
+  }
+  .card{
+    position:absolute; inset:0;
+    border-radius:44px; overflow:hidden;
+    border:1px solid rgba(255,255,255,.18);
+    box-shadow: 0 8px 24px rgba(0,0,0,.45), 0 40px 90px rgba(0,0,0,.5);
+    transform: translateY(900px) rotate(5deg);
+  }
+  .card img{
+    width:112%; height:112%; object-fit:cover; display:block;
+    margin-left:-6%; margin-top:-12%;
+  }
+  .caption{
+    position:absolute; left:0; right:0; top:calc(50% + 290px + 44px);
+    text-align:center;
+    font-weight:700; letter-spacing:-.02em; font-size:40px;
+    color:var(--paper);
+    opacity:0; transform:translateY(24px);
+  }
+  .caption .sub{
+    display:block; margin-top:10px;
+    font-weight:400; font-size:24px; letter-spacing:0;
+    color:rgba(255,255,255,.6);
+  }
+
+  /* ── SCENE 3 : blue QC ── */
+  .scene-blue{
+    position:absolute; inset:0; background:var(--qcblue);
+    clip-path: inset(100% 0 0 0);
+    display:flex; flex-direction:column; align-items:center; justify-content:center;
+    gap:54px;
+  }
+  .scene-blue .badge{
+    width:340px; height:auto;
+    transform:scale(0);
+    filter: drop-shadow(0 30px 60px rgba(0,0,0,.25));
+  }
+  .scene-blue .tag{
+    font-weight:700; letter-spacing:-.03em;
+    font-size:64px; line-height:1.05;
+    color:#fff; text-align:center;
+    max-width:760px;
+  }
+  .scene-blue .tag .w{ display:inline-block; overflow:hidden; padding-right:.14em; vertical-align:top; }
+  .scene-blue .tag .w > span{ display:inline-block; transform:translateY(112%); }
+</style>
+</head>
+<body>
+
+<div class="ad" id="ad">
+
+  <!-- SCENE 1 : white -->
+  <div class="scene-white">
+    <div class="eyebrow" id="eb1"><span class="dot"></span>Probaclac</div>
+    <div class="hairline"><span class="fill" id="hl1"></span></div>
+    <h1 class="title" id="t1">Le probiotique le plus complet et efficace.</h1>
+  </div>
+
+  <!-- SCENE 2 : black -->
+  <div class="scene-black" id="sBlack">
+    <div class="eyebrow" id="eb2" style="opacity:1;"><span class="dot"></span>Probaclac</div>
+    <div class="hairline"><span class="fill" id="hl2" style="transform:scaleX(1);"></span></div>
+    <h1 class="title" id="t2">Le probiotique le plus complet et efficace.</h1>
+
+    <div class="stage">
+      <div class="card" id="card">
+        <img id="cardImg" src="assets/cdn/pblx-card-adultes.jpg" alt="">
+      </div>
+    </div>
+    <div class="caption" id="cap">
+      Probaclac Adultes
+      <span class="sub">7 souches · 6,5 milliards UFC · NPN 80013765</span>
+    </div>
+  </div>
+
+  <!-- SCENE 3 : blue -->
+  <div class="scene-blue" id="sBlue">
+    <img class="badge" id="badge" src="assets/faitqc.png" alt="Fabriqué au Québec">
+    <div class="tag" id="tag">Un probiotique fièrement québécois.</div>
+  </div>
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+<script>
+  // word-split both titles + blue tag
+  ['t1','t2','tag'].forEach(id => {
+    const el = document.getElementById(id);
+    const words = el.textContent.trim().split(/\s+/);
+    el.innerHTML = words.map(w => `<span class="w"><span>${w}</span></span>`).join(' ');
+  });
+
+  const tl = gsap.timeline({ paused:true, defaults:{ ease:'power4.out' } });
+
+  /* ── 0.0–1.2s : title reveals black on white ── */
+  tl.to('#t1 .w > span', { y:0, duration:.95, stagger:.07 }, 0.10)
+    .to('#eb1', { opacity:1, duration:.5 }, 0.10)
+    .to('#hl1', { scaleX:1, duration:1.1, ease:'power3.inOut' }, 0.25);
+
+  /* ── 2.0–2.9s : black curtain wipes up, title flips to white ── */
+  tl.to('#sBlack', { clipPath:'inset(0% 0 0 0)', duration:.95, ease:'power3.inOut' }, 2.0);
+  // the black scene's title is pre-revealed so the wipe "flips" the color
+  tl.set('#t2 .w > span', { y:0 }, 0);
+
+  /* ── 3.6–4.5s : title exits upward to clear the stage ── */
+  tl.to('#t2', { y:-60, opacity:0, duration:.85, ease:'power3.in' }, 3.7)
+    .to(['#eb2','#hl2'], { opacity:0, duration:.4 }, 3.7);
+
+  /* ── 4.6–5.8s : card rises with parallax + overshoot ── */
+  tl.to('#card', { y:0, rotate:0, duration:1.25, ease:'expo.out' }, 4.6)
+    .to('#cardImg', { marginTop:'-6%', duration:1.6, ease:'expo.out' }, 4.62)   /* inner parallax */
+    .to('#cap', { opacity:1, y:0, duration:.7 }, 5.45);
+
+  /* ── 5.8–7.4s : gentle float ── */
+  tl.to('#card', { y:-14, duration:1.6, ease:'sine.inOut' }, 5.9)
+    .to('#cardImg', { marginTop:'-8%', duration:1.6, ease:'sine.inOut' }, 5.9);
+
+  /* ── 7.6–8.4s : blue curtain + badge pop ── */
+  tl.to('#sBlue', { clipPath:'inset(0% 0 0 0)', duration:.85, ease:'power3.inOut' }, 7.6)
+    .to('#badge', { scale:1, duration:.9, ease:'back.out(1.6)' }, 8.05)
+    .to('#tag .w > span', { y:0, duration:.8, stagger:.06 }, 8.35);
+
+  /* ── 9.0–10s : subtle hold breath ── */
+  tl.to('#badge', { scale:1.04, duration:1.0, ease:'sine.inOut' }, 9.0);
+
+  /* lock total duration to exactly 10s */
+  tl.to({}, { duration: 0.01 }, 9.99);
+
+  window.AD_TL = tl;
+  window.AD_READY = true;
+</script>
+
+</body>
+</html>
