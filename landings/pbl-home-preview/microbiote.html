@@ -83,6 +83,8 @@ html.lenis,html.lenis body{ height:auto; }
 .on-dark .btn--ghost:hover{ background: var(--paper); color: var(--ink); border-color:var(--paper); }
 
 .on-dark{ background:var(--ink); color:var(--paper); position: relative; isolation: isolate; }
+/* Atlas animates its bg per active zone (set via JS) */
+.atlas{ background: #221826; transition: background-color .9s var(--ease); }
 .mute{ color: var(--mute); }
 .rule{ height:1px; background:var(--rule); border:0; }
 
@@ -291,7 +293,9 @@ html.lenis,html.lenis body{ height:auto; }
 }
 .zone__inline-fig{ display: none; }
 
-/* ─── PRODUITS (white) ─── */
+/* ─── PRODUITS (soft sand) ─── */
+#produits{ background: #f1ede3; }
+.prod-card{ background: #fff; }
 .prods__head{
   display:grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
   gap: clamp(2rem, 5vw, 5rem); align-items: center;
@@ -560,11 +564,11 @@ if(IS_STATIC) document.documentElement.classList.add("is-static");
 document.documentElement.classList.add("js-ready");
 
 const ZONES = [
-  { n: "01", t: "Microbiote buccal" },
-  { n: "02", t: "Microbiote stomacal" },
-  { n: "03", t: "Intestin grêle" },
-  { n: "04", t: "Côlon" },
-  { n: "05", t: "Microbiote vaginal" },
+  { n: "01", t: "Microbiote buccal",    bg: "#241826" }, /* deep aubergine */
+  { n: "02", t: "Microbiote stomacal",  bg: "#14272a" }, /* deep petrol   */
+  { n: "03", t: "Intestin grêle",       bg: "#28241a" }, /* deep bronze    */
+  { n: "04", t: "Côlon",                bg: "#2b1f18" }, /* deep umber     */
+  { n: "05", t: "Microbiote vaginal",   bg: "#271820" }, /* deep wine      */
 ];
 
 if(IS_STATIC){
@@ -618,8 +622,8 @@ function lightZone(z){
   if(counterEl) counterEl.textContent = data.n;
   if(tagN) tagN.textContent = data.n;
   if(tagT) tagT.textContent = data.t;
-  // pulse the glow
-  gsap.fromTo('#figureStage', { '--pulse': 0 }, { duration: .6, ease: 'power2.out' });
+  // shift the atlas background to this zone's tone
+  gsap.to(atlas, { backgroundColor: data.bg, duration: .9, ease: 'power2.out', overwrite: 'auto' });
 }
 
 gsap.utils.toArray('.zone').forEach((zone, i) => {
