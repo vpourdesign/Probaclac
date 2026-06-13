@@ -28,14 +28,12 @@
   .title .w{ display:inline-block; overflow:hidden; padding-right:.14em; vertical-align:top; }
   .title .w > span{ display:inline-block; transform:translateY(112%); }
 
-  .eyebrow{
-    position:absolute; left:84px; top:96px;
-    display:flex; align-items:center; gap:14px;
-    font-size:22px; font-weight:700; letter-spacing:.22em; text-transform:uppercase;
-    color:var(--ink);
+  /* brand logo in the top band, flush-left with the hairline */
+  .adlogo{
+    position:absolute; left:84px; top:104px;
+    height:42px; width:auto; display:block;
     opacity:0;
   }
-  .eyebrow .dot{ width:12px; height:12px; border-radius:50%; background:var(--accent); }
 
   .hairline{
     position:absolute; left:84px; right:84px; top:160px;
@@ -49,7 +47,6 @@
     clip-path: inset(100% 0 0 0);
   }
   .scene-black .title{ color:var(--paper); }
-  .scene-black .eyebrow{ color:var(--paper); }
   .scene-black .hairline{ background:rgba(255,255,255,.16); }
 
   /* bottle pyramid — 3 transparent PNGs, bottoms perfectly aligned */
@@ -110,23 +107,23 @@
 
   <!-- SCENE 1 : white -->
   <div class="scene-white">
-    <div class="eyebrow" id="eb1"><span class="dot"></span>Probaclac</div>
+    <img class="adlogo" id="eb1" src="assets/logo-noir.png" alt="Probaclac">
     <div class="hairline"><span class="fill" id="hl1"></span></div>
     <h1 class="title" id="t1">Le probiotique le plus complet et efficace.</h1>
   </div>
 
   <!-- SCENE 2 : black -->
   <div class="scene-black" id="sBlack">
-    <div class="eyebrow" id="eb2" style="opacity:1;"><span class="dot"></span>Probaclac</div>
+    <img class="adlogo" id="eb2" src="assets/logo-blanc.png" alt="Probaclac" style="opacity:1;">
     <div class="hairline"><span class="fill" id="hl2" style="transform:scaleX(1);"></span></div>
     <h1 class="title" id="t2">Le probiotique le plus complet et efficace.</h1>
 
     <h2 class="fam" id="fam">Une famille complète.</h2>
 
     <div class="stage">
-      <div class="b b--left"  id="bVoyage"><img src="assets/bottle-voyage.png" alt=""></div>
-      <div class="b b--right" id="b50"><img src="assets/bottle-50plus.png" alt=""></div>
-      <div class="b b--front" id="bAdultes"><img src="assets/bottle-adultes.png" alt=""></div>
+      <div class="b b--left"  id="bVoyage"><img src="assets/bottle-voyage-trim.png" alt=""></div>
+      <div class="b b--right" id="b50"><img src="assets/bottle-50plus-trim.png" alt=""></div>
+      <div class="b b--front" id="bAdultes"><img src="assets/bottle-adultes-trim.png" alt=""></div>
     </div>
   </div>
 
