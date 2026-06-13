@@ -52,25 +52,25 @@
   .scene-black .eyebrow{ color:var(--paper); }
   .scene-black .hairline{ background:rgba(255,255,255,.16); }
 
-  /* card stage */
+  /* bottle stage — big transparent PNG floating on black */
   .stage{
-    position:absolute; left:50%; top:50%;
-    width:620px; height:620px;
-    transform:translate(-50%,-46%);
+    position:absolute; left:50%; top:46%;
+    width:760px; height:980px;
+    transform:translate(-50%,-50%);
   }
   .card{
     position:absolute; inset:0;
-    border-radius:44px; overflow:hidden;
-    border:1px solid rgba(255,255,255,.18);
-    box-shadow: 0 8px 24px rgba(0,0,0,.45), 0 40px 90px rgba(0,0,0,.5);
-    transform: translateY(900px) rotate(5deg);
+    display:flex; align-items:center; justify-content:center;
+    transform: translateY(1080px);
   }
   .card img{
-    width:112%; height:112%; object-fit:cover; display:block;
-    margin-left:-6%; margin-top:-12%;
+    height:100%; width:auto; object-fit:contain; display:block;
+    filter:
+      drop-shadow(0 40px 70px rgba(0,0,0,.6))
+      drop-shadow(0 12px 28px rgba(0,0,0,.4));
   }
   .caption{
-    position:absolute; left:0; right:0; top:calc(50% + 290px + 44px);
+    position:absolute; left:0; right:0; bottom:54px;
     text-align:center;
     font-weight:700; letter-spacing:-.02em; font-size:40px;
     color:var(--paper);
@@ -123,7 +123,7 @@
 
     <div class="stage">
       <div class="card" id="card">
-        <img id="cardImg" src="assets/cdn/pblx-card-adultes.jpg" alt="">
+        <img id="cardImg" src="assets/bottle-adultes.png" alt="">
       </div>
     </div>
     <div class="caption" id="cap">
@@ -163,16 +163,15 @@
 
   /* ── 3.6–4.5s : title exits upward to clear the stage ── */
   tl.to('#t2', { y:-60, opacity:0, duration:.85, ease:'power3.in' }, 3.7)
-    .to(['#eb2','#hl2'], { opacity:0, duration:.4 }, 3.7);
+    .to(['#eb2', '#sBlack .hairline'], { opacity:0, duration:.4 }, 3.7);
 
-  /* ── 4.6–5.8s : card rises with parallax + overshoot ── */
-  tl.to('#card', { y:0, rotate:0, duration:1.25, ease:'expo.out' }, 4.6)
-    .to('#cardImg', { marginTop:'-6%', duration:1.6, ease:'expo.out' }, 4.62)   /* inner parallax */
+  /* ── 4.6–5.8s : bottle rises big with overshoot + depth scale ── */
+  tl.fromTo('#cardImg', { scale:1.12 }, { scale:1, duration:1.7, ease:'expo.out' }, 4.6)
+    .to('#card', { y:0, duration:1.25, ease:'expo.out' }, 4.6)
     .to('#cap', { opacity:1, y:0, duration:.7 }, 5.45);
 
   /* ── 5.8–7.4s : gentle float ── */
-  tl.to('#card', { y:-14, duration:1.6, ease:'sine.inOut' }, 5.9)
-    .to('#cardImg', { marginTop:'-8%', duration:1.6, ease:'sine.inOut' }, 5.9);
+  tl.to('#card', { y:-18, duration:1.6, ease:'sine.inOut' }, 5.9);
 
   /* ── 7.6–8.4s : blue curtain + badge pop ── */
   tl.to('#sBlue', { clipPath:'inset(0% 0 0 0)', duration:.85, ease:'power3.inOut' }, 7.6)
