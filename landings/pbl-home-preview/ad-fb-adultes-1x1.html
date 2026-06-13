@@ -52,10 +52,10 @@
   .scene-black .eyebrow{ color:var(--paper); }
   .scene-black .hairline{ background:rgba(255,255,255,.16); }
 
-  /* bottle pyramid — 3 transparent PNGs, bottoms aligned */
+  /* bottle pyramid — 3 transparent PNGs, bottoms perfectly aligned */
   .stage{
     position:absolute; left:0; right:0;
-    top:150px; bottom:118px;
+    top:210px; bottom:70px;
   }
   .b{
     position:absolute; left:50%; bottom:0;
@@ -67,9 +67,20 @@
       drop-shadow(0 12px 26px rgba(0,0,0,.42));
   }
   .b--front{ z-index:3; }
-  .b--front img{ height:700px; }
+  .b--front img{ height:800px; }
   .b--left, .b--right{ z-index:1; }
-  .b--left img, .b--right img{ height:520px; filter: brightness(.84) drop-shadow(0 30px 56px rgba(0,0,0,.6)); }
+  .b--left img, .b--right img{ height:600px; filter: brightness(.9) drop-shadow(0 30px 56px rgba(0,0,0,.65)); }
+
+  /* section title in white */
+  .fam{
+    position:absolute; left:84px; right:84px; top:96px;
+    text-align:center;
+    font-weight:700; letter-spacing:-.045em;
+    font-size:84px; line-height:1;
+    color:var(--paper);
+  }
+  .fam .w{ display:inline-block; overflow:hidden; padding-right:.14em; vertical-align:top; }
+  .fam .w > span{ display:inline-block; transform:translateY(112%); }
 
   /* ── SCENE 3 : blue QC ── */
   .scene-blue{
@@ -110,6 +121,8 @@
     <div class="hairline"><span class="fill" id="hl2" style="transform:scaleX(1);"></span></div>
     <h1 class="title" id="t2">Le probiotique le plus complet et efficace.</h1>
 
+    <h2 class="fam" id="fam">Une famille complète.</h2>
+
     <div class="stage">
       <div class="b b--left"  id="bVoyage"><img src="assets/bottle-voyage.png" alt=""></div>
       <div class="b b--right" id="b50"><img src="assets/bottle-50plus.png" alt=""></div>
@@ -127,8 +140,8 @@
 
 <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
 <script>
-  // word-split both titles + blue tag
-  ['t1','t2','tag'].forEach(id => {
+  // word-split titles + blue tag + family line
+  ['t1','t2','tag','fam'].forEach(id => {
     const el = document.getElementById(id);
     const words = el.textContent.trim().split(/\s+/);
     el.innerHTML = words.map(w => `<span class="w"><span>${w}</span></span>`).join(' ');
@@ -159,12 +172,15 @@
   /* ── 4.75s : the two others rise behind it (hidden, centered) ── */
   tl.to(['#bVoyage','#b50'], { y:0, duration:1.05, ease:'expo.out' }, 4.78);
 
-  /* ── 5.25s : they fan out from behind — Voyageurs left, 50+ right ── */
-  tl.to('#bVoyage', { x:-300, duration:1.05, ease:'power3.out' }, 5.25)
-    .to('#b50',     { x: 300, duration:1.05, ease:'power3.out' }, 5.25);
+  /* ── 5.25s : they fan out — ~15% tucked behind the orange ── */
+  tl.to('#bVoyage', { x:-262, duration:1.05, ease:'power3.out' }, 5.25)
+    .to('#b50',     { x: 262, duration:1.05, ease:'power3.out' }, 5.25);
 
-  /* ── 5.9–7.4s : gentle float of the whole trio ── */
-  tl.to('.stage', { y:-16, duration:1.6, ease:'sine.inOut' }, 5.95);
+  /* ── 5.9s : white section title arrives ── */
+  tl.to('#fam .w > span', { y:0, duration:.85, stagger:.07 }, 5.9);
+
+  /* ── 5.95–7.4s : gentle float of the whole trio ── */
+  tl.to('.stage', { y:-16, duration:1.6, ease:'sine.inOut' }, 6.0);
 
   /* ── 7.6–8.4s : blue curtain + badge pop ── */
   tl.to('#sBlue', { clipPath:'inset(0% 0 0 0)', duration:.85, ease:'power3.inOut' }, 7.6)
