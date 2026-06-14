@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<title>AD — Probaclac SCI 1:1</title>
+<style>
+  :root{
+    --ink:#0a0a0a; --paper:#fafaf7; --accent:#ff5b04;
+    --sci:#00B5D2; --qcblue:#1999D4;
+    --ease: cubic-bezier(.16,1,.3,1);
+  }
+  *{ box-sizing:border-box; margin:0; padding:0; }
+  html,body{ background:transparent; }
+  body{ font-family:'Helvetica Neue', Helvetica, Arial, sans-serif; -webkit-font-smoothing:antialiased; }
+
+  /* bottom half stays transparent — the real video is composited there by ffmpeg */
+  .ad{ position:relative; width:1080px; height:1080px; overflow:hidden; background:transparent; }
+
+  /* ── TOP HALF : SCI cyan stat ── */
+  .sci-top{
+    position:absolute; left:0; top:0; width:1080px; height:540px;
+    background:var(--sci);
+    clip-path: inset(0 0 0 0);
+  }
+  .adlogo{
+    position:absolute; left:84px; top:64px;
+    height:64px; width:auto; display:block;
+    opacity:0;
+  }
+  .hairline{
+    position:absolute; left:84px; right:84px; top:158px;
+    height:2px; background:rgba(255,255,255,.32);
+  }
+  .hairline .fill{ display:block; height:100%; width:100%; background:#fff; transform:scaleX(0); transform-origin:left; }
+  .stat{
+    position:absolute; left:84px; right:84px; top:208px;
+    font-weight:700; letter-spacing:-.04em;
+    font-size:62px; line-height:1.02;
+    color:#fff;
+  }
+  .stat .w{ display:inline-block; overflow:hidden; padding-right:.12em; vertical-align:top; }
+  .stat .w > span{ display:inline-block; transform:translateY(112%); }
+
+  /* the seam between the two halves */
+  .seam{
+    position:absolute; left:0; top:540px; width:1080px; height:6px;
+    background:var(--sci); z-index:5;
+  }
+
+  /* ── END SCENE : blue QC ── */
+  .scene-blue{
+    position:absolute; inset:0; background:var(--qcblue);
+    clip-path: inset(100% 0 0 0);
+    display:flex; flex-direction:column; align-items:center; justify-content:center;
+    gap:54px; z-index:10;
+  }
+  .scene-blue .badge{ width:340px; height:auto; transform:scale(0); filter:drop-shadow(0 30px 60px rgba(0,0,0,.25)); }
+  .scene-blue .tag{
+    font-weight:700; letter-spacing:-.03em; font-size:64px; line-height:1.05;
+    color:#fff; text-align:center; max-width:760px;
+  }
+  .scene-blue .tag .w{ display:inline-block; overflow:hidden; padding-right:.14em; vertical-align:top; }
+  .scene-blue .tag .w > span{ display:inline-block; transform:translateY(112%); }
+</style>
+</head>
+<body>
+
+<div class="ad" id="ad">
+
+  <!-- bottom half left transparent → ffmpeg composites sci.mp4 here -->
+
+  <!-- top : SCI cyan stat -->
+  <div class="sci-top" id="sciTop">
+    <img class="adlogo" id="logo" src="assets/logo-blanc-trim.png" alt="Probaclac">
+    <div class="hairline"><span class="fill" id="hl"></span></div>
+    <h1 class="stat" id="stat">1 Canadien sur 5 souffre du syndrome du côlon irritable.</h1>
+  </div>
+
+  <div class="seam"></div>
+
+  <!-- end : QC blue -->
+  <div class="scene-blue" id="sBlue">
+    <img class="badge" id="badge" src="assets/faitqc.png" alt="Fabriqué au Québec">
+    <div class="tag" id="tag">Un probiotique fièrement québécois.</div>
+  </div>
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+<script>
+  ['stat','tag'].forEach(id => {
+    const el = document.getElementById(id);
+    const words = el.textContent.trim().split(/\s+/);
+    el.innerHTML = words.map(w => `<span class="w"><span>${w}</span></span>`).join(' ');
+  });
+
+  const tl = gsap.timeline({ paused:true, defaults:{ ease:'power4.out' } });
+
+  /* ── 0.2–0.7s : logo + hairline draw ── */
+  tl.to('#logo', { opacity:1, duration:.5 }, 0.20)
+    .to('#hl', { scaleX:1, duration:1.0, ease:'power3.inOut' }, 0.30);
+
+  /* ── 0.5–2.2s : stat reveals word by word ── */
+  tl.to('#stat .w > span', { y:0, duration:.9, stagger:.06 }, 0.55);
+
+  /* (video plays underneath 0 → 7.36s, seeked per frame by the recorder) */
+
+  /* ── 7.5–8.4s : QC blue wipes up + badge pop ── */
+  tl.to('#sBlue', { clipPath:'inset(0% 0 0 0)', duration:.85, ease:'power3.inOut' }, 7.5)
+    .to('#badge', { scale:1, duration:.9, ease:'back.out(1.6)' }, 7.95)
+    .to('#tag .w > span', { y:0, duration:.8, stagger:.06 }, 8.25);
+
+  /* ── 9.0–10s : subtle breath ── */
+  tl.to('#badge', { scale:1.04, duration:1.0, ease:'sine.inOut' }, 9.0);
+
+  tl.to({}, { duration:0.01 }, 9.99);
+
+  window.AD_TL = tl;
+  window.AD_READY = true;
+</script>
+
+</body>
+</html>
