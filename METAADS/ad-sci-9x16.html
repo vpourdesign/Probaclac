@@ -33,20 +33,13 @@
   }
   .hairline .fill{ display:block; height:100%; width:100%; background:#fff; transform:scaleX(0); transform-origin:left; }
 
-  /* the big stat, vertically balanced in the cyan zone */
+  /* same sentence as the 1:1 — just larger, vertically centered in the cyan zone */
   .stat{
-    position:absolute; left:90px; right:90px; top:360px;
+    position:absolute; left:90px; right:90px;
+    top:770px; transform:translateY(-50%);
     font-weight:700; letter-spacing:-.04em;
+    font-size:104px; line-height:1.0;
     color:#fff;
-  }
-  .stat .big{
-    display:block;
-    font-size:300px; line-height:.86; letter-spacing:-.05em;
-    margin-bottom:36px;
-  }
-  .stat .line{
-    display:block;
-    font-size:78px; line-height:1.04;
   }
   .stat .w{ display:inline-block; overflow:hidden; padding-right:.1em; vertical-align:top; }
   .stat .w > span{ display:inline-block; transform:translateY(112%); }
@@ -82,10 +75,7 @@
   <div class="sci-top" id="sciTop">
     <img class="adlogo" id="logo" src="assets/logo-blanc-trim.png" alt="Probaclac">
     <div class="hairline"><span class="fill" id="hl"></span></div>
-    <h1 class="stat">
-      <span class="big" id="statBig" data-split>1 sur 5</span>
-      <span class="line" id="statLine" data-split>Canadiens souffrent du syndrome du côlon irritable.</span>
-    </h1>
+    <h1 class="stat" id="stat">1 Canadien sur 5 souffre du syndrome du côlon irritable.</h1>
   </div>
 
   <div class="seam"></div>
@@ -100,7 +90,7 @@
 
 <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
 <script>
-  ['statBig','statLine','tag'].forEach(id => {
+  ['stat','tag'].forEach(id => {
     const el = document.getElementById(id);
     const words = el.textContent.trim().split(/\s+/);
     el.innerHTML = words.map(w => `<span class="w"><span>${w}</span></span>`).join(' ');
@@ -112,9 +102,8 @@
   tl.to('#logo', { opacity:1, duration:.5 }, 0.20)
     .to('#hl', { scaleX:1, duration:1.0, ease:'power3.inOut' }, 0.30);
 
-  /* ── 0.5–2.4s : big number then the line ── */
-  tl.to('#statBig .w > span', { y:0, duration:1.0, stagger:.08, ease:'power4.out' }, 0.55)
-    .to('#statLine .w > span', { y:0, duration:.85, stagger:.05 }, 1.25);
+  /* ── 0.55–2.4s : stat reveals word by word ── */
+  tl.to('#stat .w > span', { y:0, duration:.95, stagger:.055 }, 0.55);
 
   /* (video plays in the bottom band 0 → 6s) */
 
