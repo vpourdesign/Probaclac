@@ -33,9 +33,9 @@
   }
   .hairline .fill{ display:block; height:100%; width:100%; background:#fff; transform:scaleX(0); transform-origin:left; }
   .stat{
-    position:absolute; left:84px; right:84px; top:208px;
+    position:absolute; left:84px; right:84px; top:194px;
     font-weight:700; letter-spacing:-.04em;
-    font-size:62px; line-height:1.02;
+    font-size:76px; line-height:1.0;
     color:#fff;
   }
   .stat .w{ display:inline-block; overflow:hidden; padding-right:.12em; vertical-align:top; }
@@ -105,13 +105,13 @@
 
   /* (video plays underneath 0 → 7.36s, seeked per frame by the recorder) */
 
-  /* ── 7.5–8.4s : QC blue wipes up + badge pop ── */
-  tl.to('#sBlue', { clipPath:'inset(0% 0 0 0)', duration:.85, ease:'power3.inOut' }, 7.5)
-    .to('#badge', { scale:1, duration:.9, ease:'back.out(1.6)' }, 7.95)
-    .to('#tag .w > span', { y:0, duration:.8, stagger:.06 }, 8.25);
+  /* ── 6.0–6.9s : QC blue wipes up + badge pop ── */
+  tl.to('#sBlue', { clipPath:'inset(0% 0 0 0)', duration:.85, ease:'power3.inOut' }, 6.0)
+    .to('#badge', { scale:1, duration:.9, ease:'back.out(1.6)' }, 6.45)
+    .to('#tag .w > span', { y:0, duration:.8, stagger:.06 }, 6.8);
 
-  /* ── 9.0–10s : subtle breath ── */
-  tl.to('#badge', { scale:1.04, duration:1.0, ease:'sine.inOut' }, 9.0);
+  /* ── 7.6–10s : subtle breath ── */
+  tl.to('#badge', { scale:1.05, duration:1.4, ease:'sine.inOut' }, 7.6);
 
   tl.to({}, { duration:0.01 }, 9.99);
 
