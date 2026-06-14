@@ -63,18 +63,27 @@
       drop-shadow(0 36px 64px rgba(0,0,0,.6))
       drop-shadow(0 12px 26px rgba(0,0,0,.42));
   }
+  /* orange backdrop for the product scene (wipes in after the intro) */
+  .scene-orange{
+    position:absolute; inset:0; background:var(--accent);
+    clip-path: inset(100% 0 0 0);
+    z-index:1;
+  }
+  .stage{ z-index:2; }
+
   .b--front{ z-index:3; bottom:-36px; }
   .b--front img{ height:640px; }
   .b--left, .b--right{ z-index:1; }
-  .b--left img, .b--right img{ height:600px; filter: brightness(.9) drop-shadow(0 30px 56px rgba(0,0,0,.65)); }
+  .b--left img, .b--right img{ height:600px; filter: brightness(.95) drop-shadow(0 30px 56px rgba(0,0,0,.32)); }
 
-  /* section title in white */
+  /* product-scene title — ink on orange, left aligned, large */
   .fam{
-    position:absolute; left:84px; right:84px; top:120px;
-    text-align:center;
-    font-weight:700; letter-spacing:-.04em;
-    font-size:62px; line-height:1.04;
-    color:var(--paper);
+    position:absolute; left:84px; right:84px; top:104px;
+    text-align:left;
+    font-weight:700; letter-spacing:-.045em;
+    font-size:84px; line-height:1.0;
+    color:var(--ink);
+    z-index:3;
   }
   .fam .w{ display:inline-block; overflow:hidden; padding-right:.14em; vertical-align:top; }
   .fam .w > span{ display:inline-block; transform:translateY(112%); }
@@ -118,6 +127,7 @@
     <div class="hairline"><span class="fill" id="hl2" style="transform:scaleX(1);"></span></div>
     <h1 class="title" id="t2">Le probiotique le plus complet et efficace.</h1>
 
+    <div class="scene-orange" id="sOrange"></div>
     <h2 class="fam" id="fam">Des probiotiques selon l'âge et la condition.</h2>
 
     <div class="stage">
@@ -155,6 +165,9 @@
   tl.to('#sBlack', { clipPath:'inset(0% 0 0 0)', duration:.95, ease:'power3.inOut' }, 2.0);
   // the black scene's title is pre-revealed so the wipe "flips" the color
   tl.set('#t2 .w > span', { y:0 }, 0);
+
+  /* ── 3.75s : orange backdrop wipes up over the black (product scene) ── */
+  tl.to('#sOrange', { clipPath:'inset(0% 0 0 0)', duration:.85, ease:'power3.inOut' }, 3.75);
 
   /* ── 3.6–4.5s : title exits upward to clear the stage ── */
   tl.to('#t2', { y:-60, opacity:0, duration:.85, ease:'power3.in' }, 3.7)
