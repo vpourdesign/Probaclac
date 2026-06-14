@@ -32,17 +32,20 @@ await browser.close();
 
 fs.mkdirSync('out', { recursive: true });
 const out = 'out/ad-sci-1x1.mp4';
-console.log('compositing with sci.mp4…');
+const vidLayer = '/tmp/sci-vidlayer.mp4';
+console.log('compositing with sci.mp4 (2-step, both 30fps to avoid frame-timing black frames)…');
+// 1) normalize the video into the bottom half on a 1080x1080 black canvas at 30fps
 execSync(
-  `ffmpeg -y ` +
-  `-i sci.mp4 ` +
-  `-framerate ${FPS} -i ${framesDir}/f_%04d.png ` +
-  `-filter_complex "` +
-    `color=c=black:s=1080x1080:r=${FPS}:d=${SECS}[bg];` +
-    `[0:v]scale=1080:-1,crop=1080:540:0:34,setsar=1,tpad=stop_mode=clone:stop_duration=4[v];` +
-    `[bg][v]overlay=0:540:shortest=0[base];` +
-    `[base][1:v]overlay=0:0:format=auto[outv]` +
-  `" -map "[outv]" -t ${SECS} -r ${FPS} -c:v libx264 -pix_fmt yuv420p -crf 18 -movflags +faststart "${out}"`,
+  `ffmpeg -y -v error -i sci.mp4 ` +
+  `-vf "scale=1080:-1,crop=1080:540:0:34,tpad=stop_mode=clone:stop_duration=4,fps=${FPS},pad=1080:1080:0:540:black,format=yuv420p" ` +
+  `-t ${SECS} -an "${vidLayer}"`,
+  { stdio: 'inherit' }
+);
+// 2) overlay the transparent PNG frames (both inputs 30fps → clean 1:1)
+execSync(
+  `ffmpeg -y -v error -i "${vidLayer}" -framerate ${FPS} -i ${framesDir}/f_%04d.png ` +
+  `-filter_complex "[0:v][1:v]overlay=0:0,format=yuv420p[outv]" ` +
+  `-map "[outv]" -t ${SECS} -r ${FPS} -c:v libx264 -crf 18 -movflags +faststart "${out}"`,
   { stdio: 'inherit' }
 );
 console.log('DONE →', out);
